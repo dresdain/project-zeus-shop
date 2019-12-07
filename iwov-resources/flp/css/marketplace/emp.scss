@@ -54,8 +54,8 @@
   .modal-content {
     border-radius: 0px;
     padding: 45px 50px;
-    @media (max-width: 768px){
-        padding: 45px 10px;
+    @media (max-width: 768px) {
+      padding: 45px 10px;
     }
   }
   .modal-header {
@@ -169,6 +169,9 @@
       font-size: 20px;
       font-weight: 700;
       margin: 10px 0px;
+      @media (max-width: 768px){
+          
+      }
     }
     > .copy {
       color: #2e2e2e;
@@ -250,55 +253,55 @@
 
 /* SECTION .breakdown__box component */
 .breakdown__box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &--wrapper {
-    @media (max-width: 768px){
-        padding: 15px 0px;
+    @media (max-width: 768px) {
+      padding: 15px 0px;
     }
-}
+  }
   &--card {
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 90%;   
-    img{
-        margin-right: 20px;
-        width: 58px;
-        height: 58px;
-        @media (max-width: 768px){
-            width: 42px;
+    width: 90%;
+    img {
+      margin-right: 20px;
+      width: 58px;
+      height: 58px;
+      @media (max-width: 768px) {
+        width: 42px;
         height: 42px;
-        }
+      }
     }
     margin-bottom: 20px;
   }
   &--copy {
-    max-width: 80%; 
+    max-width: 80%;
     display: flex;
     b {
       color: #9ba4ab;
       font-family: "OpenSans";
       font-size: 16px;
       font-weight: 600;
-      &.stronger{
+      &.stronger {
         color: #172633;
         font-family: "OpenSans";
         font-size: 16px;
         font-weight: 700;
       }
-      @media (max-width: 768px){
+      @media (max-width: 768px) {
         font-size: 12px;
-    }
+      }
     }
     p {
       color: #2e2e2e;
       font-family: "OpenSans";
-      font-size: 14px; 
-      @media (max-width: 768px){
+      font-size: 14px;
+      @media (max-width: 768px) {
         font-size: 12px;
-    }
+      }
     }
   }
   &--cost {
@@ -307,20 +310,20 @@
     font-size: 22px;
     font-weight: 600;
     max-width: 120px;
-    @media (max-width: 768px){
-        font-size: 12px;
-        display: flex; 
-        flex-direction: column;
-        justify-content: center;
+    @media (max-width: 768px) {
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    &.stronger{
-        color: #303b44;
-        font-family: "OpenSans";
-        font-size: 24px;
-        font-weight: 700;
-        @media (max-width: 768px){
-            font-size: 14px;
-        }
+    &.stronger {
+      color: #303b44;
+      font-family: "OpenSans";
+      font-size: 24px;
+      font-weight: 700;
+      @media (max-width: 768px) {
+        font-size: 14px;
       }
+    }
   }
 }

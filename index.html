@@ -637,14 +637,14 @@ be sure the cells are on the top of the pseudo element*/
 
 
                 <!-- SECTION Plan form  -->
-                <div class="container emp__container">
+                <div class="container emp__container emp__landing">
                     <div class="plan__box">
                         <div class="plan__box--title">
                             <b>What's the right plan for me?</b>
                             <small>Find an electricity plan that suits you most</small>
                         </div>
                         <div class="plan__box--form">
-                            <form action="GET" id="plan__box--form--wrapper">
+                            <form action="GET" id="planForm">
                                 <div class="row">
                                     <div class="col-sm-6 col-xs-12">
                                         <div class="form-label">
@@ -653,8 +653,8 @@ be sure the cells are on the top of the pseudo element*/
                                         <!--dropdown-->
                                         <div>
                                             <select class="emp-dropdown" required>
-                                                <option value="" disabled selected>Range Cost</option>
-                                                <option value="range1" data-from="0" data-to="50">S$0 — S$50 </option>
+                                                <option value="" disabled >Range Cost</option>
+                                                <option value="range1" data-from="0" data-to="50" selected>S$0 — S$50 </option>
                                             </select>
                                         </div>
                                         <!--dropdown-->
@@ -666,8 +666,8 @@ be sure the cells are on the top of the pseudo element*/
                                         <!--dropdown-->
                                         <div>
                                             <select class="emp-dropdown" required>
-                                                <option value="" disabled selected>Dwelling Type</option>
-                                                <option value="hdb_1_room">HDB 1-Room</option>
+                                                <option value="" disabled >Dwelling Type</option>
+                                                <option value="hdb_1_room" selected>HDB 1-Room</option>
                                                 <option value="hdb_2_room">HDB 2-Room</option>
                                                 <option value="hdb_3_room">HDB 3-Room</option>
                                                 <option value="hdb_4_room">HDB 4-Room</option>
@@ -771,7 +771,7 @@ be sure the cells are on the top of the pseudo element*/
                 </div> 
 
                 <!-- SECTION features -->
-                <div class="container emp__container">
+                <div class="container emp__container emp__landing">
                     <div class="feature__box">
                         <div class="feature__box--title header-title">
                             Switching made convenient
@@ -804,9 +804,20 @@ be sure the cells are on the top of the pseudo element*/
 
 
                 <!-- SECTION products and services -->
-                <div class="container emp__container">
+                <div class="container emp__container emp__landing">
                     <div class="header-title">
                         Products and services
+                    </div>
+                </div>
+
+
+
+                <!-- SECTION plan DOM -->
+                <div class="emp__container emp__results">
+                    <div class="emp__menu__top">
+                        <div class="container">
+                            sasdsa
+                        </div>
                     </div>
                 </div>
 
@@ -942,7 +953,7 @@ be sure the cells are on the top of the pseudo element*/
                 <!--FreeStyle Start-->
 
                 <!-- SECTION Partners -->
-                <div class="container emp__container">
+                <div class="container emp__container emp__landing">
                     <div class="partners__box">
                         <div class="partners__box--title header-title">
                             <b>Our partners</b>
@@ -1050,14 +1061,9 @@ be sure the cells are on the top of the pseudo element*/
 
                 <!-- STUB JS imports  -->
                 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" type="text/javascript" language="JavaScript"></script>
-                <script>
-                    $('.partners__box--slick').slick({
-                        infinite: true,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    });
-                </script>
+                <script type="text/javascript" src="./iwov-resources/flp/scripts/marketplace/emp-scripts.js" type="text/javascript" language="JavaScript"></script>
+                <script type="text/javascript" src="./iwov-resources/flp/scripts/marketplace/emp-tests-sim.js" type="text/javascript" language="JavaScript"></script>
+                 
 
 
                 <!--FreeStyle End-->
