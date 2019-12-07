@@ -653,7 +653,7 @@ be sure the cells are on the top of the pseudo element*/
                                         <!--dropdown-->
                                         <div>
                                             <select class="emp-dropdown" required>
-                                                <option value="" disabled >Range Cost</option>
+                                                <option value="" disabled>Range Cost</option>
                                                 <option value="range1" data-from="0" data-to="50" selected>S$0 — S$50 </option>
                                             </select>
                                         </div>
@@ -666,7 +666,7 @@ be sure the cells are on the top of the pseudo element*/
                                         <!--dropdown-->
                                         <div>
                                             <select class="emp-dropdown" required>
-                                                <option value="" disabled >Dwelling Type</option>
+                                                <option value="" disabled>Dwelling Type</option>
                                                 <option value="hdb_1_room" selected>HDB 1-Room</option>
                                                 <option value="hdb_2_room">HDB 2-Room</option>
                                                 <option value="hdb_3_room">HDB 3-Room</option>
@@ -686,7 +686,7 @@ be sure the cells are on the top of the pseudo element*/
                                         <!--dropdown-->
                                     </div>
                                     <div class="col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-primary">View my plans</button>
+                                        <button type="submit" class="btn btn-primary" disabled>View my plans</button>
                                     </div>
                                 </div>
                             </form>
@@ -768,7 +768,7 @@ be sure the cells are on the top of the pseudo element*/
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <!-- SECTION features -->
                 <div class="container emp__container emp__landing">
@@ -814,11 +814,204 @@ be sure the cells are on the top of the pseudo element*/
 
                 <!-- SECTION plan DOM -->
                 <div class="emp__container emp__results">
-                    <div class="emp__menu__top">
+                    <!-- Top Menu -->
+                    <div class="emp__menu__top active__index">
+                        <div class="container emp__menu__top--body">
+                            <img src="./iwov-resources/flp/images/emp/f4.svg" alt="">
+                            <div class="emp__menu__top--copy">
+                                <div class="header-title">
+                                    Plans for you
+                                </div>
+                                <p>Living in a 5-room HDB monthly electricity bill of S$0 — S$50 <a id="filterCollapse" role="button" data-toggle="collapse" href="#filterCollapse__box" aria-expanded="false" aria-controls="collapseExample">
+                                        <img src="./iwov-resources/flp/images/emp/pen.svg" alt="edit"> Edit
+                                    </a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="emp__menu__top--megadropdown collapse" id="filterCollapse__box">
+                            <div class="container">
+                                <form action="GET" id="planForm__dropdown">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="form-label">
+                                                Living in a
+                                            </div>
+                                            <!--dropdown-->
+                                            <div>
+                                                <select class="emp-dropdown" required>
+                                                    <option value="" disabled>Dwelling Type</option>
+                                                    <option value="hdb_1_room" selected>HDB 1-Room</option>
+                                                    <option value="hdb_2_room">HDB 2-Room</option>
+                                                    <option value="hdb_3_room">HDB 3-Room</option>
+                                                    <option value="hdb_4_room">HDB 4-Room</option>
+                                                    <option value="hdb_5_room">HDB 5-Room</option>
+                                                    <option value="hdb_executive">HDB Executive</option>
+                                                    <option value="hudc_flat">HUDC Flat</option>
+                                                    <option value="terrace_house">Terrace House</option>
+                                                    <option value="condominium">Condominium</option>
+                                                    <option value="semi_detached_house">Semi-Detached House</option>
+                                                    <option value="private_aparment">Private Apartment</option>
+                                                    <option value="bungalow">Bungalow</option>
+                                                    <option value="penthouse">Penthouse</option>
+                                                    <option value="townhouse">Townhouse</option>
+                                                </select>
+                                            </div>
+                                            <!--dropdown-->
+                                        </div>
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="form-label">
+                                                Monthly electricity bill of
+                                            </div>
+                                            <!--dropdown-->
+                                            <div>
+                                                <select class="emp-dropdown" required>
+                                                    <option value="" disabled>Range Cost</option>
+                                                    <option value="range1" data-from="0" data-to="50" selected>S$0 — S$50 </option>
+                                                </select>
+                                            </div>
+                                            <!--dropdown-->
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="button-group">
+                                                <button type="submit" class="btn btn-primary">View my plans</button>
+                                                <a class="btn btn-default btn-outline" id="filterCollapse__cancel" role="button" data-toggle="collapse" href="#filterCollapse__box" aria-expanded="false" aria-controls="collapseExample">
+                                                    Cancel
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Filter -->
+                    <div class="emp__menu__filter">
                         <div class="container">
-                            sasdsa
+                            <div class="row emp__menu__filter--row">
+                                <div class="col-md-4 col-xs-12">
+                                    <div class="filter-parent">
+                                        <div class="form-label">
+                                            Filter by
+                                        </div>
+                                        <!--dropdown-->
+                                        <div>
+                                            <select class="emp-dropdown" required>
+                                                <option value="">Rate type</option>
+                                            </select>
+                                        </div>
+                                        <!--dropdown-->
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <div class="filter-child">
+                                        <div class="form-label">
+                                            &nbsp;
+                                        </div>
+                                        <!--dropdown-->
+                                        <div>
+                                            <select class="emp-dropdown" required>
+                                                <option value="">All rate types</option>
+                                            </select>
+                                        </div>
+                                        <!--dropdown-->
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <div class="sort-parent">
+                                        <div class="form-label">
+                                            <br class="visible-xs" />
+                                            Sort by
+                                        </div>
+                                        <!--dropdown-->
+                                        <div>
+                                            <select class="emp-dropdown" required>
+                                                <option value="">Annual savings</option>
+                                            </select>
+                                        </div>
+                                        <!--dropdown-->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <!-- Main Content -->
+                    <div class="emp__results__box container">
+                        <div class="emp__results__box--filterInfo">
+                            Showing <span class="current-items">10</span> out of <span class="total-items">15</span> matching plans
+                        </div>
+                        <div class="emp__results__box--list">
+                            <article class="emp__results__box--card" id="plan_id-1"> 
+                                <div class="savings__info">
+                                    <img class="savings__info--logo" src="./iwov-resources/flp/images/emp/partners/p1.png" alt="">
+                                    <div class="savings__info--copy">
+                                        <small class="heading">
+                                            Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S$84.49 + S$50 + S$16 &#13;Annual savings: Monthly savings x 12"><img src="./iwov-resources/flp/images/emp/i.svg" alt=""></a>
+                                        </small>
+                                        <div class="body">
+                                            S$150.49
+                                        </div>
+                                        <small class="footnote">
+                                            Save up to $12.20/mth
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="plan__details">
+                                    <div class="plan__details--card">
+                                        <div class="heading">
+                                            Contract
+                                        </div>
+                                        <div class="body">
+                                            12 month
+                                        </div>
+                                    </div>
+                                    <div class="plan__details--card">
+                                        <div class="heading">
+                                            Discounted rate
+                                        </div>
+                                        <div class="body">
+                                            15.56 <small>cents/kWh</small>
+                                        </div>
+                                    </div>
+                                    <div class="plan__details--card">
+                                        <div class="heading">
+                                            Plan name
+                                        </div>
+                                        <div class="body plan-name">
+                                            FIXED24 <img src="./iwov-resources/flp/images/emp/eco.svg" alt="" data-toggle="tooltip" data-placement="top" title="Eco-friendly">
+                                        </div>
+                                    </div>
+
+                                    <div class="plan__details--card">
+                                        <div class="heading">
+                                            Promotion
+                                        </div>
+                                        <div class="body promotion">
+                                            <img src="./iwov-resources/flp/images/emp/check.svg" alt=""> S$50 rebate off first month bill
+                                        </div>
+                                    </div>
+                                    <div class="plan__details--card narrow--pad">
+                                        <a href="#" class="btn btn-primary btn-block">Apply now</a>    
+                                    </div>
+                                    <div class="plan__details--card">
+                                            <a href="#" class="btn btn-primary btn-block btn-outline">View factsheet</a>    
+                                        </div>
+                                </div>
+                                <div class="compare__plans">
+                                        <div class="checkbox">
+                                                <label>
+                                                  <input type="checkbox"> Compare
+                                                </label>
+                                              </div>
+                                </div> 
+                            </article>
+                        </div> 
+                    </div>
+
                 </div>
 
 
@@ -1063,7 +1256,7 @@ be sure the cells are on the top of the pseudo element*/
                 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" type="text/javascript" language="JavaScript"></script>
                 <script type="text/javascript" src="./iwov-resources/flp/scripts/marketplace/emp-scripts.js" type="text/javascript" language="JavaScript"></script>
                 <script type="text/javascript" src="./iwov-resources/flp/scripts/marketplace/emp-tests-sim.js" type="text/javascript" language="JavaScript"></script>
-                 
+
 
 
                 <!--FreeStyle End-->
