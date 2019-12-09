@@ -53,7 +53,7 @@ function showPlanDOM(state){
 
 /* STUB onLoad */
 $(window).on('load', function(){
-    $.support.transition = false;
+    // $.support.transition = false;
     //Ensures all script must be loaded before submitting
     $('#planForm button[type="submit"]').removeAttr('disabled');
 });

@@ -441,8 +441,16 @@
   }
   &--card {
     width: calc(95% / 3);
+    &.placeholder{
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
     @media (max-width: 768px){
         width: 100%;
+        &.placeholder{
+          display: none;
+        }
     }
     margin-bottom: 32px;
   }

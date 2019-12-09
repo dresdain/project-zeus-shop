@@ -501,9 +501,17 @@
   width: calc(95% / 3);
   margin-bottom: 32px;
 }
+.emp__results__box--card.placeholder {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
 @media (max-width: 768px) {
   .emp__results__box--card {
     width: 100%;
+  }
+  .emp__results__box--card.placeholder {
+    display: none;
   }
 }
 

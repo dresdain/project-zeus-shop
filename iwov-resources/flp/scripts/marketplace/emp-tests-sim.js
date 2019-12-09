@@ -10,9 +10,10 @@ function test__showHideDOM(){
 }
 
 function test__duplicateDOM(){
-    for (var index = 0; index < 10; index++) {
+    for (var index = 0; index < 13; index++) {
         $("div.emp__results__box--list").append($("#plan_id-1").clone());
     }
+    $("div.emp__results__box--list").append('<article class="emp__results__box--card placeholder"></article>');
     $('[data-toggle="tooltip"]').tooltip(); 
 }
 
