@@ -738,9 +738,6 @@
 
 /* SECTION .emp__compareConfirmation */
 .emp__compareConfirmation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   z-index: 50;
   width: 100%;
@@ -752,6 +749,14 @@
     transition: 0.2s ease-in-out;
     position: absolute;
     bottom: -12px;
+  }
+  &--body {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    > div {
+      width: 100%;
+    }
   }
   &--copy {
     color: #000000;
@@ -772,10 +777,7 @@
 
 /* SECTION .emp__recompareConfirmation */
 .emp__recompareConfirmation {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute; 
   z-index: 100;
   width: 100%;
   height: 70px;
@@ -792,6 +794,14 @@
   }
   &.sticky--nav--shift {
     top: 119px !important;
+  }
+  &--body {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    > div {
+      width: 100%;
+    }
   }
   &--copy {
     color: #000000;
@@ -825,19 +835,129 @@
   padding-top: 100px;
 }
 
-/* STUB test */
-.emp__landing {
-  display: none;
-  // display: block;
+/* STUB loader styles */
+.emp__loader {
+  // margin-top: 180px;
+  position: absolute;
+  top: 180px;
+  width: 100%;
+  height: calc(100% - 180px);
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.9);
+  .active__index {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+  }
+  &.sticky--nav {
+    transition: 0.2s ease-in-out;
+    position: fixed;
+    top: 180px;
+    @media (max-width: 768px) {
+      position: absolute;
+    }
+  }
+  &.sticky--nav--shift {
+    top: 200px !important;
+  }
+  &--box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .animated-icon {
+    position: relative;
+
+    margin-top: 150px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.3);
+    }
+    img:first-child {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      z-index: 10;
+      top: 0px;
+      left: 0px;
+      pointer-events: none;
+      animation: merryGoRound 0.5s infinite;
+      animation-timing-function: linear;
+    }
+    img:last-child {
+      position: relative;
+      z-index: 15;
+      pointer-events: none;
+      animation: flashyflashy 2s infinite;
+    }
+  }
+  .footnote {
+    color: #2e2e2e;
+    font-family: "OpenSans";
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 30px;
+    &:after {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: bottom;
+      animation: ellipsis steps(4, end) 2s infinite;
+      content: "\2026";
+      width: 0px;
+    }
+  }
 }
-.emp__results {
-  display: block;
-  // display: none;
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
 }
-.group-tiles {
-  display: none !important;
+@keyframes flashyflashy {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes merryGoRound {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
+/* STUB DOM parent controllers */
+.emp__landing {
+  // display: none;
+  display: block;
+}
+.emp__results {
+  // display: block;
+  display: none;
+}
+.group-tiles {
+  // display: none !important;
+}
+.emp__compareConfirmation {
+  display: none;
+}
+.emp__loader {
+  display: none;
+}
 .emp__comparison {
   // display: block;
   display: none;
