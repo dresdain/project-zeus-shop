@@ -516,9 +516,13 @@
     flex-direction: row;
   }
   &--logo {
-    width: 150px;
+    height: 35px;
+    width: auto;
+    
     margin-bottom: 25px;
     @media (max-width: 768px) {
+      height: auto;
+      width: 150px;
       order: 2;
       align-self: center;
     }

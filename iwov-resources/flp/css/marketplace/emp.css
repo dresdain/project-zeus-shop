@@ -592,11 +592,14 @@
   }
 }
 .savings__info--logo {
-  width: 150px;
+  height: 35px;
+  width: auto;
   margin-bottom: 25px;
 }
 @media (max-width: 768px) {
   .savings__info--logo {
+    height: auto;
+    width: 150px;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
