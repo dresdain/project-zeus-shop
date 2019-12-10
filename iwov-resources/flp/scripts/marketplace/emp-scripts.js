@@ -25,7 +25,7 @@ $('#planForm, #planForm__dropdown').on('submit', function(e){
     showLandingDivs(false);
     showPlanDOM(true);
     showPlanDOM__state = true;
-
+    addToCompare();
 
 });
 
@@ -69,10 +69,15 @@ var compareCounter = 0,
 function addToCompare(){
     var compareVar = '.compare__plans input[type="checkbox"]',
         parentCompare = '.emp__compareConfirmation',
-        parentRecompare = 'emp__recompareConfirmation';
+        parentRecompare = '.emp__recompareConfirmation';
 
     //Reinitializing this function resets all checkboxes
     $(compareVar + ':checked').removeAttr('checked','checked');
+    $(compareVar + ':not(:checked)')
+                .removeClass('disabled')
+                .removeAttr('disabled', 'disabled')
+                .parent().removeClass('disabled');
+    $('.emp__compareConfirmation').fadeOut();
 
     $(compareVar).on('change load', function(e){ 
         var compareVarAmount = $(compareVar + ':checked').length;
@@ -105,6 +110,9 @@ function addToCompare(){
     $('#startCompare').on('click', function(e){
         $('.emp__results').fadeOut();
         $('.emp__comparison').fadeIn();
+        $('html, body').animate({
+            scrollTop: $(".emp__comparison").offset().top - 200
+        }, 800);
     });
     $('#endCompare').on('click', function(e){
         $('.emp__comparison').fadeOut();

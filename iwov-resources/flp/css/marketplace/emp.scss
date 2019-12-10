@@ -483,8 +483,10 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 70px;
+    flex-wrap: wrap; 
+  }
+  &--pagination{
+    margin-bottom: 110px;
   }
   &--card {
     width: calc(95% / 3);

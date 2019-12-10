@@ -542,7 +542,9 @@
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-bottom: 70px;
+}
+.emp__results__box--pagination {
+  margin-bottom: 110px;
 }
 .emp__results__box--card {
   width: calc(95% / 3);
