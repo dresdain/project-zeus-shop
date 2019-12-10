@@ -69,14 +69,35 @@ $(window).scroll(function(){
         if($(window).scrollTop() > 434){
             if($('.header-placeholder > header.navbar').hasClass('mini-menu')){
                 $('.emp__menu__top').addClass('sticky--nav').removeClass('sticky--nav--shift');
+                $('.emp__recompareConfirmation').addClass('sticky--nav').removeClass('sticky--nav--shift');
             }else{
                 $('.emp__menu__top').addClass('sticky--nav--shift');
+                $('.emp__recompareConfirmation').addClass('sticky--nav--shift');
             }
         }else if($(window).scrollTop() < 370){
             $('.emp__menu__top').removeClass('sticky--nav sticky--nav--shift');
+            $('.emp__recompareConfirmation').removeClass('sticky--nav sticky--nav--shift');
         }
     }else{
         $('.emp__menu__top').removeClass('sticky--nav sticky--nav--shift');
+        $('.emp__recompareConfirmation').removeClass('sticky--nav sticky--nav--shift');
+    }
+
+    if ($('#primaryFooter').isInViewport()){
+        $('.emp__compareConfirmation').addClass('undock--nav');
+    }else {
+        $('.emp__compareConfirmation').removeClass('undock--nav');
     }
 });
  
+
+/* STUB isInViewPort */
+$.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+};
