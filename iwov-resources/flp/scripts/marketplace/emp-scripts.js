@@ -52,7 +52,7 @@ function showPlanDOM(state){
 
         /* Simulating a fake loadout */
         setTimeout(function(){
-            $('.emp__loader').fadeOut('1000'); 
+            
         }, 2000);
        
         setTimeout(function(){
