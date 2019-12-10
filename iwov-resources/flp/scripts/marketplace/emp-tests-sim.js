@@ -16,7 +16,7 @@ function test__duplicateDOM(){
     $("div.emp__results__box--list").append('<article class="emp__results__box--card placeholder"></article>');
     $('[data-toggle="tooltip"]').tooltip(); 
     addToCompare();
-    $('.emp__loader').fadeOut('1000'); 
+    
 }
 
 

@@ -52,8 +52,8 @@ function showPlanDOM(state){
 
         /* Simulating a fake loadout */
         setTimeout(function(){
-            
-        }, 2000);
+            $('.emp__loader').fadeOut('1000'); 
+        }, 3000);
        
         setTimeout(function(){
             $('.group-tiles').addClass('kagebunshin');;
