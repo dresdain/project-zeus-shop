@@ -550,28 +550,29 @@
 }
 
 .plan__details {
-  padding: 15px; 
+  padding: 15px;
   border-top: 1px solid #f5f7f9;
   border-bottom: 1px solid #f5f7f9;
   .compareItems--details & {
-    padding: 15px 0px; 
-      border-color: #DCDCDC; 
+    padding: 15px 0px;
+    border-top-color: #dcdcdc;
   }
   &--card {
     &.border-top {
       border-top: 1px solid #f5f7f9;
       margin-top: 15px;
       padding-top: 30px !important;
-      .compareItems--details & { 
-        border-color: #DCDCDC;
+      .compareItems--details & {
+        border-color: #dcdcdc;
       }
       &--only {
         border-top: 1px solid #f5f7f9;
         margin-top: 15px;
         padding-top: 30px !important;
         border-bottom: 0px solid transparent;
-        .compareItems--details & { 
-          border-top: 1px solid #f5f7f9;
+        .compareItems--details & {
+          border-top: 1px solid #dcdcdc;
+          border-bottom: none;
         }
       }
     }
@@ -586,6 +587,9 @@
         font-family: "OpenSans";
         font-size: 18px;
         font-weight: 300;
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
       }
       & + .body {
         margin-bottom: 15px;
@@ -599,6 +603,9 @@
       .compareItems--details & {
         font-size: 18px;
         color: #000000;
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
       }
       + .body {
         margin-bottom: 30px;
@@ -630,15 +637,97 @@
     }
   }
 }
-.compareItems--details{
-  > div{
-    @media (min-width: 768px){
+
+.compareItems {
+  > div {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  &--details {
+    margin-top: 15px;
+    > div {
       padding-right: 0px;
       padding-left: 0px;
     }
+    > div:nth-child(2),
+    > div:nth-child(3) {
+      div.heading {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  }
+  .btn.btn-primary {
+    @media (max-width: 768px) {
+      font-size: 12px;
+      min-width: 100px;
+      height: 35px;
+      padding: 8px 5px;
+    }
+  }
+  &--card {
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #dde3e7;
+    max-width: 160px;
+    margin-bottom: 15px;
+    @media (max-width: 768px) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 100px;
+      min-height: 140px;
+    }
+    img {
+      height: 30px;
+      width: auto;
+      margin-bottom: 20px;
+      @media (max-width: 768px) {
+        width: 60px;
+        height: auto;
+      }
+    }
+    .heading {
+      color: #383636;
+      font-family: "OpenSans";
+      font-size: 26px;
+      font-weight: 700;
+      text-transform: uppercase;
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+    .footnote {
+      color: #858f96;
+      font-family: "OpenSans";
+      font-size: 12px;
+      @media (max-width: 768px) {
+        font-size: 10px;
+      }
+    }
+    .remove__comparison {
+      background-color: transparent;
+      position: absolute;
+      height: 25px;
+      width: 25px;
+      background-image: url("../../images/emp/close.svg");
+      background-size: contain;
+      top: -10px;
+      right: -10px;
+      border: none;
+      @media (max-width: 768px) {
+        height: 18px;
+        width: 18px;
+      }
+    }
   }
 }
-
 
 .compare__plans {
   color: #909090;
@@ -674,6 +763,9 @@
     .compareState {
       font-family: "OpenSans";
       font-weight: 300;
+    }
+    @media (max-width: 768px) {
+      font-size: 18px;
     }
   }
 }
@@ -712,6 +804,9 @@
       font-family: "OpenSans";
       font-weight: 300;
     }
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 }
 
@@ -733,15 +828,17 @@
 /* STUB test */
 .emp__landing {
   display: none;
+  // display: block;
 }
 .emp__results {
-  // display: block;
-  display: none;
+  display: block;
+  // display: none;
 }
 .group-tiles {
   display: none !important;
 }
 
 .emp__comparison {
-  display: block;
+  // display: block;
+  display: none;
 }

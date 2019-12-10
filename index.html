@@ -815,12 +815,12 @@ be sure the cells are on the top of the pseudo element*/
                     <div class="emp__recompareConfirmation active__index">
                         <div class="container emp__recompareConfirmation--body">
                             <div class="row">
-                                <div class="col-md-10 col-xs-8">
+                                <div class="col-md-10 col-xs-6">
                                     <div class="emp__compareConfirmation--copy">
                                         Selected <span class="compareAmount">3</span> <span class="compareState">(Max)</span>
                                     </div>
                                 </div>
-                                <div class="col-md-2 col-xs-4">
+                                <div class="col-md-2 col-xs-6">
                                     <button id="endCompare" class="btn btn-primary btn-block btn-outline">Recompare</button>
                                 </div>
                             </div>
@@ -832,18 +832,63 @@ be sure the cells are on the top of the pseudo element*/
                         <div class="container">
                             <div class="compareItems row">
                                 <div class="col-xs-4" id="compareItem-1">
-                                    A
+                                    <div class="compareItems--card">
+                                        <button class="remove__comparison" data-target="#compareItem-1"></button>
+                                        <img src="./iwov-resources/flp/images/emp/partners/p8.png" alt="">
+                                        <div class="heading">
+                                            S$234.86
+                                        </div>
+                                        <div class="footnote">
+                                            Est. annual savings
+                                        </div>
+                                    </div>
+                                    <div class="plan__details--card narrow--pad">
+                                        <a href="#" class="btn btn-primary">Apply now</a>
+                                    </div>
+                                    <div class="plan__details--card">
+                                        <a href="#" class="btn btn-primary btn-outline">View factsheet</a>
+                                    </div>
                                 </div>
                                 <div class="col-xs-4" id="compareItem-2">
-                                    B
+                                    <div class="compareItems--card">
+                                        <button class="remove__comparison" data-target="#compareItem-1"></button>
+                                        <img src="./iwov-resources/flp/images/emp/partners/p6.png" alt="">
+                                        <div class="heading">
+                                            S$138.00
+                                        </div>
+                                        <div class="footnote">
+                                            Est. annual savings
+                                        </div>
+                                    </div>
+                                    <div class="plan__details--card narrow--pad">
+                                        <a href="#" class="btn btn-primary">Apply now</a>
+                                    </div>
+                                    <div class="plan__details--card">
+                                        <a href="#" class="btn btn-primary btn-outline">View factsheet</a>
+                                    </div>
                                 </div>
                                 <div class="col-xs-4" id="compareItem-3">
-                                    C
+                                    <div class="compareItems--card">
+                                        <button class="remove__comparison" data-target="#compareItem-1"></button>
+                                        <img src="./iwov-resources/flp/images/emp/partners/p7.png" alt="">
+                                        <div class="heading">
+                                            S$182.75
+                                        </div>
+                                        <div class="footnote">
+                                            Est. annual savings
+                                        </div>
+                                    </div>
+                                    <div class="plan__details--card narrow--pad">
+                                        <a href="#" class="btn btn-primary">Apply now</a>
+                                    </div>
+                                    <div class="plan__details--card">
+                                        <a href="#" class="btn btn-primary btn-outline">View factsheet</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row compareItems--details">
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="plan__details" id="compareItem--details-1">
+                                <div class="col-md-4 col-xs-4">
+                                    <div class="plan__details compareItems--col1" id="compareItem--details-1">
                                         <div class="plan__details--card">
                                             <div class="heading">
                                                 Plan name
@@ -859,7 +904,15 @@ be sure the cells are on the top of the pseudo element*/
                                             <div class="body">
                                                 17.70 cents/kWh
                                             </div>
-                                        </div>
+                                        </div> 
+                                        <div class="plan__details--card">
+                                                <div class="heading">
+                                                    Rate Type
+                                                </div>
+                                                <div class="body">
+                                                        Fixed
+                                                </div>
+                                            </div>
                                         <div class="plan__details--card">
                                             <div class="heading">
                                                 Monthly savings
@@ -913,14 +966,14 @@ be sure the cells are on the top of the pseudo element*/
 
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="plan__details" id="compareItem--details-2">
+                                <div class="col-md-4 col-xs-4">
+                                    <div class="plan__details compareItems--col2" id="compareItem--details-2">
                                         <div class="plan__details--card">
                                             <div class="heading">
                                                 Plan name
                                             </div>
                                             <div class="body">
-                                                FIXED24 <img src="./iwov-resources/flp/images/emp/eco.svg" alt="" data-toggle="tooltip" data-placement="top" title="Eco-friendly">
+                                                    Sunseap ONE DOT
                                             </div>
                                         </div>
                                         <div class="plan__details--card">
@@ -928,15 +981,23 @@ be sure the cells are on the top of the pseudo element*/
                                                 Rate
                                             </div>
                                             <div class="body">
-                                                17.70 cents/kWh
+                                                    23% off SP Tariff
                                             </div>
                                         </div>
+                                        <div class="plan__details--card">
+                                                <div class="heading">
+                                                        Rate Type
+                                                </div>
+                                                <div class="body">
+                                                        Discounted
+                                                </div>
+                                            </div>
                                         <div class="plan__details--card">
                                             <div class="heading">
                                                 Monthly savings
                                             </div>
                                             <div class="body">
-                                                S$19.57
+                                                    S$11.50
                                             </div>
                                         </div>
 
@@ -945,7 +1006,7 @@ be sure the cells are on the top of the pseudo element*/
                                                 Contract
                                             </div>
                                             <div class="body">
-                                                24 months
+                                                    6 months
                                             </div>
                                         </div>
 
@@ -954,7 +1015,7 @@ be sure the cells are on the top of the pseudo element*/
                                                 Termination fee
                                             </div>
                                             <div class="body">
-                                                None
+                                                    Fees apply
                                             </div>
                                         </div>
 
@@ -963,7 +1024,8 @@ be sure the cells are on the top of the pseudo element*/
                                                 Promotions
                                             </div>
                                             <div class="body">
-                                                S$50 rebate off first month bill
+                                                <div class="hidden-xs">-</div>
+                                                <div class="visible-xs"></br>None</div>
                                             </div>
                                         </div>
 
@@ -972,7 +1034,7 @@ be sure the cells are on the top of the pseudo element*/
                                                 You will also get
                                             </div>
                                             <div class="body">
-                                                SP Services Consolidated BIlling
+                                                    Retailer Direct BIlling
                                             </div>
                                             <div class="body">
                                                 No added Promotions
@@ -984,14 +1046,14 @@ be sure the cells are on the top of the pseudo element*/
 
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="plan__details" id="compareItem--details-3">
+                                <div class="col-md-4 col-xs-4">
+                                    <div class="plan__details compareItems--col2" id="compareItem--details-3">
                                         <div class="plan__details--card">
                                             <div class="heading">
                                                 Plan name
                                             </div>
                                             <div class="body">
-                                                FIXED24 <img src="./iwov-resources/flp/images/emp/eco.svg" alt="" data-toggle="tooltip" data-placement="top" title="Eco-friendly">
+                                                    Chope the Rate
                                             </div>
                                         </div>
                                         <div class="plan__details--card">
@@ -999,15 +1061,23 @@ be sure the cells are on the top of the pseudo element*/
                                                 Rate
                                             </div>
                                             <div class="body">
-                                                17.70 cents/kWh
+                                                    17.61 cents/kWh
                                             </div>
                                         </div>
+                                        <div class="plan__details--card">
+                                                <div class="heading">
+                                                        Rate Type
+                                                </div>
+                                                <div class="body">
+                                                        Fixed
+                                                </div>
+                                            </div>
                                         <div class="plan__details--card">
                                             <div class="heading">
                                                 Monthly savings
                                             </div>
                                             <div class="body">
-                                                S$19.57
+                                                    S$15.23
                                             </div>
                                         </div>
 
@@ -1016,7 +1086,7 @@ be sure the cells are on the top of the pseudo element*/
                                                 Contract
                                             </div>
                                             <div class="body">
-                                                24 months
+                                                    12 months
                                             </div>
                                         </div>
 
@@ -1025,7 +1095,7 @@ be sure the cells are on the top of the pseudo element*/
                                                 Termination fee
                                             </div>
                                             <div class="body">
-                                                None
+                                                    Fees apply
                                             </div>
                                         </div>
 
@@ -1034,7 +1104,8 @@ be sure the cells are on the top of the pseudo element*/
                                                 Promotions
                                             </div>
                                             <div class="body">
-                                                S$50 rebate off first month bill
+                                                    <div class="hidden-xs">-</div>
+                                                    <div class="visible-xs"></br>None</div>
                                             </div>
                                         </div>
 
@@ -1043,10 +1114,10 @@ be sure the cells are on the top of the pseudo element*/
                                                 You will also get
                                             </div>
                                             <div class="body">
-                                                SP Services Consolidated BIlling
+                                                    Retailer Direct BIlling
                                             </div>
                                             <div class="body">
-                                                No added Promotions
+                                                    Inclusive of AIA Personal Accident Protection Plan
                                             </div>
                                             <div class="body">
                                                 T&Cs apply
@@ -1268,12 +1339,12 @@ be sure the cells are on the top of the pseudo element*/
                 <div class="emp__compareConfirmation">
                     <div class="container emp__compareConfirmation--body">
                         <div class="row">
-                            <div class="col-md-10 col-xs-8">
+                            <div class="col-md-10 col-xs-6">
                                 <div class="emp__compareConfirmation--copy">
                                     Selected <span class="compareAmount">3</span> <span class="compareState">(Max)</span>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-xs-4">
+                            <div class="col-md-2 col-xs-6">
                                 <button id="startCompare" class="btn btn-primary btn-block btn-outline">Compare</button>
                             </div>
                         </div>

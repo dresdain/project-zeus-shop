@@ -644,7 +644,7 @@
 }
 .compareItems--details .plan__details {
   padding: 15px 0px;
-  border-color: #DCDCDC;
+  border-top-color: #dcdcdc;
 }
 .plan__details--card {
   margin-bottom: 20px;
@@ -655,7 +655,7 @@
   padding-top: 30px !important;
 }
 .compareItems--details .plan__details--card.border-top {
-  border-color: #DCDCDC;
+  border-color: #dcdcdc;
 }
 .plan__details--card.border-top--only {
   border-top: 1px solid #f5f7f9;
@@ -664,7 +664,8 @@
   border-bottom: 0px solid transparent;
 }
 .compareItems--details .plan__details--card.border-top--only {
-  border-top: 1px solid #f5f7f9;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: none;
 }
 .plan__details--card .heading {
   display: block;
@@ -679,6 +680,11 @@
   font-size: 18px;
   font-weight: 300;
 }
+@media (max-width: 768px) {
+  .compareItems--details .plan__details--card .heading {
+    font-size: 12px;
+  }
+}
 .plan__details--card .heading + .body {
   margin-bottom: 15px;
 }
@@ -691,6 +697,11 @@
 .compareItems--details .plan__details--card .body {
   font-size: 18px;
   color: #000000;
+}
+@media (max-width: 768px) {
+  .compareItems--details .plan__details--card .body {
+    font-size: 12px;
+  }
 }
 .plan__details--card .body + .body {
   margin-bottom: 30px;
@@ -718,10 +729,109 @@
   padding-bottom: 15px;
 }
 
-@media (min-width: 768px) {
-  .compareItems--details > div {
-    padding-right: 0px;
-    padding-left: 0px;
+.compareItems > div {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.compareItems--details {
+  margin-top: 15px;
+}
+.compareItems--details > div {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.compareItems--details > div:nth-child(2) div.heading,
+.compareItems--details > div:nth-child(3) div.heading {
+  visibility: hidden;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .compareItems .btn.btn-primary {
+    font-size: 12px;
+    min-width: 100px;
+    height: 35px;
+    padding: 8px 5px;
+  }
+}
+.compareItems--card {
+  margin-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #dde3e7;
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  .compareItems--card {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100px;
+    min-height: 140px;
+  }
+}
+.compareItems--card img {
+  height: 30px;
+  width: auto;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .compareItems--card img {
+    width: 60px;
+    height: auto;
+  }
+}
+.compareItems--card .heading {
+  color: #383636;
+  font-family: "OpenSans";
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .compareItems--card .heading {
+    font-size: 16px;
+  }
+}
+.compareItems--card .footnote {
+  color: #858f96;
+  font-family: "OpenSans";
+  font-size: 12px;
+}
+@media (max-width: 768px) {
+  .compareItems--card .footnote {
+    font-size: 10px;
+  }
+}
+.compareItems--card .remove__comparison {
+  background-color: transparent;
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-image: url("../../images/emp/close.svg");
+  background-size: contain;
+  top: -10px;
+  right: -10px;
+  border: none;
+}
+@media (max-width: 768px) {
+  .compareItems--card .remove__comparison {
+    height: 18px;
+    width: 18px;
   }
 }
 
@@ -770,6 +880,11 @@
   font-family: "OpenSans";
   font-weight: 300;
 }
+@media (max-width: 768px) {
+  .emp__compareConfirmation--copy {
+    font-size: 18px;
+  }
+}
 
 /* SECTION .emp__recompareConfirmation */
 .emp__recompareConfirmation {
@@ -817,6 +932,11 @@
   font-family: "OpenSans";
   font-weight: 300;
 }
+@media (max-width: 768px) {
+  .emp__recompareConfirmation--copy {
+    font-size: 18px;
+  }
+}
 
 /* STUB emp__comparison */
 .emp__comparison {
@@ -841,7 +961,7 @@
 }
 
 .emp__results {
-  display: none;
+  display: block;
 }
 
 .group-tiles {
@@ -849,7 +969,7 @@
 }
 
 .emp__comparison {
-  display: block;
+  display: none;
 }
 
 /*# sourceMappingURL=emp.css.map */
