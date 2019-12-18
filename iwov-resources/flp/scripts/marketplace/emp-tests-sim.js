@@ -27,7 +27,7 @@ $(window).on('load', function(){
     // test__showHideDOM();
 
 
-    test__duplicateDOM();
+    // test__duplicateDOM();
 
 
 });

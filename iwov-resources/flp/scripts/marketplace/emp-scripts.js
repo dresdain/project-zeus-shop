@@ -27,6 +27,9 @@ $('#planForm, #planForm__dropdown').on('submit', function(e){
     showPlanDOM__state = true;
     addToCompare();
 
+    //STUB start population
+    populatePlans(0, 50);
+
 });
 
 $('#hidePlans').on('click', function(e){
@@ -105,6 +108,16 @@ function addToCompare(){
                 .attr('disabled', 'disabled')
                 .parent().addClass('disabled'); 
         }
+
+        var temp = (this.value).split(",");
+        if (compareItemsArray.indexOf(temp[0]) == -1) {
+            compareItemsArray.push(temp[0],temp[1]);
+        } else {
+            var pos = compareItemsArray.indexOf(temp[0]);
+            compareItemsArray.splice(pos, 2);
+        }
+        console.log(compareItemsArray);
+
     });
 
     $('#startCompare').on('click', function(e){

@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+		$.getJSON('emp-p2.json', function(data){
+			data.forEach(function(item){
+				  for (var i = 0; i <= (item.options.length - 1); i++) {
+					if(item.options[i].current_monthly_sp_bill_size == 50){
+					console.log(item);
+					}
+				  }
+				});
+		});
+		</script>
+	</head>
+</html>
