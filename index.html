@@ -656,15 +656,15 @@ be sure the cells are on the top of the pseudo element*/
                                             <select class="emp-dropdown" required>
                                                 <option value="" disabled>Range Cost</option>
                                                 <option value="range1" data-from="0" data-to="50" selected>S$0 — S$50 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$51 — S$100 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$101 — S$150 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$151 — S$200 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$201 — S$250 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$251 — S$300 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$301 — S$350 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$351 — S$400 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$401 — S$450 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$451 — S$500 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$51 — S$100 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$101 — S$150 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$151 — S$200 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$201 — S$250 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$251 — S$300 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$301 — S$350 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$351 — S$400 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$401 — S$450 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$451 — S$500 </option>
                                             </select>
                                         </div>
                                         <!--dropdown-->
@@ -1202,15 +1202,15 @@ be sure the cells are on the top of the pseudo element*/
                                             <select class="emp-dropdown" required>
                                                 <option value="" disabled>Range Cost</option>
                                                 <option value="range1" data-from="0" data-to="50" selected>S$0 — S$50 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$51 — S$100 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$101 — S$150 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$151 — S$200 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$201 — S$250 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$251 — S$300 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$301 — S$350 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$351 — S$400 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$401 — S$450 </option>
-                                                <option value="range1" data-from="0" data-to="50" >S$451 — S$500 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$51 — S$100 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$101 — S$150 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$151 — S$200 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$201 — S$250 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$251 — S$300 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$301 — S$350 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$351 — S$400 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$401 — S$450 </option>
+                                                <option value="range1" data-from="0" data-to="50">S$451 — S$500 </option>
                                             </select>
                                         </div>
                                         <!--dropdown-->
@@ -1301,30 +1301,42 @@ be sure the cells are on the top of the pseudo element*/
                 <!-- Main Content -->
                 <div class="emp__results__box container">
                     <div class="emp__results__box--filterInfo">
-                        Showing <span class="current-items">10</span> out of <span class="total-items">15</span> matching plans
+                        Showing <span class="current-items">{startItem} - {endItem}</span> out of <span class="total-items">{itemsNumber}</span> matching plans</span>
                     </div>
-                    <div class="emp__results__box--list"> 
+                    <div class="emp__results__box--list" data-jplist-group="group1">
                     </div>
                     <div class="emp__results__box--pagination">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <img src="./iwov-resources/flp/images/emp/prev.svg" alt="">
-                                    </a>
-                                </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        </span><img src="./iwov-resources/flp/images/emp/next.svg" alt="">
-                                    </a>
-                                </li>
+                        <nav id="main-pagination"
+                             data-jplist-control="pagination"
+                             data-group="group1"
+                             data-items-per-page="6"
+                             data-current-page="0"
+                             data-jump="top"
+                             data-disabled-class="disabled"
+                             data-selected-class="active"
+                             data-name="pagination1">
+
+                            <!-- first and previous buttons -->
+                            <ul class="pagination d-inline-flex">
+                                <li class="page-item" data-type="first"><a class="page-link" href="#">«</a></li>
+                                <li class="page-item" data-type="prev"><a class="page-link" href="#">‹</a></li>
                             </ul>
+
+                            <!-- pages buttons -->
+                            <ul class="pagination d-inline-flex" data-type="pages">
+                                <li class="page-item" data-type="page"><a class="page-link" href="#">{pageNumber}</a></li>
+                            </ul>
+
+                            <!-- next and last buttons -->
+                            <ul class="pagination d-inline-flex">
+                                <li class="page-item" data-type="next"><a class="page-link" href="#">›</a></li>
+                                <li class="page-item" data-type="last"><a class="page-link" href="#">»</a></li>
+                            </ul>
+                            <span data-type="info" class="hidden">
+                                <span class="pageRange">{startItem} - {endItem}</span> of <span class="pageTotal">{itemsNumber}</span>
+                            </span>
                         </nav>
+
                     </div>
                 </div>
 
@@ -1585,6 +1597,7 @@ be sure the cells are on the top of the pseudo element*/
 
 
             <!-- STUB JS imports  -->
+            <script src="//cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
             <script type="text/javascript" src="./iwov-resources/flp/scripts/marketplace/slick.min.js" type="text/javascript" language="JavaScript"></script>
             <script type="text/javascript" src="./iwov-resources/flp/scripts/marketplace/jplist.min.js" type="text/javascript" language="JavaScript"></script>
             <script type="text/javascript" src="./iwov-resources/flp/scripts/marketplace/emp-scripts.js" type="text/javascript" language="JavaScript"></script>

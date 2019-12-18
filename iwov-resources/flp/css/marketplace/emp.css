@@ -554,6 +554,9 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  -webkit-box-ordinal-group: 100;
+      -ms-flex-order: 99;
+          order: 99;
 }
 @media (max-width: 768px) {
   .emp__results__box--card {

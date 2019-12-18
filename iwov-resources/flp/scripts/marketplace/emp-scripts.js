@@ -19,8 +19,11 @@ $('#planForm, #planForm__dropdown').on('submit', function(e){
     e.preventDefault(); 
     // Check if user is submitting using the dropdownForm version 
     if($(this).attr('id') == 'planForm__dropdown'){
-        $('#filterCollapse__box').collapse('hide')
-    } 
+        $('#filterCollapse__box').collapse('hide');
+        populatePlans(0, 100, 'refresh');
+    }else{
+        populatePlans(0, 50, 'init');
+    }
     /* Manage DOM displays */
     showLandingDivs(false);
     showPlanDOM(true);
@@ -28,7 +31,7 @@ $('#planForm, #planForm__dropdown').on('submit', function(e){
     addToCompare();
 
     //STUB start population
-    populatePlans(0, 50);
+    
 
 });
 
@@ -52,12 +55,7 @@ function showPlanDOM(state){
     if(state === true){
         $('.emp__results').fadeIn('1000');
         $('.emp__loader').fadeIn('1000');
-
-        /* Simulating a fake loadout */
-        setTimeout(function(){
-            $('.emp__loader').fadeOut('1000'); 
-        }, 3000);
-       
+ 
         setTimeout(function(){
             $('.group-tiles').addClass('kagebunshin');;
         }, 200);
@@ -212,6 +210,21 @@ function showOnScrollMenu(state, target){
             $(target).addClass('sticky--nav--shift');
         }  
     }
+}
+
+/* STUB refresh */
+function reflectPageCount (){
+    var pageRange = $('.pageRange').html(),
+        pageTotal = $('.pageTotal').html();
+        $('.current-items').html(pageRange);
+            $('.total-items').html(pageTotal);
+
+    $('.pagination').on('click', function(e){
+        var pageRange = $('.pageRange').html(),
+            pageTotal = $('.pageTotal').html(); 
+            $('.current-items').html(pageRange);
+            $('.total-items').html(pageTotal); 
+    });
 }
 
 /* STUB isInViewPort */

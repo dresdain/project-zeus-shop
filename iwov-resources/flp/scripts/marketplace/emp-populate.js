@@ -1,17 +1,26 @@
 var origin__DIR = document.URL.substring(0,document.URL.lastIndexOf("/")),
     script__DIR = '/iwov-resources/flp/scripts/marketplace/'; 
  
-function populatePlans(minBill, maxBill){
-    $('.emp__results__box--list').html('');
+function populatePlans(minBill, maxBill, action){
+    
     $.getJSON(origin__DIR + script__DIR + 'emp-p2.json', function (data) {
         var counter = 0;
+        if(action == 'refresh'){
+            jplist.refresh(); 
+        }else{
+            jplist.init(); 
+        }
+        jplist.resetContent(function(){ 
+            $('.emp__results__box--list').empty(); 
+                // $('.emp__results__box--list').append('<article data-jplist-control="no-results" data-group="group1" data-name="no-results">No Results Found</article>'); 
+        });
         data.forEach(function (item) { 
             for (var i = 0; i <= (item.options.length - 1); i++) {
                 var dataDOM = '';
  
-                if (item.options[i].current_monthly_sp_bill_size == 50) {
+                if (item.options[i].current_monthly_sp_bill_size == maxBill) {
                    
-                    dataDOM += '<article class="emp__results__box--card" id="plan_item--'+counter+'">';
+                    dataDOM += '<article data-jplist-item class="emp__results__box--card" id="plan_item--'+counter+'">';
 
 
                     /* STUB Savings Information */
@@ -21,16 +30,18 @@ function populatePlans(minBill, maxBill){
                     dataDOM += createDOM__planDetails(item, item.options[i]); 
 
                     dataDOM += createDOM__comparePlans(item, item.options[i]); 
-                    console.log(item);
-    
-    
-    
-    
-    
+                    // console.log(item); 
     
                     dataDOM += '</article>'; 
     
-                    $('.emp__results__box--list').append(dataDOM);
+                    jplist.resetContent(function(){
+
+                        $('.emp__results__box--list').append(dataDOM);
+                        jplist.resetControl('#main-pagination');
+                    });
+     
+                        
+                    
                 }// ANCHOR END IF
 
                
@@ -39,10 +50,30 @@ function populatePlans(minBill, maxBill){
             
         }); 
 
+ 
+        $('.emp__results__box--list').append('<article class="emp__results__box--card placeholder"></article>');
+        
+
         /* Re-initialize everything */
         $('[data-toggle="tooltip"]').tooltip(); 
         addToCompare();
+         
+        
+           
+         
+        
+        setTimeout(() => { 
+            reflectPageCount();
+            
+        }, 200);
+
         console.log(data.length);
+
+
+        /* Remove loader */
+        setTimeout(function(){ 
+            $('.emp__loader').fadeOut('1000'); 
+        }, 1000);
     });
 }
 

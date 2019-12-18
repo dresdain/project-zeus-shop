@@ -494,6 +494,7 @@
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
+      order: 99;
     }
     @media (max-width: 768px) {
       width: 100%;
