@@ -50,30 +50,43 @@ $('#planForm .range-cost').on('change', function () {
 /* STUB Filter type 1  */
 $('.filter-type-1').on('change', function () {
     reflectPageCount();
-    addToCompare();
+ 
     /* Check if eco friendly */
-    if ($(this).val() == 'showEcoFriendly') {
-        $('.filter-type-2').hide();
-        if ($('#showEcoFriendly').prop("checked") == false) {
-            $('#showEcoFriendly').trigger('click');
-        }
-    } else {
-        $('.filter-type-2').show();
-        if ($('#showEcoFriendly').prop("checked") == true) {
-            $('#showEcoFriendly').trigger('click');
-        }
+    switch ($(this).val()) {
+        case 'showEcoFriendly':
+            $('.filter-type-2').hide(); 
+            if ($('#showEcoFriendly').prop("checked") == false) {
+                $('#showEcoFriendly').trigger('click');
+                addToCompare();
+            }
+            break;
+        case 'rate-type':
+            $('.filter-type-2').show();
+            if ($('#showEcoFriendly').prop("checked") == true) {
+                $('#showEcoFriendly').trigger('click');
+                addToCompare();
+            }
+            break;
+        default:
+            $('.filter-type-2').hide();
+            break;
     }
+     
 
 });
 
 $('.filter-type-2').on('change', function () {
     reflectPageCount();
     addToCompare();
+
+    $('input[name="rateType"][value="' + $(this).val() + '"]').prop('checked',true).trigger('click');
 });
 
 $('.sort-type-1').on('change', function () {
     reflectPageCount();
     addToCompare();
+
+    $('#main-pagination [data-type="first"]').trigger('click');
 });
 
 
@@ -165,7 +178,7 @@ function addToCompare() {
         $('.emp__comparison').fadeIn();
         $('html, body').animate({
             scrollTop: $(".emp__comparison").offset().top - 200
-        }, 800);
+        }, 500);
     });
     $('#endCompare').on('click', function (e) {
         $('.emp__comparison').fadeOut();
@@ -244,7 +257,7 @@ function reflectPageCount() {
         $('.total-items').html(pageTotal);
         $('html, body').animate({
             scrollTop: $(".emp__menu__filter--row").offset().top - 300
-        }, 800);
+        }, 500);
     });
 }
 

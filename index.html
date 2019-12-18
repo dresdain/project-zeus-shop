@@ -1282,12 +1282,44 @@ be sure the cells are on the top of the pseudo element*/
                                     <!--dropdown-->
                                     <div>
                                         <select class="emp-dropdown filter-type-2" required>
-                                            <option value="">All rate types</option>
-                                            <option value="">Discounted Rate</option>
-                                            <option value="">Fixed Rate</option>
+                                            <option value="all">All rate types</option>
+                                            <option value="discounted">Discounted Rate</option>
+                                            <option value="fixed">Fixed Rate</option>
                                         </select>
                                     </div>
                                     <!--dropdown-->
+                                    <!-- Hidden controls -->
+                                    <div class=" ">
+                                        <input
+                                            type="radio"
+                                            data-jplist-control="radio-buttons-text-filter"
+                                            data-group="group1"
+                                            data-name="rateType"
+                                            data-path="default"
+                                            name="rateType" value="all" checked>
+                                        All
+                                        </input>
+                                        <input
+                                            type="radio"
+                                            data-jplist-control="radio-buttons-text-filter"
+                                            data-group="group1"
+                                            data-name="rateType"
+                                            data-path=".rate-type"
+                                            name="rateType"
+                                            value="discounted">
+                                        Discounted
+                                        </input>
+                                        <input
+                                            type="radio"
+                                            data-jplist-control="radio-buttons-text-filter"
+                                            data-group="group1"
+                                            data-name="rateType"
+                                            data-path=".rate-type"
+                                            name="rateType"
+                                            value="fixed">
+                                        Fixed
+                                        </input>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4 col-xs-12">

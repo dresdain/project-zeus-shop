@@ -119,7 +119,8 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card"><div class="heading">Contract</div><div class="body contract-duration">' + item.contract_duration_months + ' month</div></div>';
 
     /* Discount Rate */
-    html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">' + item.rate + '</div></div>';
+    var rateType = (item.rate.indexOf("%") >= 0 ? 'discounted' : 'fixed');
+    html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">' + item.rate + '<span class="rate-type">'+rateType+'</span></div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
     /* Plan Name */
