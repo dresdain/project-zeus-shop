@@ -487,6 +487,9 @@
   }
   &--pagination{
     margin-bottom: 110px;
+    // .page-item.disabled{ 
+    //     pointer-events: none; 
+    // }
   }
   &--card {
     width: calc(95% / 3);
