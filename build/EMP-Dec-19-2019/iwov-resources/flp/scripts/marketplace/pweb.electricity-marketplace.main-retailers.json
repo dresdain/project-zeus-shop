@@ -1,0 +1,51 @@
+[
+   {
+      "retailer_id": "bestelectricity",
+      "retailer_overall_description": "Best Electricity is a homegrown company since 2015, operating under Prime Group (an award-winning company in energy industry). We dedicate to offer competitive electricity price plans to help our residential and business consumers in maximising savings for their electricity needs.",
+      "retailer_promo_link": "",
+      "retailer_allowed": true,
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/bestelectricity.png"
+   },
+   {
+      "retailer_id": "geneco",
+      "retailer_overall_description": "Geneco, is an integrated energy provider retailing electricity to homes and businesses in Singapore.",
+      "retailer_promo_link": "",
+      "retailer_allowed": true,
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/geneco.png"
+   },
+   {
+      "retailer_id": "iswitch",
+      "retailer_overall_description": "iSwitch offers a variety of plans with up to 30% savings off your electricity bill. With a fuss free online sign up, multiple payment options and attractive rewards, it's easy to make the switch. We have helped more than 80,000 homes save on their electricity and are proud to be the largest green electricity retailer in Singapore.",
+      "retailer_promo_link": "",
+      "retailer_allowed": true,
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/iswitch.png"
+   },
+   {
+      "retailer_id": "keppel",
+      "retailer_overall_description": "Switch to greater savings with Keppel Electric today! With more than 18 years of experience in powering the nation’s electricity grid, we are committed in delivering competitive electricity plansthat best meet your everyday needs.",
+      "retailer_promo_link": "",
+      "retailer_allowed": true,
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/keppel-electric.png"
+   },
+   {
+      "retailer_id": "sunseap",
+      "retailer_overall_description": "Go Solar, Save Big, & Save The Environment!",
+      "retailer_promo_link": "",
+      "retailer_allowed": true,
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png"
+   },
+   {
+      "retailer_id": "tuaspower",
+      "retailer_overall_description": "This retailer is not allowed to directly access their package",
+      "retailer_promo_link": "",
+      "retailer_allowed": true,
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/tuaspower.png"
+   },
+   {
+      "retailer_id": "unionpower",
+      "retailer_overall_description": "Union Power Pte Ltd is an Electricity Retailer, licensed by Energy Market Authority (EMA) and a member of Union Energy Group (UEG). We aim to be the electricity retailer that understands your needs, and we are committed to help residential and business consumers manage energy costs in a hassle-free and cost effective manner",
+      "retailer_promo_link": "",
+      "retailer_allowed": true,
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/unionpower.png"
+   }
+]
