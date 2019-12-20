@@ -157,7 +157,7 @@ function createDOM__comparePlans(item, options) {
     /* Checkbox wrapper*/
     html += '<div class="checkbox"><label>';
 
-    html += '<input type="checkbox" value="' + item + '"><span></span> Compare';
+    html += '<input type="checkbox" value="' + $(item) + '"><span></span> Compare';
 
     html += '</label></div>';
 

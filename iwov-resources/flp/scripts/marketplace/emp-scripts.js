@@ -249,7 +249,7 @@ function reflectPageCount() {
         $('.total-items').html(pageTotal);
     }, 100);
 
-    $('.pagination').on('click', function (e) {
+    $('.pagination').on('click', function (e) { 
         var pageRange = $('.pageRange').html(),
             pageTotal = $('.pageTotal').html();
         $('.current-items').html(pageRange);
