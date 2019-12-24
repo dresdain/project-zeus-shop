@@ -4,6 +4,9 @@ var showPlanDOM__state = false;
 *  Init mobile slick
  */
 
+ $(function(){
+    jplist.init();
+ });
 $('.partners__box--slick').slick({
     infinite: true,
     dots: true,
@@ -54,28 +57,60 @@ $('.filter-type-2').on('change', function () {
     $('#main-pagination [data-type="first"]').trigger('click');
 });
 /* STUB Filter type 1  */
+var filterType1 = $('#filter-type-1');
+//get a jPList control element
+const element = document.getElementById('my-jplist-control-element');
+
+//listen to the state event
+element.addEventListener('jplist.state', (e) => {
+
+    //the whole state object
+    console.log(e.jplistState);
+
+    //jPList options provided by user
+    console.log(e.jplistState.options);
+
+    //current items number after filtering + pagination
+    console.log(e.jplistState.itemsNumber);
+
+    //control groups
+    console.log(e.jplistState.groups);
+
+    //the elements list after filtering + pagination
+    console.log(e.jplistState.filtered);
+
+}, false);
+
 $('.filter-type-1').on('change', function () {
-    reflectPageCount();
-    $('.filter-type-2').val('all').trigger('change'); 
-    /* Check if eco friendly */
-    switch ($(this).val()) {
-        case 'showEcoFriendly':
-            $('.filter-type-2').hide();  
-            break;
-        case 'rate-type':
-            $('.filter-type-2').show(); 
-            break;
-        default:
-            $('.filter-type-2').hide();
-            break;
-    }
- 
+    
+    // $('.filter-type-2').val('all').trigger('change'); 
+     
+    
+    // /* Check if eco friendly */
+    // switch ($(this).val()) {
+    //     case 'showEcoFriendly':
+    //         $('.filter-type-2').hide(); 
+    //         jplist.resetControls('#filter-type-2');
+    //         reflectPageCount(); 
+    //         break;
+    //     case 'rate-type':
+    //         $('.filter-type-2').show(); 
+    //         reflectPageCount();
+    //         break;
+    //     default:
+    //         $('.filter-type-2').hide();
+    //         reflectPageCount();
+    //         jplist.resetControls('#filter-type-2');
+    //         break;
+    // }
+    
+    
     
      
-     
-    setTimeout(function(){
-        addToCompare();
-    }, 200);
+    // setTimeout(function(){
+        
+    //     addToCompare();
+    // }, 200);
 
 });
 
@@ -118,7 +153,8 @@ function showPlanDOM(state) {
     }
 }
 
-/* STUB addToCompare Cart */
+/* STUB addToCompare Cart 
+    TODO to be refactored */
 var compareCounter = 0,
     compareItemsArray = [];
 function addToCompare() {

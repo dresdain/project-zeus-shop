@@ -8,7 +8,7 @@ function populatePlans(minBill, maxBill, action) {
         if (action == 'refresh') {
             jplist.refresh();
         } else {
-            jplist.init();
+            // jplist.init();
         }
         jplist.resetContent(function () {
             $('.emp__results__box--list').empty();
@@ -30,7 +30,7 @@ function populatePlans(minBill, maxBill, action) {
                     dataDOM += createDOM__planDetails(item, item.options[i]);
 
                     dataDOM += createDOM__comparePlans(item, item.options[i]);
-                    console.log(item);
+                    // console.log(item);
 
                     dataDOM += '</article>';
 
@@ -120,7 +120,7 @@ function createDOM__planDetails(item, options) {
 
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'discounted' : 'fixed');
-    html += '<div class=" '+rateType+' plan__details--card"><div class="heading">Discounted rate</div><div class="body">' + item.rate + '</div></div>';
+    html += '<div class=" '+rateType+' plan__details--card"><div class="heading">'+ rateType +' rate</div><div class="body">' + item.rate + '</div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
     /* Plan Name */
