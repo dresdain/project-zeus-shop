@@ -56,61 +56,45 @@ $('.filter-type-2').on('change', function () {
  
     $('#main-pagination [data-type="first"]').trigger('click');
 });
-/* STUB Filter type 1  */
-var filterType1 = $('#filter-type-1');
-//get a jPList control element
-const element = document.getElementById('my-jplist-control-element');
+ 
 
-//listen to the state event
-element.addEventListener('jplist.state', (e) => {
-
-    //the whole state object
-    console.log(e.jplistState);
-
-    //jPList options provided by user
-    console.log(e.jplistState.options);
-
-    //current items number after filtering + pagination
-    console.log(e.jplistState.itemsNumber);
-
-    //control groups
-    console.log(e.jplistState.groups);
-
-    //the elements list after filtering + pagination
-    console.log(e.jplistState.filtered);
-
-}, false);
-
-$('.filter-type-1').on('change', function () {
-    
-    // $('.filter-type-2').val('all').trigger('change'); 
+$('#filter-type-1').on('change', function () {
      
+    var filter1_val = $(this).val();
     
-    // /* Check if eco friendly */
-    // switch ($(this).val()) {
-    //     case 'showEcoFriendly':
-    //         $('.filter-type-2').hide(); 
-    //         jplist.resetControls('#filter-type-2');
-    //         reflectPageCount(); 
-    //         break;
-    //     case 'rate-type':
-    //         $('.filter-type-2').show(); 
-    //         reflectPageCount();
-    //         break;
-    //     default:
-    //         $('.filter-type-2').hide();
-    //         reflectPageCount();
-    //         jplist.resetControls('#filter-type-2');
-    //         break;
-    // }
+    /* Check if eco friendly */
+    switch (filter1_val) {
+        case 'showEcoFriendly': 
+            console.log('Showing: ' + filter1_val);
+            element = document.getElementById('filter-type-2'); 
+            jplist.resetControl(element);
+            setTimeout(function(){
+                jplist.refresh();
+                $('.filter-type-2').hide(); 
+            },300);
+     
+            reflectPageCount();     
+            break;
+        case 'rate-type': 
+            console.log('Showing: ' + filter1_val);
+            $('.filter-type-2').show(); 
+            reflectPageCount();
+            break;
+        default:
+            console.log('Showing: ' + filter1_val);
+            $('.filter-type-2').hide();
+            reflectPageCount();
+            // jplist.resetControls('#filter-type-2');
+            break;
+    }
     
     
     
      
-    // setTimeout(function(){
+    setTimeout(function(){
         
-    //     addToCompare();
-    // }, 200);
+        addToCompare();
+    }, 200);
 
 });
 
