@@ -86,13 +86,13 @@ function createDOM__savingsInfo(item, options) {
     /* Start Savings Info  */
     html += '<div class="savings__info">';
     /* Logo */
-    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <img class="savings__info--logo" src="./iwov-resources/flp/images/emp/partners/' + item.retailer_id + '.png" alt="' + item.retailer_id + '">';
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <img class="savings__info--logo" src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/' + item.retailer_id + '.png" alt="' + item.retailer_id + '">';
 
     /* Copy Wrapper */
     html += '<div class="savings__info--copy">';
 
     /* Copy Heading */
-    html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="./iwov-resources/flp/images/emp/i.svg" alt=""></a></small>';
+    html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a></small>';
 
     /* Copy Body */
     html += '<div class="body annual-savings">S' + options.total_annual_savings + '</div>';
@@ -119,7 +119,7 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card"><div class="heading">Contract</div><div class="body contract-duration">' + item.contract_duration_months + ' month</div></div>';
 
     /* Discount Rate */
-    var rateType = (item.rate.indexOf("%") >= 0 ? 'discounted' : 'fixed');
+    var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
     html += '<div class=" '+rateType+' plan__details--card"><div class="heading">'+ rateType +' rate</div><div class="body">' + item.rate + '</div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
@@ -130,7 +130,7 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card"><div class="heading">Plan name</div><div class="body plan-name">' + planName__DOM + '</div></div>';
 
     /* Promotion */
-    var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="./iwov-resources/flp/images/emp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : 'None');
+    var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : 'None');
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div>';
 
     /* Apply Now */
@@ -171,7 +171,7 @@ function createDOM__comparePlans(item, options) {
 
 function createDOM__greenEnergy(state) {
     if (state.toLowerCase() == 'yes') {
-        return ' <img src="./iwov-resources/flp/images/emp/eco.svg" alt="" data-toggle="tooltip" data-placement="top" title="Eco-friendly" class="isEcoFriendly">';
+        return ' <img src="/iwov-resources/flp/images/marketplace/electricity/revamp/eco.svg" alt="" data-toggle="tooltip" data-placement="top" title="Eco-friendly" class="isEcoFriendly">';
     } else { return '' }
 }
 
