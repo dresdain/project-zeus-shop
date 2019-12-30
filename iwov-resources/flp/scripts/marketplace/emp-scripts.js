@@ -51,10 +51,13 @@ $('#planForm .range-cost').on('change', function () {
 });
 
 $('.filter-type-2').on('change', function () {
-    reflectPageCount();
-    addToCompare();
  
+    addToCompare();
+   
     $('#main-pagination [data-type="first"]').trigger('click');
+    setTimeout(() => {
+        reflectPageCount();
+    }, 500);
 });
  
 
@@ -71,13 +74,27 @@ $('#filter-type-1').on('change', function () {
             setTimeout(function(){
                 jplist.refresh();
                 $('.filter-type-2').hide(); 
-            },300);
+            }, 200);
      
             reflectPageCount();     
             break;
         case 'rate-type': 
             console.log('Showing: ' + filter1_val);
-            $('.filter-type-2').show(); 
+            
+            setTimeout(function(){
+                jplist.refresh();
+                $('.filter-type-2').show(); 
+            }, 200);
+            reflectPageCount();
+            break;
+        case 'retailers': 
+            console.log('Showing: ' + filter1_val);
+            element = document.getElementById('filter-type-2'); 
+            jplist.resetControl(element);
+            setTimeout(function(){
+                jplist.refresh();
+                $('.filter-type-2').hide(); 
+            }, 200);
             reflectPageCount();
             break;
         default:
