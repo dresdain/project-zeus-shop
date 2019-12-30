@@ -4,6 +4,9 @@ var showPlanDOM__state = false;
 *  Init mobile slick
  */
 
+ $(function(){
+    jplist.init();
+ });
 $('.partners__box--slick').slick({
     infinite: true,
     dots: true,
@@ -48,32 +51,65 @@ $('#planForm .range-cost').on('change', function () {
 });
 
 $('.filter-type-2').on('change', function () {
-    reflectPageCount();
-    addToCompare();
  
+    addToCompare();
+   
     $('#main-pagination [data-type="first"]').trigger('click');
+    setTimeout(() => {
+        reflectPageCount();
+    }, 500);
 });
-/* STUB Filter type 1  */
-$('.filter-type-1').on('change', function () {
-    reflectPageCount();
-    $('.filter-type-2').val('all').trigger('change'); 
+ 
+
+$('#filter-type-1').on('change', function () {
+     
+    var filter1_val = $(this).val();
+    
     /* Check if eco friendly */
-    switch ($(this).val()) {
-        case 'showEcoFriendly':
-            $('.filter-type-2').hide();  
+    switch (filter1_val) {
+        case 'showEcoFriendly': 
+            console.log('Showing: ' + filter1_val);
+            element = document.getElementById('filter-type-2'); 
+            jplist.resetControl(element);
+            setTimeout(function(){
+                jplist.refresh();
+                $('.filter-type-2').hide(); 
+            }, 200);
+     
+            reflectPageCount();     
             break;
-        case 'rate-type':
-            $('.filter-type-2').show(); 
+        case 'rate-type': 
+            console.log('Showing: ' + filter1_val);
+            
+            setTimeout(function(){
+                jplist.refresh();
+                $('.filter-type-2').show(); 
+            }, 200);
+            reflectPageCount();
+            break;
+        case 'retailers': 
+            console.log('Showing: ' + filter1_val);
+            element = document.getElementById('filter-type-2'); 
+            jplist.resetControl(element);
+            setTimeout(function(){
+                jplist.refresh();
+                $('.filter-type-2').hide(); 
+            }, 200);
+            reflectPageCount();
             break;
         default:
+            console.log('Showing: ' + filter1_val);
             $('.filter-type-2').hide();
+            reflectPageCount();
+            // jplist.resetControls('#filter-type-2');
             break;
     }
- 
+    
+    
     
      
-     
     setTimeout(function(){
+        
         addToCompare();
     }, 200);
 
@@ -118,7 +154,8 @@ function showPlanDOM(state) {
     }
 }
 
-/* STUB addToCompare Cart */
+/* STUB addToCompare Cart 
+    TODO to be refactored */
 var compareCounter = 0,
     compareItemsArray = [];
 function addToCompare() {

@@ -972,3 +972,266 @@
   // display: block;
   display: none;
 }
+
+
+/* Internal */
+/*DROPDOWN RELATED*/
+                    /*DROPDOWN RELATED*/
+                    /*DROPDOWN RELATED*/
+
+                    .emp-dropdown {
+                      width: 100%;
+                      padding: 5px 35px 5px 10px;
+                      font-size: 16px;
+                      border: 1px solid #ccc;
+                      height: 34px;
+                      -webkit-appearance: none;
+                      -moz-appearance: none;
+                      appearance: none;
+                      background: url('../../../images/marketplace/electricity/revamp/chevron-down.svg') 98% / 3% no-repeat #fff;
+                      box-sizing: border-box;
+                      color: black;
+                  }
+
+                  .emp-dropdown:invalid {
+                      color: #aaaaaa;
+                  }
+
+                  /* CAUTION: IE hackery ahead */
+                  .emp-dropdown::-ms-expand {
+                      display: none;
+                      /* remove default arrow on ie10 and ie11 */
+                  }
+
+                  .emp-dropdown option:checked {
+                      /*display:none;*/
+                  }
+
+
+                  /* target Internet Explorer 9 to undo the custom arrow */
+                  @media screen and (min-width:0\0) {
+                      .emp-dropdown {
+                          background: none\9;
+                          padding: 5px\9;
+                      }
+                  }
+
+                  /*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
+                  /*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
+                  /*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
+
+                  .col-cell {
+                      border-right: 1px solid #ccc;
+                      border-bottom: 1px solid #ccc;
+                      position: relative;
+                      z-index: 1;
+                  }
+
+                  .row-no-gutter {
+                      border-left: 1px solid #ccc;
+                      margin: 0px;
+                      overflow: hidden;
+                      /*hide the overflow*/
+                      padding-top: 1px;
+                      /*for the top border*/
+                  }
+
+
+                  /*top border for all*/
+                  .col-cell:first-child:before {
+                      content: "";
+                      position: absolute;
+                      bottom: 100%;
+                      left: 0;
+                      height: 1px;
+                      width: 100vw;
+                      background: #ccc;
+                  }
+
+                  /*hide the unwated top border in case of few cells*/
+                  .col-cell:last-child:before {
+                      content: "";
+                      position: absolute;
+                      bottom: 100%;
+                      left: calc(100% + 1px);
+                      height: 1px;
+                      width: 100vw;
+                      background: #fff;
+                  }
+
+                  /*avoid issue with stacking context and 
+be sure the cells are on the top of the pseudo element*/
+                  .col-cell:first-child,
+                  .col-cell:last-child {
+                      z-index: auto;
+                  }
+
+                  /*for one cell*/
+                  .col-cell:first-child:last-child {
+                      border-top: 1px solid;
+                  }
+
+                  .col-cell:first-child:last-child:before {
+                      content: none;
+                  }
+
+                  /*DROPDOWN RELATED*/
+                  /*DROPDOWN RELATED*/
+                  /*DROPDOWN RELATED*/
+
+                  .data-type-selection {}
+
+                  .data-type-selection span {
+                      display: inline-block;
+                      background-color: #ffffff;
+                      min-width: 130px;
+                      text-align: center;
+                      border: 1px solid #dcdcdc;
+                      color: #2e2e2e;
+                      padding: 10px 20px;
+                      cursor: pointer;
+                      transition: background-color 0.1s linear;
+                  }
+
+                  .data-type-selection span:last-child {
+                      border-left: 0;
+                  }
+
+                  .data-type-selection span.selected {
+                      background-color: #f33;
+                      color: #ffffff;
+                  }
+
+
+
+                  .retailer-selection,
+                  .rate-selection {
+                      box-sizing: border-box;
+                      text-align: center;
+                      padding: 30px 20px;
+                      position: relative;
+                      background-color: #ffffff;
+                      transition: background-color 0.1s linear;
+                  }
+
+                  .retailer-selection:hover,
+                  .rate-selection:hover {
+                      background-color: #ccc;
+                      transition: background-color 0.1s linear;
+                      cursor: pointer;
+                  }
+
+                  .retailer-selection.selected,
+                  .rate-selection.selected {
+                      background-color: #ccc;
+                      transition: background-color 0.1s linear;
+                      cursor: pointer;
+                  }
+
+                  .retailer-selection img {
+                      width: 100%;
+                      max-height: 46px;
+                  }
+
+                  .retailer-radio,
+                  .rate-radio {
+                      position: absolute;
+                      top: 10px;
+                      right: 10px;
+                  }
+
+                  [type="radio"]:checked,
+                  [type="radio"]:not(:checked) {
+                      position: absolute;
+                      left: -9999px;
+                  }
+
+                  [type="radio"]:checked+label,
+                  [type="radio"]:not(:checked)+label {
+                      position: relative;
+                      padding-left: 20px;
+                      padding-top: 20px;
+                      cursor: pointer;
+                      line-height: 20px;
+                      display: inline-block;
+                      color: #666;
+                  }
+
+                  [type="radio"]:checked+label:before,
+                  [type="radio"]:not(:checked)+label:before {
+                      content: '';
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      width: 20px;
+                      height: 20px;
+                      border: 1px solid #ddd;
+                      border-radius: 100%;
+                      background: #fff;
+                  }
+
+                  [type="radio"]:checked+label:after,
+                  [type="radio"]:not(:checked)+label:after {
+                      content: '';
+                      width: 12px;
+                      height: 12px;
+                      background: #f33;
+                      position: absolute;
+                      top: 4px;
+                      left: 4px;
+                      border-radius: 100%;
+                      -webkit-transition: all 0.1s ease;
+                      transition: all 0.1s ease;
+                  }
+
+                  [type="radio"]:not(:checked)+label:after {
+                      opacity: 0;
+                      -webkit-transform: scale(0);
+                      transform: scale(0);
+                  }
+
+                  [type="radio"]:checked+label:after {
+                      opacity: 1;
+                      -webkit-transform: scale(1);
+                      transform: scale(1);
+                  }
+
+
+
+
+                  .row.is-flex {
+                      display: flex;
+                      flex-wrap: wrap;
+                  }
+
+                  .row.is-flex>[class*='col-'] {
+                      display: flex;
+                      flex-direction: column;
+                  }
+
+                  /*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand. 
+* Use a preprocesser with autoprefixing.
+*/
+                  .row.is-flex {
+                      display: -webkit-box;
+                      display: -webkit-flex;
+                      display: -ms-flexbox;
+                      display: flex;
+                      -webkit-flex-wrap: wrap;
+                      -ms-flex-wrap: wrap;
+                      flex-wrap: wrap;
+                  }
+
+                  .row.is-flex>[class*='col-'] {
+                      display: -webkit-box;
+                      display: -webkit-flex;
+                      display: -ms-flexbox;
+                      display: flex;
+                      -webkit-box-orient: vertical;
+                      -webkit-box-direction: normal;
+                      -webkit-flex-direction: column;
+                      -ms-flex-direction: column;
+                      flex-direction: column;
+                  }

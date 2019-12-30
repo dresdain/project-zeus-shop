@@ -1,0 +1,866 @@
+[
+	{
+      "plan_name":"Best Home Fixed (24 months)",
+      "retailer_name":"Best Electricity Supply",
+      "retailer_id":"bestelectricity",
+      "retailer_package_id":"bestfixed24m",
+      "package_summary":"Pay a fixed rate throughout the contract duration",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Enjoy same SP billing and payment mode</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $336 annually",
+      "plan_price":"18.90 cents/kWh",
+      "plan_selling_point":"<ul><li>$0.1996/kWh (w gst)</li><li>Enjoy $20 bill rebate on the 6th month bill</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"23/10/18",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/bestelectricity.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/bestfixed24m.pdf"
+   },
+   {
+      "plan_name":"Best Home Fixed (12 months)",
+      "retailer_name":"Best Electricity Supply",
+      "retailer_id":"bestelectricity",
+      "retailer_package_id":"bestfixed12m",
+      "package_summary":"Pay a fixed rate throughout the contract duration",
+      "package_more_details":"<ul><li>12 months contract</li><li>No transmission loss charges</li><li>Enjoy same SP billing and payment mode</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $306 annually",
+      "plan_price":"19.50 cents/kWh",
+      "plan_selling_point":"<ul><li>$0.2050/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"23/10/18",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/bestelectricity.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/bestfixed12m.pdf"
+   },
+   {
+      "plan_name":"Best Home Fixed (6 months)",
+      "retailer_name":"Best Electricity Supply",
+      "retailer_id":"bestelectricity",
+      "retailer_package_id":"bestfixed6m",
+      "package_summary":"Pay a fixed rate throughout the contract duration",
+      "package_more_details":"<ul><li>6 months contract</li><li>No transmission loss charges</li><li>Enjoy same SP billing and payment mode</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $279 annually",
+      "plan_price":"19.70 cents/kWh",
+      "plan_selling_point":"<ul><li>$0.2100/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"23/10/18",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/bestelectricity.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/bestfixed6m.pdf"
+   },
+   {
+      "plan_name":"Best Home Saver (24 months)",
+      "retailer_name":"Best Electricity Supply",
+      "retailer_id":"bestelectricity",
+      "retailer_package_id":"bestsaver24m",
+      "package_summary":"Enjoy a discount off the prevailing regulated tariff throughout the contract duration",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Enjoy same SP billing and payment mode</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $322 annually",
+      "plan_price":"22% discount off tariff",
+      "plan_selling_point":"<ul><li>22% off SP tariff</li><li>Enjoy $20 bill rebate on the 6th month bill</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"23/10/18",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/bestelectricity.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/bestsaver24m.pdf"
+   },
+   {
+      "plan_name":"Best Home Saver (12 months)",
+      "retailer_name":"Best Electricity Supply",
+      "retailer_id":"bestelectricity",
+      "retailer_package_id":"bestsaver12m",
+      "package_summary":"Enjoy a discount off the prevailing regulated tariff throughout the contract duration",
+      "package_more_details":"<ul><li>12 months contract</li><li>No transmission loss charges</li><li>Enjoy same SP billing and payment mode</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $308 annually",
+      "plan_price":"21% discount off tariff",
+      "plan_selling_point":"<ul><li>21% off SP tariff</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"23/10/18",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/bestelectricity.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/bestsaver12m.pdf"
+   },
+   {
+      "plan_name":"Best Home Saver Upfront",
+      "retailer_name":"Best Electricity Supply",
+      "retailer_id":"bestelectricity",
+      "retailer_package_id":"bestupfront",
+      "package_summary":"Receive upfront cash rebates of up to 17%* of your 2 years total electricity spend",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Enjoy same SP billing and payment mode</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $252 annually",
+      "plan_price":"0% discount off tariff",
+      "plan_selling_point":"<ul><li>Up to 17% upfront cash rebate</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"23/10/18",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/bestelectricity.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/bestupfront.pdf"
+   },
+   {
+      "plan_name":"Get It Green",
+      "retailer_name":"Geneco",
+      "retailer_id":"geneco",
+      "retailer_package_id":"getitgreen",
+      "package_summary":"With a fixed electricity rate for the duration of your contract, you’ll never have to worry about any fluctuations in the electricity market.",
+      "package_more_details":"<ul><li>12 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $373 annually",
+      "plan_price":"20.33 cents/kWh",
+      "plan_selling_point":"<ul><li>$0.1926/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"02/21/19",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_none",
+         "preference_carbonfootprint"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/geneco.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/getitgreen.pdf"
+   },
+   {
+      "plan_name":"Get It Fixed 24",
+      "retailer_name":"Geneco",
+      "retailer_id":"geneco",
+      "retailer_package_id":"gefixed24",
+      "package_summary":"With a fixed electricity rate for the duration of your contract, you'll never have to worry about any fluctuations in the electricity market.",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $442 annually",
+      "plan_price":"17.98 cents/kWh",
+      "plan_selling_point":"<ul><li>$0.1798/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"10/12/18",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/geneco.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/gefixed24.pdf"
+   },
+   {
+      "plan_name":"Get It Fixed 36",
+      "retailer_name":"Geneco",
+      "retailer_id":"geneco",
+      "retailer_package_id":"gefixed36",
+      "package_summary":"With a fixed electricity rate for the duration of your contract, you'll never have to worry about any fluctuations in the electricity market.",
+      "package_more_details":"<ul><li>36 months contract</li><li>No transmission loss charges</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $442 annually",
+      "plan_price":"17.88 cents/kWh (w GST)",
+      "plan_selling_point":"<ul><li>$0.1798/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"12/11/18",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed_non_standard"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/geneco.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/gefixed36.pdf"
+   },
+   {
+      "plan_name":"Get It Less 24",
+      "retailer_name":"Geneco",
+      "retailer_id":"geneco",
+      "retailer_package_id":"gedot24",
+      "package_summary":"Enjoy big discounts every day. With electricity at a guaranteed discount on current Regulated Tariff, you’ll always be saving big, no matter what.",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $322 annually",
+      "plan_price":"22% DOT",
+      "plan_selling_point":"<ul><li>22% off SP tariff</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"10/12/18",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/geneco.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/gedot24.pdf"
+   },
+   {
+      "plan_name":"Super Saver Discount",
+      "retailer_name":"iSwitch",
+      "retailer_id":"iswitch",
+      "retailer_package_id":"isssd12",
+      "package_summary":"Guaranteed Discount off SP Tariff for 24 months contract",
+      "package_more_details":"<ul><li>12 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+	  "plan_savings_callout":"Save up to $333 annually",
+      "plan_price":"22.8% Discount off SP Tariff",
+      "plan_selling_point":"<ul><li>22.8% off SP Tariff</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Free AIA Accident Insurance Plan</li><li>Set up GIRO account to earn additional 25 points (equivalent to $2.50)</li><li>Earn 500 points (equivalent to $50 bill rebate) when you refer your friend and they sign up with iSwitch (equivalent to $10)</li></ul>", 
+	  "plan_factsheet":"",
+      "plan_added":"30/4/2019",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_gifts",
+         "preference_none",
+         "preference_carbonfootprint"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/iswitch.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/isssd12.pdf"
+   },
+   {
+      "plan_name":"Chope the Rate",
+      "retailer_name":"iSwitch",
+      "retailer_id":"iswitch",
+      "retailer_package_id":"isctr12",
+      "package_summary":"Fixed rate certainty for 24 months contract",
+      "package_more_details":"<ul><li>12 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $376 annually",
+      "plan_price":"$0.1767/kWh (w gst)",
+	  "plan_selling_point":"<ul><li>$0.1767/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Free AIA Accident Insurance Plan</li><li>Set up GIRO account to earn additional 25 points (equivalent to $2.50)</li><li>Earn 500 points (equivalent to $50 bill rebate) when you refer your friend and they sign up with iSwitch (equivalent to $10)</li></ul>",
+	  "plan_factsheet":"",
+      "plan_added":"30/4/2019",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_gifts",
+         "preference_none",
+         "preference_carbonfootprint"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/iswitch.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/isctr12.pdf"
+   },
+   {
+      "plan_name":"DOT24",
+      "retailer_name":"Keppel Electric Pte Ltd",
+      "retailer_id":"keppel",
+      "retailer_package_id":"kedot24",
+      "package_summary":"22% off SP tariff",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $361 annually",
+      "plan_price":"22% off SP tariff",
+      "plan_selling_point":"<ul><li>22% off SP tariff</li><li>Enjoy $50 bill rebate</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"3/9/2018",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/keppel-electric.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/kedot24.pdf"
+   },
+   {
+      "plan_name":"FIXED24",
+      "retailer_name":"Keppel Electric Pte Ltd",
+      "retailer_id":"keppel",
+      "retailer_package_id":"kefix24",
+      "package_summary":"Over $800 Savings. Highly Competitive Rates",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $482 annually",
+      "plan_price":"S$0.1662/kWh (excl GST)<br>S$0.1778/kWh (incl GST)",
+      "plan_selling_point":"<ul><li>$0.1798/kWh (w gst)</li><li>Enjoy $50 bill rebate</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"3/9/2018",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/keppel-electric.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/kefix24.pdf"
+   },
+   {
+      "plan_name":"FIXED36",
+      "retailer_name":"Keppel Electric Pte Ltd",
+      "retailer_id":"keppel",
+      "retailer_package_id":"kefix36",
+      "package_summary":"Over $1200 Savings. Highly Competitive Rates.",
+      "package_more_details":"<ul><li>36 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $488 annually",
+      "plan_price":"S$0.1652/kWh (excl/GST)<br>S$0.1768/kWh (incl GST)",
+      "plan_selling_point":"<ul><li>$0.1788/kWh (w gst)</li><li>Enjoy $50 bill rebate</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"13/3/2019",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed_non_standard"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/keppel-electric.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/kefix36.pdf"
+   },         
+   {
+      "plan_name":"Sunseap One Fix (6 Months)",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseapone6mfixed",
+      "package_summary":"Your Ultimate Savings Plan Powered by 1% Sunseap's Solar",
+      "package_more_details":"<ul><li>6 month contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 1% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $430 annually",
+      "plan_price":"16.85cents/kWh (without GST)<br>18.03cents/kWh (with GST)",
+      "plan_selling_point":"<ul><li>$0.1803/kWh (w gst)</li><li>1% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseapone6mfixed.pdf"
+   },
+   {
+      "plan_name":"Sunseap One Fix (12 Months)",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseapone12mfixed",
+      "package_summary":"Your Ultimate Savings Plan Powered by 1% Sunseap's Solar",
+      "package_more_details":"<ul><li>12 month contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 1% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $407 annually",
+      "plan_price":"17.27cents/kWh (without GST)<br>18.48cents/kWh (with GST)",
+      "plan_selling_point":"<ul><li>$0.1845/kWh (w gst)</li><li>1% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseapone12mfixed.pdf"
+   },
+   {
+      "plan_name":"Sunseap One Fix (24 Months)",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseapone24mfixed",
+      "package_summary":"Your Ultimate Savings Plan Powered by 1% Sunseap's Solar",
+      "package_more_details":"<ul><li>24 month contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 1% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $445 annually",
+      "plan_price":"16.80cents/kWh (without GST)<br>17.98cents/kWh (with GST)",
+      "plan_selling_point":"<ul><li>$0.1775/kWh (w gst)</li><li>1% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseapone24mfixed.pdf"
+   },
+   {
+      "plan_name":"Sunseap 50 Fix",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseap5024mfixed",
+      "package_summary":"Save Big and also be Powered by 50% Sunseap's Solar",
+      "package_more_details":"<ul><li>24 month contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 50% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $235 annually",
+      "plan_price":"20.20cents/kWh (without GST)<br>21.61cents/kWh (with GST)",
+      "plan_selling_point":"<ul><li>$0.2161/kWh (w gst)</li><li>50% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_carbonfootprint",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseap5024mfixed.pdf"
+   },
+   {
+      "plan_name":"Sunseap 100 Fix",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseap10024mfixed",
+      "package_summary":"For the 100% environmentally conscious user. Save on your electricity bill and be Powered by 100% Sunseap's Solar",
+      "package_more_details":"<ul><li>24 month contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 100% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $159 annually",
+      "plan_price":"21.50cents/kWh (without GST)<br>23.01cents/kWh (with GST)",
+      "plan_selling_point":"<ul><li>$0.2301/kWh (w gst)</li><li>100% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_carbonfootprint",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseap10024mfixed.pdf"
+   },
+   {
+      "plan_name":"Sunseap ONE DOT (6 Months)",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseapone6mdot",
+      "package_summary":"Your Ultimate Savings Plan Powered by 1% Sunseap's Solar",
+      "package_more_details":"<ul><li>6 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 1% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $325 annually",
+      "plan_price":"23% discount off SP Tariff",
+      "plan_selling_point":"<ul><li>23% off SP Tariff</li><li>1% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseapone6mdot.pdf"
+   },
+   {
+      "plan_name":"Sunseap ONE DOT (12 Months)",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseapone12mdot",
+      "package_summary":"Your Ultimate Savings Plan Powered by 1% Sunseap's Solar",
+      "package_more_details":"<ul><li>12 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 1% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $325 annually",
+      "plan_price":"23% discount off SP Tariff",
+      "plan_selling_point":"<ul><li>23% off SP Tariff</li><li>1% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseapone12mdot.pdf"
+   },
+   {
+      "plan_name":"Sunseap ONE DOT (24 Months)",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseapone24mdot",
+      "package_summary":"Your Ultimate Savings Plan Powered by 1% Sunseap's Solar",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 1% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $325 annually",
+      "plan_price":"23% discount off SP Tariff",
+      "plan_selling_point":"<ul><li>23% off SP Tariff</li><li>1% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseapone24mdot.pdf"
+   },
+   {
+      "plan_name":"Sunseap 50 DOT",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseap5024mdot",
+      "package_summary":"Save Big and also be Powered by 50% Sunseap's Solar",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 50% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $212 annually",
+      "plan_price":"15% discount off SP Tariff",
+      "plan_selling_point":"<ul><li>15% off SP Tariff</li><li>50% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseap5024mdot.pdf"
+   },
+   {
+      "plan_name":"Sunseap 100 DOT",
+      "retailer_name":"Sunseap Energy Pte Ltd",
+      "retailer_id":"sunseap",
+      "retailer_package_id":"sunseap10024mdot",
+      "package_summary":"For the 100% environmentally conscious user. Save on your electricity bill and be Powered by 100% Sunseap's Solar",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>Powered by 100% Sunseap's Solar</li></ul>",
+      "plan_savings_callout":"Save up to $141 annually",
+      "plan_price":"10% discount off SP Tariff",
+      "plan_selling_point":"<ul><li>10% off SP Tariff</li><li>100% Clean Energy</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/02/2018",
+      "rcp_support":"N",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_cleanenergy",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/sunseap.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/sunseap10024mdot.pdf"
+   },
+   {
+      "plan_name":"Trial Promotion PowerDO 6",
+      "retailer_name":"Tuas Power",
+      "retailer_id":"tuaspower",
+      "retailer_package_id":"tuaspowerdo6",
+      "package_summary":"Discount off tarriff plan",
+      "package_more_details":"<ul><li>6 months contract</li><li>SP services consolidated billing </li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $280 annually",
+      "plan_price":"18% off regulated tariff",
+      "plan_selling_point":"<ul><li>18% off SP Tariff</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/12/2018",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/tuaspower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/tuaspowerdo6.pdf"
+   },
+   {
+      "plan_name":"PowerDO 24",
+      "retailer_name":"Tuas Power",
+      "retailer_id":"tuaspower",
+      "retailer_package_id":"tuaspowerdo24",
+      "package_summary":"Discount off tarriff plan",
+      "package_more_details":"<ul><li>24 months contract</li><li>SP services consolidated billing </li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $382 annually",
+      "plan_price":"22% off regulated tariff",
+      "plan_selling_point":"<ul><li>22% off SP Tariff</li><li>Enjoy $60 bill rebate (start from 1st Jul)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Free 12 Months Aviva’s Insurance Protection (valid till 30 Sep)</li><li>NTUC Plus! Member can earn monthly LinkPoints</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/12/2018",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/tuaspower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/tuaspowerdo24.pdf"
+   },
+   {
+      "plan_name":"PowerFIX 18",
+      "retailer_name":"Tuas Power",
+      "retailer_id":"tuaspower",
+      "retailer_package_id":"tuaspowerfix18",
+      "package_summary":"Fixed price plan",
+      "package_more_details":"<ul><li>18 months contract</li><li>SP services consolidated billing </li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $502 annually",
+      "plan_price":"S$0.1798 (incl GST)<br>S$0.1680 (excl GST)",
+      "plan_selling_point":"<ul><li>$0.1798/kWh (w gst)</li><li>Enjoy $60 bill rebate (start from 1st Jul)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Free 12 Months Aviva’s Insurance Protection (valid till 30 Sep)</li><li>NTUC Plus! Member can earn monthly LinkPoints</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/12/2018",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed_non_standard"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/tuaspower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix18.pdf"
+   },
+   {
+      "plan_name":"PowerFIX 24",
+      "retailer_name":"Tuas Power",
+      "retailer_id":"tuaspower",
+      "retailer_package_id":"tuaspowerfix24",
+      "package_summary":"Fixed price plan",
+      "package_more_details":"<ul><li>24 months contract</li><li>SP services consolidated billing </li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $502 annually",
+      "plan_price":"S$0.1798 (incl GST)<br>S$0.1680 (excl GST)",
+      "plan_selling_point":"<ul><li>$0.1798/kWh (w gst)</li><li>Enjoy $60 bill rebate (start from 1st Jul)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Free 12 Months Aviva’s Insurance Protection (valid till 30 Sep)</li><li>NTUC Plus! Member can earn monthly LinkPoints</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/12/2018",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/tuaspower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix24.pdf"
+   },
+   {
+      "plan_name":"PowerFIX 36",
+      "retailer_name":"Tuas Power",
+      "retailer_id":"tuaspower",
+      "retailer_package_id":"tuaspowerfix36",
+      "package_summary":"Fixed price plan",
+      "package_more_details":"<ul><li>36 months contract</li><li>SP services consolidated billing </li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $542 annually",
+      "plan_price":"S$0.1798 (incl GST)<br>S$0.1680 (excl GST)",
+      "plan_selling_point":"<ul><li>$0.1798/kWh (w gst)</li><li>Enjoy $60 bill rebate (start from 1st Jul)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Free 12 Months Aviva’s Insurance Protection (valid till 30 Sep)</li><li>NTUC Plus! Member can earn monthly LinkPoints</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"11/12/2018",
+      "rcp_support":"N",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed_non_standard"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+         "preference_gifts",
+         "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/tuaspower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix36.pdf"
+   },
+   {
+      "plan_name":"Dual Value Saver 24",
+      "retailer_name":"Union Power Pte Ltd",
+      "retailer_id":"unionpower",
+      "retailer_package_id":"unionpdvs24",
+      "package_summary":"Get the most bang for your buck, with guaranteed electricity discounts and wide home content insurance coverage all in 1 super combo electricity plan - The ultimate money saver for your home.",
+      "package_more_details":"<ul><li>24 months contract</li><li>No transmission loss charges</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $336 annually",
+      "plan_price":"23% off Regulated Tariff (incl. GST)",
+      "plan_selling_point":"<ul><li>23% off SP Tariff</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Complimentary Union Home Contents Insurance for duration of contract (up to $30,000 coverage) </li><li>Waiver of security deposit, one time registration fee & monthly retail service fee</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"23/10/18",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_gifts",
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/unionpower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/unionpdvs24.pdf"
+   },
+   {
+      "plan_name":"Trial Saver 6",
+      "retailer_name":"Union Power Pte Ltd",
+      "retailer_id":"unionpower",
+      "retailer_package_id":"unionts6",
+      "package_summary":"Get the most bang for your buck, with guaranteed electricity discounts and wide home content insurance coverage all in 1 super combo electricity plan - The ultimate money saver for your home.",
+      "package_more_details":"<ul><li>6 months contract</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $336 annually",
+      "plan_price":"23% off Regulated Tariff (incl. GST)",
+      "plan_selling_point":"<ul><li>23% off SP Tariff</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"10/07/19",
+      "rcp_support":"Y",
+      "giro_flag":"N",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_gifts",
+         "preference_none",
+         "preference_waiversecdeposit"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/unionpower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/unionts6.pdf"
+   },
+   {
+      "plan_name":"Gas Saver",
+      "retailer_name":"Union Power Pte Ltd",
+      "retailer_id":"unionpower",
+      "retailer_package_id":"unionpgs24",
+      "package_summary":"",
+      "package_more_details":"<ul><li>24 months contract</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $457 annually",
+      "plan_price":"22% off SP Tariff",
+      "plan_selling_point":"<ul><li>$0.1770/kWh (w gst)</li><li>Complimentary $20 LPG Cylinder Vouchers</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Waiver of Security Deposit</li></ul>",
+	  "plan_factsheet":"",
+      "plan_added":"06/05/19",
+      "rcp_support":"Y",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_discount"
+      ],
+      "preference":[
+         "preference_gifts",
+		 "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/unionpower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/unionpgs24.pdf"
+   },  
+   {
+      "plan_name":"Fixed Saver (24 Months)",
+      "retailer_name":"Union Power Pte Ltd",
+      "retailer_id":"unionpower",
+      "retailer_package_id":"unionpfs24",
+      "package_summary":"",
+      "package_more_details":"<ul><li>24 months contract</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $457 annually",
+      "plan_price":"$0.1770/kWh (w gst)",
+      "plan_selling_point":"<ul><li>$0.1770/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Carbon Tax Inclusive</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"06/05/19",
+      "rcp_support":"Y",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+		 "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/unionpower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/unionpfs24.pdf"
+   },  
+   {
+      "plan_name":"Fixed Saver (12 Months)",
+      "retailer_name":"Union Power Pte Ltd",
+      "retailer_id":"unionpower",
+      "retailer_package_id":"unionpfs12",
+      "package_summary":"",
+      "package_more_details":"<ul><li>12 months contract</li><li>Carbon Tax Inclusive</li><li>T&Cs apply</li></ul>",
+      "plan_savings_callout":"Save up to $457 annually",
+      "plan_price":"$0.1770/kWh (w gst)",
+      "plan_selling_point":"<ul><li>$0.1770/kWh (w gst)</li><li>Enjoy 1% cash rebate with POSB Everyday Card</li><li>Carbon Tax Inclusive</li><li>Waiver of Security Deposit</li></ul>",
+      "plan_factsheet":"",
+      "plan_added":"06/05/19",
+      "rcp_support":"Y",
+      "giro_flag":"Y",
+      "selected_package":[
+         "package_fixed"
+      ],
+      "preference":[
+         "preference_waiversecdeposit",
+		 "preference_none"
+      ],
+      "retailer_logo_path":"/iwov-resources/media/images/electricity-marketplace/unionpower.png",
+      "retailier_factsheet_path":"/iwov-resources/media/pdf/marketplace/electricity/unionpfs12.pdf"
+   }
+]
