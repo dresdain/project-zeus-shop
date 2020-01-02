@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.399" height="24" viewBox="0 0 14.399 24">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_433" data-name="Path 433" d="M23.481-29.277a.48.48,0,0,1-.428-.7l5.972-11.763A.48.48,0,0,1,29.453-42h6.968a.48.48,0,0,1,.405.737l-4.509,7.105h4.6a.48.48,0,0,1,.365.791L24.344-18.173a.48.48,0,0,1-.8-.5l4.68-10.6Z" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_432" data-name="Path 432" d="M-690,916H750V-634H-690Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="lightning" transform="translate(-23 42)" clip-path="url(#clip-path)">
+    <g id="Group_330" data-name="Group 330" clip-path="url(#clip-path-2)">
+      <path id="Path_431" data-name="Path 431" d="M18-47H42.4v34H18Z" fill="#ffaa21"/>
+    </g>
+  </g>
+</svg>
