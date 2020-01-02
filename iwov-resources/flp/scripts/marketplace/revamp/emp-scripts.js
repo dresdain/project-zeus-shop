@@ -53,7 +53,7 @@ $('#planForm, #planForm__dropdown').on('submit', function (e) {
     $('.place-live-copy').html(placeLive);
     // Check if user is submitting using the dropdownForm version 
     if ($(this).attr('id') == 'planForm__dropdown') {
-        $('#filterCollapse__box').collapse('hide');
+        $('#emp__editPlans__overlay').modal('hide');
         populatePlans(0, maxBill, 'refresh');
     } else {
         populatePlans(0, maxBill, 'init');
@@ -160,6 +160,7 @@ $('#hidePlans').on('click', function (e) {
 });
 
 
+
 /* STUB show/hide functions */
 function showLandingDivs(state) {
     if (state === true) {
@@ -182,6 +183,72 @@ function showPlanDOM(state) {
         $('.emp__results').fadeOut('1000');
     }
 }
+ 
+function manageExitScreen(state){
+    switch (state) {
+        case "showLanding":
+            $('.emp__exitScreen, .emp__results').hide(); 
+            $('.emp__landing').fadeIn('1000');
+            break;
+        case "showResults":
+            $('.emp__exitScreen, .emp__landing').hide(); 
+            $('.emp__results').fadeIn('1000');
+            break;
+        default:
+            $('.emp__landing, .emp__results').hide(); 
+            $('.emp__exitScreen').fadeIn('1000');
+            break;
+    } 
+}
+
+function initExitScreens(){
+    $('.triggerApplyScreen').off();
+    $('.triggerApplyScreen').on('click', function(){
+        var dataExit = $(this);
+        $('#emp_redirect-yes').attr('href',dataExit.data('btn-yes'));
+        $('#emp_redirect-no').attr('href',dataExit.data('btn-no')); 
+        $('#emp_redirect-copy').text(dataExit.data('message')); 
+        manageExitScreen('showExit');
+
+        $('html, body').animate({
+            scrollTop: $(".emp__exitScreen").offset().top - 200
+        }, 500);
+        
+    });
+}
+
+$(function(){
+    $('#exit_empExitScreen').on('click', function(){
+        manageExitScreen('showResults');
+    });
+});
+
+
+//get a jPList control element
+var element = document.getElementById('main-pagination');
+
+//listen to the state event
+element.addEventListener('jplist.state', (e) => {
+
+    //the whole state object
+    console.log(e.jplistState);
+
+    //jPList options provided by user
+    console.log(e.jplistState.options);
+
+    //current items number after filtering + pagination
+    console.log(e.jplistState.itemsNumber);
+
+    //control groups
+    console.log(e.jplistState.groups);
+
+    //the elements list after filtering + pagination
+    console.log(e.jplistState.filtered);
+
+    initExitScreens();
+
+}, false);
+
 
 /* STUB addToCompare Cart 
     TODO to be refactored */

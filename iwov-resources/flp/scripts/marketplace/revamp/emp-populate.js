@@ -58,15 +58,10 @@ function populatePlans(minBill, maxBill, action) {
 
         /* Re-initialize everything */
         $('[data-toggle="tooltip"]').tooltip();
-
-
-
-
-
-
-
+        
         setTimeout(() => {
             reflectPageCount();
+            initExitScreens();
         }, 200);
 
         console.log(data.length);
@@ -134,7 +129,34 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div>';
 
     /* Apply Now */
-    html += '<div class="plan__details--card narrow--pad"><a href="#" class="btn btn-primary btn-block">Apply now</a></div>';
+    var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace.html?';
+    var existingDBS = {
+            FROM_IB: true,
+            PWEB: true,
+            SERVICE_ID: '000000000000651',
+            pid: 'sg-dbs-pweb-marketplace-searchpackage-electricity-marketplace-btnlogintodigibank',
+            nationality: 'nationality_pr',
+            current_state: 'state_living_in',
+            dwelling_type: $('#planForm__dropdown .place-live').val(),
+            selected_package: 'package_discount',
+            preference: (item.green_energy.toLowerCase() == 'yes' ? 'preference_cleanenergy' : 'no_preference'),
+            retailer_id: item.retailer_id,
+            retailer_name: item.retailer_name,
+            retailer_package_id: item.retailer_package_id,
+            plan_name: item.plan_name,
+            plan_price: item.bill_rebate,
+            package_more_details: item.comparison_1 + "," + item.comparison_2 + ',' + item.comparison_3,
+            plan_selling_point: item.promotion,
+            rcp_support: 'N',
+            giro_flag:  'N'
+        };  
+
+    var newDBS__prepend = 'https://internet-banking.dbs.com.sg/ibAPL/Welcome?';
+    var newDBS = {
+        pid: 'sg-dbs-pweb-marketplace-searchpackage-electricity-marketplace-btnlogintodigibank-idonthavedigibank'
+    };
+
+    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected '+item.plan_name +' price plan from '+item.retailer_name +'" data-btn-yes="'+existingDBS__prepend+$.param(existingDBS)+'" data-btn-no="'+newDBS__prepend+$.param(newDBS)+'">Apply now</a></div>';
 
     /* View Factsheet */
     html += '<div class="plan__details--card"><a href="#" class="btn btn-primary btn-block btn-outline">View factsheet</a></div>';
