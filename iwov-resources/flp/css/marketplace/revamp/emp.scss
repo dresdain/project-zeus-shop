@@ -114,9 +114,13 @@
 
 /* SECTION .emp__modal PARENT class */
 .emp__modal {
-  .modal-content {
-    border-radius: 0px;
-    padding: 45px 50px;
+  .modal-content { 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: 1px solid #dde3e7;
+    background-color: #ffffff;
+    // padding: 45px 50px;
+    padding: 20px 0px;
     @media (max-width: 768px) {
       padding: 45px 10px;
     }
@@ -139,6 +143,15 @@
   }
 }
 
+#illustrationPlan{
+  .modal-header{
+    margin-top: 20px;
+  }
+  .modal-body{
+    margin-bottom: 20px;
+  }
+}
+
 /* SECTION .plan__box COMPONENT */
 .plan__box {
   margin-top: 60px;
@@ -149,6 +162,13 @@
   background-color: #ffffff;
   padding: 40px 70px;
   margin-bottom: 72px;
+  .emp__modal &{
+    box-shadow: none;
+    border-radius: 0px;
+    border: none;
+    margin: 0px;
+  }
+
   @media (max-width: 768px) {
     padding: 20px 15px;
     margin-bottom: 32px;
@@ -483,12 +503,12 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
   }
-  &--pagination{
+  &--pagination {
     margin-bottom: 110px;
-    // .page-item.disabled{ 
-    //     pointer-events: none; 
+    // .page-item.disabled{
+    //     pointer-events: none;
     // }
   }
   &--card {
@@ -522,7 +542,7 @@
   &--logo {
     height: 35px;
     width: auto;
-    
+
     margin-bottom: 25px;
     @media (max-width: 768px) {
       height: auto;
@@ -787,7 +807,7 @@
 
 /* SECTION .emp__recompareConfirmation */
 .emp__recompareConfirmation {
-  position: absolute; 
+  position: absolute;
   z-index: 100;
   width: 100%;
   height: 70px;
@@ -973,265 +993,303 @@
   display: none;
 }
 
-
 /* Internal */
 /*DROPDOWN RELATED*/
-                    /*DROPDOWN RELATED*/
-                    /*DROPDOWN RELATED*/
+/*DROPDOWN RELATED*/
+/*DROPDOWN RELATED*/
 
-                    .emp-dropdown {
-                      width: 100%;
-                      padding: 5px 35px 5px 10px;
-                      font-size: 16px;
-                      border: 1px solid #ccc;
-                      height: 34px;
-                      -webkit-appearance: none;
-                      -moz-appearance: none;
-                      appearance: none;
-                      background: url('../../../images/marketplace/electricity/revamp/chevron-down.svg') 98% / 3% no-repeat #fff;
-                      box-sizing: border-box;
-                      color: black;
-                  }
+.emp-dropdown {
+  width: 100%;
+  padding: 5px 35px 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../../../images/marketplace/electricity/revamp/chevron-down.svg") 98% / 3% no-repeat #fff;
+  box-sizing: border-box;
+  color: black;
+}
 
-                  .emp-dropdown:invalid {
-                      color: #aaaaaa;
-                  }
+.emp-dropdown:invalid {
+  color: #aaaaaa;
+}
 
-                  /* CAUTION: IE hackery ahead */
-                  .emp-dropdown::-ms-expand {
-                      display: none;
-                      /* remove default arrow on ie10 and ie11 */
-                  }
+/* CAUTION: IE hackery ahead */
+.emp-dropdown::-ms-expand {
+  display: none;
+  /* remove default arrow on ie10 and ie11 */
+}
 
-                  .emp-dropdown option:checked {
-                      /*display:none;*/
-                  }
+.emp-dropdown option:checked {
+  /*display:none;*/
+}
 
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width: 0\0) {
+  .emp-dropdown {
+    background: none\9;
+    padding: 5px\9;
+  }
+}
 
-                  /* target Internet Explorer 9 to undo the custom arrow */
-                  @media screen and (min-width:0\0) {
-                      .emp-dropdown {
-                          background: none\9;
-                          padding: 5px\9;
-                      }
-                  }
+/*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
+/*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
+/*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
 
-                  /*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
-                  /*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
-                  /*PREVENT DOUBLE BORDERS ON COLUMN STACK*/
+.col-cell {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  z-index: 1;
+}
 
-                  .col-cell {
-                      border-right: 1px solid #ccc;
-                      border-bottom: 1px solid #ccc;
-                      position: relative;
-                      z-index: 1;
-                  }
+.row-no-gutter {
+  border-left: 1px solid #ccc;
+  margin: 0px;
+  overflow: hidden;
+  /*hide the overflow*/
+  padding-top: 1px;
+  /*for the top border*/
+}
 
-                  .row-no-gutter {
-                      border-left: 1px solid #ccc;
-                      margin: 0px;
-                      overflow: hidden;
-                      /*hide the overflow*/
-                      padding-top: 1px;
-                      /*for the top border*/
-                  }
+/*top border for all*/
+.col-cell:first-child:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  height: 1px;
+  width: 100vw;
+  background: #ccc;
+}
 
+/*hide the unwated top border in case of few cells*/
+.col-cell:last-child:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: calc(100% + 1px);
+  height: 1px;
+  width: 100vw;
+  background: #fff;
+}
 
-                  /*top border for all*/
-                  .col-cell:first-child:before {
-                      content: "";
-                      position: absolute;
-                      bottom: 100%;
-                      left: 0;
-                      height: 1px;
-                      width: 100vw;
-                      background: #ccc;
-                  }
-
-                  /*hide the unwated top border in case of few cells*/
-                  .col-cell:last-child:before {
-                      content: "";
-                      position: absolute;
-                      bottom: 100%;
-                      left: calc(100% + 1px);
-                      height: 1px;
-                      width: 100vw;
-                      background: #fff;
-                  }
-
-                  /*avoid issue with stacking context and 
+/*avoid issue with stacking context and 
 be sure the cells are on the top of the pseudo element*/
-                  .col-cell:first-child,
-                  .col-cell:last-child {
-                      z-index: auto;
-                  }
+.col-cell:first-child,
+.col-cell:last-child {
+  z-index: auto;
+}
 
-                  /*for one cell*/
-                  .col-cell:first-child:last-child {
-                      border-top: 1px solid;
-                  }
+/*for one cell*/
+.col-cell:first-child:last-child {
+  border-top: 1px solid;
+}
 
-                  .col-cell:first-child:last-child:before {
-                      content: none;
-                  }
+.col-cell:first-child:last-child:before {
+  content: none;
+}
 
-                  /*DROPDOWN RELATED*/
-                  /*DROPDOWN RELATED*/
-                  /*DROPDOWN RELATED*/
+/*DROPDOWN RELATED*/
+/*DROPDOWN RELATED*/
+/*DROPDOWN RELATED*/
 
-                  .data-type-selection {}
+.data-type-selection {
+}
 
-                  .data-type-selection span {
-                      display: inline-block;
-                      background-color: #ffffff;
-                      min-width: 130px;
-                      text-align: center;
-                      border: 1px solid #dcdcdc;
-                      color: #2e2e2e;
-                      padding: 10px 20px;
-                      cursor: pointer;
-                      transition: background-color 0.1s linear;
-                  }
+.data-type-selection span {
+  display: inline-block;
+  background-color: #ffffff;
+  min-width: 130px;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+  color: #2e2e2e;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.1s linear;
+}
 
-                  .data-type-selection span:last-child {
-                      border-left: 0;
-                  }
+.data-type-selection span:last-child {
+  border-left: 0;
+}
 
-                  .data-type-selection span.selected {
-                      background-color: #f33;
-                      color: #ffffff;
-                  }
+.data-type-selection span.selected {
+  background-color: #f33;
+  color: #ffffff;
+}
 
+.retailer-selection,
+.rate-selection {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+  background-color: #ffffff;
+  transition: background-color 0.1s linear;
+}
 
+.retailer-selection:hover,
+.rate-selection:hover {
+  background-color: #ccc;
+  transition: background-color 0.1s linear;
+  cursor: pointer;
+}
 
-                  .retailer-selection,
-                  .rate-selection {
-                      box-sizing: border-box;
-                      text-align: center;
-                      padding: 30px 20px;
-                      position: relative;
-                      background-color: #ffffff;
-                      transition: background-color 0.1s linear;
-                  }
+.retailer-selection.selected,
+.rate-selection.selected {
+  background-color: #ccc;
+  transition: background-color 0.1s linear;
+  cursor: pointer;
+}
 
-                  .retailer-selection:hover,
-                  .rate-selection:hover {
-                      background-color: #ccc;
-                      transition: background-color 0.1s linear;
-                      cursor: pointer;
-                  }
+.retailer-selection img {
+  width: 100%;
+  max-height: 46px;
+}
 
-                  .retailer-selection.selected,
-                  .rate-selection.selected {
-                      background-color: #ccc;
-                      transition: background-color 0.1s linear;
-                      cursor: pointer;
-                  }
+.retailer-radio,
+.rate-radio {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
-                  .retailer-selection img {
-                      width: 100%;
-                      max-height: 46px;
-                  }
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
 
-                  .retailer-radio,
-                  .rate-radio {
-                      position: absolute;
-                      top: 10px;
-                      right: 10px;
-                  }
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+  position: relative;
+  padding-left: 20px;
+  padding-top: 20px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
 
-                  [type="radio"]:checked,
-                  [type="radio"]:not(:checked) {
-                      position: absolute;
-                      left: -9999px;
-                  }
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
 
-                  [type="radio"]:checked+label,
-                  [type="radio"]:not(:checked)+label {
-                      position: relative;
-                      padding-left: 20px;
-                      padding-top: 20px;
-                      cursor: pointer;
-                      line-height: 20px;
-                      display: inline-block;
-                      color: #666;
-                  }
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #f33;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
 
-                  [type="radio"]:checked+label:before,
-                  [type="radio"]:not(:checked)+label:before {
-                      content: '';
-                      position: absolute;
-                      left: 0;
-                      top: 0;
-                      width: 20px;
-                      height: 20px;
-                      border: 1px solid #ddd;
-                      border-radius: 100%;
-                      background: #fff;
-                  }
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
 
-                  [type="radio"]:checked+label:after,
-                  [type="radio"]:not(:checked)+label:after {
-                      content: '';
-                      width: 12px;
-                      height: 12px;
-                      background: #f33;
-                      position: absolute;
-                      top: 4px;
-                      left: 4px;
-                      border-radius: 100%;
-                      -webkit-transition: all 0.1s ease;
-                      transition: all 0.1s ease;
-                  }
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
 
-                  [type="radio"]:not(:checked)+label:after {
-                      opacity: 0;
-                      -webkit-transform: scale(0);
-                      transform: scale(0);
-                  }
+.row.is-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-                  [type="radio"]:checked+label:after {
-                      opacity: 1;
-                      -webkit-transform: scale(1);
-                      transform: scale(1);
-                  }
+.row.is-flex > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
 
-
-
-
-                  .row.is-flex {
-                      display: flex;
-                      flex-wrap: wrap;
-                  }
-
-                  .row.is-flex>[class*='col-'] {
-                      display: flex;
-                      flex-direction: column;
-                  }
-
-                  /*
+/*
 * And with max cross-browser enabled.
 * Nobody should ever write this by hand. 
 * Use a preprocesser with autoprefixing.
 */
-                  .row.is-flex {
-                      display: -webkit-box;
-                      display: -webkit-flex;
-                      display: -ms-flexbox;
-                      display: flex;
-                      -webkit-flex-wrap: wrap;
-                      -ms-flex-wrap: wrap;
-                      flex-wrap: wrap;
-                  }
+.row.is-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 
-                  .row.is-flex>[class*='col-'] {
-                      display: -webkit-box;
-                      display: -webkit-flex;
-                      display: -ms-flexbox;
-                      display: flex;
-                      -webkit-box-orient: vertical;
-                      -webkit-box-direction: normal;
-                      -webkit-flex-direction: column;
-                      -ms-flex-direction: column;
-                      flex-direction: column;
-                  }
+.row.is-flex > [class*="col-"] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+
+.modal.fade.in .lab-modal-body {
+  bottom: 0;
+  opacity: 1; 
+  z-index: 5000;
+}
+
+.lab-modal-body h1 {
+  font-size: 4rem;
+}
+
+.lab-modal-body p {
+  // margin: 0 0 1.62rem 0;
+  line-height: 1.62;
+  font-weight: 300;
+  font-size: 1.62rem;
+  color: #666;
+}
+
+.lab-modal-body {
+  position: relative;
+  bottom: -250px;
+  margin: 150px auto 0;
+  // padding: 40px;
+  // max-width: 60%;
+  height: auto;
+  // background-color: rgb(248, 250, 247);
+  border: 0px solid #BEBEBE;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
+  transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
+}
+
+.close {
+  margin-top: -8px;
+  margin-right: 13px;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+.popup-button {
+  margin-top: 70px;
+}

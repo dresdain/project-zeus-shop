@@ -1,4 +1,23 @@
 var showPlanDOM__state = false;
+$(function(){
+    /* MODAL triggers */
+    var illustrationTrigger = $('#illustrationFromEditPlans'),
+        illustrationClose = $('#illustrationPlan .close'),
+        editPlansModal = $('#emp__editPlans__overlay');
+
+    illustrationTrigger.on('click', function(){
+        illustrationClose.addClass('resumeEditPlans');
+        editPlansModal.modal('hide');
+        $('.resumeEditPlans').on('click', function(){
+            editPlansModal.modal('show');
+        }); 
+    });
+
+    
+
+
+
+});
 /* 
 *  slick.js
 *  Init mobile slick
@@ -6,6 +25,7 @@ var showPlanDOM__state = false;
 
  $(function(){
     jplist.init();
+    
  });
 $('.partners__box--slick').slick({
     infinite: true,
@@ -20,6 +40,8 @@ $('.partners__box--slick').slick({
 */
 $('#planForm, #planForm__dropdown').on('submit', function (e) {
     e.preventDefault();
+
+    $('#emp__editPlans__overlay').modal('hide');
 
     var maxBill = $('.range-cost', this).find(':selected').attr('data-to');
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
