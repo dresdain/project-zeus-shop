@@ -84,7 +84,7 @@
   position: absolute;
   width: 18px;
   height: 18px;
-  background-image: url("../../images/emp/check-red.svg");
+  background-image: url("../../../images/marketplace/electricity/revamp/check-red.svg");
   left: 0px;
   top: 0px;
   background-size: contain;
@@ -96,8 +96,12 @@
 
 /* SECTION .emp__modal PARENT class */
 .emp__modal .modal-content {
-  border-radius: 0px;
-  padding: 45px 50px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid #dde3e7;
+  background-color: #ffffff;
+  padding: 20px 0px;
 }
 @media (max-width: 768px) {
   .emp__modal .modal-content {
@@ -121,6 +125,13 @@
   font-weight: 600;
 }
 
+#illustrationPlan .modal-header {
+  margin-top: 20px;
+}
+#illustrationPlan .modal-body {
+  margin-bottom: 20px;
+}
+
 /* SECTION .plan__box COMPONENT */
 .plan__box {
   margin-top: 60px;
@@ -133,11 +144,55 @@
   padding: 40px 70px;
   margin-bottom: 72px;
 }
+.emp__modal .plan__box {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0px;
+  border: none;
+  margin: 0px;
+}
 @media (max-width: 768px) {
   .plan__box {
     padding: 20px 15px;
     margin-bottom: 32px;
   }
+}
+.plan__box--choice {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.plan__box--choice p {
+  margin-bottom: 30px;
+}
+.plan__box--choice .btn-yes {
+  background: #f33;
+  border: 1px solid #ee1818;
+  min-width: 250px;
+  margin-bottom: 15px;
+}
+.plan__box--choice .btn-no {
+  background: #ECECEC;
+  border: 1px solid #C0C0C0;
+  color: #000;
+  min-width: 250px;
+}
+.plan__box--choice .btn-no:hover {
+  background: #C0C0C0;
+}
+.plan__box--flat {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0px;
+  border: none;
 }
 .plan__box--title {
   text-align: center;
@@ -1235,7 +1290,7 @@
   background: #fff;
 }
 
-                  /*avoid issue with stacking context and 
+/*avoid issue with stacking context and 
 be sure the cells are on the top of the pseudo element*/
 .col-cell:first-child,
 .col-cell:last-child {
@@ -1335,7 +1390,7 @@ be sure the cells are on the top of the pseudo element*/
 
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -1348,7 +1403,7 @@ be sure the cells are on the top of the pseudo element*/
 
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
-  content: '';
+  content: "";
   width: 12px;
   height: 12px;
   background: #f33;
@@ -1380,7 +1435,7 @@ be sure the cells are on the top of the pseudo element*/
       flex-wrap: wrap;
 }
 
-.row.is-flex > [class*='col-'] {
+.row.is-flex > [class*="col-"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1390,7 +1445,7 @@ be sure the cells are on the top of the pseudo element*/
           flex-direction: column;
 }
 
-                  /*
+/*
 * And with max cross-browser enabled.
 * Nobody should ever write this by hand. 
 * Use a preprocesser with autoprefixing.
@@ -1403,7 +1458,7 @@ be sure the cells are on the top of the pseudo element*/
   flex-wrap: wrap;
 }
 
-.row.is-flex > [class*='col-'] {
+.row.is-flex > [class*="col-"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1411,6 +1466,49 @@ be sure the cells are on the top of the pseudo element*/
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.modal.fade.in .lab-modal-body {
+  bottom: 0;
+  opacity: 1;
+  z-index: 5000;
+}
+
+.lab-modal-body h1 {
+  font-size: 4rem;
+}
+
+.lab-modal-body p {
+  line-height: 1.62;
+  font-weight: 300;
+  font-size: 1.62rem;
+  color: #666;
+}
+
+.lab-modal-body {
+  position: relative;
+  bottom: -250px;
+  margin: 150px auto 0;
+  height: auto;
+  border: 0px solid #BEBEBE;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
+  transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
+}
+
+.close {
+  margin-top: -8px;
+  margin-right: 13px;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+.popup-button {
+  margin-top: 70px;
+}
+
+/* Exit Screen */
+.emp__exitScreen {
+  display: none;
 }
 
 /*# sourceMappingURL=emp.css.map */
