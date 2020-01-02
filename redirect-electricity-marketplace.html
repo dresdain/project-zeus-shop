@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DBS iBanking</title>
+
+<script>
+
+//sample url to pass
+//https://www.dbs.com.sg/personal/redirect/redirect-electricity-marketplace.html?FROM_IB=TRUE&PWEB=TRUE&SERVICE_ID=000000000000651&pid=sg-dbs-pweb-marketplace-searchpackage-electricity-marketplace-btnlogintodigibank&nationality=nationality_singaporean&current_state=state_living_in&dwelling_type=hdb_2_room&selected_package=package_fixed&preference=preference_none&retailer_id=bestelectricity&retailer_name=Best%20Electricity%20Supply&retailer_package_id=bestfixed6m&plan_name=Best%20Home%20Fixed%206%20Months&plan_price=Save%20up%20to%20%24233%20annually&package_more_details=<ul><li>6%20months%20contract<%2Fli><li>No%20transmission%20loss%20charges<%2Fli><li>Enjoy%20same%20SP%20billing%20and%20payment%20mode<%2Fli><li>T%26Cs%20apply<%2Fli><%2Ful>&plan_selling_point=<ul><li>%240.2100%2FkWh%20(w%20gst)<%2Fli><li>Enjoy%201%25%20cash%20rebate%20with%20POSB%20Everyday%20Card<%2Fli><%2Ful>&rcp_support=N&giro_flag=Y
+
+function submitRedirect() {
+   document.redirect.SERVICE_ID.value = getParameterByName("SERVICE_ID");
+   document.redirect.nationality.value = getParameterByName("nationality");
+   document.redirect.current_state.value = getParameterByName("current_state");
+   document.redirect.dwelling_type.value = getParameterByName("dwelling_type");
+   document.redirect.selected_package.value = getParameterByName("selected_package");
+   document.redirect.preference.value = getParameterByName("preference");
+   document.redirect.retailer_id.value = getParameterByName("retailer_id");
+   document.redirect.retailer_name.value = getParameterByName("retailer_name");
+   document.redirect.retailer_package_id.value = getParameterByName("retailer_package_id");
+   document.redirect.plan_name.value = getParameterByName("plan_name");
+   document.redirect.plan_price.value = getParameterByName("plan_price");
+   document.redirect.package_more_details.value = getParameterByName("package_more_details");
+   document.redirect.plan_selling_point.value = getParameterByName("plan_selling_point");
+   document.redirect.rcp_support.value = getParameterByName("rcp_support");
+   document.redirect.giro_flag.value = getParameterByName("giro_flag");
+   
+   document.redirect.action = "https://internet-banking.dbs.com.sg/IB/Welcome?pid="+getParameterByName("pid");
+   //document.redirect.action = "https://sib10.dbs.com/IB/Welcome?pid="+getParameterByName("pid");
+   //document.redirect.action = "https://sib9.dbs.com/IB/Welcome?pid="+getParameterByName("pid");
+   //document.redirect.action = "https://203.127.2.21:60443/PilotIB/Welcome?pid="+getParameterByName("pid");
+  
+    document.redirect.submit();
+}
+
+function getQueryVariable(variable) {
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split("=");
+      if (pair[0] == variable) {
+         return pair[1];
+      }
+   }
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+</script>
+
+
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"782484",ustr:"",originlat:"0",clientrtt:"288",ghostip:"184.28.218.180",ipv6:false,pct:"10",clientip:"182.18.217.53",requestid:"338a54a2",region:"28182",protocol:"h2",blver:14,akM:"a",akN:"ae",akTT:"O",akTX:"1",akTI:"338a54a2",ai:"493820",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    </head>
+
+<body  marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" bgcolor="#EEEEEE" onload="submitRedirect()">
+
+<form name="redirect" action="/" method="post"> 
+   <input type="hidden" name="FROM_IB" value="TRUE"/>
+   <input type="hidden" name="PWEB" value="TRUE"/>
+   <input type="hidden" name="DBS" value="TRUE"/>
+   <input type="hidden" name="SERVICE_ID" value=""/>
+   <input type="hidden" name="nationality" value=""/>
+   <input type="hidden" name="current_state" value=""/>
+   <input type="hidden" name="dwelling_type" value=""/>
+   <input type="hidden" name="selected_package" value=""/>
+   <input type="hidden" name="preference" value=""/>
+   <input type="hidden" name="retailer_id" value=""/>
+   <input type="hidden" name="retailer_name" value=""/>
+   <input type="hidden" name="retailer_package_id" value=""/>
+   <input type="hidden" name="plan_name" value=""/>
+   <input type="hidden" name="plan_price" value=""/>
+   <input type="hidden" name="package_more_details" value=""/>
+   <input type="hidden" name="plan_selling_point" value=""/>
+   <input type="hidden" name="rcp_support" value=""/>
+   <input type="hidden" name="giro_flag" value=""/>
+</form>        
+ 
+</body>
+
+<script src="/iwov-resources/scripts/s_code.js"  language="JavaScript"></script>
+
+<script language="JavaScript">
+<!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+s.pageName=""
+s.server=""
+s.channel=""
+s.pageType=""
+s.prop1=""
+s.prop2=""
+s.prop3=""
+s.prop4=""
+s.prop5=""
+/* Conversion Variables */
+s.campaign=""
+s.state=""
+s.zip=""
+s.events=""
+s.products=""
+s.purchaseID=""
+s.eVar1=""
+s.eVar2=""
+s.eVar3=""
+s.eVar4=""
+s.eVar5=""
+/* Hierarchy Variables */
+s.hier1=""
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//-->
+</script>
+<script language="JavaScript">
+<!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//-->
+</script>
+
+
+<noscript> <a href="http://www.omniture.com" title="Web Analytics"><img src="http://dbs.112.2o7.net/b/ss/dbswebsitedev/1/H.13--NS/0" height="1" width="1" border="0" alt="" /></a> </noscript>
+
+</html>
+

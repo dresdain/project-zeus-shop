@@ -99,3 +99,6 @@ Thumbs.db
 !.gitignore
 !.editorconfig
 !.phpcs.xml.dist
+iwov-resources/.DS_Store
+iwov-resources/flp/.DS_Store
+iwov-resources/media/images/.DS_Store
