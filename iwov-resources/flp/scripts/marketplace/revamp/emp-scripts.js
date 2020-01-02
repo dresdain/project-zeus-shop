@@ -13,6 +13,8 @@ $(function(){
         }); 
     });
 
+    /* Hidden  */
+    $('.filter-type-3').hide();
     
 
 
@@ -82,6 +84,9 @@ $('.filter-type-2').on('change', function () {
     }, 500);
 });
  
+$('#filter-type-3').on('click', function(){
+    alert('@TODO pending');
+});
 
 $('#filter-type-1').on('change', function () {
      
@@ -93,6 +98,7 @@ $('#filter-type-1').on('change', function () {
             console.log('Showing: ' + filter1_val);
             element = document.getElementById('filter-type-2'); 
             jplist.resetControl(element);
+            $('.filter-type-3').hide();
             setTimeout(function(){
                 jplist.refresh();
                 $('.filter-type-2').hide(); 
@@ -102,20 +108,21 @@ $('#filter-type-1').on('change', function () {
             break;
         case 'rate-type': 
             console.log('Showing: ' + filter1_val);
-            
+            $('.filter-type-3').hide();
             setTimeout(function(){
                 jplist.refresh();
                 $('.filter-type-2').show(); 
             }, 200);
             reflectPageCount();
             break;
-        case 'retailers': 
+        case 'retailers':  
             console.log('Showing: ' + filter1_val);
             element = document.getElementById('filter-type-2'); 
             jplist.resetControl(element);
             setTimeout(function(){
                 jplist.refresh();
                 $('.filter-type-2').hide(); 
+                $('.filter-type-3').show();
             }, 200);
             reflectPageCount();
             break;
