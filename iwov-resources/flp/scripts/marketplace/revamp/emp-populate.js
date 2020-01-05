@@ -3,7 +3,7 @@ var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
 
 function populatePlans(minBill, maxBill, action) {
 
-    $.getJSON(origin__DIR + script__DIR + 'emp-p2.json', function (data) {
+    $.getJSON(script__DIR + 'emp-p2.json', function (data) {
         var counter = 0;
         if (action == 'refresh') {
             jplist.refresh();
@@ -129,7 +129,7 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div>';
 
     /* Apply Now */
-    var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace.html?';
+    var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace-revamp.html?';
     var existingDBS = {
             FROM_IB: true,
             PWEB: true,
@@ -159,7 +159,7 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected '+item.plan_name +' price plan from '+item.retailer_name +'" data-btn-yes="'+existingDBS__prepend+$.param(existingDBS)+'" data-btn-no="'+newDBS__prepend+$.param(newDBS)+'">Apply now</a></div>';
 
     /* View Factsheet */
-    html += '<div class="plan__details--card"><a href="#" class="btn btn-primary btn-block btn-outline">View factsheet</a></div>';
+    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="btn btn-primary btn-block btn-outline">View factsheet</a></div>';
 
 
     /* End Plan Details */
