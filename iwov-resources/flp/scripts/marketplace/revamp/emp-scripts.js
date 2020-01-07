@@ -13,9 +13,55 @@ $(function () {
         });
     });
 
-    if(getQueryVariable('overlay') == 'true'){
-        $('#planForm').submit();
+    if(getQueryVariable('external') == 'true'){
+         /* 
+            external == true
+            monthly=50
+            living=hdb_3_room
+            rate (filter type) = all | discounted | fixed
+            retail = all | bestelectricity,...
+            ecofriendly = yes 
+        */
+       
         editPlansModal.modal('show');
+
+        $('#filter-type-1').val('showEcoFriendly').change();
+
+        setTimeout(function(){
+            $('#planForm').submit();
+            jplist.refresh();
+        }, 500);
+ 
+
+        $('#planForm__dropdown .range-cost option').each(function(i,k){ 
+           if (getQueryVariable('monthly') != NaN 
+                && getQueryVariable('monthly') != undefined
+                && $(this).val() != '') {
+                var qry__monthlyBill = parseInt(getQueryVariable('monthly')),
+                    min_range = $(this).data('from'),
+                    max_range = $(this).data('to');
+                var result = (qry__monthlyBill >= min_range && qry__monthlyBill <= max_range ? true : false);
+                console.log(qry__monthlyBill, min_range, max_range, result);
+                if(result === true){
+                    $('.range-cost').val($(this).val())
+                }  
+           }else if(isNaN(getQueryVariable('monthly'))){
+               console.warn('Warning: query param: "monthly=' + getQueryVariable('monthly') + '" is not acceptable.');
+           } 
+        });
+
+        var acceptedHomes = [];
+        $('#planForm__dropdown .place-live option').each(function(i, k){
+            if($(this).val() != '' ){
+                acceptedHomes.push($(this).val());
+            } 
+        }); 
+        if(getQueryVariable('living') != undefined && $.inArray(getQueryVariable('living'), acceptedHomes)){
+            console.log(true);
+            
+        }
+        console.log(acceptedHomes);
+        
     }
 
     /* Hidden  */
@@ -26,6 +72,7 @@ $(function () {
          let url = event.target.href
     });
 
+   
 
 });
 /* 
@@ -51,7 +98,7 @@ $(function () {
 $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function (e) {
     e.preventDefault();
 
-    $('#emp__editPlans__overlay').modal('hide');
+    // $('#emp__editPlans__overlay').modal('hide');
 
     var maxBill = $('.range-cost', this).find(':selected').attr('data-to');
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
