@@ -79,7 +79,7 @@ function createDOM__savingsInfo(item, options) {
     // console.log(item, options);
     var html = '';
     /* Start Savings Info  */
-    html += '<div class="savings__info">';
+    html += '<div class="savings__info"><span class="hidden retailer-id retailer--'+item.retailer_id+'">'+item.retailer_id+'</span>';
     /* Logo */
     html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <img class="savings__info--logo" src="'+ item.retailer_logo_path +'" alt="' + item.retailer_id + '">';
 
@@ -159,7 +159,7 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected '+item.plan_name +' price plan from '+item.retailer_name +'" data-btn-yes="'+existingDBS__prepend+$.param(existingDBS)+'" data-btn-no="'+newDBS__prepend+$.param(newDBS)+'">Apply now</a></div>';
 
     /* View Factsheet */
-    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="btn btn-primary btn-block btn-outline">View factsheet</a></div>';
+    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="btn btn-primary btn-block btn-outline" target="_blank">View factsheet</a></div>';
 
 
     /* End Plan Details */

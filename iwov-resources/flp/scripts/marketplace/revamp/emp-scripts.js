@@ -13,10 +13,18 @@ $(function () {
         });
     });
 
+    if(getQueryVariable('overlay') == 'true'){
+        $('#planForm').submit();
+        editPlansModal.modal('show');
+    }
+
     /* Hidden  */
     $('.filter-type-3').hide();
 
-
+    $('.filter-type-3 .dropdown .dropdown-menu > div').on('click', function (event) { 
+        event.stopPropagation()
+         let url = event.target.href
+    });
 
 
 });
@@ -52,11 +60,13 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
     $('.place-live-copy').html(placeLive);
     // Check if user is submitting using the dropdownForm version 
-    if ($(this).attr('id') == 'planForm__dropdown' || $(this).attr('id') == 'planForm__dropdown2') {
-        $('#emp__editPlans__overlay').modal('hide');
+    if($(this).attr('id') == 'planForm__dropdown2'){
         setTimeout(function(){
             $('#filterCollapse').trigger('click');
         }, 200);
+    }
+    if ($(this).attr('id') == 'planForm__dropdown' || $(this).attr('id') == 'planForm__dropdown2') {
+        $('#emp__editPlans__overlay').modal('hide'); 
         populatePlans(0, maxBill, 'refresh');
     } else {
         populatePlans(0, maxBill, 'init');
@@ -147,6 +157,9 @@ $('#filter-type-1').on('change', function () {
 
 });
 
+$('#action--clear-all').on('click', function(){
+    $('.filter-type-3--dummy-cb:not(:checked)').trigger('click');
+});
 
 
 $('.sort-type-1').on('change', function () {
@@ -406,3 +419,14 @@ $.fn.isInViewport = function () {
 
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
+
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+     var pair = vars[i].split("=");
+     if (pair[0] == variable) {
+      return pair[1];
+     }
+    }
+   }

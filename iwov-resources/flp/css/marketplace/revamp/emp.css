@@ -180,13 +180,13 @@
   margin-bottom: 15px;
 }
 .plan__box--choice .btn-no {
-  background: #ECECEC;
-  border: 1px solid #C0C0C0;
+  background: #ececec;
+  border: 1px solid #c0c0c0;
   color: #000;
   min-width: 250px;
 }
 .plan__box--choice .btn-no:hover {
-  background: #C0C0C0;
+  background: #c0c0c0;
 }
 .plan__box--flat {
   -webkit-box-shadow: none;
@@ -222,6 +222,11 @@
   font-size: 14px;
   line-height: 21px;
   margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .plan__box--form .form-label {
+    margin-top: 10px;
+  }
 }
 .plan__box--form button[type="submit"] {
   min-width: 200px;
@@ -550,6 +555,16 @@
 .emp__menu__top--body > img {
   margin-right: 20px;
 }
+@media (max-width: 768px) {
+  .emp__menu__top--body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    padding: 25px 10px;
+  }
+}
 .emp__menu__top--copy p {
   margin-top: 15px;
   color: #656565;
@@ -568,6 +583,7 @@
 }
 .emp__menu__top--megadropdown .form-label {
   margin-bottom: 15px;
+  margin-top: 10px;
 }
 .emp__menu__top--megadropdown .button-group {
   padding-top: 30px;
@@ -1502,8 +1518,10 @@ be sure the cells are on the top of the pseudo element*/
   position: relative;
   bottom: -250px;
   margin: 150px auto 0;
+  margin-left: 10px;
+  margin-right: 10px;
   height: auto;
-  border: 0px solid #BEBEBE;
+  border: 0px solid #bebebe;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
   transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
@@ -1522,6 +1540,57 @@ be sure the cells are on the top of the pseudo element*/
 /* Exit Screen */
 .emp__exitScreen {
   display: none;
+}
+
+.filter-type-3 {
+  position: relative;
+}
+.filter-type-3--trigger, .filter-type-3--trigger > .dropdown-trigger {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+.filter-type-3--trigger:hover, .filter-type-3--trigger > .dropdown-trigger:hover {
+  cursor: pointer;
+}
+.filter-type-3--placeholder {
+  pointer-events: none;
+}
+.filter-type-3 .dropdown-menu {
+  background: #ffffff;
+  border: 1px solid #c0c0c0;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  min-width: 448px;
+  padding: 30px;
+}
+
+.action--bulk {
+  margin-bottom: 15px;
+}
+.action--bulk a {
+  color: #7c7c7c;
+  font-family: "Open Sans";
+  font-size: 15px;
+  line-height: 21px;
+  margin-right: 15px;
+}
+.action--individual {
+  color: #2e2e2e;
+  font-family: "Open Sans";
+  font-size: 16px;
+  line-height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.action--individual--col {
+  width: 50%;
+}
+.action--individual .checkbox {
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=emp.css.map */

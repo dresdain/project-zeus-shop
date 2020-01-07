@@ -114,7 +114,7 @@
 
 /* SECTION .emp__modal PARENT class */
 .emp__modal {
-  .modal-content { 
+  .modal-content {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     border: 1px solid #dde3e7;
@@ -143,11 +143,11 @@
   }
 }
 
-#illustrationPlan{
-  .modal-header{
+#illustrationPlan {
+  .modal-header {
     margin-top: 20px;
   }
-  .modal-body{
+  .modal-body {
     margin-bottom: 20px;
   }
 }
@@ -162,7 +162,7 @@
   background-color: #ffffff;
   padding: 40px 70px;
   margin-bottom: 72px;
-  .emp__modal &{
+  .emp__modal & {
     box-shadow: none;
     border-radius: 0px;
     border: none;
@@ -173,31 +173,31 @@
     padding: 20px 15px;
     margin-bottom: 32px;
   }
-  &--choice{
-    p{
+  &--choice {
+    p {
       margin-bottom: 30px;
     }
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    .btn-yes{
+    .btn-yes {
       background: #f33;
       border: 1px solid #ee1818;
       min-width: 250px;
       margin-bottom: 15px;
     }
-    .btn-no{
-      background: #ECECEC;
-      border: 1px solid #C0C0C0;
-      color: #000; 
+    .btn-no {
+      background: #ececec;
+      border: 1px solid #c0c0c0;
+      color: #000;
       min-width: 250px;
-      &:hover{
-        background: #C0C0C0;
+      &:hover {
+        background: #c0c0c0;
       }
     }
   }
-  &--flat{
+  &--flat {
     box-shadow: none;
     border-radius: 0px;
     border: none;
@@ -227,6 +227,9 @@
       font-size: 14px;
       line-height: 21px;
       margin-bottom: 10px;
+      @media (max-width: 768px) {
+        margin-top: 10px;
+      }
     }
     button[type="submit"] {
       min-width: 200px;
@@ -335,7 +338,7 @@
     img {
       transition: 0.3s ease-in-out;
       filter: grayscale(100%);
-      @media (max-width: 768px){
+      @media (max-width: 768px) {
         filter: grayscale(0%);
       }
     }
@@ -351,7 +354,7 @@
     min-height: 150px;
     &.flushed--left {
       justify-content: flex-start;
-      @media (max-width: 990px){
+      @media (max-width: 990px) {
         justify-content: center;
       }
     }
@@ -482,6 +485,11 @@
     > img {
       margin-right: 20px;
     }
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 25px 10px;
+    }
   }
   &--copy {
     p {
@@ -502,6 +510,7 @@
     }
     .form-label {
       margin-bottom: 15px;
+      margin-top: 10px;
     }
     .button-group {
       padding-top: 30px;
@@ -960,7 +969,6 @@
       pointer-events: none;
       animation: flashyflashy 2s infinite;
     }
-    
   }
   .footnote {
     color: #2e2e2e;
@@ -1285,10 +1293,9 @@ be sure the cells are on the top of the pseudo element*/
   flex-direction: column;
 }
 
-
 .modal.fade.in .lab-modal-body {
   bottom: 0;
-  opacity: 1; 
+  opacity: 1;
   z-index: 5000;
 }
 
@@ -1308,11 +1315,13 @@ be sure the cells are on the top of the pseudo element*/
   position: relative;
   bottom: -250px;
   margin: 150px auto 0;
+  margin-left: 10px;
+  margin-right: 10px;
   // padding: 40px;
   // max-width: 60%;
   height: auto;
   // background-color: rgb(248, 250, 247);
-  border: 0px solid #BEBEBE;
+  border: 0px solid #bebebe;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
   -moz-transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
@@ -1330,11 +1339,65 @@ be sure the cells are on the top of the pseudo element*/
   margin-top: 70px;
 }
 
-#filter-type-3{
+#filter-type-3 {
   // pointer-events: none;
 }
 
 /* Exit Screen */
-.emp__exitScreen{
+.emp__exitScreen {
   display: none;
+}
+
+.filter-type-3 {
+  position: relative;
+  &--trigger,
+  &--trigger > .dropdown-trigger {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &--placeholder {
+    pointer-events: none;
+  }
+  .dropdown-menu {
+    background: #ffffff;
+    border: 1px solid #c0c0c0;
+    box-shadow: none !important;
+    min-width: 448px;
+    padding: 30px;
+  }
+}
+
+
+
+.action{
+  &--bulk{
+    a{
+      color: #7c7c7c;
+      font-family: "Open Sans";
+      font-size: 15px;
+      line-height: 21px;
+      margin-right: 15px;
+    }
+    margin-bottom: 15px;
+  }
+  &--individual{
+    color: #2e2e2e;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    &--col{
+      width: 50%;
+    }
+    .checkbox{
+      margin-bottom: 10px;
+    }
+  }
+
 }
