@@ -1,21 +1,21 @@
 var showPlanDOM__state = false;
-$(function(){
+$(function () {
     /* MODAL triggers */
     var illustrationTrigger = $('#illustrationFromEditPlans'),
         illustrationClose = $('#illustrationPlan .close'),
         editPlansModal = $('#emp__editPlans__overlay');
 
-    illustrationTrigger.on('click', function(){
+    illustrationTrigger.on('click', function () {
         illustrationClose.addClass('resumeEditPlans');
         editPlansModal.modal('hide');
-        $('.resumeEditPlans').on('click', function(){
+        $('.resumeEditPlans').on('click', function () {
             editPlansModal.modal('show');
-        }); 
+        });
     });
 
     /* Hidden  */
     $('.filter-type-3').hide();
-    
+
 
 
 
@@ -25,22 +25,22 @@ $(function(){
 *  Init mobile slick
  */
 
- $(function(){
+$(function () {
     jplist.init();
-    
- });
-$('.partners__box--slick').slick({
-    infinite: true,
-    dots: true,
-    slidesToShow: 1,
-    slidesToScroll: 1
+    $('.partners__box--slick').slick({
+        infinite: true,
+        dots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
 });
+
 
 /* 
 *   STUB handle #formPlan submissions
 *
 */
-$('#planForm, #planForm__dropdown').on('submit', function (e) {
+$('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function (e) {
     e.preventDefault();
 
     $('#emp__editPlans__overlay').modal('hide');
@@ -52,8 +52,11 @@ $('#planForm, #planForm__dropdown').on('submit', function (e) {
     $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
     $('.place-live-copy').html(placeLive);
     // Check if user is submitting using the dropdownForm version 
-    if ($(this).attr('id') == 'planForm__dropdown') {
+    if ($(this).attr('id') == 'planForm__dropdown' || $(this).attr('id') == 'planForm__dropdown2') {
         $('#emp__editPlans__overlay').modal('hide');
+        setTimeout(function(){
+            $('#filterCollapse').trigger('click');
+        }, 200);
         populatePlans(0, maxBill, 'refresh');
     } else {
         populatePlans(0, maxBill, 'init');
@@ -68,60 +71,60 @@ $('#planForm, #planForm__dropdown').on('submit', function (e) {
 
 /* STUB copy handlers for choosing first filter */
 $('#planForm .place-live').on('change', function () {
-    $('#planForm__dropdown .place-live').val($(this).val());
+    $('#planForm__dropdown .place-live, #planForm__dropdown2 .place-live').val($(this).val());
 });
 $('#planForm .range-cost').on('change', function () {
-    $('#planForm__dropdown .range-cost').val($(this).val());
+    $('#planForm__dropdown .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
 });
 
 $('.filter-type-2').on('change', function () {
- 
+
     addToCompare();
-   
+
     $('#main-pagination [data-type="first"]').trigger('click');
     setTimeout(() => {
         reflectPageCount();
     }, 500);
 });
- 
-$('#filter-type-3').on('click', function(){
+
+$('#filter-type-3').on('click', function () {
     alert('@TODO pending');
 });
 
 $('#filter-type-1').on('change', function () {
-     
+
     var filter1_val = $(this).val();
-    
+
     /* Check if eco friendly */
     switch (filter1_val) {
-        case 'showEcoFriendly': 
+        case 'showEcoFriendly':
             console.log('Showing: ' + filter1_val);
-            element = document.getElementById('filter-type-2'); 
+            element = document.getElementById('filter-type-2');
             jplist.resetControl(element);
             $('.filter-type-3').hide();
-            setTimeout(function(){
+            setTimeout(function () {
                 jplist.refresh();
-                $('.filter-type-2').hide(); 
+                $('.filter-type-2').hide();
             }, 200);
-     
-            reflectPageCount();     
+
+            reflectPageCount();
             break;
-        case 'rate-type': 
+        case 'rate-type':
             console.log('Showing: ' + filter1_val);
             $('.filter-type-3').hide();
-            setTimeout(function(){
+            setTimeout(function () {
                 jplist.refresh();
-                $('.filter-type-2').show(); 
+                $('.filter-type-2').show();
             }, 200);
             reflectPageCount();
             break;
-        case 'retailers':  
+        case 'retailers':
             console.log('Showing: ' + filter1_val);
-            element = document.getElementById('filter-type-2'); 
+            element = document.getElementById('filter-type-2');
             jplist.resetControl(element);
-            setTimeout(function(){
+            setTimeout(function () {
                 jplist.refresh();
-                $('.filter-type-2').hide(); 
+                $('.filter-type-2').hide();
                 $('.filter-type-3').show();
             }, 200);
             reflectPageCount();
@@ -133,12 +136,12 @@ $('#filter-type-1').on('change', function () {
             // jplist.resetControls('#filter-type-2');
             break;
     }
-    
-    
-    
-     
-    setTimeout(function(){
-        
+
+
+
+
+    setTimeout(function () {
+
         addToCompare();
     }, 200);
 
@@ -183,42 +186,42 @@ function showPlanDOM(state) {
         $('.emp__results').fadeOut('1000');
     }
 }
- 
-function manageExitScreen(state){
+
+function manageExitScreen(state) {
     switch (state) {
         case "showLanding":
-            $('.emp__exitScreen, .emp__results').hide(); 
+            $('.emp__exitScreen, .emp__results').hide();
             $('.emp__landing').fadeIn('1000');
             break;
         case "showResults":
-            $('.emp__exitScreen, .emp__landing').hide(); 
+            $('.emp__exitScreen, .emp__landing').hide();
             $('.emp__results').fadeIn('1000');
             break;
         default:
-            $('.emp__landing, .emp__results').hide(); 
+            $('.emp__landing, .emp__results').hide();
             $('.emp__exitScreen').fadeIn('1000');
             break;
-    } 
+    }
 }
 
-function initExitScreens(){
+function initExitScreens() {
     $('.triggerApplyScreen').off();
-    $('.triggerApplyScreen').on('click', function(){
+    $('.triggerApplyScreen').on('click', function () {
         var dataExit = $(this);
-        $('#emp_redirect-yes').attr('href',dataExit.data('btn-yes'));
-        $('#emp_redirect-no').attr('href',dataExit.data('btn-no')); 
-        $('#emp_redirect-copy').text(dataExit.data('message')); 
+        $('#emp_redirect-yes').attr('href', dataExit.data('btn-yes'));
+        $('#emp_redirect-no').attr('href', dataExit.data('btn-no'));
+        $('#emp_redirect-copy').text(dataExit.data('message'));
         manageExitScreen('showExit');
 
         $('html, body').animate({
             scrollTop: $(".emp__exitScreen").offset().top - 200
         }, 500);
-        
+
     });
 }
 
-$(function(){
-    $('#exit_empExitScreen').on('click', function(){
+$(function () {
+    $('#exit_empExitScreen').on('click', function () {
         manageExitScreen('showResults');
     });
 });
@@ -230,20 +233,20 @@ var element = document.getElementById('main-pagination');
 //listen to the state event
 element.addEventListener('jplist.state', (e) => {
 
-    //the whole state object
-    console.log(e.jplistState);
+    // //the whole state object
+    // console.log(e.jplistState);
 
-    //jPList options provided by user
-    console.log(e.jplistState.options);
+    // //jPList options provided by user
+    // console.log(e.jplistState.options);
 
-    //current items number after filtering + pagination
-    console.log(e.jplistState.itemsNumber);
+    // //current items number after filtering + pagination
+    // console.log(e.jplistState.itemsNumber);
 
-    //control groups
-    console.log(e.jplistState.groups);
+    // //control groups
+    // console.log(e.jplistState.groups);
 
-    //the elements list after filtering + pagination
-    console.log(e.jplistState.filtered);
+    // //the elements list after filtering + pagination
+    // console.log(e.jplistState.filtered);
 
     initExitScreens();
 
@@ -382,7 +385,7 @@ function reflectPageCount() {
         $('.total-items').html(pageTotal);
     }, 100);
 
-    $('.pagination').on('click', function (e) { 
+    $('.pagination').on('click', function (e) {
         var pageRange = $('.pageRange').html(),
             pageTotal = $('.pageTotal').html();
         $('.current-items').html(pageRange);

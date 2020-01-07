@@ -332,12 +332,15 @@
     }
   }
   &--card {
-    > img {
+    img {
       transition: 0.3s ease-in-out;
       filter: grayscale(100%);
+      @media (max-width: 768px){
+        filter: grayscale(0%);
+      }
     }
     &:hover {
-      > img {
+      img {
         filter: grayscale(0%);
       }
     }
@@ -348,6 +351,9 @@
     min-height: 150px;
     &.flushed--left {
       justify-content: flex-start;
+      @media (max-width: 990px){
+        justify-content: center;
+      }
     }
   }
   &--footer {
