@@ -41,7 +41,7 @@ $(function () {
                     min_range = $(this).data('from'),
                     max_range = $(this).data('to');
                 var result = (qry__monthlyBill >= min_range && qry__monthlyBill <= max_range ? true : false);
-                console.log(qry__monthlyBill, min_range, max_range, result);
+                // console.log(qry__monthlyBill, min_range, max_range, result);
                 if (result === true) {
                     $('.range-cost').val($(this).val())
                 }
@@ -64,10 +64,30 @@ $(function () {
 
         /* STUB Check if ecofriendly */
         if (getQueryVariable('ecofriendly') != undefined && getQueryVariable('ecofriendly') == 'yes') {
-            $('#filter-type-1').val('showEcoFriendly').change();
-            
-             
+            $('#filter-type-1').val('showEcoFriendly').change(); 
+        }else if(getQueryVariable('ecofriendly') != undefined && getQueryVariable('ecofriendly') != 'yes'){
+            console.warn('Warning: query param: "ecofriendly=' + getQueryVariable('ecofriendly') + '" is not acceptable.');
         }
+
+        /* STUB Check Rate type filter */
+        if (getQueryVariable('rate') != undefined) {
+            $('#filter-type-1').val('rate-type').change(); 
+            switch (getQueryVariable('rate')) {
+                case 'all':
+                    $('.filter-type-2').val('all').change();
+                    break;
+                case 'fixed':
+                    $('.filter-type-2').val('fixed').change();
+                    break;
+                case 'discounted':
+                    $('.filter-type-2').val('discounted').change();
+                    break;
+                default:
+                    console.warn('Warning: query param: "rate=' + getQueryVariable('rate') + '" is not acceptable.');
+                    break;
+            }
+            
+        } 
 
         /* STUB Check retailer Parameter */
         var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower'];
@@ -97,6 +117,25 @@ $(function () {
             });
             console.log(confirmedRetailers); 
         }
+
+        if (getQueryVariable('sort') != undefined) { 
+            switch (getQueryVariable('sort')) {
+                case 'savings':
+                    $('#sort-type-1').val("0").change();
+                    break;
+                case 'contract':
+                    $('#sort-type-1').val("1").change();
+                    break;
+                case 'name':
+                    $('#sort-type-1').val("2").change();
+                    break;
+                default:
+                    console.warn('Warning: query param: "rate=' + getQueryVariable('rate') + '" is not acceptable.');
+                    break;
+            }
+            
+        }
+
         jplist.init();
     }
 
@@ -174,8 +213,18 @@ $('#planForm .range-cost').on('change', function () {
     $('#planForm__dropdown .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
 });
 
-$('.filter-type-2').on('change', function () {
-
+$('.filter-type-2').on('change', function () { 
+    switch ($(this).val()) {
+        case 'discounted':
+            $('#action--hidden--rb--discounted').trigger('click');
+            break;
+        case 'fixed':
+            $('#action--hidden--rb--fixed').trigger('click');
+            break;
+        default:
+            $('#action--hidden--rb--all').trigger('click');
+            break;
+    }
     addToCompare();
 
     $('#main-pagination [data-type="first"]').trigger('click');
@@ -184,9 +233,7 @@ $('.filter-type-2').on('change', function () {
     }, 500);
 });
 
-$('#filter-type-3').on('click', function () {
-    alert('@TODO pending');
-});
+
 
 $('#filter-type-1').on('change', function () {
 
@@ -195,8 +242,11 @@ $('#filter-type-1').on('change', function () {
     /* Check if eco friendly */
     switch (filter1_val) {
         case 'showEcoFriendly':
+            $('.filter-type-2').val('all').change();
             console.log('Showing: ' + filter1_val);
             resetRetailerCheckbox();
+            $('#action--hidden--cb--ecofriendly:not(:checked)').trigger('click');
+            /* Reset Other filters */
             element = document.getElementById('filter-type-2');
             jplist.resetControl(element);
             $('.filter-type-3').hide();
@@ -208,8 +258,10 @@ $('#filter-type-1').on('change', function () {
             reflectPageCount();
             break;
         case 'rate-type':
+            $('.filter-type-2').val('all').change();
             console.log('Showing: ' + filter1_val);
             resetRetailerCheckbox();
+            $('#action--hidden--cb--ecofriendly:checked').trigger('click');
             $('.filter-type-3').hide();
             setTimeout(function () {
                 jplist.refresh();
@@ -218,8 +270,10 @@ $('#filter-type-1').on('change', function () {
             reflectPageCount();
             break;
         case 'retailers':
+            $('.filter-type-2').val('all').change();
             console.log('Showing: ' + filter1_val);
             resetRetailerCheckbox();
+            $('#action--hidden--cb--ecofriendly:checked').trigger('click');
             element = document.getElementById('filter-type-2');
             jplist.resetControl(element);
             setTimeout(function () {
@@ -299,6 +353,20 @@ function resetRetailerCheckbox() {
 $('.sort-type-1').on('change', function () {
     reflectPageCount();
     addToCompare();
+
+    switch ($(this).val()) {
+        case "0":
+            $('#action--hidden--rb--sort-savings').trigger('click');
+            break;
+        case "1":
+            $('#action--hidden--rb--sort-duration').trigger('click');
+            break;
+        case "2":
+            $('#action--hidden--rb--sort-name').trigger('click');
+            break;
+        default:
+            break;
+    }
 
     $('#main-pagination [data-type="first"]').trigger('click');
 });
@@ -394,7 +462,9 @@ element.addEventListener('jplist.state', (e) => {
 
     // //the elements list after filtering + pagination
     // console.log(e.jplistState.filtered);
-
+    $('#filter-type-1').on('change', function(){
+        jplist.refresh('group-1', document.getElementById('filter-type-1'));
+    });
     initExitScreens();
 
 }, false);
