@@ -1,10 +1,8 @@
-var showPlanDOM__state = false;
-$(function () {
-    /* MODAL triggers */
+ /* 📦 Show illustration modal */
+var show__illustrationModal = function () {
     var illustrationTrigger = $('#illustrationFromEditPlans'),
         illustrationClose = $('#illustrationPlan .close'),
         editPlansModal = $('#emp__editPlans__overlay');
-
     illustrationTrigger.on('click', function () {
         illustrationClose.addClass('resumeEditPlans');
         editPlansModal.modal('hide');
@@ -12,173 +10,281 @@ $(function () {
             editPlansModal.modal('show');
         });
     });
+}
 
-    if (getQueryVariable('external') == 'true') {
-        /* 
-           external == true
-           monthly=50
-           living=hdb_3_room
-           rate (filter type) = all | discounted | fixed
-           retail = all | bestelectricity,...
-           ecofriendly = yes 
-       */
+/* 📦 Check ?monthly param */
+var validate__monthlyQuery = function (monthly) {
+    var totalResult = 0; 
+    $('#planForm__dropdown .range-cost option').each(function (i, k) {
+        if (monthly != NaN && monthly != undefined && $(this).val() != '') {
+            var qry__monthlyBill = parseInt(monthly), min_range = $(this).data('from'), max_range = $(this).data('to');
+            var result = (qry__monthlyBill >= min_range && qry__monthlyBill <= max_range ? true : false);
+            // console.log(qry__monthlyBill, min_range, max_range, result);
+            if (result === true) {
+                totalResult++;
+                $('.range-cost').val($(this).val())
+            }
+        } else if (isNaN(monthly)) {
+            console.warn('Warning: query param: "monthly=' + monthly + '" is not acceptable.');
+        }
+    });
+    if (totalResult <= 0) {
+        console.warn('Warning: query param: "monthly=' + monthly + '" is not within range.');
+    }
+}
 
+/* 📦 Check ?living param  */
+var validate__livingQuery = function (living) {
+    var acceptedHomes = [];
+    $('#planForm__dropdown .place-live option').each(function (i, k) {
+        if ($(this).val() != '') {
+            acceptedHomes.push($(this).val());
+        }
+    });
+    if (living != undefined && $.inArray(living, acceptedHomes) > -1) {
+        console.log(true);
+        $('.place-live').val(living)
+    } else {
+        console.warn('Warning: query param: "living=' + living + '" is not acceptable.');
+    }
+}
+
+/* 📦 Check ?ecofriendly param */
+var validate__ecofriendly = function (ecofriendly) {
+    if (ecofriendly != undefined && ecofriendly == 'yes') {
+        $('#filter-type-1').val('showEcoFriendly').change();
+    } else if (ecofriendly != undefined && ecofriendly != 'yes' && getQueryVariable('rate') == undefined && getQueryVariable('retailer') == undefined) {
+        console.warn('Warning: query param: "ecofriendly=' + ecofriendly + '" is not acceptable.');
+    }
+}
+
+/* 📦 Check ?rate param */
+var validate__rate = function (ratetype) {
+    if (ratetype != undefined) {
+        if (getQueryVariable('ecofriendly') != undefined) {
+            console.warn('Warning: query param: "ecofriendly=' + getQueryVariable('ecofriendly') + '" cannot be stacked with other query filter options (?rate, ?retailer).');
+        }
+        $('#filter-type-1').val('rate-type').change();
+        switch (ratetype) {
+            case 'all':
+                $('.filter-type-2').val('all').change();
+                break;
+            case 'fixed':
+                $('.filter-type-2').val('fixed').change();
+                break;
+            case 'discounted':
+                $('.filter-type-2').val('discounted').change();
+                break;
+            default:
+                console.warn('Warning: query param: "rate=' + ratetype + '" is not acceptable.');
+                break;
+        }
+    }
+}
+
+/* STUN 🔍 ?retailer */
+var validate__retailers = function (retailers) {
+    var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower'];
+    if (retailers != undefined) {
+        if (getQueryVariable('ecofriendly') != undefined) {
+            console.warn('Warning: query param: "ecofriendly=' + getQueryVariable('ecofriendly') + '" cannot be stacked with other query filter options (?rate, ?retailer).');
+        }
+        if (getQueryVariable('rate') != undefined) {
+            console.warn('Warning: query param: "rate=' + getQueryVariable('rate') + '" cannot be stacked with other query filter options (?ecofriendly, ?retailer).');
+        }
+        $('#filter-type-1').val('retailers').change();
+        var queryRetailers = retailers.split(',');
+        console.log(queryRetailers);
+
+        var confirmedRetailers = [];
+        $.each(queryRetailers, function (i, v) {
+            // console.log('confirmasd: ' + v); 
+            if ($.inArray(v, validRetailers) > -1) {
+                // console.log('valid: ' + $.inArray(v, validRetailers));
+                confirmedRetailers.push(v);
+            }
+        });
+        /* Confirm all retailers */
+        $.each(confirmedRetailers, function (i, v) {
+            $('.filter-type-3--dummy-cb:checked').trigger('click');
+
+            setTimeout(function () {
+                $('.filter-type-3--dummy-cb[value="' + v + '"]').trigger('click');
+                // console.log('confirmd' + v); 
+                $('#filter-type-3--apply').trigger('click');
+            }, 100);
+
+        });
+        console.log(confirmedRetailers);
+    }
+}
+
+/* 📦 Check ?sort param  */
+var validate__sortList = function(sortList){
+    if (getQueryVariable('sort') != undefined) {
+        switch (getQueryVariable('sort')) {
+            case 'savings':
+                $('#sort-type-1').val("0").change();
+                break;
+            case 'contract':
+                $('#sort-type-1').val("1").change();
+                break;
+            case 'name':
+                $('#sort-type-1').val("2").change();
+                break;
+            default:
+                console.warn('Warning: query param: "rate=' + getQueryVariable('rate') + '" is not acceptable.');
+                break;
+        }
+
+    }
+}
+/* 📦 Init ?external param  */
+var init__ExternalOverlay = function () {
+    show__illustrationModal();
+    if (getQueryVariable('external') != undefined && getQueryVariable('external') == 'true') {
+        var editPlansModal = $('#emp__editPlans__overlay');
         editPlansModal.modal('show');
-
-        // $('#filter-type-1').val('showEcoFriendly').change();
 
         setTimeout(function () {
             $('#planForm').submit();
             jplist.refresh();
-        }, 500);
+        }, 200);
 
+        validate__monthlyQuery(getQueryVariable('monthly'));
 
-        $('#planForm__dropdown .range-cost option').each(function (i, k) {
-            if (getQueryVariable('monthly') != NaN
-                && getQueryVariable('monthly') != undefined
-                && $(this).val() != '') {
-                var qry__monthlyBill = parseInt(getQueryVariable('monthly')),
-                    min_range = $(this).data('from'),
-                    max_range = $(this).data('to');
-                var result = (qry__monthlyBill >= min_range && qry__monthlyBill <= max_range ? true : false);
-                // console.log(qry__monthlyBill, min_range, max_range, result);
-                if (result === true) {
-                    $('.range-cost').val($(this).val())
-                }
-            } else if (isNaN(getQueryVariable('monthly'))) {
-                console.warn('Warning: query param: "monthly=' + getQueryVariable('monthly') + '" is not acceptable.');
-            }
-        });
+        validate__livingQuery(getQueryVariable('living'));
 
-        var acceptedHomes = [];
-        $('#planForm__dropdown .place-live option').each(function (i, k) {
-            if ($(this).val() != '') {
-                acceptedHomes.push($(this).val());
-            }
-        });
-        if (getQueryVariable('living') != undefined && $.inArray(getQueryVariable('living'), acceptedHomes) > -1) {
-            console.log(true);
-            $('.place-live').val(getQueryVariable('living'))
-        }
-        console.log(acceptedHomes);
+        validate__ecofriendly(getQueryVariable('ecofriendly'));
 
-        /* STUB Check if ecofriendly */
-        if (getQueryVariable('ecofriendly') != undefined && getQueryVariable('ecofriendly') == 'yes') {
-            $('#filter-type-1').val('showEcoFriendly').change(); 
-        }else if(getQueryVariable('ecofriendly') != undefined && getQueryVariable('ecofriendly') != 'yes'){
-            console.warn('Warning: query param: "ecofriendly=' + getQueryVariable('ecofriendly') + '" is not acceptable.');
-        }
+        validate__rate(getQueryVariable('rate'));
 
-        /* STUB Check Rate type filter */
-        if (getQueryVariable('rate') != undefined) {
-            $('#filter-type-1').val('rate-type').change(); 
-            switch (getQueryVariable('rate')) {
-                case 'all':
-                    $('.filter-type-2').val('all').change();
-                    break;
-                case 'fixed':
-                    $('.filter-type-2').val('fixed').change();
-                    break;
-                case 'discounted':
-                    $('.filter-type-2').val('discounted').change();
-                    break;
-                default:
-                    console.warn('Warning: query param: "rate=' + getQueryVariable('rate') + '" is not acceptable.');
-                    break;
-            }
-            
-        } 
-
-        /* STUB Check retailer Parameter */
-        var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower'];
-        if (getQueryVariable('retailer') != undefined) {
-            $('#filter-type-1').val('retailers').change();
-            var queryRetailers = getQueryVariable('retailer').split(',');
-            console.log(queryRetailers);
-            /* Check if all retailers are valid */
-            var confirmedRetailers = [];
-            $.each(queryRetailers, function (i, v) {
-                // console.log('confirmasd: ' + v); 
-                if ($.inArray(v, validRetailers) > -1) {
-                    // console.log('valid: ' + $.inArray(v, validRetailers));
-                    confirmedRetailers.push(v);
-                }
-            });
-            /* Confirm all retailers */
-            $.each(confirmedRetailers, function (i, v) {
-                $('.filter-type-3--dummy-cb:checked').trigger('click');
-
-                setTimeout(function () {
-                    $('.filter-type-3--dummy-cb[value="' + v + '"]').trigger('click');
-                    // console.log('confirmd' + v); 
-                    $('#filter-type-3--apply').trigger('click');
-                }, 100);
-
-            });
-            console.log(confirmedRetailers); 
-        }
-
-        if (getQueryVariable('sort') != undefined) { 
-            switch (getQueryVariable('sort')) {
-                case 'savings':
-                    $('#sort-type-1').val("0").change();
-                    break;
-                case 'contract':
-                    $('#sort-type-1').val("1").change();
-                    break;
-                case 'name':
-                    $('#sort-type-1').val("2").change();
-                    break;
-                default:
-                    console.warn('Warning: query param: "rate=' + getQueryVariable('rate') + '" is not acceptable.');
-                    break;
-            }
-            
-        }
-
+        validate__retailers(getQueryVariable('retailer')); 
         jplist.init();
     }
+}
+ 
+/* 📦 Show/Hide Functions */
+function showLandingDivs(state) {
+    if (state === true) {
+        $('.emp__landing').removeClass('kagebunshin');
+        $('.emp__landing ~ .group-tiles').show();
+    } else {
+        $('.emp__landing').addClass('kagebunshin');;
+        $('.emp__landing ~ .group-tiles').hide();
+    }
+}
+function showPlanDOM(state) {
+    if (state === true) {
+        $('.emp__results').fadeIn('1000');
+        $('.emp__loader').fadeIn('1000'); 
+        setTimeout(function () {
+            $('.group-tiles').addClass('kagebunshin');;
+        }, 200);
+    } else {
+        $('.emp__results').fadeOut('1000');
+    }
+}
+
+function manageExitScreen(state) {
+    switch (state) {
+        case "showLanding":
+            $('.emp__exitScreen, .emp__results').hide();
+            $('.emp__landing').fadeIn('1000');
+            break;
+        case "showResults":
+            $('.emp__exitScreen, .emp__landing').hide();
+            $('.emp__results').fadeIn('1000');
+            break;
+        default:
+            // Show Exit
+            $('.emp__landing, .emp__results').hide();
+            $('.emp__exitScreen').fadeIn('1000');
+            break;
+    }
+}
+
+/* 📦 Show Exit Screens */
+function initExitScreens() {
+    $('.triggerApplyScreen').off();
+    $('.triggerApplyScreen').on('click', function () {
+        var dataExit = $(this);
+        $('#emp_redirect-yes').attr('href', dataExit.data('btn-yes'));
+        $('#emp_redirect-no').attr('href', dataExit.data('btn-no'));
+        $('#emp_redirect-copy').text(dataExit.data('message'));
+        manageExitScreen('showExit');
+
+        $('html, body').animate({
+            scrollTop: $(".emp__exitScreen").offset().top - 200
+        }, 500);
+
+    });
+}
+
+ 
+/* 🖥  Reflect Other Forms */
+$('#planForm .place-live').on('change', function () {
+    $('#planForm__dropdown .place-live, #planForm__dropdown2 .place-live').val($(this).val());
+});
+$('#planForm .range-cost').on('change', function () {
+    $('#planForm__dropdown .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
+});
+
+/* 📦 Refresh Pagination */
+function reflectPageCount() {
+    setTimeout(function () {
+        var pageRange = $('.pageRange').html(),
+            pageTotal = $('.pageTotal').html();
+        $('.current-items').html(pageRange);
+        $('.total-items').html(pageTotal);
+    }, 100);
+
+    $('.pagination').on('click', function (e) {
+        var pageRange = $('.pageRange').html(),
+            pageTotal = $('.pageTotal').html();
+        $('.current-items').html(pageRange);
+        $('.total-items').html(pageTotal);
+        $('html, body').animate({
+            scrollTop: $(".emp__menu__filter--row").offset().top - 300
+        }, 0);
+    });
+}
+
+/* !!SECTION  */
+
+
+
+ 
+/* 🧠 EMP Init */
+var showPlanDOM__state = false;
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    init__ExternalOverlay();
 
     /* Hidden  */
     $('.filter-type-3').hide();
+    
 
     $('.filter-type-3 .dropdown .dropdown-menu > div').on('click', function (event) {
         event.stopPropagation()
         let url = event.target.href
     });
-
-
-
-});
-/* 
-*  slick.js
-*  Init mobile slick
- */
-
-$(function () {
-    if(getQueryVariable('external') != undefined && getQueryVariable('external') == 'true'){
-        
-    }else{
+    if (getQueryVariable('external') == undefined) {
         jplist.init();
-    }
+    } 
+    /* Slick.js */
     $('.partners__box--slick').slick({
         infinite: true,
         dots: true,
         slidesToShow: 1,
         slidesToScroll: 1
     });
-});
+}); 
+ 
 
-
-/* 
-*   STUB handle #formPlan submissions
-*
-*/
+/* 🖥  View Plans  */
 $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function (e) {
-    e.preventDefault();
-
-    // $('#emp__editPlans__overlay').modal('hide');
-
+    e.preventDefault(); 
     var maxBill = $('.range-cost', this).find(':selected').attr('data-to');
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
     var placeLive = $('.place-live', this).find(':selected').attr('data-title');
@@ -205,15 +311,9 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
 });
 
 
-/* STUB copy handlers for choosing first filter */
-$('#planForm .place-live').on('change', function () {
-    $('#planForm__dropdown .place-live, #planForm__dropdown2 .place-live').val($(this).val());
-});
-$('#planForm .range-cost').on('change', function () {
-    $('#planForm__dropdown .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
-});
 
-$('.filter-type-2').on('change', function () { 
+
+$('.filter-type-2').on('change', function () {
     switch ($(this).val()) {
         case 'discounted':
             $('#action--hidden--rb--discounted').trigger('click');
@@ -379,61 +479,9 @@ $('#hidePlans').on('click', function (e) {
 
 
 
-/* STUB show/hide functions */
-function showLandingDivs(state) {
-    if (state === true) {
-        $('.emp__landing').removeClass('kagebunshin');
-        $('.emp__landing ~ .group-tiles').show();
-    } else {
-        $('.emp__landing').addClass('kagebunshin');;
-        $('.emp__landing ~ .group-tiles').hide();
-    }
-}
-function showPlanDOM(state) {
-    if (state === true) {
-        $('.emp__results').fadeIn('1000');
-        $('.emp__loader').fadeIn('1000');
 
-        setTimeout(function () {
-            $('.group-tiles').addClass('kagebunshin');;
-        }, 200);
-    } else {
-        $('.emp__results').fadeOut('1000');
-    }
-}
 
-function manageExitScreen(state) {
-    switch (state) {
-        case "showLanding":
-            $('.emp__exitScreen, .emp__results').hide();
-            $('.emp__landing').fadeIn('1000');
-            break;
-        case "showResults":
-            $('.emp__exitScreen, .emp__landing').hide();
-            $('.emp__results').fadeIn('1000');
-            break;
-        default:
-            $('.emp__landing, .emp__results').hide();
-            $('.emp__exitScreen').fadeIn('1000');
-            break;
-    }
-}
 
-function initExitScreens() {
-    $('.triggerApplyScreen').off();
-    $('.triggerApplyScreen').on('click', function () {
-        var dataExit = $(this);
-        $('#emp_redirect-yes').attr('href', dataExit.data('btn-yes'));
-        $('#emp_redirect-no').attr('href', dataExit.data('btn-no'));
-        $('#emp_redirect-copy').text(dataExit.data('message'));
-        manageExitScreen('showExit');
-
-        $('html, body').animate({
-            scrollTop: $(".emp__exitScreen").offset().top - 200
-        }, 500);
-
-    });
-}
 
 $(function () {
     $('#exit_empExitScreen').on('click', function () {
@@ -442,11 +490,12 @@ $(function () {
 });
 
 
+/* STUB jpList Change listener */
 //get a jPList control element
-var element = document.getElementById('main-pagination');
+var jpListElements = document.getElementById('main-pagination');
 
 //listen to the state event
-element.addEventListener('jplist.state', (e) => {
+jpListElements.addEventListener('jplist.state', (e) => {
 
     // //the whole state object
     // console.log(e.jplistState);
@@ -462,7 +511,7 @@ element.addEventListener('jplist.state', (e) => {
 
     // //the elements list after filtering + pagination
     // console.log(e.jplistState.filtered);
-    $('#filter-type-1').on('change', function(){
+    $('#filter-type-1').on('change', function () {
         jplist.refresh('group-1', document.getElementById('filter-type-1'));
     });
     initExitScreens();
@@ -470,8 +519,7 @@ element.addEventListener('jplist.state', (e) => {
 }, false);
 
 
-/* STUB addToCompare Cart 
-    TODO to be refactored */
+/* REVIEW Comparison Feature*/
 var compareCounter = 0,
     compareItemsArray = [];
 function addToCompare() {
@@ -538,21 +586,10 @@ function addToCompare() {
     });
 }
 
+ 
 
 
-/* STUB onLoad */
-$(window).on('load', function () {
-    // $.support.transition = false;
-    //Ensures all script must be loaded before submitting
-    $('#planForm button[type="submit"]').removeAttr('disabled');
-});
-
-/* STUB onReady */
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-});
-
-/* STUB onScroll showHide top filter */
+/* 🖥  Scroll Events */
 $(window).scroll(function () {
     if ($(window).width() > 768) {
         if ($(window).scrollTop() > 434) {
@@ -575,6 +612,7 @@ $(window).scroll(function () {
     }
 });
 
+/* 🛠 showOnScrollMenu Helper */
 function showOnScrollMenu(state, target) {
     /* Sticky the following elements */
     target = ['.emp__menu__top', '.emp__recompareConfirmation', '.emp__loader'];
@@ -592,28 +630,9 @@ function showOnScrollMenu(state, target) {
         }
     });
 }
+ 
 
-/* STUB refresh */
-function reflectPageCount() {
-    setTimeout(function () {
-        var pageRange = $('.pageRange').html(),
-            pageTotal = $('.pageTotal').html();
-        $('.current-items').html(pageRange);
-        $('.total-items').html(pageTotal);
-    }, 100);
-
-    $('.pagination').on('click', function (e) {
-        var pageRange = $('.pageRange').html(),
-            pageTotal = $('.pageTotal').html();
-        $('.current-items').html(pageRange);
-        $('.total-items').html(pageTotal);
-        $('html, body').animate({
-            scrollTop: $(".emp__menu__filter--row").offset().top - 300
-        }, 0);
-    });
-}
-
-/* STUB isInViewPort */
+/* 🛠 isInViewPort Helper */ 
 $.fn.isInViewport = function () {
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
@@ -624,7 +643,8 @@ $.fn.isInViewport = function () {
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
-function getQueryVariable(variable) {
+/* 🛠  getQueryVariable Helper */
+function getQueryVariable(variable) { 
     var query = window.location.search.substring(1);
     var vars = query.split("&");
     for (var i = 0; i < vars.length; i++) {
@@ -634,3 +654,4 @@ function getQueryVariable(variable) {
         }
     }
 }
+/* !!SECTION  */

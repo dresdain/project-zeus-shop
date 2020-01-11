@@ -232,9 +232,6 @@
   min-width: 200px;
   margin-top: 32px;
 }
-.plan__box--form button[type="submit"]:hover {
-  cursor: wait;
-}
 .plan__box--footer {
   display: -webkit-box;
   display: -ms-flexbox;
