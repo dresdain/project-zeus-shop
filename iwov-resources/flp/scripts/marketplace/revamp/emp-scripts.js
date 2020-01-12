@@ -350,9 +350,10 @@ $('#filter-type-1').on('change', function () {
             /* Reset Other filters */
             element = document.getElementById('filter-type-2');
             jplist.resetControl(element);
+            $('#filter-type-3--apply').trigger('click');
             $('.filter-type-3').hide();
             setTimeout(function () {
-                jplist.refresh();
+                jplist.refresh(); 
                 $('.filter-type-2').hide();
             }, 200);
 
@@ -419,6 +420,7 @@ $('.filter-type-3--dummy-cb').on('click', function () {
 
 });
 
+/* 🖥 Trigger Retailer Filter */
 $('#filter-type-3--apply').on('click', function () {
     var cb__control = $('.filter-type-3--dummy-cb:checked').length;
     if (cb__control == 0) {
@@ -428,19 +430,26 @@ $('#filter-type-3--apply').on('click', function () {
         var placeholderTxt = '';
         $('.filter-type-3--dummy-cb:checked').each(function (i, k) {
             // console.log('data-path=".retailer--' + $(this).val() + '"');
-            var control = '[data-path=".retailer--' + $(this).val() + '"]';
+            var control = '.action--hidden--cb[value="' + $(this).val() + '"]';
             $(control + ':not(:checked)').trigger('click');
 
             placeholderTxt += $(this).parent().text() + ', ';
-
+            $('#planForm').submit();
+            reset__compareCheckbox();
         });
         if (cb__control == 8) {
             $('.filter-type-3--placeholder option').text('All Retailers');
         } else {
             $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
         }
+        
         reflectPageCount();
     }
+    $('.filter-type-3--trigger').removeClass('open');
+});
+
+$('#filter-type-3--apply').on('click', function () {
+    $('.filter-type-3--trigger').removeClass('open');
 });
 
 function resetRetailerCheckbox() {
@@ -548,7 +557,7 @@ var reset__compareCheckbox = function () {
 /* 📦 init__comparisonScreens */
 var init__comparisonScreens = function (parentCompare, parentRecompare) {
     var compareVarAmount = JSON.parse(sessionStorage.getItem("comparisonList")).length;
-    if (compareVarAmount >= 0) {
+    if (compareVarAmount > 0) {
         $(parentCompare).fadeIn('500');
         $(parentCompare + ' .compareAmount').text(compareVarAmount);
         $(parentCompare + ' .compareState')
@@ -559,6 +568,9 @@ var init__comparisonScreens = function (parentCompare, parentRecompare) {
         $(parentRecompare + ' .compareState')
             .text((compareVarAmount != 3 ? '(of 3)' : '(Max)'));
     } else {
+        $(parentRecompare + ' .compareAmount').text(compareVarAmount);
+        $(parentRecompare + ' .compareState')
+            .text((compareVarAmount != 3 ? '(of 3)' : '(Max)'));
         $('.emp__compareConfirmation').fadeOut();
     }
 }

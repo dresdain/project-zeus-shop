@@ -14,12 +14,19 @@ function populatePlans(minBill, maxBill, action) {
             $('.emp__results__box--list').empty();
             // $('.emp__results__box--list').append('<article data-jplist-control="no-results" data-group="group1" data-name="no-results">No Results Found</article>'); 
         });
+        var filterRetailers = [];
+        $('.action--hidden--cb').each(function(){
+            if($(this).is(":checked")){
+                filterRetailers.push($(this).val());
+            }
+        });
+        // console.log(filterRetailers);
+        
         data.forEach(function (item) {
             for (var i = 0; i <= (item.options.length - 1); i++) {
                 var dataDOM = '';
 
-                if (item.options[i].current_monthly_sp_bill_size == maxBill) {
-
+                if (item.options[i].current_monthly_sp_bill_size == maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) { 
                     var planID = 'plan_item--' + counter;
                     dataDOM += '<article data-jplist-item class="emp__results__box--card" id="' + planID + '">';
                     dataDOM += createDOM__savingsInfo(item, item.options[i]);
@@ -61,7 +68,7 @@ function createDOM__savingsInfo(item, options) {
     // console.log(item, options);
     var html = '';
     /* Start Savings Info  */
-    html += '<div class="savings__info"><span class="hidden retailer-id retailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
+    html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
     html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <img class="savings__info--logo" src="' + item.retailer_logo_path + '" alt="' + item.retailer_id + '">';
 
@@ -72,7 +79,7 @@ function createDOM__savingsInfo(item, options) {
     html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a></small>';
 
     /* Copy Body */
-    html += '<div class="body annual-savings">S' + options.total_annual_savings + '</div>';
+    html += '<div class="body annual-savings">S<span class="annual-savings-value">' + options.total_annual_savings + '</span></div>';
 
     /* Copy Footnote */
     html += '<small class="footnote">Save up to ' + options.total_monthly_savings + '/mth</small>';
@@ -93,7 +100,7 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details">';
 
     /* Contract Duration */
-    html += '<div class="plan__details--card"><div class="heading">Contract</div><div class="body contract-duration">' + item.contract_duration_months + ' month</div></div>';
+    html += '<div class="plan__details--card"><div class="heading">Contract</div><div class="body contract-duration"><span class="contract-duration-value">' + item.contract_duration_months + '</span> month</div></div>';
 
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
@@ -169,7 +176,7 @@ function createLink__ApplyNow(item, action) {
 function createDOM__comparePlans(item, options, planID) {
     var html = '';
     var comparisonDetails = {
-        'plan_id' : '#' + planID,
+        'plan_id': '#' + planID,
         'logo': item.retailer_logo_path,
         'annual_savings': options.total_annual_savings,
         'plan_name': item.plan_name + createDOM__greenEnergy(item.green_energy),
@@ -178,15 +185,15 @@ function createDOM__comparePlans(item, options, planID) {
         'applyNow_btn_no': createLink__ApplyNow(item, 'no'),
         'applyNow_message': 'You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name,
         'factsheet': item.retailier_factsheet_path,
-        'rate' : item.rate,
-        'rate_type' : (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed'),
-        'monthly_savings' : options.total_monthly_savings,
-        'contract_duration' : item.contract_duration_months + ' months',
-        'termination' : item.termination_fee,
-        'comparison_1' : item.comparison_1,
-        'comparison_2' : item.comparison_2,
-        'comparison_3' : item.comparison_3,
-        'promotion' : (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : '-')  
+        'rate': item.rate,
+        'rate_type': (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed'),
+        'monthly_savings': options.total_monthly_savings,
+        'contract_duration': item.contract_duration_months + ' months',
+        'termination': item.termination_fee,
+        'comparison_1': item.comparison_1,
+        'comparison_2': item.comparison_2,
+        'comparison_3': item.comparison_3,
+        'promotion': (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : '-')
     };
     /* Start Compare Plans */
     html += '<div class="compare__plans">';
@@ -194,12 +201,12 @@ function createDOM__comparePlans(item, options, planID) {
     /* Checkbox wrapper*/
     html += '<div class="checkbox"><label>';
 
-    html += '<input type="checkbox" data-id="'+'#' + planID+'" data-details=\'' + JSON.stringify(comparisonDetails) + '\' value="#' + planID + '"><span></span> Compare';
+    html += '<input type="checkbox" data-id="' + '#' + planID + '" data-details=\'' + JSON.stringify(comparisonDetails) + '\' value="#' + planID + '"><span></span> Compare';
 
     html += '</label></div>';
 
     /* End Compare Plans */
-    html += '</div>';   
+    html += '</div>';
 
     return html;
 }
@@ -214,14 +221,14 @@ function createDOM__greenEnergy(state) {
 
 
 /* 📦  Create DOM Comparison */
-function createDOM__comparisonPlans(comparisonList){
+function createDOM__comparisonPlans(comparisonList) {
     var comparisonList = JSON.parse(comparisonList);
     // console.log(comparisonList);
     $('.compareItems > div').removeClass('activeComparison');
     $.each(comparisonList, function (i, v) {
         i++;
         var parent = '#compareItem-' + i;
-        /*  */ 
+        /*  */
         $(parent).addClass('activeComparison');
 
         /* First Section */
@@ -236,53 +243,53 @@ function createDOM__comparisonPlans(comparisonList){
         // $(parent + ' .remove__comparison').removeData();
         $(parent + ' .remove__comparison').data('target', parent);
         $(parent + ' .remove__comparison').data('details', JSON.stringify(v));
-        $(parent + ' .remove__comparison').data('id', v.plan_id);
- 
+        $(parent + ' .remove__comparison').data('id', v.plan_id).attr('data-id', v.plan_id);
 
-        /* Mid Section */ 
-        $('.compareItems--col'+i+' .plan__details--card:nth-child(1) .body').html(v.plan_name);
-        $('.compareItems--col'+i+' .plan__details--card:nth-child(2) .body').html(v.rate);
-        $('.compareItems--col'+i+' .plan__details--card:nth-child(3) .body').html(v.rate_type);
-        $('.compareItems--col'+i+' .plan__details--card:nth-child(4) .body').html(v.monthly_savings);
-        $('.compareItems--col'+i+' .plan__details--card:nth-child(5) .body').html(v.contract_duration);
-        $('.compareItems--col'+i+' .plan__details--card:nth-child(6) .body').html(v.termination);
-        $('.compareItems--col'+i+' .plan__details--card:nth-child(7) .body').html(v.promotion);
+
+        /* Mid Section */
+        $('.compareItems--col' + i + ' .plan__details--card:nth-child(1) .body').html(v.plan_name);
+        $('.compareItems--col' + i + ' .plan__details--card:nth-child(2) .body').html(v.rate);
+        $('.compareItems--col' + i + ' .plan__details--card:nth-child(3) .body').html(v.rate_type);
+        $('.compareItems--col' + i + ' .plan__details--card:nth-child(4) .body').html(v.monthly_savings);
+        $('.compareItems--col' + i + ' .plan__details--card:nth-child(5) .body').html(v.contract_duration);
+        $('.compareItems--col' + i + ' .plan__details--card:nth-child(6) .body').html(v.termination);
+        $('.compareItems--col' + i + ' .plan__details--card:nth-child(7) .body').html(v.promotion);
 
         /* Last Section */
-        $('.compareItems--col'+i+'  .plan__details--card:nth-child(8) .body:nth-child(2)').html(v.comparison_1);
-        $('.compareItems--col'+i+'  .plan__details--card:nth-child(8) .body:nth-child(3)').html(v.comparison_2);
-        $('.compareItems--col'+i+'  .plan__details--card:nth-child(8) .body:nth-child(4)').html(v.comparison_3);
-        
+        $('.compareItems--col' + i + '  .plan__details--card:nth-child(8) .body:nth-child(2)').html(v.comparison_1);
+        $('.compareItems--col' + i + '  .plan__details--card:nth-child(8) .body:nth-child(3)').html(v.comparison_2);
+        $('.compareItems--col' + i + '  .plan__details--card:nth-child(8) .body:nth-child(4)').html(v.comparison_3);
+
         // console.log(i, v);  
-    }); 
+    });
 }
- 
-var remove__comparisonPlan = function (){
+
+var remove__comparisonPlan = function () {
     $('.remove__comparison').off();
-    $('.remove__comparison').on('click', function(){ 
+    $('.remove__comparison').on('click', function () {
         var tempArr = JSON.parse(sessionStorage.getItem("comparisonList"));
         var compareVar = '.compare__plans input[type="checkbox"]',
-        parentCompare = '.emp__compareConfirmation',
-        parentRecompare = '.emp__recompareConfirmation';
-        console.log('CLOSE: ' , $(this).data('id'));
-        console.log('ARRAY: ' , tempArr);
+            parentCompare = '.emp__compareConfirmation',
+            parentRecompare = '.emp__recompareConfirmation';
+        console.log('CLOSE: ', $(this).data('id'));
+        console.log('ARRAY: ', tempArr);
         var $this = $(this);
         var removeCompare = $(this).data('id');
         console.log('COMPARISON ID', removeCompare);
-        
+
         var removeIndex;
-        $.each(JSON.parse(sessionStorage.getItem("comparisonList")), function (i, v) { 
+        $.each(JSON.parse(sessionStorage.getItem("comparisonList")), function (i, v) {
             if (removeCompare == v.plan_id) {
-                console.log(true,i,v);
+                console.log(true, i, v);
                 // console.log(removeCompare + ' .compare__plans input:checked');
                 $(removeCompare + ' .compare__plans input:checked').trigger('click');
-                removeIndex = i; 
-                tempArr.splice(removeIndex, 1); 
+                removeIndex = i;
+                tempArr.splice(removeIndex, 1);
                 sessionStorage.setItem('comparisonList', JSON.stringify(tempArr));
             }
-        }); 
+        });
         console.log(removeIndex);
-       
-     
+
+
     });
 }
