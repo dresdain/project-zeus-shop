@@ -377,6 +377,7 @@ $('#filter-type-1').on('change', function () {
             $('#action--hidden--cb--ecofriendly:checked').trigger('click');
             element = document.getElementById('filter-type-2');
             jplist.resetControl(element);
+            $('#filter-type-3--apply').trigger('click');
             setTimeout(function () {
                 jplist.refresh();
                 $('.filter-type-2').hide();
