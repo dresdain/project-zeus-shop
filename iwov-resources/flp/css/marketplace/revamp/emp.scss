@@ -790,7 +790,7 @@
       position: absolute;
       height: 25px;
       width: 25px;
-      background-image: url("../../images/emp/close.svg");
+      background-image: url("../../../images/marketplace/electricity/revamp/close.svg");
       background-size: contain;
       top: -10px;
       right: -10px;
@@ -1403,3 +1403,11 @@ be sure the cells are on the top of the pseudo element*/
   }
 
 }
+
+.compareItems > div{
+  display: none;
+}
+.compareItems > div.activeComparison{
+  display: block;
+}
+ 

@@ -1,4 +1,4 @@
- /* 📦 Show illustration modal */
+/* 📦 show__illustrationModal */
 var show__illustrationModal = function () {
     var illustrationTrigger = $('#illustrationFromEditPlans'),
         illustrationClose = $('#illustrationPlan .close'),
@@ -12,9 +12,9 @@ var show__illustrationModal = function () {
     });
 }
 
-/* 📦 Check ?monthly param */
+/* 📦 validate__monthlyQuery */
 var validate__monthlyQuery = function (monthly) {
-    var totalResult = 0; 
+    var totalResult = 0;
     $('#planForm__dropdown .range-cost option').each(function (i, k) {
         if (monthly != NaN && monthly != undefined && $(this).val() != '') {
             var qry__monthlyBill = parseInt(monthly), min_range = $(this).data('from'), max_range = $(this).data('to');
@@ -24,16 +24,16 @@ var validate__monthlyQuery = function (monthly) {
                 totalResult++;
                 $('.range-cost').val($(this).val())
             }
-        } else if (isNaN(monthly)) {
+        } else if (isNaN(monthly) && monthly != undefined) {
             console.warn('Warning: query param: "monthly=' + monthly + '" is not acceptable.');
         }
     });
-    if (totalResult <= 0) {
+    if (totalResult <= 0 && monthly != undefined) {
         console.warn('Warning: query param: "monthly=' + monthly + '" is not within range.');
     }
 }
 
-/* 📦 Check ?living param  */
+/* 📦 validate__livingQuery  */
 var validate__livingQuery = function (living) {
     var acceptedHomes = [];
     $('#planForm__dropdown .place-live option').each(function (i, k) {
@@ -42,14 +42,14 @@ var validate__livingQuery = function (living) {
         }
     });
     if (living != undefined && $.inArray(living, acceptedHomes) > -1) {
-        console.log(true);
+        // console.log(true);
         $('.place-live').val(living)
-    } else {
+    } else if(living != undefined){
         console.warn('Warning: query param: "living=' + living + '" is not acceptable.');
     }
 }
 
-/* 📦 Check ?ecofriendly param */
+/* 📦 validate__ecofriendly  */
 var validate__ecofriendly = function (ecofriendly) {
     if (ecofriendly != undefined && ecofriendly == 'yes') {
         $('#filter-type-1').val('showEcoFriendly').change();
@@ -58,7 +58,7 @@ var validate__ecofriendly = function (ecofriendly) {
     }
 }
 
-/* 📦 Check ?rate param */
+/* 📦 validate__rate */
 var validate__rate = function (ratetype) {
     if (ratetype != undefined) {
         if (getQueryVariable('ecofriendly') != undefined) {
@@ -82,7 +82,7 @@ var validate__rate = function (ratetype) {
     }
 }
 
-/* STUN 🔍 ?retailer */
+/* 📦 validate__retailers */
 var validate__retailers = function (retailers) {
     var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower'];
     if (retailers != undefined) {
@@ -94,7 +94,7 @@ var validate__retailers = function (retailers) {
         }
         $('#filter-type-1').val('retailers').change();
         var queryRetailers = retailers.split(',');
-        console.log(queryRetailers);
+        // console.log(queryRetailers);
 
         var confirmedRetailers = [];
         $.each(queryRetailers, function (i, v) {
@@ -115,12 +115,12 @@ var validate__retailers = function (retailers) {
             }, 100);
 
         });
-        console.log(confirmedRetailers);
+        // console.log(confirmedRetailers);
     }
 }
 
-/* 📦 Check ?sort param  */
-var validate__sortList = function(sortList){
+/* 📦 validate__sortList  */
+var validate__sortList = function (sortList) {
     if (getQueryVariable('sort') != undefined) {
         switch (getQueryVariable('sort')) {
             case 'savings':
@@ -139,7 +139,7 @@ var validate__sortList = function(sortList){
 
     }
 }
-/* 📦 Init ?external param  */
+/* 📦 init__ExternalOverlay  */
 var init__ExternalOverlay = function () {
     show__illustrationModal();
     if (getQueryVariable('external') != undefined && getQueryVariable('external') == 'true') {
@@ -159,12 +159,12 @@ var init__ExternalOverlay = function () {
 
         validate__rate(getQueryVariable('rate'));
 
-        validate__retailers(getQueryVariable('retailer')); 
+        validate__retailers(getQueryVariable('retailer'));
         jplist.init();
     }
 }
- 
-/* 📦 Show/Hide Functions */
+
+/* 📦 showLandingDivs */
 function showLandingDivs(state) {
     if (state === true) {
         $('.emp__landing').removeClass('kagebunshin');
@@ -177,7 +177,7 @@ function showLandingDivs(state) {
 function showPlanDOM(state) {
     if (state === true) {
         $('.emp__results').fadeIn('1000');
-        $('.emp__loader').fadeIn('1000'); 
+        $('.emp__loader').fadeIn('1000');
         setTimeout(function () {
             $('.group-tiles').addClass('kagebunshin');;
         }, 200);
@@ -189,22 +189,25 @@ function showPlanDOM(state) {
 function manageExitScreen(state) {
     switch (state) {
         case "showLanding":
+            $('.emp__comparison').hide();
             $('.emp__exitScreen, .emp__results').hide();
             $('.emp__landing').fadeIn('1000');
             break;
         case "showResults":
+            $('.emp__comparison').hide();
             $('.emp__exitScreen, .emp__landing').hide();
             $('.emp__results').fadeIn('1000');
             break;
         default:
             // Show Exit
+            $('.emp__comparison').hide();
             $('.emp__landing, .emp__results').hide();
             $('.emp__exitScreen').fadeIn('1000');
             break;
     }
 }
 
-/* 📦 Show Exit Screens */
+/* 📦 initExitScreens */
 function initExitScreens() {
     $('.triggerApplyScreen').off();
     $('.triggerApplyScreen').on('click', function () {
@@ -221,7 +224,7 @@ function initExitScreens() {
     });
 }
 
- 
+
 /* 🖥  Reflect Other Forms */
 $('#planForm .place-live').on('change', function () {
     $('#planForm__dropdown .place-live, #planForm__dropdown2 .place-live').val($(this).val());
@@ -230,7 +233,7 @@ $('#planForm .range-cost').on('change', function () {
     $('#planForm__dropdown .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
 });
 
-/* 📦 Refresh Pagination */
+/* 📦 reflectPageCount */
 function reflectPageCount() {
     setTimeout(function () {
         var pageRange = $('.pageRange').html(),
@@ -254,7 +257,7 @@ function reflectPageCount() {
 
 
 
- 
+
 /* 🧠 EMP Init */
 var showPlanDOM__state = false;
 $(function () {
@@ -263,7 +266,7 @@ $(function () {
 
     /* Hidden  */
     $('.filter-type-3').hide();
-    
+
 
     $('.filter-type-3 .dropdown .dropdown-menu > div').on('click', function (event) {
         event.stopPropagation()
@@ -271,7 +274,7 @@ $(function () {
     });
     if (getQueryVariable('external') == undefined) {
         jplist.init();
-    } 
+    }
     /* Slick.js */
     $('.partners__box--slick').slick({
         infinite: true,
@@ -279,12 +282,12 @@ $(function () {
         slidesToShow: 1,
         slidesToScroll: 1
     });
-}); 
- 
+});
+
 
 /* 🖥  View Plans  */
 $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
     var maxBill = $('.range-cost', this).find(':selected').attr('data-to');
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
     var placeLive = $('.place-live', this).find(':selected').attr('data-title');
@@ -307,12 +310,11 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     showLandingDivs(false);
     showPlanDOM(true);
     showPlanDOM__state = true;
-    addToCompare();
 });
 
 
 
-
+/* 🖥 Filter type 2 */
 $('.filter-type-2').on('change', function () {
     switch ($(this).val()) {
         case 'discounted':
@@ -325,25 +327,24 @@ $('.filter-type-2').on('change', function () {
             $('#action--hidden--rb--all').trigger('click');
             break;
     }
-    addToCompare();
-
+    reset__compareCheckbox();
     $('#main-pagination [data-type="first"]').trigger('click');
     setTimeout(() => {
         reflectPageCount();
+       
     }, 500);
+   
 });
 
 
-
+/* 🖥 Filter Type 1 */
 $('#filter-type-1').on('change', function () {
-
     var filter1_val = $(this).val();
 
     /* Check if eco friendly */
     switch (filter1_val) {
         case 'showEcoFriendly':
-            $('.filter-type-2').val('all').change();
-            console.log('Showing: ' + filter1_val);
+            $('.filter-type-2').val('all').change(); 
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:not(:checked)').trigger('click');
             /* Reset Other filters */
@@ -358,8 +359,7 @@ $('#filter-type-1').on('change', function () {
             reflectPageCount();
             break;
         case 'rate-type':
-            $('.filter-type-2').val('all').change();
-            console.log('Showing: ' + filter1_val);
+            $('.filter-type-2').val('all').change(); 
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:checked').trigger('click');
             $('.filter-type-3').hide();
@@ -370,8 +370,8 @@ $('#filter-type-1').on('change', function () {
             reflectPageCount();
             break;
         case 'retailers':
-            $('.filter-type-2').val('all').change();
-            console.log('Showing: ' + filter1_val);
+            $('.filter-type-3--placeholder option').text('All Retailers');
+            $('.filter-type-2').val('all').change(); 
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:checked').trigger('click');
             element = document.getElementById('filter-type-2');
@@ -383,20 +383,18 @@ $('#filter-type-1').on('change', function () {
             }, 200);
             reflectPageCount();
             break;
-        default:
-            console.log('Showing: ' + filter1_val);
+        default: 
             $('.filter-type-2').hide();
             reflectPageCount();
             // jplist.resetControls('#filter-type-2');
             break;
     }
-
-
+    // console.log('Showing: ' + filter1_val);
+    reset__compareCheckbox();
 
 
     setTimeout(function () {
 
-        addToCompare();
     }, 200);
 
 });
@@ -429,7 +427,7 @@ $('#filter-type-3--apply').on('click', function () {
         $('.action--hidden--cb:checked').trigger('click');
         var placeholderTxt = '';
         $('.filter-type-3--dummy-cb:checked').each(function (i, k) {
-            console.log('data-path=".retailer--' + $(this).val() + '"');
+            // console.log('data-path=".retailer--' + $(this).val() + '"');
             var control = '[data-path=".retailer--' + $(this).val() + '"]';
             $(control + ':not(:checked)').trigger('click');
 
@@ -452,7 +450,6 @@ function resetRetailerCheckbox() {
 
 $('.sort-type-1').on('change', function () {
     reflectPageCount();
-    addToCompare();
 
     switch ($(this).val()) {
         case "0":
@@ -515,70 +512,66 @@ jpListElements.addEventListener('jplist.state', (e) => {
         jplist.refresh('group-1', document.getElementById('filter-type-1'));
     });
     initExitScreens();
+    addToCompare()
 
 }, false);
 
 
-/* REVIEW Comparison Feature*/
-var compareCounter = 0,
-    compareItemsArray = [];
-function addToCompare() {
-    var compareVar = '.compare__plans input[type="checkbox"]',
-        parentCompare = '.emp__compareConfirmation',
-        parentRecompare = '.emp__recompareConfirmation';
+/* 📦 validate__compareCheckbox */
+var validate__compareCheckbox = function () {
+    var compareVar = '.compare__plans input[type="checkbox"]';
+    var compareVarAmount = JSON.parse(sessionStorage.getItem("comparisonList")).length;
+    // console.log("Comparison amount: " + compareVarAmount);
+    if (compareVarAmount < 3) {
+        $(compareVar + ':not(:checked)')
+            .removeClass('disabled')
+            .removeAttr('disabled', 'disabled')
+            .parent().removeClass('disabled');
+    } else {
+        $(compareVar + ':not(:checked)')
+            .addClass('disabled')
+            .attr('disabled', 'disabled')
+            .parent().addClass('disabled');
+    }
+}
 
-    //Reinitializing this function resets all checkboxes
-    $(compareVar + ':checked').removeAttr('checked', 'checked');
-    $(compareVar + ':not(:checked)')
-        .removeClass('disabled')
-        .removeAttr('disabled', 'disabled')
-        .parent().removeClass('disabled');
-    $('.emp__compareConfirmation').fadeOut();
+/* 📦 reset__compareCheckbox() */
+var reset__compareCheckbox = function () {
+    sessionStorage.setItem('comparisonList', JSON.stringify([]));
+    validate__compareCheckbox();
+    var compareVar = '.compare__plans input[type="checkbox"]';
+    $(compareVar + ':checked').trigger('click');
+    $(compareVar).prop('checked', false);
+}
 
-    $(compareVar).on('change load', function (e) {
-        var compareVarAmount = $(compareVar + ':checked').length;
-        if (compareVarAmount > 0) {
-            $(parentCompare).fadeIn('500');
-            $(parentCompare + ' .compareAmount').text(compareVarAmount);
-            $(parentCompare + ' .compareState')
-                .text((compareVarAmount != 3 ? '(of 3)' : '(Max)'));
 
-            $(parentRecompare).fadeIn('500');
-            $(parentRecompare + ' .compareAmount').text(compareVarAmount);
-            $(parentRecompare + ' .compareState')
-                .text((compareVarAmount != 3 ? '(of 3)' : '(Max)'));
-        } else {
-            $('.emp__compareConfirmation').fadeOut();
-        }
-        if (compareVarAmount < 3) {
-            $(compareVar + ':not(:checked)')
-                .removeClass('disabled')
-                .removeAttr('disabled', 'disabled')
-                .parent().removeClass('disabled');
-        } else {
-            $(compareVar + ':not(:checked)')
-                .addClass('disabled')
-                .attr('disabled', 'disabled')
-                .parent().addClass('disabled');
-        }
+/* 📦 init__comparisonScreens */
+var init__comparisonScreens = function (parentCompare, parentRecompare) {
+    var compareVarAmount = JSON.parse(sessionStorage.getItem("comparisonList")).length;
+    if (compareVarAmount >= 0) {
+        $(parentCompare).fadeIn('500');
+        $(parentCompare + ' .compareAmount').text(compareVarAmount);
+        $(parentCompare + ' .compareState')
+            .text((compareVarAmount != 3 ? '(of 3)' : '(Max)'));
 
-        var temp = (this.value).split(",");
-        if (compareItemsArray.indexOf(temp[0]) == -1) {
-            compareItemsArray.push(temp[0], temp[1]);
-        } else {
-            var pos = compareItemsArray.indexOf(temp[0]);
-            compareItemsArray.splice(pos, 2);
-        }
-        console.log(compareItemsArray);
+        $(parentRecompare).fadeIn('500');
+        $(parentRecompare + ' .compareAmount').text(compareVarAmount);
+        $(parentRecompare + ' .compareState')
+            .text((compareVarAmount != 3 ? '(of 3)' : '(Max)'));
+    } else {
+        $('.emp__compareConfirmation').fadeOut();
+    }
+}
 
-    });
 
+/* 📦 init__comparisonTickers */
+var init__comparisonTickers = function () {
     $('#startCompare').on('click', function (e) {
         $('.emp__results').fadeOut();
         $('.emp__comparison').fadeIn();
         $('html, body').animate({
             scrollTop: $(".emp__comparison").offset().top - 200
-        }, 500);
+        }, 0);
     });
     $('#endCompare').on('click', function (e) {
         $('.emp__comparison').fadeOut();
@@ -586,8 +579,39 @@ function addToCompare() {
     });
 }
 
- 
+/* 📦 addToCompare */
+var compareCounter = 0,
+    compareItemsArray = sessionStorage.setItem('comparisonList', JSON.stringify([]));
+function addToCompare() { 
+    var compareVar = '.compare__plans input[type="checkbox"]',
+        parentCompare = '.emp__compareConfirmation',
+        parentRecompare = '.emp__recompareConfirmation';
+    var tempArr = JSON.parse(sessionStorage.getItem("comparisonList"));
 
+    validate__compareCheckbox();
+    init__comparisonScreens(parentCompare, parentRecompare);
+    $(compareVar).off();
+
+    $(compareVar).on('change', function () {
+        if ($(this).is(":checked")) {
+            if (tempArr.length < 3) {
+                tempArr.push($(this).data('details')); 
+            }
+        } else {
+            tempArr.splice(tempArr.indexOf($(this).data('details')), 1);
+        }
+        // console.log(tempArr.indexOf(2));
+        sessionStorage.setItem('comparisonList', JSON.stringify(tempArr)) 
+        validate__compareCheckbox();
+        init__comparisonScreens(parentCompare, parentRecompare);
+        init__comparisonTickers(); 
+        createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        remove__comparisonPlan();
+    });
+
+    
+}
+ 
 
 /* 🖥  Scroll Events */
 $(window).scroll(function () {
@@ -630,9 +654,9 @@ function showOnScrollMenu(state, target) {
         }
     });
 }
- 
 
-/* 🛠 isInViewPort Helper */ 
+
+/* 🛠 isInViewPort Helper */
 $.fn.isInViewport = function () {
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
@@ -644,7 +668,7 @@ $.fn.isInViewport = function () {
 };
 
 /* 🛠  getQueryVariable Helper */
-function getQueryVariable(variable) { 
+function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
     for (var i = 0; i < vars.length; i++) {
