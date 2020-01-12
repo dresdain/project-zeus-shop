@@ -70,7 +70,8 @@ function createDOM__savingsInfo(item, options) {
     /* Start Savings Info  */
     html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
-    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <img class="savings__info--logo" src="' + item.retailer_logo_path + '" alt="' + item.retailer_id + '">';
+    /* ./iwov-resouces */
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <img class="savings__info--logo" src="./' + item.retailer_logo_path + '" alt="' + item.retailer_id + '">';
 
     /* Copy Wrapper */
     html += '<div class="savings__info--copy">';
