@@ -133,7 +133,7 @@ var validate__sortList = function (sortList) {
                 $('#sort-type-1').val("2").change();
                 break;
             default:
-                console.warn('Warning: query param: "rate=' + getQueryVariable('rate') + '" is not acceptable.');
+                console.warn('Warning: query param: "sort=' + getQueryVariable('rate') + '" is not acceptable.');
                 break;
         }
 
@@ -160,6 +160,8 @@ var init__ExternalOverlay = function () {
         validate__rate(getQueryVariable('rate'));
 
         validate__retailers(getQueryVariable('retailer'));
+
+        validate__sortList(getQueryVariable('sort'));
         jplist.init();
     }
 }
