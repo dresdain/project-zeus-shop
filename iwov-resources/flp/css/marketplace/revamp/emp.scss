@@ -528,7 +528,7 @@
 }
 
 .emp__menu__filter {
-  padding-top: calc(165px + 100px);
+  padding-top: calc(165px + 38px);
   padding-bottom: 25px;
   &--row {
     .form-label {
@@ -536,6 +536,7 @@
     }
   }
   @media (max-width: 768px){
+    padding-top: calc(165px + 100px);
     > .container.expand{
       min-height: 390px;
     }
