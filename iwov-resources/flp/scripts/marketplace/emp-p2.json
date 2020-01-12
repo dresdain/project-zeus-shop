@@ -15,8 +15,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/kedot24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/kedot24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 51,
@@ -156,8 +156,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/kefix24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/kefix24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -297,8 +297,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/kefix36.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/kefix36.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -438,8 +438,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "Complimentary Home Contents Insurance",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/unionpdvs24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/unionpdvs24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -579,8 +579,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/unionts6.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/unionts6.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -720,8 +720,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "Complimentary LPG Cylinder Vouchers",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/unionpgs24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/unionpgs24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -861,8 +861,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/unionpfs24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/unionpfs24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1002,8 +1002,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/unionpfs12.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/unionpfs12.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1143,8 +1143,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "Inclusive of Geneco Carbon Offset Programme",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/getitgreen.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/getitgreen.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1284,8 +1284,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/gefixed24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/gefixed24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1425,8 +1425,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/gefixed36.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/gefixed36.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1566,8 +1566,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/gedot24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/gedot24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1707,8 +1707,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "Inclusive of AIA Personal Acciednt Protection Plan",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/iswitch.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/isctr12.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/iswitch.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/isctr12.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1848,8 +1848,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "Inclusive of AIA Personal Acciednt Protection Plan",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/iswitch.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/isssd12.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/iswitch.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/isssd12.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -1989,8 +1989,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseapone6mfixed.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseapone6mfixed.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -2130,8 +2130,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseapone12mfixed.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseapone12mfixed.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -2271,8 +2271,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseapone24mfixed.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseapone24mfixed.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -2412,8 +2412,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseap10024mfixed.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseap10024mfixed.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -2553,8 +2553,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseapone6mdot.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseapone6mdot.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -2694,8 +2694,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseapone12mdot.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseapone12mdot.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -2835,8 +2835,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseapone24mdot.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseapone24mdot.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -2976,8 +2976,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseap5024mdot.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseap5024mdot.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -3117,8 +3117,8 @@
     "comparison_1": "Retailer Direct Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/sunseap10024mdot.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/sunseap10024mdot.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -3258,8 +3258,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "NTUC members can earn Link Points",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/tuaspowerdo6.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/tuaspowerdo6.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -3399,8 +3399,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "NTUC members can earn Link Points",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/tuaspowerdo24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/tuaspowerdo24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -3540,8 +3540,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "NTUC members can earn Link Points",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix18.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix18.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -3681,8 +3681,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "NTUC members can earn Link Points",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix24.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix24.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -3822,8 +3822,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "NTUC members can earn Link Points",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix36.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/tuaspowerfix36.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -3963,8 +3963,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/bestfixed24m.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/bestfixed24m.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -4104,8 +4104,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/bestfixed12m.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/bestfixed12m.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -4245,8 +4245,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/bestfixed6m.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/bestfixed6m.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -4386,8 +4386,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/bestsaver24m.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/bestsaver24m.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -4527,8 +4527,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/bestsaver12m.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/bestsaver12m.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
@@ -4668,8 +4668,8 @@
     "comparison_1": "SP Services Consolidated Billing",
     "comparison_2": "No added promotions",
     "comparison_3": "T&Cs apply",
-    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
-    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/bestupfront.pdf",
+    "retailer_logo_path": "./iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png",
+    "retailier_factsheet_path": "./iwov-resources/media/pdf/marketplace/electricity/bestupfront.pdf",
     "options": [
       {
         "current_monthly_sp_bill_size": 50,
