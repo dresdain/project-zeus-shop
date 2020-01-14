@@ -105,7 +105,8 @@ function createDOM__planDetails(item, options) {
 
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
-    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">' + item.rate + '</div></div>';
+    var rateSuffix = (item.rate.indexOf("%") >= 0 ? 'off SP Tariff' : '/ kWh (w GST)');
+    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">' + item.rate + ' '+rateSuffix+'</div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
     /* Plan Name */

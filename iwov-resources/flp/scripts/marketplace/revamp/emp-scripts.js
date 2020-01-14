@@ -44,7 +44,7 @@ var validate__livingQuery = function (living) {
     if (living != undefined && $.inArray(living, acceptedHomes) > -1) {
         // console.log(true);
         $('.place-live').val(living)
-    } else if(living != undefined){
+    } else if (living != undefined) {
         console.warn('Warning: query param: "living=' + living + '" is not acceptable.');
     }
 }
@@ -179,7 +179,7 @@ function showLandingDivs(state) {
 function showPlanDOM(state) {
     if (state === true) {
         $('.emp__results').fadeIn('1000');
-        $('.emp__loader').fadeIn('1000');
+        $('.emp__loader').fadeIn('200');
         setTimeout(function () {
             $('.group-tiles').addClass('kagebunshin');;
         }, 200);
@@ -211,8 +211,10 @@ function manageExitScreen(state) {
 
 /* 📦 initExitScreens */
 function initExitScreens() {
+
     $('.triggerApplyScreen').off();
     $('.triggerApplyScreen').on('click', function () {
+        $('#consumerAdvisory').modal('show');
         var dataExit = $(this);
         $('#emp_redirect-yes').attr('href', dataExit.data('btn-yes'));
         $('#emp_redirect-no').attr('href', dataExit.data('btn-no'));
@@ -333,20 +335,20 @@ $('.filter-type-2').on('change', function () {
     $('#main-pagination [data-type="first"]').trigger('click');
     setTimeout(() => {
         reflectPageCount();
-       
+
     }, 500);
-   
+
 });
 
 
 /* 🖥 Filter Type 1 */
 $('#filter-type-1').on('change', function () {
     var filter1_val = $(this).val();
-
+    /* REVIEW Needs refactoring */
     /* Check if eco friendly */
     switch (filter1_val) {
         case 'showEcoFriendly':
-            $('.filter-type-2').val('all').change(); 
+            $('.filter-type-2').val('all').change();
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:not(:checked)').trigger('click');
             /* Reset Other filters */
@@ -355,17 +357,18 @@ $('#filter-type-1').on('change', function () {
             $('#filter-type-3--apply').trigger('click');
             $('.filter-type-3').hide();
             setTimeout(function () {
-                jplist.refresh(); 
+                jplist.refresh();
                 $('.filter-type-2').hide();
             }, 200);
 
             reflectPageCount();
             break;
         case 'rate-type':
-            $('.filter-type-2').val('all').change(); 
+            $('.filter-type-2').val('all').change();
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:checked').trigger('click');
             $('.filter-type-3').hide();
+            $('#filter-type-3--apply').trigger('click');
             setTimeout(function () {
                 jplist.refresh();
                 $('.filter-type-2').show();
@@ -374,7 +377,7 @@ $('#filter-type-1').on('change', function () {
             break;
         case 'retailers':
             $('.filter-type-3--placeholder option').text('All Retailers');
-            $('.filter-type-2').val('all').change(); 
+            $('.filter-type-2').val('all').change();
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:checked').trigger('click');
             element = document.getElementById('filter-type-2');
@@ -387,7 +390,7 @@ $('#filter-type-1').on('change', function () {
             }, 200);
             reflectPageCount();
             break;
-        default: 
+        default:
             $('.filter-type-2').hide();
             reflectPageCount();
             // jplist.resetControls('#filter-type-2');
@@ -445,7 +448,7 @@ $('#filter-type-3--apply').on('click', function () {
         } else {
             $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
         }
-        
+
         reflectPageCount();
     }
     $('.filter-type-3--trigger').removeClass('open');
@@ -453,15 +456,15 @@ $('#filter-type-3--apply').on('click', function () {
     $('.filter-type-3 .dropdown-backdrop').remove();
 });
 
-$('.filter-type-3--trigger').on('click', function(){ 
-    setTimeout(function(){
-        if($('.filter-type-3--trigger').hasClass('open')){ 
+$('.filter-type-3--trigger').on('click', function () {
+    setTimeout(function () {
+        if ($('.filter-type-3--trigger').hasClass('open')) {
             $('.emp__menu__filter > .container').addClass('expand');
             console.log('asdsa');
-            
-        }else{
+
+        } else {
             $('.emp__menu__filter > .container').removeClass('expand');
-        } 
+        }
     }, 100);
 });
 
@@ -515,7 +518,7 @@ $(function () {
 });
 
 
-/* STUB jpList Change listener */
+/* 🖥 jpList Change listener */
 //get a jPList control element
 var jpListElements = document.getElementById('main-pagination');
 
@@ -575,6 +578,7 @@ var reset__compareCheckbox = function () {
 
 /* 📦 init__comparisonScreens */
 var init__comparisonScreens = function (parentCompare, parentRecompare) {
+    resize__comparisonCards();
     var compareVarAmount = JSON.parse(sessionStorage.getItem("comparisonList")).length;
     if (compareVarAmount > 0) {
         $(parentCompare).fadeIn('500');
@@ -594,10 +598,10 @@ var init__comparisonScreens = function (parentCompare, parentRecompare) {
     }
 }
 
-
 /* 📦 init__comparisonTickers */
 var init__comparisonTickers = function () {
     $('#startCompare').on('click', function (e) {
+        resize__comparisonCards();
         $('.emp__results').fadeOut();
         $('.emp__comparison').fadeIn();
         $('html, body').animate({
@@ -605,6 +609,7 @@ var init__comparisonTickers = function () {
         }, 0);
     });
     $('#endCompare').on('click', function (e) {
+        resize__comparisonCards();
         $('.emp__comparison').fadeOut();
         $('.emp__results').fadeIn();
     });
@@ -614,6 +619,7 @@ var init__comparisonTickers = function () {
 var compareCounter = 0,
     compareItemsArray = sessionStorage.setItem('comparisonList', JSON.stringify([]));
 function addToCompare() { 
+    resize__comparisonCards();
     var compareVar = '.compare__plans input[type="checkbox"]',
         parentCompare = '.emp__compareConfirmation',
         parentRecompare = '.emp__recompareConfirmation';
@@ -626,23 +632,78 @@ function addToCompare() {
     $(compareVar).on('change', function () {
         if ($(this).is(":checked")) {
             if (tempArr.length < 3) {
-                tempArr.push($(this).data('details')); 
+                tempArr.push($(this).data('details'));
             }
         } else {
             tempArr.splice(tempArr.indexOf($(this).data('details')), 1);
         }
         // console.log(tempArr.indexOf(2));
-        sessionStorage.setItem('comparisonList', JSON.stringify(tempArr)) 
+        sessionStorage.setItem('comparisonList', JSON.stringify(tempArr))
         validate__compareCheckbox();
         init__comparisonScreens(parentCompare, parentRecompare);
-        init__comparisonTickers(); 
+        init__comparisonTickers();
         createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         remove__comparisonPlan();
     });
 
-    
+
 }
- 
+
+/* 📦 get__tallestCard */
+var get__tallestCard = function (rowNumber) {
+    var maxHeight = 0, counter = 1, tallestCard = '';
+    for (let index = 1; index <= 3; index++) {
+        var compareTo = '#compareItem--details-' + index + ' .plan__details--card:nth-child(' + rowNumber + ')';
+        if ($(compareTo).height() > maxHeight) {
+            maxHeight = $(compareTo).height();
+            tallestCard = compareTo;
+
+        }
+    }
+    return tallestCard;
+}
+
+var get__tallestCardSub = function (rowNumber) {
+    var maxHeight = 0, counter = 2, tallestCard = '';
+    for (let index = 1; index <= 3; index++) {
+        var compareTo = '#compareItem--details-' + index + ' .plan__details--card:nth-child(8) .body:nth-child(' + rowNumber + ')';
+        if ($(compareTo).height() > maxHeight) {
+            maxHeight = $(compareTo).height();
+            tallestCard = compareTo; 
+        } 
+    }  
+    return tallestCard;
+}
+
+/* 📦 resize__comparisonCards */
+var resize__comparisonCards = function () {
+    $('.plan__details--card').removeAttr('style');
+    $('.plan__details--card .body').removeAttr('style');
+    for (let rowNumber = 1; rowNumber <= 8; rowNumber++) {
+        if (rowNumber <= 7) {
+            var tallestCardHeight = $(get__tallestCard(rowNumber)).height();
+            for (let compareItem = 1; compareItem <= 3; compareItem++) {
+                var setHeightFor = '#compareItem--details-' + compareItem + ' .plan__details--card:nth-child(' + rowNumber + ')';
+                $(setHeightFor).css('min-height', tallestCardHeight + 'px');
+                $(setHeightFor).css('min-height', tallestCardHeight + 'px');
+            }
+        } else if (rowNumber == 8) { 
+            for (let subRowNumber = 2; subRowNumber <= 4; subRowNumber++) {
+                var tallestCardHeightSub = $(get__tallestCardSub(subRowNumber)).height();
+                for (let compareItem = 1; compareItem <= 3; compareItem++) {
+                    var setHeightForSub = '#compareItem--details-' + compareItem + ' .plan__details--card:nth-child(' + rowNumber + ') .body:nth-child(' + subRowNumber + ')';
+                    $(setHeightForSub).css('min-height', tallestCardHeightSub + 'px');
+                }
+            } 
+        }
+    }
+
+}
+
+/* 🖥 Resize events */
+$(window).resize(function(){
+    resize__comparisonCards();
+});
 
 /* 🖥  Scroll Events */
 $(window).scroll(function () {
