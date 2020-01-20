@@ -71,7 +71,7 @@ function createDOM__savingsInfo(item, options) {
     html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
     /* ./iwov-resouces */
-    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <img class="savings__info--logo" src="' + item.retailer_logo_path + '" alt="' + item.retailer_id + '">';
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'' + item.retailer_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
 
     /* Copy Wrapper */
     html += '<div class="savings__info--copy">';
@@ -98,10 +98,10 @@ function createDOM__savingsInfo(item, options) {
 function createDOM__planDetails(item, options) {
     var html = '';
     /* Start Plan Details */
-    html += '<div class="plan__details">';
+    html += '<div class="plan__details"><div class="plan__details--wrapper">';
 
     /* Contract Duration */
-    html += '<div class="plan__details--card"><div class="heading">Contract</div><div class="body contract-duration"><span class="contract-duration-value">' + item.contract_duration_months + '</span> month</div></div>';
+    html += '<div class="plan__details--card"><div class="heading">Contract</div><div class="body contract-duration"><span class="contract-duration-value">' + item.contract_duration_months + '</span> months</div></div>';
 
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
@@ -117,7 +117,7 @@ function createDOM__planDetails(item, options) {
 
     /* Promotion */
     var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : 'None');
-    html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div>';
+    html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div></div>';
 
     html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, 'no') + '">Apply now</a></div>';
 
@@ -187,7 +187,7 @@ function createDOM__comparePlans(item, options, planID) {
         'applyNow_btn_no': createLink__ApplyNow(item, 'no'),
         'applyNow_message': 'You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name,
         'factsheet': item.retailier_factsheet_path,
-        'rate': item.rate,
+        'rate':  item.rate + (item.rate.indexOf("%") >= 0 ? ' off SP Tariff' : ' / kWh (w GST)'),
         'rate_type': (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed'),
         'monthly_savings': options.total_monthly_savings,
         'contract_duration': item.contract_duration_months + ' months',
@@ -227,14 +227,14 @@ function createDOM__comparisonPlans(comparisonList) {
     var comparisonList = JSON.parse(comparisonList);
     // console.log(comparisonList);
     $('.compareItems > div').removeClass('activeComparison');
-    $.each(comparisonList, function (i, v) {
-        i++;
-        var parent = '#compareItem-' + i;
+    $.each(comparisonList, function (i, v) { 
+        var parent = '#compareItem-' + (i+1); 
+        
         /*  */
         $(parent).addClass('activeComparison');
 
         /* First Section */
-        $(parent + ' > .compareItems--card img').attr('src', v.logo);
+        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("' + v.logo + '")');
         $(parent + ' > .compareItems--card > div.heading').text('S' + v.annual_savings);
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
@@ -249,20 +249,21 @@ function createDOM__comparisonPlans(comparisonList) {
 
 
         /* Mid Section */
-        $('.compareItems--col' + i + ' .plan__details--card:nth-child(1) .body').html(v.plan_name);
-        $('.compareItems--col' + i + ' .plan__details--card:nth-child(2) .body').html(v.rate);
-        $('.compareItems--col' + i + ' .plan__details--card:nth-child(3) .body').html(v.rate_type);
-        $('.compareItems--col' + i + ' .plan__details--card:nth-child(4) .body').html(v.monthly_savings);
-        $('.compareItems--col' + i + ' .plan__details--card:nth-child(5) .body').html(v.contract_duration);
-        $('.compareItems--col' + i + ' .plan__details--card:nth-child(6) .body').html(v.termination);
-        $('.compareItems--col' + i + ' .plan__details--card:nth-child(7) .body').html(v.promotion);
+        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(1) .body').html(v.plan_name);
+        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(2) .body').html(v.rate);
+        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(3) .body').html(v.rate_type);
+        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(4) .body').html(v.monthly_savings);
+        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(5) .body').html(v.contract_duration);
+        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(6) .body').html(v.termination);
+        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(7) .body').html(v.promotion);
 
         /* Last Section */
-        $('.compareItems--col' + i + '  .plan__details--card:nth-child(8) .body:nth-child(2)').html(v.comparison_1);
-        $('.compareItems--col' + i + '  .plan__details--card:nth-child(8) .body:nth-child(3)').html(v.comparison_2);
-        $('.compareItems--col' + i + '  .plan__details--card:nth-child(8) .body:nth-child(4)').html(v.comparison_3);
+        $('.compareItems--col' + (i+1) + '  .plan__details--card:nth-child(8) .body:nth-child(2)').html(v.comparison_1);
+        $('.compareItems--col' + (i+1) + '  .plan__details--card:nth-child(8) .body:nth-child(3)').html(v.comparison_2);
+        $('.compareItems--col' + (i+1) + '  .plan__details--card:nth-child(8) .body:nth-child(4)').html(v.comparison_3);
 
-        // console.log(i, v);  
+        // console.log(i, v);   
+        
     });
 }
 
@@ -290,8 +291,6 @@ var remove__comparisonPlan = function () {
                 sessionStorage.setItem('comparisonList', JSON.stringify(tempArr));
             }
         });
-        console.log(removeIndex);
-
-
+        console.log(removeIndex); 
     });
 }

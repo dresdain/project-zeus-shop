@@ -246,7 +246,7 @@ function reflectPageCount() {
         $('.total-items').html(pageTotal);
     }, 100);
 
-    $('.pagination-custom').on('click', function (e) {
+    $('.page-item').on('click', function (e) {
         var pageRange = $('.pageRange').html(),
             pageTotal = $('.pageTotal').html();
         $('.current-items').html(pageRange);
@@ -718,7 +718,15 @@ $(window).scroll(function () {
             showOnScrollMenu(false);
         }
     } else {
-        showOnScrollMenu(false);
+        if ($(window).scrollTop() > 434) {
+            if ($('.header-placeholder > header.navbar').hasClass('mini-menu')) {
+                showOnScrollMenu(true);
+            } else {
+                showOnScrollMenu('shift');
+            }
+        } else if ($(window).scrollTop() < 370) {
+            showOnScrollMenu(false);
+        }
     }
 
     if ($('#primaryFooter').isInViewport()) {
