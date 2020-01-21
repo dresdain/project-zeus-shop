@@ -1738,6 +1738,11 @@ be sure the cells are on the top of the pseudo element*/
   display: none;
 }
 
+.emp__exitScreen .plan__box--flat img {
+  width: 60px;
+  height: 60px;
+}
+
 .filter-type-3 {
   position: relative;
 }
@@ -1768,14 +1773,14 @@ be sure the cells are on the top of the pseudo element*/
 }
 .action--bulk a {
   color: #7c7c7c;
-  font-family: "Open Sans";
+  font-family: "OpenSans";
   font-size: 15px;
   line-height: 21px;
   margin-right: 15px;
 }
 .action--individual {
   color: #2e2e2e;
-  font-family: "Open Sans";
+  font-family: "OpenSans";
   font-size: 16px;
   line-height: 24px;
   display: -webkit-box;
@@ -1784,6 +1789,9 @@ be sure the cells are on the top of the pseudo element*/
 }
 .action--individual--col {
   width: 50%;
+}
+.action--individual--col label {
+  font-family: "OpenSans";
 }
 .action--individual .checkbox {
   margin-bottom: 10px;
@@ -2053,6 +2061,10 @@ ul.plan-types > li:nth-child(2):before {
 }
 .ema-acknowledgement {
   margin: 40px 0;
+}
+
+.group-tiles {
+  margin-bottom: 30px;
 }
 
 /*# sourceMappingURL=emp.css.map */
