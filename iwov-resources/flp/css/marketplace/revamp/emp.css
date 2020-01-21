@@ -1,3 +1,4 @@
+/* Mixins */
 /* SECTION .emp__container PARENT class*/
 .emp__container {
   /* SECTION slick.css overwrite */
@@ -268,6 +269,21 @@
 .feature__box {
   margin-bottom: 52px;
 }
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .feature__box {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@supports (-ms-accelerator: true) {
+  .feature__box {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.feature__box--title {
+  width: 100%;
+}
 @media (max-width: 768px) {
   .feature__box--title {
     text-align: center;
@@ -285,6 +301,9 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
 }
 .feature__box--card > img {
   margin-top: 30px;
@@ -295,11 +314,13 @@
   font-size: 20px;
   font-weight: 700;
   margin: 10px 0px;
+  width: 100%;
 }
 .feature__box--card > .copy {
   color: #2e2e2e;
   font-family: "OpenSans";
   font-size: 16px;
+  width: 100%;
 }
 
 /* SECTION .partners__box COMPONENT */
@@ -321,6 +342,37 @@
     text-align: center;
     margin-top: 0px;
   }
+}
+.partners__box .partner--logo {
+  height: 30px;
+  width: 135px;
+  margin-bottom: 8px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  /* Firefox 10+, Firefox on Android */
+  -webkit-filter: url("./filters.svg#grayscale");
+          filter: url("./filters.svg#grayscale");
+  /* Firefox 3.5+ */
+  filter: gray;
+  /* IE6-9 */
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+@media (max-width: 768px) {
+  .partners__box .partner--logo {
+    -webkit-filter: grayscale(0%);
+            filter: grayscale(0%);
+  }
+}
+.partners__box .partner--logo:hover {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
 }
 .partners__box--slick {
   display: -webkit-box;
@@ -370,8 +422,17 @@
 .partners__box--card img {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  /* Firefox 10+, Firefox on Android */
+  -webkit-filter: url("./filters.svg#grayscale");
+          filter: url("./filters.svg#grayscale");
+  /* Firefox 3.5+ */
+  filter: gray;
+  /* IE6-9 */
   -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 @media (max-width: 768px) {
   .partners__box--card img {
@@ -840,7 +901,7 @@
   margin-bottom: 20px;
 }
 .plan__details--card.border-top {
-  border-top: 1px solid #f5f7f9;
+  border-top: 1px solid #DCDCDC;
   margin-top: 15px;
   padding-top: 30px !important;
 }
@@ -848,7 +909,8 @@
   border-color: #dcdcdc;
 }
 .plan__details--card.border-top--only {
-  border-top: 1px solid #f5f7f9;
+  position: relative;
+  border-top: 1px solid #DCDCDC;
   margin-top: 15px;
   padding-top: 30px !important;
   border-bottom: 0px solid transparent;
@@ -856,6 +918,15 @@
 .compareItems--details .plan__details--card.border-top--only {
   border-top: 1px solid #dcdcdc;
   border-bottom: none;
+}
+.plan__details--card.border-top--only:before {
+  content: '';
+  width: 100px;
+  height: 1px;
+  background-color: #DCDCDC;
+  top: -1px;
+  right: -34px;
+  position: absolute;
 }
 .plan__details--card .heading {
   display: block;
@@ -917,6 +988,16 @@
   margin-bottom: 0px;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+#compareItem--details-3 .border-top--only:before {
+  width: 100px;
+  height: 0px;
+}
+
+#compareItem--details-2 .plan__details--card .heading,
+#compareItem--details-3 .plan__details--card .heading {
+  visibility: hidden;
 }
 
 .compareItems > div {
@@ -1622,17 +1703,6 @@ be sure the cells are on the top of the pseudo element*/
   bottom: 0;
   opacity: 1;
   z-index: 5000;
-}
-
-.lab-modal-body h1 {
-  font-size: 4rem;
-}
-
-.lab-modal-body p {
-  line-height: 1.62;
-  font-weight: 300;
-  font-size: 1.62rem;
-  color: #666;
 }
 
 .lab-modal-body {

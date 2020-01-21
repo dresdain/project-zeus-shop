@@ -333,13 +333,13 @@ $('.filter-type-2').on('change', function () {
     }
     reset__compareCheckbox();
     $('#main-pagination [data-type="first"]').trigger('click');
-    setTimeout(() => {
+    setTimeout(function(){
         reflectPageCount();
 
     }, 500);
 
 });
-
+ 
 
 /* 🖥 Filter Type 1 */
 $('#filter-type-1').on('change', function () {
@@ -503,13 +503,7 @@ $('.sort-type-1').on('change', function () {
 $('#hidePlans').on('click', function (e) {
     showLandingDivs(true);
     showPlanDOM(false);
-});
-
-
-
-
-
-
+}); 
 
 $(function () {
     $('#exit_empExitScreen').on('click', function () {
@@ -523,7 +517,7 @@ $(function () {
 var jpListElements = document.getElementById('main-pagination');
 
 //listen to the state event
-jpListElements.addEventListener('jplist.state', (e) => {
+jpListElements.addEventListener('jplist.state', function(e){
 
     // //the whole state object
     // console.log(e.jplistState);
@@ -700,6 +694,26 @@ var resize__comparisonCards = function () {
 
 }
 
+/* 🖥 Grayscale hover */
+$(function(){
+    if (isIE()) {
+        $('.partner--logo').each(function(i,e){
+            var bgImage = $(this).css('background-image');
+            $(this).css('background-image', bgImage.replace('.png', '_bw.png'));
+        });
+        $('.partner--logo').on({
+            mouseenter: function () {
+                var bgImage = $(this).css('background-image');
+                $(this).css('background-image', bgImage.replace('_bw', '')); 
+            },
+            mouseleave: function () {
+                var bgImage = $(this).css('background-image');
+                $(this).css('background-image', bgImage.replace('.png', '_bw.png'));
+            }
+        }); 
+    }
+});
+
 /* 🖥 Resize events */
 $(window).resize(function(){
     resize__comparisonCards();
@@ -779,3 +793,13 @@ function getQueryVariable(variable) {
     }
 }
 /* !!SECTION  */
+
+/* 🛠  isIE Helper */
+function isIE() {
+    ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+    console.log('Im using IE: ' + is_ie);
+
+    return is_ie;
+}

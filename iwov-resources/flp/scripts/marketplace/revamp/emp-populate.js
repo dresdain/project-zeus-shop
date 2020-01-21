@@ -48,7 +48,7 @@ function populatePlans(minBill, maxBill, action) {
         /* Re-initialize everything */
         $('[data-toggle="tooltip"]').tooltip();
 
-        setTimeout(() => {
+        setTimeout(function() {
             reflectPageCount();
             initExitScreens();
         }, 200);
@@ -235,7 +235,7 @@ function createDOM__comparisonPlans(comparisonList) {
 
         /* First Section */
         $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("' + v.logo + '")');
-        $(parent + ' > .compareItems--card > div.heading').text('S' + v.annual_savings);
+        $(parent + ' > .compareItems--card div.heading').text('S' + v.annual_savings);
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
         $(parent + ' > .plan__details--card:nth-child(2) a').data('btn-yes', v.applyNow_btn_yes);
