@@ -203,3 +203,15 @@ ul.plan-types > li:nth-child(2):before {
 .ema-acknowledgement {
 	margin: 40px 0;
 }
+
+.pagination-custom .page-item:not(.active) a{
+  color : #656565;
+}
+
+.pagination-controls{
+  img{
+    margin-top: -1px;
+    height: 17px;
+    width: 17px;
+  }
+}

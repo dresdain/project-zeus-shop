@@ -77,10 +77,12 @@ function createDOM__savingsInfo(item, options) {
     html += '<div class="savings__info--copy">';
 
     /* Copy Heading */
+    
     html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a></small>';
 
     /* Copy Body */
-    html += '<div class="body annual-savings">S<span class="annual-savings-value">' + options.total_annual_savings + '</span></div>';
+    var annualSavings = Math.round(parseFloat(options.total_annual_savings.replace('$','')));
+    html += '<div class="body annual-savings">S$<span class="annual-savings-value">' + annualSavings + '</span></div>';
 
     /* Copy Footnote */
     html += '<small class="footnote">Save up to ' + options.total_monthly_savings + '/mth</small>';
@@ -119,10 +121,10 @@ function createDOM__planDetails(item, options) {
     var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : 'None');
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div></div>';
 
-    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, 'no') + '">Apply now</a></div>';
+    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
 
-    /* View Factsheet */
-    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="btn btn-primary btn-block btn-outline" target="_blank">View factsheet</a></div>';
+    /* Factsheet */
+    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="btn btn-primary btn-block btn-outline" target="_blank">Factsheet</a></div>';
 
 
     /* End Plan Details */
@@ -133,9 +135,10 @@ function createDOM__planDetails(item, options) {
 
 
 /* 📦 Create Link for Apply Now */
-function createLink__ApplyNow(item, action) {
+function createLink__ApplyNow(item, options, action) {
     /* Apply Now */
     var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace-revamp.html?';
+    var annualSavings = Math.round(parseFloat(options.total_annual_savings.replace('$','')));
     var existingDBS = {
         FROM_IB: true,
         PWEB: true,
@@ -150,7 +153,7 @@ function createLink__ApplyNow(item, action) {
         retailer_name: item.retailer_name,
         retailer_package_id: item.retailer_package_id,
         plan_name: item.plan_name,
-        plan_price: item.bill_rebate,
+        plan_price: annualSavings,
         package_more_details: item.comparison_1 + "," + item.comparison_2 + ',' + item.comparison_3,
         plan_selling_point: item.promotion,
         rcp_support: 'N',
@@ -177,14 +180,15 @@ function createLink__ApplyNow(item, action) {
 /* 📦 Compare Plans checkbox */
 function createDOM__comparePlans(item, options, planID) {
     var html = '';
+    var annualSavings = Math.round(parseFloat(options.total_annual_savings.replace('$','')));
     var comparisonDetails = {
         'plan_id': '#' + planID,
         'logo': item.retailer_logo_path,
-        'annual_savings': options.total_annual_savings,
+        'annual_savings': annualSavings,
         'plan_name': item.plan_name + createDOM__greenEnergy(item.green_energy),
         'retailer_name': item.retailer_name,
-        'applyNow_btn_yes': createLink__ApplyNow(item, 'yes'),
-        'applyNow_btn_no': createLink__ApplyNow(item, 'no'),
+        'applyNow_btn_yes': createLink__ApplyNow(item, options, 'yes'),
+        'applyNow_btn_no': createLink__ApplyNow(item, options, 'no'),
         'applyNow_message': 'You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name,
         'factsheet': item.retailier_factsheet_path,
         'rate':  item.rate + (item.rate.indexOf("%") >= 0 ? ' off SP Tariff' : ' / kWh (w GST)'),

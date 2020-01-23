@@ -344,8 +344,8 @@
   }
 }
 .partners__box .partner--logo {
-  height: 30px;
-  width: 135px;
+  height: 40px;
+  width: 145px;
   margin-bottom: 8px;
   background-size: contain;
   background-position: center center;
@@ -526,7 +526,7 @@
 .breakdown__box--copy b.stronger {
   color: #172633;
   font-family: "OpenSans";
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
 }
 @media (max-width: 768px) {
@@ -574,7 +574,7 @@
 }
 @media (max-width: 768px) {
   .breakdown__box--cost.stronger {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
@@ -652,13 +652,14 @@
   }
 }
 .emp__menu__top--copy p {
-  margin-top: 15px;
+  margin-top: 0px;
+  margin-left: 1px;
   color: #656565;
   font-family: "OpenSans";
   font-size: 14px;
 }
 .emp__menu__top--copy p a {
-  margin-left: 20px;
+  margin-left: 8px;
 }
 .emp__menu__top--megadropdown {
   border-top: 1px solid #f3f3f3;
@@ -810,7 +811,6 @@
 }
 @media (max-width: 768px) {
   .savings__info--logo {
-    height: auto;
     max-height: 38px;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
@@ -866,6 +866,11 @@
   border-top-color: #dcdcdc;
 }
 @media (max-width: 768px) {
+  .compareItems .plan__details {
+    padding-left: 0px;
+  }
+}
+@media (max-width: 768px) {
   .plan__details--wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -875,6 +880,9 @@
   }
   .plan__details--wrapper > .plan__details--card {
     width: 50%;
+  }
+  .plan__details--wrapper > .plan__details--card.Fixed, .plan__details--wrapper > .plan__details--card.Discounted {
+    padding-right: 15px;
   }
   .plan__details--wrapper > .plan__details--card:nth-child(1) {
     -webkit-box-ordinal-group: 2;
@@ -950,10 +958,17 @@
   margin-bottom: 15px;
 }
 .plan__details--card .body {
+  width: 100%;
+  word-break: break-word;
   display: block;
   color: #172633;
   font-family: "OpenSans";
   font-size: 16px;
+}
+@media (max-width: 320px) {
+  .compareItems .plan__details--card .body {
+    font-size: 13px;
+  }
 }
 .compareItems--details .plan__details--card .body {
   font-size: 18px;
@@ -1019,7 +1034,7 @@
 @media (max-width: 768px) {
   .compareItems .btn.btn-primary {
     font-size: 12px;
-    min-width: 100px;
+    min-width: 90%;
     height: 35px;
     padding: 8px 5px;
   }
@@ -1150,6 +1165,11 @@
           box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.1);
   background-color: #f7f7f7;
 }
+@media (max-width: 768px) {
+  .emp__compareConfirmation {
+    border-bottom: 1px solid #f33;
+  }
+}
 .emp__compareConfirmation.undock--nav {
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
@@ -1182,7 +1202,8 @@
 }
 @media (max-width: 768px) {
   .emp__compareConfirmation--copy {
-    font-size: 18px;
+    margin-top: 9px;
+    font-size: 16px;
   }
 }
 
@@ -2061,6 +2082,16 @@ ul.plan-types > li:nth-child(2):before {
 }
 .ema-acknowledgement {
   margin: 40px 0;
+}
+
+.pagination-custom .page-item:not(.active) a {
+  color: #656565;
+}
+
+.pagination-controls img {
+  margin-top: -1px;
+  height: 17px;
+  width: 17px;
 }
 
 .group-tiles {
