@@ -1,5 +1,5 @@
 var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
-    script__DIR = '/iwov-resources/flp/scripts/marketplace/';
+    script__DIR = './iwov-resources/flp/scripts/marketplace/';
 
 /* 📦 Populate Plans */
 function populatePlans(minBill, maxBill, action) {
