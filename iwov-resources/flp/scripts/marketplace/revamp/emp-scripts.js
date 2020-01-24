@@ -311,6 +311,7 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
         populatePlans(0, maxBill, 'init');
     }
     /* Manage DOM displays */
+    reset__compareCheckbox();
     showLandingDivs(false);
     showPlanDOM(true);
     showPlanDOM__state = true;
@@ -537,7 +538,7 @@ jpListElements.addEventListener('jplist.state', function(e){
         jplist.refresh('group-1', document.getElementById('filter-type-1'));
     });
     initExitScreens();
-    addToCompare()
+    addToCompare();
 
 }, false);
 
@@ -595,6 +596,7 @@ var init__comparisonScreens = function (parentCompare, parentRecompare) {
 /* 📦 init__comparisonTickers */
 var init__comparisonTickers = function () {
     $('#startCompare').on('click', function (e) {
+        createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         resize__comparisonCards();
         $('.emp__results').fadeOut();
         $('.emp__comparison').fadeIn();
@@ -603,6 +605,7 @@ var init__comparisonTickers = function () {
         }, 0);
     });
     $('#endCompare').on('click', function (e) {
+        createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         resize__comparisonCards();
         $('.emp__comparison').fadeOut();
         $('.emp__results').fadeIn();
@@ -732,7 +735,9 @@ $(window).scroll(function () {
             showOnScrollMenu(false);
         }
     } else {
-        if ($(window).scrollTop() > 434) {
+        console.log($(window).scrollTop());
+        
+        if ($(window).scrollTop() > 356) {
             if ($('.header-placeholder > header.navbar').hasClass('mini-menu')) {
                 showOnScrollMenu(true);
             } else {

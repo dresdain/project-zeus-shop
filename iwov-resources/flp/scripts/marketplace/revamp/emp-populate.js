@@ -81,7 +81,7 @@ function createDOM__savingsInfo(item, options) {
     html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a></small>';
 
     /* Copy Body */
-    var annualSavings = Math.round(parseFloat(options.total_annual_savings.replace('$','')));
+    var annualSavings = cleanSavings(options.total_annual_savings);
     html += '<div class="body annual-savings">S$<span class="annual-savings-value">' + annualSavings + '</span></div>';
 
     /* Copy Footnote */
@@ -107,7 +107,7 @@ function createDOM__planDetails(item, options) {
 
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
-    var rateSuffix = (item.rate.indexOf("%") >= 0 ? 'off SP Tariff' : '/ kWh (w GST)');
+    var rateSuffix = (item.rate.indexOf("%") >= 0 ? 'off SP Tariff' : '/ kWh <br class="visible-xs"?>(w GST)');
     html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">' + item.rate + ' '+rateSuffix+'</div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
@@ -138,22 +138,22 @@ function createDOM__planDetails(item, options) {
 function createLink__ApplyNow(item, options, action) {
     /* Apply Now */
     var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace-revamp.html?';
-    var annualSavings = Math.round(parseFloat(options.total_annual_savings.replace('$','')));
+    var annualSavings = cleanSavings(options.total_annual_savings);
     var existingDBS = {
         FROM_IB: true,
         PWEB: true,
         SERVICE_ID: '000000000000651',
         pid: 'sg-dbs-pweb-marketplace-searchpackage-electricity-marketplace-btnlogintodigibank',
-        nationality: 'nationality_pr',
-        current_state: 'state_living_in',
+        // nationality: 'nationality_pr',
+        // current_state: 'state_living_in',
         dwelling_type: $('#planForm__dropdown .place-live').val(),
-        selected_package: 'package_discount',
-        preference: (item.green_energy.toLowerCase() == 'yes' ? 'preference_cleanenergy' : 'no_preference'),
+        // selected_package: 'package_discount',
+        // preference: (item.green_energy.toLowerCase() == 'yes' ? 'preference_cleanenergy' : 'no_preference'),
         retailer_id: item.retailer_id,
         retailer_name: item.retailer_name,
         retailer_package_id: item.retailer_package_id,
         plan_name: item.plan_name,
-        plan_price: annualSavings,
+        plan_price: 'S$' + annualSavings,
         package_more_details: item.comparison_1 + "," + item.comparison_2 + ',' + item.comparison_3,
         plan_selling_point: item.promotion,
         rcp_support: 'N',
@@ -180,11 +180,11 @@ function createLink__ApplyNow(item, options, action) {
 /* 📦 Compare Plans checkbox */
 function createDOM__comparePlans(item, options, planID) {
     var html = '';
-    var annualSavings = Math.round(parseFloat(options.total_annual_savings.replace('$','')));
+    var annualSavings = cleanSavings(options.total_annual_savings);
     var comparisonDetails = {
         'plan_id': '#' + planID,
         'logo': item.retailer_logo_path,
-        'annual_savings': annualSavings,
+        'annual_savings': '$' +  annualSavings,
         'plan_name': item.plan_name + createDOM__greenEnergy(item.green_energy),
         'retailer_name': item.retailer_name,
         'applyNow_btn_yes': createLink__ApplyNow(item, options, 'yes'),
@@ -224,6 +224,12 @@ function createDOM__greenEnergy(state) {
     } else { return '' }
 }
 
+
+/* 📦 cleanSavings() */
+var cleanSavings = function(savings){
+    var temp = Math.round(parseFloat(savings.replace('$','').replace(',','')));
+    return numberWithCommas(temp);
+}
 
 
 /* 📦  Create DOM Comparison */
@@ -296,5 +302,13 @@ var remove__comparisonPlan = function () {
             }
         });
         console.log(removeIndex); 
+        createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
     });
 }
+
+function numberWithCommas(number) {
+    var parts = number.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+ 
