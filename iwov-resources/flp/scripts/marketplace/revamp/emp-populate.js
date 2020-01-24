@@ -244,7 +244,7 @@ function createDOM__comparisonPlans(comparisonList) {
         $(parent).addClass('activeComparison');
 
         /* First Section */
-        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("' + v.logo + '")');
+        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url(".' + v.logo + '")');
         $(parent + ' > .compareItems--card div.heading').text('S' + v.annual_savings);
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
