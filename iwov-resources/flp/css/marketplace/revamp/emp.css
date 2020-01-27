@@ -344,8 +344,8 @@
   }
 }
 .partners__box .partner--logo {
-  height: 40px;
-  width: 145px;
+  height: 55px;
+  width: 153px;
   margin-bottom: 8px;
   background-size: contain;
   background-position: center center;
@@ -644,8 +644,11 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-align: center;
-    padding: 25px 10px;
+    padding: 20px 10px 5px 10px;
   }
 }
 .emp__menu__top--copy p {
@@ -705,7 +708,7 @@
 }
 @media (max-width: 768px) {
   .emp__menu__filter {
-    padding-top: calc(165px + 65px);
+    padding-top: calc(165px + 25px);
   }
   .emp__menu__filter > .container.expand {
     min-height: 390px;
@@ -911,7 +914,7 @@
   margin-bottom: 20px;
 }
 .plan__details--card.border-top {
-  border-top: 1px solid #DCDCDC;
+  border-top: 1px solid #dcdcdc;
   margin-top: 15px;
   padding-top: 30px !important;
 }
@@ -920,7 +923,7 @@
 }
 .plan__details--card.border-top--only {
   position: relative;
-  border-top: 1px solid #DCDCDC;
+  border-top: 1px solid #dcdcdc;
   margin-top: 15px;
   padding-top: 30px !important;
   border-bottom: 0px solid transparent;
@@ -930,10 +933,10 @@
   border-bottom: none;
 }
 .plan__details--card.border-top--only:before {
-  content: '';
+  content: "";
   width: 100px;
   height: 1px;
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
   top: -1px;
   right: -34px;
   position: absolute;
@@ -1138,14 +1141,13 @@
   background-size: contain;
   background-repeat: no-repeat;
   top: -10px;
-  right: -10px;
+  left: calc(100% - 10px);
   border: none;
 }
 @media (max-width: 768px) {
   .compareItems--card .remove__comparison {
     height: 18px;
     width: 18px;
-    right: -22px;
   }
 }
 
@@ -1285,11 +1287,6 @@
   height: calc(100% - 180px);
   z-index: 50;
   background-color: rgba(255, 255, 255, 0.9);
-}
-@media (max-width: 768px) {
-  .emp__loader {
-    position: fixed;
-  }
 }
 .emp__loader .active__index {
   -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
@@ -2103,6 +2100,40 @@ ul.plan-types > li:nth-child(2):before {
 
 .group-tiles {
   margin-bottom: 30px;
+}
+
+/* Littles */
+.promotion-content .btn {
+  height: 44px;
+}
+
+@media (max-width: 768px) {
+  .row.card-tiles {
+    margin-top: 30px;
+  }
+
+  #illustrationPlan .modal-subtitle {
+    margin-top: 10px;
+  }
+
+  .emp__menu__top .header-title {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .emp__menu__top .header-title ~ p {
+    font-size: 12px;
+  }
+
+  .emp__menu__top--body > img {
+    width: 54px;
+    height: 45px;
+  }
+
+  .plan__details--card .body {
+    font-size: 12px;
+  }
 }
 
 /*# sourceMappingURL=emp.css.map */

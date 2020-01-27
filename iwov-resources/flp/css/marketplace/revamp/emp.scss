@@ -1,9 +1,9 @@
 /* Mixins */
-@mixin ie-support(){
+@mixin ie-support() {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      @content;
+    @content;
   }
-  @supports (-ms-accelerator:true) {
+  @supports (-ms-accelerator: true) {
     @content;
   }
 }
@@ -288,7 +288,7 @@
 /* SECTION .feature__box COMPONENT */
 .feature__box {
   margin-bottom: 52px;
-  @include ie-support(){
+  @include ie-support() {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -345,28 +345,28 @@
       margin-top: 0px;
     }
   }
-  .partner--logo{
-    height: 40px;
-    width: 145px;
+  .partner--logo {
+    height: 55px;
+    width: 153px;
     margin-bottom: 8px;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     transition: 0.3s ease-in-out;
-      /* Firefox 10+, Firefox on Android */
-      filter: url("./filters.svg#grayscale"); /* Firefox 3.5+ */
-      filter: gray; /* IE6-9 */
-      -webkit-filter: grayscale(100%);
-      -moz-filter: grayscale(100%);
-      -ms-filter: grayscale(100%);
-      -o-filter: grayscale(100%);
-      filter: grayscale(100%);
-      @media (max-width: 768px) {
-        filter: grayscale(0%);
-      }
-      &:hover { 
-          filter: grayscale(0%); 
-      }
+    /* Firefox 10+, Firefox on Android */
+    filter: url("./filters.svg#grayscale"); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    @media (max-width: 768px) {
+      filter: grayscale(0%);
+    }
+    &:hover {
+      filter: grayscale(0%);
+    }
   }
   &--slick {
     display: flex;
@@ -444,7 +444,7 @@
     }
   }
   &--card {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     width: 90%;
     img {
@@ -563,8 +563,9 @@
     }
     @media (max-width: 768px) {
       flex-direction: column;
+      align-items:center;
       text-align: center;
-      padding: 25px 10px;
+      padding:20px 10px 5px 10px;
     }
   }
   &--copy {
@@ -584,7 +585,7 @@
     form {
       padding-top: 45px;
       padding-bottom: 45px;
-      @media (max-width: 768px){
+      @media (max-width: 768px) {
         padding-top: 0px;
       }
     }
@@ -619,7 +620,7 @@
     }
   }
   @media (max-width: 768px) {
-    padding-top: calc(165px + 65px);
+    padding-top: calc(165px + 25px);
     > .container.expand {
       min-height: 390px;
     }
@@ -734,8 +735,7 @@
     }
   }
 }
-.compareItems .plan__details{
-
+.compareItems .plan__details {
 }
 .plan__details {
   $parent: &;
@@ -746,10 +746,10 @@
     padding: 15px 0px;
     border-top-color: #dcdcdc;
   }
-  @media (max-width: 768px){
-     .compareItems &{
-       padding-left: 0px;
-     }
+  @media (max-width: 768px) {
+    .compareItems & {
+      padding-left: 0px;
+    }
   }
   &--wrapper {
     @media (max-width: 768px) {
@@ -758,7 +758,7 @@
       > .plan__details--card {
         width: 50%;
         &.Fixed,
-        &.Discounted{
+        &.Discounted {
           padding-right: 15px;
         }
       }
@@ -778,7 +778,7 @@
   }
   &--card {
     &.border-top {
-      border-top: 1px solid #DCDCDC;
+      border-top: 1px solid #dcdcdc;
       margin-top: 15px;
       padding-top: 30px !important;
       .compareItems--details & {
@@ -786,7 +786,7 @@
       }
       &--only {
         position: relative;
-        border-top: 1px solid #DCDCDC;
+        border-top: 1px solid #dcdcdc;
         margin-top: 15px;
         padding-top: 30px !important;
         border-bottom: 0px solid transparent;
@@ -794,11 +794,11 @@
           border-top: 1px solid #dcdcdc;
           border-bottom: none;
         }
-        &:before{
-          content: '';
+        &:before {
+          content: "";
           width: 100px;
           height: 1px;
-          background-color: #DCDCDC;
+          background-color: #dcdcdc;
           top: -1px;
           right: -34px;
           position: absolute;
@@ -831,8 +831,7 @@
       color: #172633;
       font-family: "OpenSans";
       font-size: 16px;
-      .compareItems &{
-        
+      .compareItems & {
         @media (max-width: 320px) {
           font-size: 13px;
         }
@@ -874,16 +873,15 @@
     }
   }
 }
-#compareItem--details-3 .border-top--only{
-  &:before{ 
+#compareItem--details-3 .border-top--only {
+  &:before {
     width: 100px;
-    height: 0px; 
+    height: 0px;
   }
 }
 #compareItem--details-2,
-#compareItem--details-3
-{
-  .plan__details--card .heading{ 
+#compareItem--details-3 {
+  .plan__details--card .heading {
     visibility: hidden;
   }
 }
@@ -991,12 +989,12 @@
       background-size: contain;
       background-repeat: no-repeat;
       top: -10px;
-      right: -10px;
+      left: calc(100% - 10px); 
       border: none;
       @media (max-width: 768px) {
         height: 18px;
         width: 18px;
-        right: -22px;
+        // right: -22px;
       }
     }
   }
@@ -1018,8 +1016,7 @@
   bottom: 0px;
   box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.1);
   background-color: #f7f7f7;
-  @media (max-width: 768px){
-    
+  @media (max-width: 768px) {
     border-bottom: 1px solid #f33;
   }
   &.undock--nav {
@@ -1122,8 +1119,8 @@
   height: calc(100% - 180px);
   z-index: 50;
   background-color: rgba(255, 255, 255, 0.9);
-  @media (max-width: 768px){
-    position: fixed; 
+  @media (max-width: 768px) {
+    // position: fixed;
   }
   .active__index {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
@@ -1558,7 +1555,7 @@ be sure the cells are on the top of the pseudo element*/
 .emp__exitScreen {
   display: none;
 }
-.emp__exitScreen .plan__box--flat img{
+.emp__exitScreen .plan__box--flat img {
   width: 60px;
   height: 60px;
 }
@@ -1601,13 +1598,13 @@ be sure the cells are on the top of the pseudo element*/
   }
   &--individual {
     color: #2e2e2e;
-    font-family: "OpenSans" ;
+    font-family: "OpenSans";
     font-size: 16px;
     line-height: 24px;
     display: flex;
     &--col {
       width: 50%;
-      label{
+      label {
         font-family: "OpenSans";
       }
     }
@@ -1652,5 +1649,34 @@ be sure the cells are on the top of the pseudo element*/
 
 @import "consumer";
 
+.group-tiles {
+  margin-bottom: 30px;
+}
 
-.group-tiles {margin-bottom: 30px;}
+/* Littles */
+.promotion-content .btn {
+  height: 44px;
+}
+@media (max-width: 768px) {
+  .row.card-tiles {
+    margin-top: 30px;
+  }
+  #illustrationPlan .modal-subtitle {
+    margin-top: 10px;
+  }
+  .emp__menu__top .header-title {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  } 
+  .emp__menu__top .header-title ~ p {
+    font-size: 12px;
+  }
+  .emp__menu__top--body > img{
+    width: 54px;
+    height: 45px;
+  }
+  .plan__details--card .body{
+    font-size: 12px;
+  }
+}

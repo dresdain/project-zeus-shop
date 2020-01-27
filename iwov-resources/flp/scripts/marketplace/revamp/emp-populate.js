@@ -85,7 +85,7 @@ function createDOM__savingsInfo(item, options) {
     html += '<div class="body annual-savings">S$<span class="annual-savings-value">' + annualSavings + '</span></div>';
 
     /* Copy Footnote */
-    html += '<small class="footnote">Save up to ' + options.total_monthly_savings + '/mth</small>';
+    html += '<small class="footnote">Save up to S' + options.total_monthly_savings + '/mth</small>';
 
     /* End Copy Wrapper */
     html += '</div>';
@@ -108,7 +108,7 @@ function createDOM__planDetails(item, options) {
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
     var rateSuffix = (item.rate.indexOf("%") >= 0 ? 'off SP Tariff' : '/ kWh <br class="visible-xs"?>(w GST)');
-    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">' + item.rate + ' '+rateSuffix+'</div></div>';
+    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">S' + item.rate + ' '+rateSuffix+'</div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
     /* Plan Name */
@@ -191,9 +191,9 @@ function createDOM__comparePlans(item, options, planID) {
         'applyNow_btn_no': createLink__ApplyNow(item, options, 'no'),
         'applyNow_message': 'You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name,
         'factsheet': item.retailier_factsheet_path,
-        'rate':  item.rate + (item.rate.indexOf("%") >= 0 ? ' off SP Tariff' : ' / kWh (w GST)'),
+        'rate': 'S' +  item.rate + (item.rate.indexOf("%") >= 0 ? ' off SP Tariff' : ' / kWh (w GST)'),
         'rate_type': (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed'),
-        'monthly_savings': options.total_monthly_savings,
+        'monthly_savings': 'S' + options.total_monthly_savings,
         'contract_duration': item.contract_duration_months + ' months',
         'termination': item.termination_fee,
         'comparison_1': item.comparison_1,
@@ -303,6 +303,10 @@ var remove__comparisonPlan = function () {
         });
         console.log(removeIndex); 
         createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        var compareVar = '.compare__plans input[type="checkbox"]',
+        parentCompare = '.emp__compareConfirmation',
+        parentRecompare = '.emp__recompareConfirmation';
+        init__comparisonScreens(parentCompare, parentRecompare);
     });
 }
 
