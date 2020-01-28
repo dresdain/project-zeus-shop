@@ -14,6 +14,7 @@
             <![endif]-->
 
 <head>
+    <script src="//assets.adobedtm.com/71d06aac4e562e3a2278bf493855202cacdacaa2/satelliteLib-3145f6b319cc00978cdb815fdbdf4a767b992f1f-staging.js"></script>
     <meta name="robots" content="noindex">
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Electricity Marketplace | DBS Singapore</title>
@@ -24,7 +25,7 @@
     <meta name="keywords" content="DBS Electricity Marketplace, DBS Marketplace, Switch Electricity Retailer, Electric Retailer, Electricity Liberalisation, Seamless Switch">
     <meta name="description" content="Switch electricity retailer seamlessly - Electricity Marketplace | DBS Singapore – Search, Switch and Save. It’s that easy.">
     <meta name="vpath" content="">
-    <meta name="page-locale-name" content="">
+    <meta name="page-locale-name" content=""> 
     <link type="text/css" href="/iwov-resources/flp/css/vendor/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="/iwov-resources/flp/css/component.css" rel="stylesheet">
     <link type="text/css" href="/iwov-resources/flp/css/flp.css" rel="stylesheet">
@@ -448,7 +449,7 @@
                             <img src="/iwov-resources/flp/images/marketplace/electricity/revamp/bulb.svg" alt="additional information">
                             <div class="copy">
                                 <b>Save more, ponder less</b>
-                                <a href="#" data-toggle="modal" data-target="#illustrationPlan">Click here</a> for an illustration on the total savings one can get when switching retailers
+                                <a href="#" id="modalSaveMore__open" data-toggle="modal" data-target="#illustrationPlan">Click here</a> for an illustration on the total savings one can get when switching retailers
                             </div>
                         </div>
                     </div>
@@ -458,7 +459,7 @@
                 <div class="modal emp__modal fade" id="illustrationPlan" tabindex="-1" role="dialog" aria-labelledby="illustrationPlanLabel" data-keyboard="false" data-backdrop="static">
                     <div class="modal-lg lab-modal-body" role="document">
                         <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>&times;</span></button>
+                            <button type="button" class="close" id="modalSaveMore__close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>&times;</span></button>
                             <div class="modal-header text-center">
 
                                 <h4 class="modal-title" id="illustrationPlanLabel">Save more, ponder less!</h4>
@@ -669,7 +670,7 @@
                                         Selected <span class="compareAmount">3</span> <span class="compareState">(Max)</span>
                                     </div>
                                 </div>
-                                <div class="col-md-2 col-xs-6">
+                                <div class="col-md-2 col-xs-6 text-right">
                                     <button id="endCompare" class="btn btn-primary btn-block btn-outline">Recompare</button>
                                 </div>
                             </div>
@@ -1620,7 +1621,7 @@
                                     Selected: <span class="compareAmount">3</span> <span class="compareState">()</span>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-xs-6">
+                            <div class="col-md-2 col-xs-6 text-right">
                                 <button id="startCompare" class="btn btn-primary btn-block btn-outline">Compare</button>
                             </div>
                         </div>
@@ -1631,10 +1632,12 @@
 
 
             <!-- STUB JS imports  -->
+            <script type="text/javascript" src="/iwov-resources/flp/scripts/marketplace/revamp/aa-tagging.js" type="text/javascript" language="JavaScript"></script>
             <script type="text/javascript" src="/iwov-resources/flp/scripts/marketplace/revamp/polyfill.min.js" type="text/javascript" language="JavaScript"></script>
             <script type="text/javascript" src="/iwov-resources/flp/scripts/marketplace/revamp/slick.min.js" type="text/javascript" language="JavaScript"></script>
             <script type="text/javascript" src="/iwov-resources/flp/scripts/marketplace/revamp/jplist.min.js" type="text/javascript" language="JavaScript"></script>
             <script type="text/javascript" src="/iwov-resources/flp/scripts/marketplace/revamp/emp-scripts.js" type="text/javascript" language="JavaScript"></script>
+            <script type="text/javascript" src="/iwov-resources/flp/scripts/marketplace/revamp/emp-populate.js" type="text/javascript" language="JavaScript"></script> 
             <script type="text/javascript" src="/iwov-resources/flp/scripts/marketplace/revamp/emp-populate.js" type="text/javascript" language="JavaScript"></script> 
 
 
@@ -1774,25 +1777,25 @@
             <div class="row hidden-xs">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card flushed--left">
-                        <a href="./?external=true&retailer=bestelectricity"> <div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png');"></div> </a>
+                        <a href="?external=true&retailer=bestelectricity"> <div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png');"></div> </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card">
-                        <a href="./?external=true&retailer=geneco">
+                        <a href="?external=true&retailer=geneco">
                             <div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png');"></div>  
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card">
-                        <a href="./?external=true&retailer=iswitch">
+                        <a href="?external=true&retailer=iswitch">
                             <div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/iswitch.png');">
                             </div></a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card">
-                        <a href="./?external=true&retailer=keppel"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png');"></div>
+                        <a href="?external=true&retailer=keppel"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png');"></div>
                            </a>
                     </div>
                 </div>
@@ -1800,25 +1803,25 @@
             <div class="row hidden-xs">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card flushed--left">
-                        <a href="./?external=true&retailer=pacificlight"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/pacificlight.png');"></div>
+                        <a href="?external=true&retailer=pacificlight"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/pacificlight.png');"></div>
                             </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card">
-                        <a href="./?external=true&retailer=sunseap"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png');"></div>
+                        <a href="?external=true&retailer=sunseap"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png');"></div>
                             </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card">
-                        <a href="./?external=true&retailer=tuaspower"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png');"></div>
+                        <a href="?external=true&retailer=tuaspower"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png');"></div>
                             </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="partners__box--card">
-                        <a href="./?external=true&retailer=unionpower"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png');"></div>
+                        <a href="?external=true&retailer=unionpower"><div class="partner--logo" style="background-image: url('/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png');"></div>
                             </a>
                     </div>
                 </div>
@@ -1829,33 +1832,33 @@
                 <div>
                     <div class="partners__box--cluster">
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=bestelectricity"> <img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png" alt="" class="" width="160" height="34"></a>
+                            <a href="?external=true&retailer=bestelectricity"> <img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/bestelectricity.png" alt="" class="" width="160" height="34"></a>
                         </div>
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=geneco">
+                            <a href="?external=true&retailer=geneco">
                                 <img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/geneco.png" alt="" class="" width="159" height="90"></a>
                         </div>
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=iswitch"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/iswitch.png" alt="" class="" width="95" height="44"></a>
+                            <a href="?external=true&retailer=iswitch"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/iswitch.png" alt="" class="" width="95" height="44"></a>
                         </div>
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=keppel"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png" alt="" class="" width="155" height="28"></a>
+                            <a href="?external=true&retailer=keppel"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png" alt="" class="" width="155" height="28"></a>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="partners__box--cluster">
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=pacificlight"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/pacificlight.png" alt="" class="" width="145" height="145"></a>
+                            <a href="?external=true&retailer=pacificlight"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/pacificlight.png" alt="" class="" width="145" height="145"></a>
                         </div>
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=sunseap"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png" alt="" class="" width="121" height="33"></a>
+                            <a href="?external=true&retailer=sunseap"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/sunseap.png" alt="" class="" width="121" height="33"></a>
                         </div>
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=tuaspower"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png" alt="" class="" width="90" height="82"></a>
+                            <a href="?external=true&retailer=tuaspower"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/tuaspower.png" alt="" class="" width="90" height="82"></a>
                         </div>
                         <div class="partners__box--card">
-                            <a href="./?external=true&retailer=unionpower"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png" alt="" class="" width="90" height="43"></a>
+                            <a href="?external=true&retailer=unionpower"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/partners/unionpower.png" alt="" class="" width="90" height="43"></a>
                         </div>
                     </div>
                 </div>
@@ -2049,5 +2052,7 @@
     </div>
     </div>
     </div>
+
+    <script type="text/javascript">_satellite.pageBottom();</script>
 </body>
 <!--</html>-->

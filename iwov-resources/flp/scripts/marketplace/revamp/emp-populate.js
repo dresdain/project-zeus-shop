@@ -71,7 +71,7 @@ function createDOM__savingsInfo(item, options) {
     html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
     /* ./iwov-resouces */
-    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'.' + item.retailer_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'' + item.retailer_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
 
     /* Copy Wrapper */
     html += '<div class="savings__info--copy">';
@@ -107,8 +107,8 @@ function createDOM__planDetails(item, options) {
 
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
-    var rateSuffix = (item.rate.indexOf("%") >= 0 ? 'off SP Tariff' : '/ kWh <br class="visible-xs"?>(w GST)');
-    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">S' + item.rate + ' '+rateSuffix+'</div></div>';
+    var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate+ ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
+    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">'+rateSuffix+'</div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
     /* Plan Name */
@@ -181,6 +181,7 @@ function createLink__ApplyNow(item, options, action) {
 function createDOM__comparePlans(item, options, planID) {
     var html = '';
     var annualSavings = cleanSavings(options.total_annual_savings);
+    var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate+ ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
     var comparisonDetails = {
         'plan_id': '#' + planID,
         'logo': item.retailer_logo_path,
@@ -191,7 +192,7 @@ function createDOM__comparePlans(item, options, planID) {
         'applyNow_btn_no': createLink__ApplyNow(item, options, 'no'),
         'applyNow_message': 'You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name,
         'factsheet': item.retailier_factsheet_path,
-        'rate': 'S' +  item.rate + (item.rate.indexOf("%") >= 0 ? ' off SP Tariff' : ' / kWh (w GST)'),
+        'rate': rateSuffix,
         'rate_type': (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed'),
         'monthly_savings': 'S' + options.total_monthly_savings,
         'contract_duration': item.contract_duration_months + ' months',
@@ -229,6 +230,7 @@ function createDOM__greenEnergy(state) {
 var cleanSavings = function(savings){
     var temp = Math.round(parseFloat(savings.replace('$','').replace(',','')));
     return numberWithCommas(temp);
+    // return savings.replace('$','');
 }
 
 
@@ -244,7 +246,7 @@ function createDOM__comparisonPlans(comparisonList) {
         $(parent).addClass('activeComparison');
 
         /* First Section */
-        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url(".' + v.logo + '")');
+        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("' + v.logo + '")');
         $(parent + ' > .compareItems--card div.heading').text('S' + v.annual_savings);
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
@@ -284,16 +286,16 @@ var remove__comparisonPlan = function () {
         var compareVar = '.compare__plans input[type="checkbox"]',
             parentCompare = '.emp__compareConfirmation',
             parentRecompare = '.emp__recompareConfirmation';
-        console.log('CLOSE: ', $(this).data('id'));
-        console.log('ARRAY: ', tempArr);
+        // console.log('CLOSE: ', $(this).data('id'));
+        // console.log('ARRAY: ', tempArr);
         var $this = $(this);
         var removeCompare = $(this).data('id');
-        console.log('COMPARISON ID', removeCompare);
+        // console.log('COMPARISON ID', removeCompare);
 
         var removeIndex;
         $.each(JSON.parse(sessionStorage.getItem("comparisonList")), function (i, v) {
             if (removeCompare == v.plan_id) {
-                console.log(true, i, v);
+                // console.log(true, i, v);
                 // console.log(removeCompare + ' .compare__plans input:checked');
                 $(removeCompare + ' .compare__plans input:checked').trigger('click');
                 removeIndex = i;

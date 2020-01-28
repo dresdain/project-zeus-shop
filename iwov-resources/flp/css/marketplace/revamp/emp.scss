@@ -256,6 +256,10 @@
       &:hover {
         // cursor: wait;
       }
+      @media (max-width: 768px){
+        width: 100%;
+        min-width: 100%;
+      }
     }
     padding-bottom: 35px;
     border-bottom: 1px solid #dde3e7;
@@ -316,11 +320,14 @@
       margin: 10px 0px;
       width: 100%;
       @media (max-width: 768px) {
+        font-size: 16px;
+        font-weight: 600;
       }
     }
     > .copy {
       color: #2e2e2e;
       font-family: "OpenSans";
+      font-weight: 400;
       font-size: 16px;
       width: 100%;
     }
@@ -572,7 +579,7 @@
     p {
       margin-top: 0px;
       margin-left: 1px;
-      color: #656565;
+      color: #858F96;
       font-family: "OpenSans";
       font-size: 14px;
       a {
@@ -622,18 +629,24 @@
   @media (max-width: 768px) {
     padding-top: calc(165px + 25px);
     > .container.expand {
-      min-height: 390px;
+      min-height: 410px;
     }
     .dropdown-trigger {
       position: relative;
       z-index: 1000;
     }
   }
+  @media (max-width: 320px) { 
+    > .container.expand {
+      min-height: 440px;
+    } 
+  }
   .dropdown .dropdown-menu {
     @media (max-width: 768px) {
       min-width: 100%;
-      z-index: 1000;
+      z-index: 99;
       padding: 13px;
+      width: 100%;
     }
   }
 }
@@ -672,6 +685,7 @@
     }
     @media (max-width: 768px) {
       width: 100%;
+      border-radius: 4px;
       &.placeholder {
         display: none;
       }
@@ -908,9 +922,9 @@
   .btn.btn-primary {
     @media (max-width: 768px) {
       font-size: 12px;
-      min-width: 90%;
-      height: 35px;
-      padding: 8px 5px;
+    min-width: 78px;
+    height: 24px;
+    padding: 3px 5px;
     }
   }
   &--card {
@@ -968,6 +982,7 @@
       font-size: 26px;
       font-weight: 700;
       text-transform: uppercase;
+      text-align: center;
       @media (max-width: 768px) {
         font-size: 16px;
       }
@@ -1255,7 +1270,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../../../images/marketplace/electricity/revamp/chevron-down.svg") 98% / 3% no-repeat #fff;
+  background: url("../../../images/marketplace/electricity/revamp/dropdown_icon.svg") 98% / 3% no-repeat #fff;
   box-sizing: border-box;
   background-size: 18px;
   color: black;
@@ -1612,6 +1627,28 @@ be sure the cells are on the top of the pseudo element*/
       margin-bottom: 10px;
     }
   }
+  &--confirm{
+    @media (max-width: 768px){
+      .button-group{
+        display: flex;
+        justify-content: space-between;
+        > *{
+          width: 48%;
+    min-width: 48%;
+        }
+      }
+    }
+    .btn{
+      @media (max-width: 768px){
+        // padding: 0px 0px;
+        // height: 24px;
+        // font-size: 12px;
+        // min-width: 50px;
+        // width: 78px;
+        // margin-top: 7px;
+      }
+    }
+  }
 }
 
 .compareItems > div {
@@ -1677,6 +1714,26 @@ be sure the cells are on the top of the pseudo element*/
     height: 45px;
   }
   .plan__details--card .body{
-    font-size: 12px;
+    font-size: 14px;
   }
+  #startCompare, #endCompare{
+    padding: 0px 0px;
+    height: 24px;
+    font-size: 12px;
+    min-width: 50px;
+    width: 78px;
+    margin-top: 7px;
+  }
+
+  .partners__box--card{
+    min-height: 0px;
+  }
+}
+
+
+.dropdown-backdrop{
+  z-index: 98;
+}
+#chat-canvas{
+  z-index: 97;
 }

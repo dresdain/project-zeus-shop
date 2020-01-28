@@ -239,6 +239,12 @@
   min-width: 264px;
   margin-top: 32px;
 }
+@media (max-width: 768px) {
+  .plan__box--form button[type="submit"] {
+    width: 100%;
+    min-width: 100%;
+  }
+}
 .plan__box--footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -316,9 +322,16 @@
   margin: 10px 0px;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .feature__box--card > .title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
 .feature__box--card > .copy {
   color: #2e2e2e;
   font-family: "OpenSans";
+  font-weight: 400;
   font-size: 16px;
   width: 100%;
 }
@@ -654,7 +667,7 @@
 .emp__menu__top--copy p {
   margin-top: 0px;
   margin-left: 1px;
-  color: #656565;
+  color: #858F96;
   font-family: "OpenSans";
   font-size: 14px;
 }
@@ -711,18 +724,24 @@
     padding-top: calc(165px + 25px);
   }
   .emp__menu__filter > .container.expand {
-    min-height: 390px;
+    min-height: 410px;
   }
   .emp__menu__filter .dropdown-trigger {
     position: relative;
     z-index: 1000;
   }
 }
+@media (max-width: 320px) {
+  .emp__menu__filter > .container.expand {
+    min-height: 440px;
+  }
+}
 @media (max-width: 768px) {
   .emp__menu__filter .dropdown .dropdown-menu {
     min-width: 100%;
-    z-index: 1000;
+    z-index: 99;
     padding: 13px;
+    width: 100%;
   }
 }
 
@@ -771,6 +790,7 @@
 @media (max-width: 768px) {
   .emp__results__box--card {
     width: 100%;
+    border-radius: 4px;
   }
   .emp__results__box--card.placeholder {
     display: none;
@@ -1039,9 +1059,9 @@
 @media (max-width: 768px) {
   .compareItems .btn.btn-primary {
     font-size: 12px;
-    min-width: 90%;
-    height: 35px;
-    padding: 8px 5px;
+    min-width: 78px;
+    height: 24px;
+    padding: 3px 5px;
   }
 }
 .compareItems--card {
@@ -1116,6 +1136,7 @@
   font-size: 26px;
   font-weight: 700;
   text-transform: uppercase;
+  text-align: center;
 }
 @media (max-width: 768px) {
   .compareItems--card .heading {
@@ -1477,7 +1498,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../../../images/marketplace/electricity/revamp/chevron-down.svg") 98%/3% no-repeat #fff;
+  background: url("../../../images/marketplace/electricity/revamp/dropdown_icon.svg") 98%/3% no-repeat #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-size: 18px;
@@ -1821,6 +1842,20 @@ be sure the cells are on the top of the pseudo element*/
 .action--individual .checkbox {
   margin-bottom: 10px;
 }
+@media (max-width: 768px) {
+  .action--confirm .button-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .action--confirm .button-group > * {
+    width: 48%;
+    min-width: 48%;
+  }
+}
 
 .compareItems > div {
   display: none;
@@ -2132,8 +2167,28 @@ ul.plan-types > li:nth-child(2):before {
   }
 
   .plan__details--card .body {
-    font-size: 12px;
+    font-size: 14px;
   }
+
+  #startCompare, #endCompare {
+    padding: 0px 0px;
+    height: 24px;
+    font-size: 12px;
+    min-width: 50px;
+    width: 78px;
+    margin-top: 7px;
+  }
+
+  .partners__box--card {
+    min-height: 0px;
+  }
+}
+.dropdown-backdrop {
+  z-index: 98;
+}
+
+#chat-canvas {
+  z-index: 97;
 }
 
 /*# sourceMappingURL=emp.css.map */
