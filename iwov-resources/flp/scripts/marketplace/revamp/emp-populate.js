@@ -2,7 +2,7 @@ var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
     script__DIR = '/iwov-resources/flp/scripts/marketplace/';
 
 /* 📦 Populate Plans */
-function populatePlans(minBill, maxBill, action) {
+function populatePlans(minBill, maxBill, action, search_type) {
     $.getJSON(script__DIR + 'emp-p2.json', function (data) {
         var counter = 0;
         if (action == 'refresh') {
@@ -55,10 +55,29 @@ function populatePlans(minBill, maxBill, action) {
 
         // console.log(data.length);
 
-
+        var searchTypeTracking = 'new'; 
+        switch (search_type) {
+            case 'first_time_search':
+                searchTypeTracking = "new";
+                break;
+            case 'modified_search':
+                searchTypeTracking = "modify";
+                break; 
+            default:
+                searchTypeTracking = "new";
+                break;
+        } 
         /* Remove loader */
         setTimeout(function () {
             $('.emp__loader').fadeOut('1000');
+            /* Tracking */
+            var filterList = { 
+                emp_search_type : searchTypeTracking,
+                monthly_bill : $('.monthly-bill-header').text(),
+                prop_type : $('.place-live-copy').text(),
+                total_match : $('.total-items').text()
+            };
+            trackSearch(search_type, filterList);
         }, 1000);
     });
 }

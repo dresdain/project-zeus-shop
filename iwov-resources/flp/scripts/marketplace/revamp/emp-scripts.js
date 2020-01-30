@@ -264,8 +264,7 @@ function reflectPageCount() {
 
 /* 🧠 EMP Init */
 var showPlanDOM__state = false;
-$(function () {
-    var digitalData;
+$(function () { 
     $('[data-toggle="tooltip"]').tooltip();
     init__ExternalOverlay();
 
@@ -307,15 +306,16 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     }
     if ($(this).attr('id') == 'planForm__dropdown' || $(this).attr('id') == 'planForm__dropdown2') {
         $('#emp__editPlans__overlay').modal('hide');
-        populatePlans(0, maxBill, 'refresh');
+        populatePlans(0, maxBill, 'refresh', $(this).data('type'));
     } else {
-        populatePlans(0, maxBill, 'init');
+        populatePlans(0, maxBill, 'init', $(this).data('type'));
     }
     /* Manage DOM displays */
     reset__compareCheckbox();
     showLandingDivs(false);
     showPlanDOM(true);
-    showPlanDOM__state = true;
+    showPlanDOM__state = true; 
+    
 });
 
 
@@ -776,22 +776,22 @@ function showOnScrollMenu(state, target) {
 }
 
 $('#modalSaveMore__open').on('click', function(){
-    // trackCTAButtons('modalSaveMore__open'); 
+    trackButtonLevel('modalSaveMore__open'); 
 });
 
 $('#modalSaveMore__close').on('click', function(){
-    // trackCTAButtons('modalSaveMore__close'); 
+    trackButtonLevel('modalSaveMore__close'); 
 });
 
 $('#filterCollapse').on('click', function(){
-    // trackCTAButtons('editPlans'); 
+    trackButtonLevel('editPlans'); 
 });
 
 $('#startCompare').on('click', function(){
-    // trackCTAButtons('compare'); 
+    trackButtonLevel('compare'); 
 });
 $('#endCompare').on('click', function(){
-    // trackCTAButtons('recompare'); 
+    trackButtonLevel('recompare'); 
 });
 /* 🛠 isInViewPort Helper */
 $.fn.isInViewport = function () {
