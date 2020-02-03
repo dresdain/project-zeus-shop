@@ -112,17 +112,6 @@ var trackSearch = function (action, item) {
             console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
             _satellite.track('electricity-internal search filter'); 
             break;
-        case 'filter_by_retailers':
-            var filterResults = 'emp_search_type:'+ item.emp_search_type +'|by:'+ item.by +'|sort:'+ item.sort;
-            digitalData = {
-                search: {
-                    filter: filterResults,
-                    results: item.total_match
-                }
-            }
-            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
-            _satellite.track('electricity-internal search filter'); 
-            break;
         default:
             control = '';
             break;
