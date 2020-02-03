@@ -25,8 +25,9 @@ function populatePlans(minBill, maxBill, action, search_type) {
         data.forEach(function (item) {
             for (var i = 0; i <= (item.options.length - 1); i++) {
                 var dataDOM = '';
+                var rangeControl = item.options[i].current_monthly_sp_bill_size;
 
-                if (item.options[i].current_monthly_sp_bill_size == maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) { 
+                if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) { 
                     var planID = 'plan_item--' + counter;
                     dataDOM += '<article data-jplist-item class="emp__results__box--card" id="' + planID + '">';
                     dataDOM += createDOM__savingsInfo(item, item.options[i]);

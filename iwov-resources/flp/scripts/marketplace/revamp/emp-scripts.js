@@ -233,8 +233,22 @@ function initExitScreens() {
 $('#planForm .place-live').on('change', function () {
     $('#planForm__dropdown .place-live, #planForm__dropdown2 .place-live').val($(this).val());
 });
+$('#planForm__dropdown .place-live').on('change', function () {
+    $('#planForm .place-live, #planForm__dropdown2 .place-live').val($(this).val());
+});
+$('#planForm__dropdown2 .place-live').on('change', function () {
+    $('#planForm .place-live, #planForm__dropdown .place-live').val($(this).val());
+});
+
+
 $('#planForm .range-cost').on('change', function () {
     $('#planForm__dropdown .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
+});
+$('#planForm__dropdown .range-cost').on('change', function(){
+    $('#planForm .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
+});
+$('#planForm__dropdown2 .range-cost').on('change', function(){
+    $('#planForm .range-cost, #planForm__dropdown .range-cost').val($(this).val());
 });
 
 /* 📦 reflectPageCount */
@@ -296,7 +310,13 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
     var placeLive = $('.place-live', this).find(':selected').attr('data-title');
 
-    $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
+    if(maxBill == "Infinity"){
+        $('.monthly-bill-header').html('>S$500');
+        maxBill = Infinity;
+    }else{
+        $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
+    }
+    
     $('.place-live-copy').html(placeLive);
     // Check if user is submitting using the dropdownForm version 
     if ($(this).attr('id') == 'planForm__dropdown2') {
@@ -306,9 +326,9 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     }
     if ($(this).attr('id') == 'planForm__dropdown' || $(this).attr('id') == 'planForm__dropdown2') {
         $('#emp__editPlans__overlay').modal('hide');
-        populatePlans(0, maxBill, 'refresh', $(this).data('type'));
+        populatePlans(minBill, maxBill, 'refresh', $(this).data('type'));
     } else {
-        populatePlans(0, maxBill, 'init', $(this).data('type'));
+        populatePlans(minBill, maxBill, 'init', $(this).data('type'));
     }
     /* Manage DOM displays */
     reset__compareCheckbox();
@@ -604,6 +624,8 @@ var init__comparisonTickers = function () {
         $('html, body').animate({
             scrollTop: $(".emp__comparison").offset().top - 200
         }, 0);
+		
+		set__compareButtonSize();
     });
     $('#endCompare').on('click', function (e) {
         createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
@@ -636,7 +658,8 @@ function addToCompare() {
             tempArr.splice(tempArr.indexOf($(this).data('details')), 1);
         }
         // console.log(tempArr.indexOf(2));
-        sessionStorage.setItem('comparisonList', JSON.stringify(tempArr))
+
+        sessionStorage.setItem('comparisonList', JSON.stringify(sortJSON(tempArr, 'annual_savings', '321')))
         validate__compareCheckbox();
         init__comparisonScreens(parentCompare, parentRecompare);
         init__comparisonTickers();
@@ -660,6 +683,16 @@ var get__tallestCard = function (rowNumber) {
     }
     return tallestCard;
 }
+
+/* 📦 set__compareButtonSize */
+var set__compareButtonSize = function () {
+	if (window.matchMedia('(max-width: 768px)').matches) {
+		return $(".plan__details--card .btn.btn-primary").width($(".compareItems--card").outerWidth() - 10);
+	} else {
+		return $(".plan__details--card .btn.btn-primary").width(134);
+	}
+}
+
 /* REVIEW Consider refactoring */
 var get__tallestCardSub = function (rowNumber) {
     var maxHeight = 0, counter = 2, tallestCard = '';
@@ -721,6 +754,7 @@ $(function(){
 /* 🖥 Resize events */
 $(window).resize(function(){
     resize__comparisonCards();
+	set__compareButtonSize();
 });
 
 /* 🖥  Scroll Events */
@@ -799,8 +833,7 @@ $.fn.isInViewport = function () {
     var elementBottom = elementTop + $(this).outerHeight();
 
     var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-
+    var viewportBottom = viewportTop + $(window).height(); 
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
@@ -826,4 +859,11 @@ function isIE() {
 
     return is_ie;
 }
- 
+
+function sortJSON(data, key, way) {
+    return data.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        if (way === '123' ) { return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }
+        if (way === '321') { return ((x > y) ? -1 : ((x < y) ? 1 : 0)); }
+    });
+}
