@@ -96,3 +96,44 @@
 
 
 https://www.dbs.com.sg/iwov-resources/flp/css/marketplace/pweb.property-marketplace-ema-consumer-advisory.css
+
+
+
+
+
+
+
+Search Keywords Tracking
+
+First Time Search
+emp_search_type:new|monthly_bill:<range>|prop_type:<value>
+
+Modifying the search
+emp_search_type:modify|monthly_bill:<range>|prop_type:<value>
+
+Filter Search results (by Retailers)
+emp_search_type:filter|by:retailers-all retailers|sort:<value>
+emp_search_type:filter|by:retailers-<selection1>-<selection2>-<selection3>....-<selectionN>|sort:<value>
+
+Filter Search results (by Rate Type)
+emp_search_type:filter|by:ratetype-<value>|sort:<value>
+
+Filter Search results (by Eco Friendly Plans)
+emp_search_type:filter|by:ecofriendlyplans
+
+Compare Cards:
+For Compare Cards, please refer to "Card Comparator Tool Tracking" on Pg #64 in the PWEB Tech spec attached.
+
+Product Type: electricity_mp
+Primary Category: <partner>    (ex: unionpower, tuaspower, keppel etc.)
+Sub Category 1: <plan>     (ex: unionts6,uniongs24 etc.) 
+
+
+BAU Functionalities (No Change)
+Download Factsheet
+Hero Block Banner Tracking (pid)
+Submit interest without Digibank (pid)
+Submit interest non dbs (pid)
+Featured products & articles tracking (pid)
+On Click of "Agree" button the Plan Detail Page (pid)
+

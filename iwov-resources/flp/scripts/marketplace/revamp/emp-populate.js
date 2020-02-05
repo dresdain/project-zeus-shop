@@ -1,6 +1,8 @@
 var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
     script__DIR = '/iwov-resources/flp/scripts/marketplace/';
 
+var firstTimeSearchControl = 0;
+
 /* 📦 Populate Plans */
 function populatePlans(minBill, maxBill, action, search_type) {
     $.getJSON(script__DIR + 'emp-p2.json', function (data) {
@@ -15,19 +17,19 @@ function populatePlans(minBill, maxBill, action, search_type) {
             // $('.emp__results__box--list').append('<article data-jplist-control="no-results" data-group="group1" data-name="no-results">No Results Found</article>'); 
         });
         var filterRetailers = [];
-        $('.action--hidden--cb').each(function(){
-            if($(this).is(":checked")){
+        $('.action--hidden--cb').each(function () {
+            if ($(this).is(":checked")) {
                 filterRetailers.push($(this).val());
             }
         });
         // console.log(filterRetailers);
-        
+
         data.forEach(function (item) {
             for (var i = 0; i <= (item.options.length - 1); i++) {
                 var dataDOM = '';
                 var rangeControl = item.options[i].current_monthly_sp_bill_size;
 
-                if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) { 
+                if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
                     var planID = 'plan_item--' + counter;
                     dataDOM += '<article data-jplist-item class="emp__results__box--card" id="' + planID + '">';
                     dataDOM += createDOM__savingsInfo(item, item.options[i]);
@@ -49,17 +51,29 @@ function populatePlans(minBill, maxBill, action, search_type) {
         /* Re-initialize everything */
         $('[data-toggle="tooltip"]').tooltip();
 
-        setTimeout(function() {
+        setTimeout(function () {
             reflectPageCount();
             initExitScreens();
         }, 200);
 
         // console.log(data.length);
- 
+
         /* Remove loader */
         setTimeout(function () {
             $('.emp__loader').fadeOut('1000');
-            
+            if (firstTimeSearchControl === 0) {
+                var filterList = {
+                    emp_search_type: 'new',
+                    monthly_bill: $('.monthly-bill-header').text(),
+                    prop_type: $('.place-live-copy').text(),
+                    total_match: $('.total-items').text()
+                };
+                setTimeout(function () {
+                    trackSearch('first_time_search', filterList);
+                    trackPageLevel('search-results', []);
+                }, 1000);
+                firstTimeSearchControl = 1;
+            }
         }, 1000);
     });
 }
@@ -78,7 +92,7 @@ function createDOM__savingsInfo(item, options) {
     html += '<div class="savings__info--copy">';
 
     /* Copy Heading */
-    
+
     html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a></small>';
 
     /* Copy Body */
@@ -108,8 +122,8 @@ function createDOM__planDetails(item, options) {
 
     /* Discount Rate */
     var rateType = (item.rate.indexOf("%") >= 0 ? 'Discounted' : 'Fixed');
-    var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate+ ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
-    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">'+rateSuffix+'</div></div>';
+    var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate + ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
+    html += '<div class=" ' + rateType + ' plan__details--card"><div class="heading">' + rateType + ' rate</div><div class="body">' + rateSuffix + '</div></div>';
     // html += '<div class="plan__details--card"><div class="heading">Discounted rate</div><div class="body">15.56 <small>cents/kWh</small></div></div>';
 
     /* Plan Name */
@@ -125,7 +139,7 @@ function createDOM__planDetails(item, options) {
     html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
 
     /* Factsheet */
-    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="btn btn-primary btn-block btn-outline" target="_blank">Factsheet</a></div>';
+    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="open_factsheet btn btn-primary btn-block btn-outline" target="_blank">Factsheet</a></div>';
 
 
     /* End Plan Details */
@@ -182,11 +196,11 @@ function createLink__ApplyNow(item, options, action) {
 function createDOM__comparePlans(item, options, planID) {
     var html = '';
     var annualSavings = cleanSavings(options.total_annual_savings);
-    var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate+ ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
+    var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate + ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
     var comparisonDetails = {
         'plan_id': '#' + planID,
         'logo': item.retailer_logo_path,
-        'annual_savings': '$' +  annualSavings,
+        'annual_savings': '$' + annualSavings,
         'plan_name': item.plan_name + createDOM__greenEnergy(item.green_energy),
         'retailer_name': item.retailer_name,
         'applyNow_btn_yes': createLink__ApplyNow(item, options, 'yes'),
@@ -228,8 +242,8 @@ function createDOM__greenEnergy(state) {
 
 
 /* 📦 cleanSavings() */
-var cleanSavings = function(savings){
-    var temp = Math.round(parseFloat(savings.replace('$','').replace(',','')));
+var cleanSavings = function (savings) {
+    var temp = Math.round(parseFloat(savings.replace('$', '').replace(',', '')));
     return numberWithCommas(temp);
     // return savings.replace('$','');
 }
@@ -240,9 +254,9 @@ function createDOM__comparisonPlans(comparisonList) {
     var comparisonList = JSON.parse(comparisonList);
     // console.log(comparisonList);
     $('.compareItems > div').removeClass('activeComparison');
-    $.each(comparisonList, function (i, v) { 
-        var parent = '#compareItem-' + (i+1); 
-        
+    $.each(comparisonList, function (i, v) {
+        var parent = '#compareItem-' + (i + 1);
+
         /*  */
         $(parent).addClass('activeComparison');
 
@@ -262,21 +276,21 @@ function createDOM__comparisonPlans(comparisonList) {
 
 
         /* Mid Section */
-        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(1) .body').html(v.plan_name);
-        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(2) .body').html(v.rate);
-        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(3) .body').html(v.rate_type);
-        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(4) .body').html(v.monthly_savings);
-        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(5) .body').html(v.contract_duration);
-        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(6) .body').html(v.termination);
-        $('.compareItems--col' + (i+1) + ' .plan__details--card:nth-child(7) .body').html(v.promotion);
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(1) .body').html(v.plan_name);
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(2) .body').html(v.rate);
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(3) .body').html(v.rate_type);
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(4) .body').html(v.monthly_savings);
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(5) .body').html(v.contract_duration);
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(6) .body').html(v.termination);
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(7) .body').html(v.promotion);
 
         /* Last Section */
-        $('.compareItems--col' + (i+1) + '  .plan__details--card:nth-child(8) .body:nth-child(2)').html(v.comparison_1);
-        $('.compareItems--col' + (i+1) + '  .plan__details--card:nth-child(8) .body:nth-child(3)').html(v.comparison_2);
-        $('.compareItems--col' + (i+1) + '  .plan__details--card:nth-child(8) .body:nth-child(4)').html(v.comparison_3);
+        $('.compareItems--col' + (i + 1) + '  .plan__details--card:nth-child(8) .body:nth-child(2)').html(v.comparison_1);
+        $('.compareItems--col' + (i + 1) + '  .plan__details--card:nth-child(8) .body:nth-child(3)').html(v.comparison_2);
+        $('.compareItems--col' + (i + 1) + '  .plan__details--card:nth-child(8) .body:nth-child(4)').html(v.comparison_3);
 
         // console.log(i, v);   
-        
+
     });
 }
 
@@ -304,11 +318,11 @@ var remove__comparisonPlan = function () {
                 sessionStorage.setItem('comparisonList', JSON.stringify(tempArr));
             }
         });
-        console.log(removeIndex); 
+        console.log(removeIndex);
         createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         var compareVar = '.compare__plans input[type="checkbox"]',
-        parentCompare = '.emp__compareConfirmation',
-        parentRecompare = '.emp__recompareConfirmation';
+            parentCompare = '.emp__compareConfirmation',
+            parentRecompare = '.emp__recompareConfirmation';
         init__comparisonScreens(parentCompare, parentRecompare);
     });
 }
@@ -318,4 +332,3 @@ function numberWithCommas(number) {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
 }
- 

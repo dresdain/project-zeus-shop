@@ -110,12 +110,18 @@ var validate__retailers = function (retailers) {
 
             setTimeout(function () {
                 $('.filter-type-3--dummy-cb[value="' + v + '"]').trigger('click');
-                // console.log('confirmd' + v); 
-                $('#filter-type-3--apply').trigger('click');
+                // console.log('confirmd' + v);  
+                if ((i + 1) == confirmedRetailers.length) {
+                    $('#filter-type-3--apply').trigger('click');
+                    trackPageLevel('partner-plan', {
+                        partner: activeRetailers()
+                    });
+                }
             }, 100);
 
         });
         // console.log(confirmedRetailers);
+
     }
 }
 
@@ -225,7 +231,15 @@ function initExitScreens() {
             scrollTop: $(".emp__exitScreen").offset().top - 200
         }, 500);
 
+        trackPageLevel('view-plan', []);
+
     });
+
+    $('.open_factsheet').off();
+    $('.open_factsheet').one('click', function () {
+        trackPageLevel('factsheet', []);
+    });
+
 }
 
 
@@ -244,10 +258,10 @@ $('#planForm__dropdown2 .place-live').on('change', function () {
 $('#planForm .range-cost').on('change', function () {
     $('#planForm__dropdown .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
 });
-$('#planForm__dropdown .range-cost').on('change', function(){
+$('#planForm__dropdown .range-cost').on('change', function () {
     $('#planForm .range-cost, #planForm__dropdown2 .range-cost').val($(this).val());
 });
-$('#planForm__dropdown2 .range-cost').on('change', function(){
+$('#planForm__dropdown2 .range-cost').on('change', function () {
     $('#planForm .range-cost, #planForm__dropdown .range-cost').val($(this).val());
 });
 
@@ -278,7 +292,7 @@ function reflectPageCount() {
 
 /* 🧠 EMP Init */
 var showPlanDOM__state = false;
-$(function () { 
+$(function () {
     $('[data-toggle="tooltip"]').tooltip();
     init__ExternalOverlay();
 
@@ -310,13 +324,13 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
     var placeLive = $('.place-live', this).find(':selected').attr('data-title');
 
-    if(maxBill == "Infinity"){
+    if (maxBill == "Infinity") {
         $('.monthly-bill-header').html('>S$500');
         maxBill = Infinity;
-    }else{
+    } else {
         $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
     }
-    
+
     $('.place-live-copy').html(placeLive);
     // Check if user is submitting using the dropdownForm version 
     if ($(this).attr('id') == 'planForm__dropdown2') {
@@ -334,8 +348,8 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     reset__compareCheckbox();
     showLandingDivs(false);
     showPlanDOM(true);
-    showPlanDOM__state = true; 
-    
+    showPlanDOM__state = true;
+
 });
 
 
@@ -355,13 +369,13 @@ $('.filter-type-2').on('change', function () {
     }
     reset__compareCheckbox();
     $('#main-pagination [data-type="first"]').trigger('click');
-    setTimeout(function(){
+    setTimeout(function () {
         reflectPageCount();
 
     }, 500);
 
 });
- 
+
 
 /* 🖥 Filter Type 1 */
 $('#filter-type-1').on('change', function () {
@@ -415,8 +429,6 @@ $('#filter-type-1').on('change', function () {
                 $('.filter-type-3').show();
             }, 200);
             reflectPageCount();
-
-            trackFilter__retailers('all retailers');
             break;
         default:
             $('.filter-type-2').hide();
@@ -478,6 +490,7 @@ $('#filter-type-3--apply').on('click', function () {
         }
 
         reflectPageCount();
+        trackFilter__retailers();
     }
     $('.filter-type-3--trigger').removeClass('open');
     $('.emp__menu__filter > .container').removeClass('expand');
@@ -531,7 +544,7 @@ $('.sort-type-1').on('change', function () {
 $('#hidePlans').on('click', function (e) {
     showLandingDivs(true);
     showPlanDOM(false);
-}); 
+});
 
 $(function () {
     $('#exit_empExitScreen').on('click', function () {
@@ -545,7 +558,7 @@ $(function () {
 var jpListElements = document.getElementById('main-pagination');
 
 //listen to the state event
-jpListElements.addEventListener('jplist.state', function(e){
+jpListElements.addEventListener('jplist.state', function (e) {
 
     // //the whole state object
     // console.log(e.jplistState);
@@ -630,8 +643,8 @@ var init__comparisonTickers = function () {
         $('html, body').animate({
             scrollTop: $(".emp__comparison").offset().top - 200
         }, 0);
-		
-		set__compareButtonSize();
+
+        set__compareButtonSize();
     });
     $('#endCompare').on('click', function (e) {
         createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
@@ -644,7 +657,7 @@ var init__comparisonTickers = function () {
 /* 📦 addToCompare */
 var compareCounter = 0,
     compareItemsArray = sessionStorage.setItem('comparisonList', JSON.stringify([]));
-function addToCompare() { 
+function addToCompare() {
     resize__comparisonCards();
     var compareVar = '.compare__plans input[type="checkbox"]',
         parentCompare = '.emp__compareConfirmation',
@@ -692,11 +705,11 @@ var get__tallestCard = function (rowNumber) {
 
 /* 📦 set__compareButtonSize */
 var set__compareButtonSize = function () {
-	if (window.matchMedia('(max-width: 768px)').matches) {
-		return $(".plan__details--card .btn.btn-primary").width($(".compareItems--card").outerWidth() - 10);
-	} else {
-		return $(".plan__details--card .btn.btn-primary").width(134);
-	}
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        return $(".compareItems .plan__details--card .btn.btn-primary").width($(".compareItems--card").outerWidth() - 10);
+    } else {
+        return $(".compareItems .plan__details--card .btn.btn-primary").width(134);
+    }
 }
 
 /* REVIEW Consider refactoring */
@@ -706,9 +719,9 @@ var get__tallestCardSub = function (rowNumber) {
         var compareTo = '#compareItem--details-' + index + ' .plan__details--card:nth-child(8) .body:nth-child(' + rowNumber + ')';
         if ($(compareTo).height() > maxHeight) {
             maxHeight = $(compareTo).height();
-            tallestCard = compareTo; 
-        } 
-    }  
+            tallestCard = compareTo;
+        }
+    }
     return tallestCard;
 }
 
@@ -724,43 +737,43 @@ var resize__comparisonCards = function () {
                 $(setHeightFor).css('min-height', tallestCardHeight + 'px');
                 $(setHeightFor).css('min-height', tallestCardHeight + 'px');
             }
-        } else if (rowNumber == 8) { 
+        } else if (rowNumber == 8) {
             for (let subRowNumber = 2; subRowNumber <= 4; subRowNumber++) {
                 var tallestCardHeightSub = $(get__tallestCardSub(subRowNumber)).height();
                 for (let compareItem = 1; compareItem <= 3; compareItem++) {
                     var setHeightForSub = '#compareItem--details-' + compareItem + ' .plan__details--card:nth-child(' + rowNumber + ') .body:nth-child(' + subRowNumber + ')';
                     $(setHeightForSub).css('min-height', tallestCardHeightSub + 'px');
                 }
-            } 
+            }
         }
     }
 
 }
 
 /* 🖥 Grayscale hover */
-$(function(){
+$(function () {
     if (isIE()) {
-        $('.partner--logo').each(function(i,e){
+        $('.partner--logo').each(function (i, e) {
             var bgImage = $(this).css('background-image');
             $(this).css('background-image', bgImage.replace('.png', '_bw.png'));
         });
         $('.partner--logo').on({
             mouseenter: function () {
                 var bgImage = $(this).css('background-image');
-                $(this).css('background-image', bgImage.replace('_bw', '')); 
+                $(this).css('background-image', bgImage.replace('_bw', ''));
             },
             mouseleave: function () {
                 var bgImage = $(this).css('background-image');
                 $(this).css('background-image', bgImage.replace('.png', '_bw.png'));
             }
-        }); 
+        });
     }
 });
 
 /* 🖥 Resize events */
-$(window).resize(function(){
+$(window).resize(function () {
     resize__comparisonCards();
-	set__compareButtonSize();
+    set__compareButtonSize();
 });
 
 /* 🖥  Scroll Events */
@@ -777,7 +790,7 @@ $(window).scroll(function () {
         }
     } else {
         // console.log($(window).scrollTop());
-        
+
         if ($(window).scrollTop() > 356) {
             if ($('.header-placeholder > header.navbar').hasClass('mini-menu')) {
                 showOnScrollMenu(true);
@@ -815,119 +828,136 @@ function showOnScrollMenu(state, target) {
     });
 }
 
-$('#modalSaveMore__open').on('click', function(){
-    trackButtonLevel('modalSaveMore__open'); 
+var activeRetailers = function () {
+    var retailerList = [], counter = 0;
+    $('.action--hidden--cb:checked').each(function (i, k) {
+        retailerList.push($(k).val());
+        counter++;
+    });
+    return (counter == 8 ? 'all retailers' : retailerList.join('-'));
+}
+
+
+/* 📦 T R A C K I N G */
+$('#modalSaveMore__open').on('click', function () {
+    trackButtonLevel('lnkSaveMorePonderLess_ClickHere');
 });
 
-$('#modalSaveMore__close').on('click', function(){
-    trackButtonLevel('modalSaveMore__close'); 
+$('#modalSaveMore__close').on('click', function () {
+    trackButtonLevel('lnkSaveMorePonderLess_Close');
 });
 
-$('#filterCollapse').on('click', function(){
-    trackButtonLevel('editPlans'); 
+$('#filterCollapse').on('click', function () {
+    trackButtonLevel('lnkEdit');
 });
 
-$('#startCompare').on('click', function(){
-    trackButtonLevel('compare'); 
+$('#startCompare').on('click', function () {
+    trackButtonLevel('btnCompare');
 });
-$('#endCompare').on('click', function(){
-    trackButtonLevel('recompare'); 
+$('#endCompare').on('click', function () {
+    trackButtonLevel('btnRecompare');
 });
-$('#planForm').one('submit', function(){
+$('#planForm').one('submit', function () {
     /* Tracking */
-    var filterList = { 
-        emp_search_type : 'new',
-        monthly_bill : $('.monthly-bill-header').text(),
-        prop_type : $('.place-live-copy').text(),
-        total_match : $('.total-items').text()
-    };
-    setTimeout(function(){
-        trackSearch('first_time_search', filterList);
-    }, 1000);
-    
 });
 
-$('#planForm__dropdown2').on('submit', function(){
-    /* Tracking */
-    var filterList = { 
-        emp_search_type : 'modify',
-        monthly_bill : $('.monthly-bill-header').text(),
-        prop_type : $('.place-live-copy').text(),
-        total_match : $('.total-items').text()
-    };
-    setTimeout(function(){
+$('#consumerAdvisory').on('hidden.bs.modal', function (e) {
+    trackPageLevel('agree-on-plan-detail', []);
+});
+
+$('#emp_redirect-yes').on('click', function () {
+    trackPageLevel('submit-interest-without-digibank', []);
+});
+$('#emp_redirect-no').on('click', function () {
+    trackPageLevel('submit-interest-non-dbs', []);
+});
+
+$('#exit_empExitScreen').on('click', function () {
+    trackPageLevel('search-results', []);
+});
+
+$('#planForm__dropdown2').on('submit', function () {
+    /* Tracking */ 
+    setTimeout(function () {
+        var filterList = {
+            emp_search_type: 'modify',
+            monthly_bill: $('.monthly-bill-header').text(),
+            prop_type: $('.place-live-copy').text(),
+            total_match: $('.total-items').text()
+        };
+        trackPageLevel('search-results', []);
         trackSearch('modified_search', filterList);
     }, 1000);
-    
+
 });
- 
-var trackFilter__ratetype = function(){
+
+var trackFilter__ratetype = function () {
     var filterList;
     var sortType = $('#sort-type-1 option:selected').data('title');
 
-    if($('#filter-type-1').val() == 'rate-type'){
-        filterList = { 
-            emp_search_type : 'filter',
-            by : 'ratetype-' + $('#filter-type-2').val(),
-            sort : sortType,
+    if ($('#filter-type-1').val() == 'rate-type') {
+        filterList = {
+            emp_search_type: 'filter',
+            by: 'ratetype-' + $('#filter-type-2').val(),
+            sort: sortType,
             total_match: $('.total-items').text()
         };
-        setTimeout(function(){
+        setTimeout(function () {
             trackSearch('filter_by_rate_type', filterList);
         }, 1000);
     }
 }
 
-var trackFilter__retailers = function(retailers){
+var trackFilter__retailers = function (retailers) {
     var filterList;
     var sortType = $('#sort-type-1 option:selected').data('title');
 
-    if($('#filter-type-1').val() == 'retailers'){
-        filterList = { 
-            emp_search_type : 'filter',
-            by : 'retailers-' + $('#filter-type-2').val(),
-            sort : sortType,
-            total_match: $('.total-items').text()
-        };
-        setTimeout(function(){
+    if ($('#filter-type-1').val() == 'retailers') {
+        setTimeout(function () {
+            filterList = {
+                emp_search_type: 'filter',
+                by: 'retailers-' + activeRetailers(),
+                sort: sortType,
+                total_match: $('.total-items').text()
+            };
             trackSearch('filter_by_retailers', filterList);
         }, 1000);
     }
 }
 
-var trackFilter__ecofriendly = function(){
+var trackFilter__ecofriendly = function () {
     var filterList;
     var sortType = $('#sort-type-1 option:selected').data('title');
-    if($('#filter-type-1').val() == 'showEcoFriendly'){ 
-        setTimeout(function(){
-            filterList = { 
-                emp_search_type : 'filter',
-                by : 'ecofriendlyplans',
+    if ($('#filter-type-1').val() == 'showEcoFriendly') {
+        setTimeout(function () {
+            filterList = {
+                emp_search_type: 'filter',
+                by: 'ecofriendlyplans',
                 total_match: $('.total-items').text()
             };
             trackSearch('filter_by_ecofriendlyplans', filterList);
         }, 1000);
-        
+
     }
 }
 
 
-$('#filter-type-2').on('change', function(){
+$('#filter-type-2').on('change', function () {
     var filterList;
     var sortType = $('#sort-type-1 option:selected').data('title');
-    if($('#filter-type-1').val() == 'rate-type'){
-        filterList = { 
-            emp_search_type : 'filter',
-            by : 'ratetype-' + $('#filter-type-2').val(),
-            sort : sortType,
+    if ($('#filter-type-1').val() == 'rate-type') {
+        filterList = {
+            emp_search_type: 'filter',
+            by: 'ratetype-' + $('#filter-type-2').val(),
+            sort: sortType,
             total_match: $('.total-items').text()
-        }; 
-        setTimeout(function(){
+        };
+        setTimeout(function () {
             trackSearch('filter_by_rate_type', filterList);
         }, 1000);
-        
+
     }
-   
+
 });
 
 /* 🛠 isInViewPort Helper */
@@ -936,7 +966,7 @@ $.fn.isInViewport = function () {
     var elementBottom = elementTop + $(this).outerHeight();
 
     var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height(); 
+    var viewportBottom = viewportTop + $(window).height();
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
@@ -964,9 +994,9 @@ function isIE() {
 }
 
 function sortJSON(data, key, way) {
-    return data.sort(function(a, b) {
+    return data.sort(function (a, b) {
         var x = a[key]; var y = b[key];
-        if (way === '123' ) { return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }
+        if (way === '123') { return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }
         if (way === '321') { return ((x > y) ? -1 : ((x < y) ? 1 : 0)); }
     });
 }
