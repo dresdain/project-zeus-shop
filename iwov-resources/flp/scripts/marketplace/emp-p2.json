@@ -134,7 +134,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$26.80",
         "total_annual_savings": "$321.66"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -146,7 +146,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$53.61",
         "total_annual_savings": "$643.32"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -158,7 +158,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$80.41",
         "total_annual_savings": "$964.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -170,7 +170,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$107.22",
         "total_annual_savings": "$1,286.64"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -227,7 +227,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$26.80",
         "total_annual_savings": "$321.66"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -239,7 +239,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$53.61",
         "total_annual_savings": "$643.32"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -251,7 +251,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$80.41",
         "total_annual_savings": "$964.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -263,7 +263,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$107.22",
         "total_annual_savings": "$1,286.64"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -275,6 +275,192 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$134.02",
         "total_annual_savings": "$1,608.30"
+      }
+    ]
+  },
+  {
+    "retailer_name": "Keppel Electric Pte Ltd",
+    "retailer_id": "keppel",
+    "package_id": "kefix12",
+    "plan_name": "FIXED12",
+    "bill_rebate": "$-",
+    "posb_everyday_card_rebate": "0%",
+    "rate": "$0.1810",
+    "rate_type": "Fixed",
+    "contract_duration_months": 12,
+    "promotion": "NO",
+    "termination_fee": "Fees apply",
+    "green_energy": "NO",
+    "comparison_1": "Retailer Direct Billing",
+    "comparison_2": "No added promotions",
+    "comparison_3": "T&Cs apply",
+    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
+    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/kefix12.pdf",
+    "options": [
+      {
+        "current_monthly_sp_bill_size": 50,
+        "average_usage": 199,
+        "retailer_costs": "$36.10",
+        "retailer_monthly_savings": "$13.90",
+        "percent_retailer_monthly_savings": "28%",
+        "total_retailer_annual_savings_sgd": "$166.81",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$13.90",
+        "total_annual_savings": "$166.81 "
+      },
+      {
+        "current_monthly_sp_bill_size": 100,
+        "average_usage": 399,
+        "retailer_costs": "$72.20",
+        "retailer_monthly_savings": "$27.80",
+        "percent_retailer_monthly_savings": "28%",
+        "total_retailer_annual_savings_sgd": "$333.63",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$27.80",
+        "total_annual_savings": "$333.63 "
+      },
+      {
+        "current_monthly_sp_bill_size": 200,
+        "average_usage": 798,
+        "retailer_costs": "$144.40",
+        "retailer_monthly_savings": "$55.60",
+        "percent_retailer_monthly_savings": "28%",
+        "total_retailer_annual_savings_sgd": "$667.25",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$55.60",
+        "total_annual_savings": "$667.25 "
+      },
+      {
+        "current_monthly_sp_bill_size": 300,
+        "average_usage": 1197,
+        "retailer_costs": "$216.59",
+        "retailer_monthly_savings": "$83.41",
+        "percent_retailer_monthly_savings": "28%",
+        "total_retailer_annual_savings_sgd": "$1,000.88",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$83.41",
+        "total_annual_savings": "$1,000.88 "
+      },
+      {
+        "current_monthly_sp_bill_size": 400,
+        "average_usage": 1596,
+        "retailer_costs": "$288.79",
+        "retailer_monthly_savings": "$111.21",
+        "percent_retailer_monthly_savings": "28%",
+        "total_retailer_annual_savings_sgd": "$1,334.50",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$111.21",
+        "total_annual_savings": "$1,334.50 "
+      },
+      {
+        "current_monthly_sp_bill_size": 500,
+        "average_usage": 1994,
+        "retailer_costs": "$360.99",
+        "retailer_monthly_savings": "$139.01",
+        "percent_retailer_monthly_savings": "28%",
+        "total_retailer_annual_savings_sgd": "$1,668.13",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$139.01",
+        "total_annual_savings": "$1,668.13 "
+      }
+    ]
+  },
+  {
+    "retailer_name": "Keppel Electric Pte Ltd",
+    "retailer_id": "keppel",
+    "package_id": "kedot3",
+    "plan_name": "DOT3",
+    "bill_rebate": "$-",
+    "posb_everyday_card_rebate": "0%",
+    "rate": "20%",
+    "rate_type": "Discounted",
+    "contract_duration_months": 24,
+    "promotion": "NO",
+    "termination_fee": "Fees apply",
+    "green_energy": "NO",
+    "comparison_1": "Retailer Direct Billing",
+    "comparison_2": "No added promotions",
+    "comparison_3": "T&Cs apply",
+    "retailer_logo_path": "/iwov-resources/flp/images/marketplace/electricity/revamp/partners/keppel.png",
+    "retailier_factsheet_path": "/iwov-resources/media/pdf/marketplace/electricity/kedot3.pdf",
+    "options": [
+      {
+        "current_monthly_sp_bill_size": 50,
+        "average_usage": 199,
+        "retailer_costs": "$40.00",
+        "retailer_monthly_savings": "$10.00",
+        "percent_retailer_monthly_savings": "20%",
+        "total_retailer_annual_savings_sgd": "$120.00",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$10.00",
+        "total_annual_savings": "$120.00  "
+      },
+      {
+        "current_monthly_sp_bill_size": 100,
+        "average_usage": 399,
+        "retailer_costs": "$80.00",
+        "retailer_monthly_savings": "$20.00",
+        "percent_retailer_monthly_savings": "20%",
+        "total_retailer_annual_savings_sgd": "$240.00",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$20.00",
+        "total_annual_savings": "$240.00 "
+      },
+      {
+        "current_monthly_sp_bill_size": 200,
+        "average_usage": 798,
+        "retailer_costs": "$160.00",
+        "retailer_monthly_savings": "$40.00",
+        "percent_retailer_monthly_savings": "20%",
+        "total_retailer_annual_savings_sgd": "$480.00",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$40.00",
+        "total_annual_savings": "$480.00 "
+      },
+      {
+        "current_monthly_sp_bill_size": 300,
+        "average_usage": 1197,
+        "retailer_costs": "$240.00",
+        "retailer_monthly_savings": "$60.00",
+        "percent_retailer_monthly_savings": "20%",
+        "total_retailer_annual_savings_sgd": "$720.00",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$60.00",
+        "total_annual_savings": "$720.00 "
+      },
+      {
+        "current_monthly_sp_bill_size": 400,
+        "average_usage": 1596,
+        "retailer_costs": "$320.00",
+        "retailer_monthly_savings": "$80.00",
+        "percent_retailer_monthly_savings": "20%",
+        "total_retailer_annual_savings_sgd": "$960.00",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$80.00",
+        "total_annual_savings": "$960.00 "
+      },
+      {
+        "current_monthly_sp_bill_size": 500,
+        "average_usage": 1994,
+        "retailer_costs": "$400.00",
+        "retailer_monthly_savings": "$100.00",
+        "percent_retailer_monthly_savings": "20%",
+        "total_retailer_annual_savings_sgd": "$1,200.00",
+        "ped_card_monthly_rebate": "$-",
+        "ped_card_annual_rebate": "$-",
+        "total_monthly_savings": "$100.00",
+        "total_annual_savings": "$1,200.00 "
       }
     ]
   },
@@ -320,7 +506,7 @@
         "ped_card_annual_rebate": "$18.00",
         "total_monthly_savings": "$30.67",
         "total_annual_savings": "$368.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -332,7 +518,7 @@
         "ped_card_annual_rebate": "$36.00",
         "total_monthly_savings": "$57.17",
         "total_annual_savings": "$686.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -344,7 +530,7 @@
         "ped_card_annual_rebate": "$54.00",
         "total_monthly_savings": "$83.67",
         "total_annual_savings": "$1,004.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -356,7 +542,7 @@
         "ped_card_annual_rebate": "$72.00",
         "total_monthly_savings": "$110.17",
         "total_annual_savings": "$1,322.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -413,7 +599,7 @@
         "ped_card_annual_rebate": "$18.00",
         "total_monthly_savings": "$26.50",
         "total_annual_savings": "$318.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -425,7 +611,7 @@
         "ped_card_annual_rebate": "$36.00",
         "total_monthly_savings": "$53.00",
         "total_annual_savings": "$636.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -437,7 +623,7 @@
         "ped_card_annual_rebate": "$54.00",
         "total_monthly_savings": "$79.50",
         "total_annual_savings": "$954.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -449,7 +635,7 @@
         "ped_card_annual_rebate": "$72.00",
         "total_monthly_savings": "$106.00",
         "total_annual_savings": "$1,272.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -506,7 +692,7 @@
         "ped_card_annual_rebate": "$16.94",
         "total_monthly_savings": "$34.98",
         "total_annual_savings": "$419.72"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -518,7 +704,7 @@
         "ped_card_annual_rebate": "$33.89",
         "total_monthly_savings": "$65.79",
         "total_annual_savings": "$789.43"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -530,7 +716,7 @@
         "ped_card_annual_rebate": "$50.83",
         "total_monthly_savings": "$96.60",
         "total_annual_savings": "$1,159.15"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -542,7 +728,7 @@
         "ped_card_annual_rebate": "$67.78",
         "total_monthly_savings": "$127.41",
         "total_annual_savings": "$1,528.87"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -599,7 +785,7 @@
         "ped_card_annual_rebate": "$16.94",
         "total_monthly_savings": "$34.98",
         "total_annual_savings": "$419.72"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -611,7 +797,7 @@
         "ped_card_annual_rebate": "$33.89",
         "total_monthly_savings": "$65.79",
         "total_annual_savings": "$789.43"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -623,7 +809,7 @@
         "ped_card_annual_rebate": "$50.83",
         "total_monthly_savings": "$96.60",
         "total_annual_savings": "$1,159.15"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -635,7 +821,7 @@
         "ped_card_annual_rebate": "$67.78",
         "total_monthly_savings": "$127.41",
         "total_annual_savings": "$1,528.87"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -692,7 +878,7 @@
         "ped_card_annual_rebate": "$16.85",
         "total_monthly_savings": "$31.20",
         "total_annual_savings": "$374.41"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -704,7 +890,7 @@
         "ped_card_annual_rebate": "$33.70",
         "total_monthly_savings": "$62.40",
         "total_annual_savings": "$748.82"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -716,7 +902,7 @@
         "ped_card_annual_rebate": "$50.55",
         "total_monthly_savings": "$93.60",
         "total_annual_savings": "$1,123.22"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -728,7 +914,7 @@
         "ped_card_annual_rebate": "$67.40",
         "total_monthly_savings": "$124.80",
         "total_annual_savings": "$1,497.63"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -785,7 +971,7 @@
         "ped_card_annual_rebate": "$9.22",
         "total_monthly_savings": "$23.94",
         "total_annual_savings": "$287.32"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -797,7 +983,7 @@
         "ped_card_annual_rebate": "$18.44",
         "total_monthly_savings": "$47.89",
         "total_annual_savings": "$574.64"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -809,7 +995,7 @@
         "ped_card_annual_rebate": "$27.66",
         "total_monthly_savings": "$71.83",
         "total_annual_savings": "$861.96"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -821,7 +1007,7 @@
         "ped_card_annual_rebate": "$36.88",
         "total_monthly_savings": "$95.77",
         "total_annual_savings": "$1,149.28"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -878,7 +1064,7 @@
         "ped_card_annual_rebate": "$10.95",
         "total_monthly_savings": "$9.65",
         "total_annual_savings": "$231.56 "
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -890,7 +1076,7 @@
         "ped_card_annual_rebate": "$21.90",
         "total_monthly_savings": "$19.30",
         "total_annual_savings": "$231.56 "
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -902,7 +1088,7 @@
         "ped_card_annual_rebate": "$32.86",
         "total_monthly_savings": "$28.94",
         "total_annual_savings": "$347.33 "
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -914,7 +1100,7 @@
         "ped_card_annual_rebate": "$43.81",
         "total_monthly_savings": "$38.59",
         "total_annual_savings": "$463.11 "
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -971,7 +1157,7 @@
         "ped_card_annual_rebate": "$8.61",
         "total_monthly_savings": "$29.00",
         "total_annual_savings": "$347.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -983,7 +1169,7 @@
         "ped_card_annual_rebate": "$17.21",
         "total_monthly_savings": "$58.00",
         "total_annual_savings": "$695.95"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -995,7 +1181,7 @@
         "ped_card_annual_rebate": "$25.82",
         "total_monthly_savings": "$86.99",
         "total_annual_savings": "$1,043.93"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1007,7 +1193,7 @@
         "ped_card_annual_rebate": "$34.43",
         "total_monthly_savings": "$115.99",
         "total_annual_savings": "$1,391.90"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1064,7 +1250,7 @@
         "ped_card_annual_rebate": "$8.61",
         "total_monthly_savings": "$29.00",
         "total_annual_savings": "$347.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1076,7 +1262,7 @@
         "ped_card_annual_rebate": "$17.21",
         "total_monthly_savings": "$58.00",
         "total_annual_savings": "$695.95"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1088,7 +1274,7 @@
         "ped_card_annual_rebate": "$25.82",
         "total_monthly_savings": "$86.99",
         "total_annual_savings": "$1,043.93"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1100,7 +1286,7 @@
         "ped_card_annual_rebate": "$34.43",
         "total_monthly_savings": "$115.99",
         "total_annual_savings": "$1,391.90"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1157,7 +1343,7 @@
         "ped_card_annual_rebate": "$9.36",
         "total_monthly_savings": "$22.78",
         "total_annual_savings": "$273.36"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1169,7 +1355,7 @@
         "ped_card_annual_rebate": "$18.72",
         "total_monthly_savings": "$45.56",
         "total_annual_savings": "$546.72"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1181,7 +1367,7 @@
         "ped_card_annual_rebate": "$28.08",
         "total_monthly_savings": "$68.34",
         "total_annual_savings": "$820.08"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1193,7 +1379,7 @@
         "ped_card_annual_rebate": "$37.44",
         "total_monthly_savings": "$91.12",
         "total_annual_savings": "$1,093.44"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1250,7 +1436,7 @@
         "ped_card_annual_rebate": "$8.43",
         "total_monthly_savings": "$30.46",
         "total_annual_savings": "$365.51"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1262,7 +1448,7 @@
         "ped_card_annual_rebate": "$16.86",
         "total_monthly_savings": "$60.92",
         "total_annual_savings": "$731.02"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1274,7 +1460,7 @@
         "ped_card_annual_rebate": "$25.29",
         "total_monthly_savings": "$91.38",
         "total_annual_savings": "$1,096.53"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1286,7 +1472,7 @@
         "ped_card_annual_rebate": "$33.72",
         "total_monthly_savings": "$121.84",
         "total_annual_savings": "$1,462.04"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1343,7 +1529,7 @@
         "ped_card_annual_rebate": "$9.26",
         "total_monthly_savings": "$23.57",
         "total_annual_savings": "$282.86"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1355,7 +1541,7 @@
         "ped_card_annual_rebate": "$18.53",
         "total_monthly_savings": "$47.14",
         "total_annual_savings": "$565.73"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1367,7 +1553,7 @@
         "ped_card_annual_rebate": "$27.79",
         "total_monthly_savings": "$70.72",
         "total_annual_savings": "$848.59"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1379,7 +1565,7 @@
         "ped_card_annual_rebate": "$37.06",
         "total_monthly_savings": "$94.29",
         "total_annual_savings": "$1,131.46"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1436,7 +1622,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$28.08",
         "total_annual_savings": "$336.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1448,7 +1634,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$56.16",
         "total_annual_savings": "$673.95"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1460,7 +1646,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$84.24",
         "total_annual_savings": "$1,010.93"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1472,7 +1658,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$112.33",
         "total_annual_savings": "$1,347.91"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1529,7 +1715,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$26.41",
         "total_annual_savings": "$316.87"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1541,7 +1727,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$52.81",
         "total_annual_savings": "$633.75"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1553,7 +1739,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$79.22",
         "total_annual_savings": "$950.62"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1565,7 +1751,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$105.62",
         "total_annual_savings": "$1,267.49"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1622,7 +1808,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$29.20",
         "total_annual_savings": "$350.38"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1634,7 +1820,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$58.40",
         "total_annual_savings": "$700.76"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1646,7 +1832,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$87.59",
         "total_annual_savings": "$1,051.14"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1658,7 +1844,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$116.79",
         "total_annual_savings": "$1,401.52"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1696,73 +1882,73 @@
         "current_monthly_sp_bill_size": 50,
         "average_usage": 199,
         "retailer_costs": "$43.10",
-        "retailer_monthly_savings": " $6.90 ",
+        "retailer_monthly_savings": "$6.90",
         "percent_retailer_monthly_savings": "14%",
-        "total_retailer_annual_savings_sgd": " $82.81 ",
+        "total_retailer_annual_savings_sgd": "$82.81",
         "ped_card_monthly_rebate": "$-",
         "ped_card_annual_rebate": "$-",
-        "total_monthly_savings": " $6.90 ",
-        "total_annual_savings": " $82.81 "
+        "total_monthly_savings": "$6.90",
+        "total_annual_savings": "$82.81 "
       },
       {
         "current_monthly_sp_bill_size": 100,
         "average_usage": 399,
-        "retailer_costs": " $86.20 ",
-        "retailer_monthly_savings": " $13.80 ",
+        "retailer_costs": "$86.20",
+        "retailer_monthly_savings": "$13.80",
         "percent_retailer_monthly_savings": "14%",
-        "total_retailer_annual_savings_sgd": " $165.62 ",
+        "total_retailer_annual_savings_sgd": "$165.62",
         "ped_card_monthly_rebate": "$-",
         "ped_card_annual_rebate": "$-",
-        "total_monthly_savings": " $13.80 ",
-        "total_annual_savings": " $165.62 "
-      }, 
+        "total_monthly_savings": "$13.80",
+        "total_annual_savings": "$165.62 "
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
-        "retailer_costs": " $172.40 ",
-        "retailer_monthly_savings": " $27.60 ",
+        "retailer_costs": "$172.40",
+        "retailer_monthly_savings": "$27.60",
         "percent_retailer_monthly_savings": "14%",
-        "total_retailer_annual_savings_sgd": " $331.23 ",
+        "total_retailer_annual_savings_sgd": "$331.23",
         "ped_card_monthly_rebate": "$-",
         "ped_card_annual_rebate": "$-",
-        "total_monthly_savings": " $27.60 ",
-        "total_annual_savings": " $331.23 "
-      }, 
+        "total_monthly_savings": "$27.60",
+        "total_annual_savings": "$331.23 "
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
-        "retailer_costs": " $258.60 ",
-        "retailer_monthly_savings": " $41.40 ",
+        "retailer_costs": "$258.60",
+        "retailer_monthly_savings": "$41.40",
         "percent_retailer_monthly_savings": "14%",
-        "total_retailer_annual_savings_sgd": " $496.85 ",
+        "total_retailer_annual_savings_sgd": "$496.85",
         "ped_card_monthly_rebate": "$-",
         "ped_card_annual_rebate": "$-",
-        "total_monthly_savings": " $41.40 ",
-        "total_annual_savings": " $496.85 "
-      }, 
+        "total_monthly_savings": "$41.40",
+        "total_annual_savings": "$496.85 "
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
-        "retailer_costs": " $344.79 ",
-        "retailer_monthly_savings": " $55.21 ",
+        "retailer_costs": "$344.79",
+        "retailer_monthly_savings": "$55.21",
         "percent_retailer_monthly_savings": "14%",
-        "total_retailer_annual_savings_sgd": " $662.47 ",
+        "total_retailer_annual_savings_sgd": "$662.47",
         "ped_card_monthly_rebate": "$-",
         "ped_card_annual_rebate": "$-",
-        "total_monthly_savings": " $55.21 ",
-        "total_annual_savings": " $662.47 "
-      }, 
+        "total_monthly_savings": "$55.21",
+        "total_annual_savings": "$662.47 "
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
-        "retailer_costs": " $430.99 ",
-        "retailer_monthly_savings": " $69.01 ",
+        "retailer_costs": "$430.99",
+        "retailer_monthly_savings": "$69.01",
         "percent_retailer_monthly_savings": "14%",
-        "total_retailer_annual_savings_sgd": " $828.08 ",
+        "total_retailer_annual_savings_sgd": "$828.08",
         "ped_card_monthly_rebate": "$-",
         "ped_card_annual_rebate": "$-",
-        "total_monthly_savings": " $69.01 ",
-        "total_annual_savings": " $828.08 "
+        "total_monthly_savings": "$69.01",
+        "total_annual_savings": "$828.08 "
       }
     ]
   },
@@ -1808,7 +1994,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$8.22",
         "total_annual_savings": "$98.60"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1820,7 +2006,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$16.43",
         "total_annual_savings": "$197.21"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1832,7 +2018,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$24.65",
         "total_annual_savings": "$295.81"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1844,7 +2030,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$32.87",
         "total_annual_savings": "$394.42"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1901,7 +2087,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$23.00",
         "total_annual_savings": "$276.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -1913,7 +2099,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$46.00",
         "total_annual_savings": "$552.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -1925,7 +2111,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$69.00",
         "total_annual_savings": "$828.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -1937,7 +2123,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$92.00",
         "total_annual_savings": "$1,104.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -1994,7 +2180,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$23.00",
         "total_annual_savings": "$276.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2006,7 +2192,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$46.00",
         "total_annual_savings": "$552.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2018,7 +2204,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$69.00",
         "total_annual_savings": "$828.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2030,7 +2216,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$92.00",
         "total_annual_savings": "$1,104.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2087,7 +2273,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$23.00",
         "total_annual_savings": "$276.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2099,7 +2285,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$46.00",
         "total_annual_savings": "$552.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2111,7 +2297,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$69.00",
         "total_annual_savings": "$828.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2123,7 +2309,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$92.00",
         "total_annual_savings": "$1,104.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2180,7 +2366,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$15.00",
         "total_annual_savings": "$180.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2192,7 +2378,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$30.00",
         "total_annual_savings": "$360.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2204,7 +2390,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$45.00",
         "total_annual_savings": "$540.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2216,7 +2402,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$60.00",
         "total_annual_savings": "$720.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2273,7 +2459,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$10.00",
         "total_annual_savings": "$120.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2285,7 +2471,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$20.00",
         "total_annual_savings": "$240.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2297,7 +2483,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$30.00",
         "total_annual_savings": "$360.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2309,7 +2495,7 @@
         "ped_card_annual_rebate": "$-",
         "total_monthly_savings": "$40.00",
         "total_annual_savings": "$480.00"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2366,7 +2552,7 @@
         "ped_card_annual_rebate": "$9.84",
         "total_monthly_savings": "$18.82",
         "total_annual_savings": "$225.84"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2378,7 +2564,7 @@
         "ped_card_annual_rebate": "$19.68",
         "total_monthly_savings": "$37.64",
         "total_annual_savings": "$451.68"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2390,7 +2576,7 @@
         "ped_card_annual_rebate": "$29.52",
         "total_monthly_savings": "$56.46",
         "total_annual_savings": "$677.52"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2402,7 +2588,7 @@
         "ped_card_annual_rebate": "$39.36",
         "total_monthly_savings": "$75.28",
         "total_annual_savings": "$903.36"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2459,7 +2645,7 @@
         "ped_card_annual_rebate": "$9.36",
         "total_monthly_savings": "$27.78",
         "total_annual_savings": "$333.36"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2471,7 +2657,7 @@
         "ped_card_annual_rebate": "$18.72",
         "total_monthly_savings": "$50.56",
         "total_annual_savings": "$606.72"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2483,7 +2669,7 @@
         "ped_card_annual_rebate": "$28.08",
         "total_monthly_savings": "$73.34",
         "total_annual_savings": "$880.08"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2495,7 +2681,7 @@
         "ped_card_annual_rebate": "$37.44",
         "total_monthly_savings": "$96.12",
         "total_annual_savings": "$1,153.44"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2552,7 +2738,7 @@
         "ped_card_annual_rebate": "$8.61",
         "total_monthly_savings": "$34.00",
         "total_annual_savings": "$407.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2564,7 +2750,7 @@
         "ped_card_annual_rebate": "$17.21",
         "total_monthly_savings": "$63.00",
         "total_annual_savings": "$755.95"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2576,7 +2762,7 @@
         "ped_card_annual_rebate": "$25.82",
         "total_monthly_savings": "$91.99",
         "total_annual_savings": "$1,103.93"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2588,7 +2774,7 @@
         "ped_card_annual_rebate": "$34.43",
         "total_monthly_savings": "$120.99",
         "total_annual_savings": "$1,451.90"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2645,7 +2831,7 @@
         "ped_card_annual_rebate": "$8.61",
         "total_monthly_savings": "$34.00",
         "total_annual_savings": "$407.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2657,7 +2843,7 @@
         "ped_card_annual_rebate": "$17.21",
         "total_monthly_savings": "$63.00",
         "total_annual_savings": "$755.95"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2669,7 +2855,7 @@
         "ped_card_annual_rebate": "$25.82",
         "total_monthly_savings": "$91.99",
         "total_annual_savings": "$1,103.93"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2681,7 +2867,7 @@
         "ped_card_annual_rebate": "$34.43",
         "total_monthly_savings": "$120.99",
         "total_annual_savings": "$1,451.90"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -2738,7 +2924,7 @@
         "ped_card_annual_rebate": "$8.61",
         "total_monthly_savings": "$37.33",
         "total_annual_savings": "$447.98"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -2750,7 +2936,7 @@
         "ped_card_annual_rebate": "$17.21",
         "total_monthly_savings": "$66.33",
         "total_annual_savings": "$795.95"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -2762,7 +2948,7 @@
         "ped_card_annual_rebate": "$25.82",
         "total_monthly_savings": "$95.33",
         "total_annual_savings": "$1,143.93"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -2774,7 +2960,7 @@
         "ped_card_annual_rebate": "$34.43",
         "total_monthly_savings": "$124.33",
         "total_annual_savings": "$1,491.90"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
@@ -3296,7 +3482,7 @@
         "ped_card_annual_rebate": "$9.96",
         "total_monthly_savings": "$17.83",
         "total_annual_savings": "$213.96"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 200,
         "average_usage": 798,
@@ -3308,7 +3494,7 @@
         "ped_card_annual_rebate": "$19.92",
         "total_monthly_savings": "$35.66",
         "total_annual_savings": "$427.92"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 300,
         "average_usage": 1197,
@@ -3320,7 +3506,7 @@
         "ped_card_annual_rebate": "$29.88",
         "total_monthly_savings": "$53.49",
         "total_annual_savings": "$641.88"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 400,
         "average_usage": 1596,
@@ -3332,7 +3518,7 @@
         "ped_card_annual_rebate": "$39.84",
         "total_monthly_savings": "$71.32",
         "total_annual_savings": "$855.84"
-      }, 
+      },
       {
         "current_monthly_sp_bill_size": 500,
         "average_usage": 1994,
