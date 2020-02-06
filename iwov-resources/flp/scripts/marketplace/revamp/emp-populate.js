@@ -199,6 +199,7 @@ function createDOM__comparePlans(item, options, planID) {
     var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate + ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
     var comparisonDetails = {
         'plan_id': '#' + planID,
+        'package_id': item.package_id,
         'logo': item.retailer_logo_path,
         'annual_savings': '$' + annualSavings,
         'plan_name': item.plan_name + createDOM__greenEnergy(item.green_energy),
@@ -318,12 +319,14 @@ var remove__comparisonPlan = function () {
                 sessionStorage.setItem('comparisonList', JSON.stringify(tempArr));
             }
         });
-        console.log(removeIndex);
+        // console.log(removeIndex);
         createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         var compareVar = '.compare__plans input[type="checkbox"]',
             parentCompare = '.emp__compareConfirmation',
             parentRecompare = '.emp__recompareConfirmation';
         init__comparisonScreens(parentCompare, parentRecompare);
+        validate__compareCheckbox();
+        trackPageLevel('compare_remove');
     });
 }
 

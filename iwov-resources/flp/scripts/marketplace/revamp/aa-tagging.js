@@ -28,7 +28,7 @@ var trackHomepage = function (action, item) {
     console.log('%c✅ Tracking -> Homepage', 'color: green;', 'digitaData', digitalData);
 }
 
-var trackPageLevel = function (action, item) {
+var trackPageLevel = function (action, prop) {
     switch (action) {
         case 'search-results':
             digitalData = {
@@ -58,9 +58,9 @@ var trackPageLevel = function (action, item) {
             digitalData = {
                 page: {
                     pageInfo: {
-                        pageName: "sg:en:personal:electricity-marketplace:vendor:" + item.partner,
+                        pageName: "sg:en:personal:electricity-marketplace:vendor:" + prop.partner,
                         language: "en",
-                        hier: "sg|en|personal|electricity-marketplace|vendor|" + item.partner,
+                        hier: "sg|en|personal|electricity-marketplace|vendor|" + prop.partner,
                         brand: "electricity-marketplace",
                         country: "sg",
                         destinationURL: "[http://www.dbs.com.sg/personal/default.page]"
@@ -102,26 +102,103 @@ var trackPageLevel = function (action, item) {
             _satellite.track('electricity-marketplace-pagelevel');
             break;
 
+        case 'compare_add':
+        case 'compare_start':
+            var compareProp = JSON.parse(sessionStorage.getItem("comparisonList"));
+            digitalData = {
+                product: {
+                    category: {
+                        productType: "electricity_mp"
+                    },
+                    item: [
+                        {
+                            product: {
+                                category: {
+                                    subCategory1: (compareProp[0] ? compareProp[0].package_id : '')
+                                }
+                            }
+                        },
+                        {
+                            product: {
+                                category: {
+                                    subCategory1: (compareProp[1] ? compareProp[1].package_id : '')
+                                }
+                            }
+                        },
+                        {
+                            product: {
+                                category: {
+                                    subCategory1: (compareProp[2] ? compareProp[2].package_id : '')
+                                }
+                            }
+                        }
+                    ],
+                    card_interaction: {
+                        name: "<compare start[" + compareProp.length + "]>"
+                    }
+                }
+            }
+            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
+            _satellite.track('pweb-card compare click');
+            break;
 
+        case 'compare_remove':
+            var compareProp = JSON.parse(sessionStorage.getItem("comparisonList"));
+            digitalData = {
+                product: {
+                    category: {
+                        productType: "electricity_mp"
+                    },
+                    item: [
+                        {
+                            product: {
+                                category: {
+                                    subCategory1: (compareProp[0] ? compareProp[0].package_id : '')
+                                }
+                            }
+                        },
+                        {
+                            product: {
+                                category: {
+                                    subCategory1: (compareProp[1] ? compareProp[1].package_id : '')
+                                }
+                            }
+                        },
+                        {
+                            product: {
+                                category: {
+                                    subCategory1: (compareProp[2] ? compareProp[2].package_id : '')
+                                }
+                            }
+                        }
+                    ],
+                    card_interaction: {
+                        name: "<compare card remove>"
+                    }
+                }
+            }
+            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
+            _satellite.track('pweb-card-comparison-btn-minus');
+            break;
 
         case 'factsheet':
             digitalData = {};
-            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
+            console.log('%c🛠 Tracking Attempted -> ' + action, 'color: gray;', 'digitaData', digitalData);
             break;
 
         case 'submit-interest-without-digibank':
             digitalData = {};
-            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
+            console.log('%c🛠 Tracking Attempted -> ' + action, 'color: gray;', 'digitaData', digitalData);
             break;
 
         case 'submit-interest-non-dbs':
             digitalData = {};
-            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
+            console.log('%c🛠 Tracking Attempted -> ' + action, 'color: gray;', 'digitaData', digitalData);
             break;
 
         case 'agree-on-plan-detail':
             digitalData = {};
-            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
+            console.log('%c🛠 Tracking Attempted -> ' + action, 'color: gray;', 'digitaData', digitalData);
             break;
         default:
             break;

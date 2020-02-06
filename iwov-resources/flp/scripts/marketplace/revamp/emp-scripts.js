@@ -588,6 +588,8 @@ var validate__compareCheckbox = function () {
     var compareVar = '.compare__plans input[type="checkbox"]';
     var compareVarAmount = JSON.parse(sessionStorage.getItem("comparisonList")).length;
     // console.log("Comparison amount: " + compareVarAmount);
+    // console.log(compareVarAmount);
+
     if (compareVarAmount < 3) {
         $(compareVar + ':not(:checked)')
             .removeClass('disabled')
@@ -608,6 +610,7 @@ var reset__compareCheckbox = function () {
     var compareVar = '.compare__plans input[type="checkbox"]';
     $(compareVar + ':checked').trigger('click');
     $(compareVar).prop('checked', false);
+    $(compareVar + ':checked').prop('checked', false);
 }
 
 
@@ -684,6 +687,7 @@ function addToCompare() {
         init__comparisonTickers();
         createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         remove__comparisonPlan();
+        trackPageLevel('compare_add');
     });
 
 
@@ -853,6 +857,7 @@ $('#filterCollapse').on('click', function () {
 
 $('#startCompare').on('click', function () {
     trackButtonLevel('btnCompare');
+    trackPageLevel('compare_start');
 });
 $('#endCompare').on('click', function () {
     trackButtonLevel('btnRecompare');
@@ -877,7 +882,7 @@ $('#exit_empExitScreen').on('click', function () {
 });
 
 $('#planForm__dropdown2').on('submit', function () {
-    /* Tracking */ 
+    /* Tracking */
     setTimeout(function () {
         var filterList = {
             emp_search_type: 'modify',
