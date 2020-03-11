@@ -33,7 +33,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
                     var planID = 'plan_item--' + counter;
                     dataDOM += '<article data-jplist-item class="emp__results__box--card" id="' + planID + '">';
                     dataDOM += createDOM__savingsInfo(item, item.options[i]);
-                    dataDOM += createDOM__planDetails(item, item.options[i]);
+                    dataDOM += createDOM__planDetails(item, item.options[i], planID);
                     dataDOM += createDOM__comparePlans(item, item.options[i], planID);
                     dataDOM += '</article>';
 
@@ -71,6 +71,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
                 setTimeout(function () {
                     trackSearch('first_time_search', filterList);
                     trackPageLevel('search-results', []);
+                    globalFilterState = 'first_time_search';
                 }, 1000);
                 firstTimeSearchControl = 1;
             }
@@ -112,7 +113,7 @@ function createDOM__savingsInfo(item, options) {
 }
 
 /* 📦 create DOM for .plan__details component */
-function createDOM__planDetails(item, options) {
+function createDOM__planDetails(item, options, planID) {
     var html = '';
     /* Start Plan Details */
     html += '<div class="plan__details"><div class="plan__details--wrapper">';
@@ -136,7 +137,7 @@ function createDOM__planDetails(item, options) {
     var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : 'None');
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div></div>';
 
-    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
+    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
 
     /* Factsheet */
     html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="open_factsheet btn btn-primary btn-block btn-outline" target="_blank">Factsheet</a></div>';

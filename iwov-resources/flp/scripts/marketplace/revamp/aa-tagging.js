@@ -9,19 +9,19 @@ var trackHomepage = function (action, item) {
     digitalData = {
         page: {
             pageInfo: {
-                pageName: "[page name]",
-                language: "[en] ",
-                hier: "[hier]",
-                brand: "[brand]",
-                country: "[country]",
+                pageName: "sg:en:personal:electricity-marketplace",
+                language: "en",
+                hier: "sg|en|personal|electricity-marketplace",
+                brand: "electricity-marketplace",
+                country: "sg",
                 destinationURL: "[http://www.dbs.com.sg/personal/default.page]"
             },
             category: {
-                pageType: "[]",
-                site: "[pweb]", //ib or pweb 
-                primaryCategory: "[]",
-                subCategory1: "[]", // if there is any 
-                subCategory2: "[]" // if there is any 
+                pageType: "content - info",
+                site: "sg:en:personal",
+                primaryCategory: "electricity-marketplace",
+                subCategory1: "sg:en:personal:electricity-marketplace", // if there is any 
+                subCategory2: "sg:en:personal:electricity-marketplace" // if there is any 
             }
         }
     };
@@ -307,4 +307,61 @@ var trackSearch = function (action, item) {
 
     // console.log('%c🚫 Tracking Failed -> ' + control + ', ' + action + ' <-  Invalid Parameters', 'color: red;');
 
+}
+
+
+var trackThroughSearch = function (action, item) {
+    var control = '';
+    switch (action) {
+        case 'first_time_search':
+        case 'modified_search':
+            var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+            digitalData = {
+                search: {
+                    filter: filterResults,
+                    rank: item.filter_rank
+                }
+            }
+            console.log('%c✅ Tracking -> Through Search -> ' + action, 'color: green;', 'digitaData', digitalData);
+            _satellite.track('electricity-search result rank');
+            break;
+        case 'filter_by_rate_type':
+            var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
+            digitalData = {
+                search: {
+                    filter: filterResults,
+                    rank: item.filter_rank
+                }
+            }
+            console.log('%c✅ Tracking -> Through Search -> ' + action, 'color: green;', 'digitaData', digitalData);
+            _satellite.track('electricity-search result rank');
+            break;
+        case 'filter_by_ecofriendlyplans':
+            var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by;
+            digitalData = {
+                search: {
+                    filter: filterResults,
+                    rank: item.filter_rank
+                }
+            }
+            console.log('%c✅ Tracking -> Through Search -> ' + action, 'color: green;', 'digitaData', digitalData);
+            _satellite.track('electricity-search result rank');
+            break;
+        case 'filter_by_retailers':
+            var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
+            digitalData = {
+                search: {
+                    filter: filterResults,
+                    rank: item.filter_rank
+                }
+            }
+            console.log('%c✅ Tracking -> Through Search -> ' + action, 'color: green;', 'digitaData', digitalData);
+            _satellite.track('electricity-search result rank');
+            break;
+        default:
+            control = '';
+            break;
+    }
+
+    // console.log('%c🚫 Tracking Failed -> ' + control + ', ' + action + ' <-  Invalid Parameters', 'color: red;');
 }

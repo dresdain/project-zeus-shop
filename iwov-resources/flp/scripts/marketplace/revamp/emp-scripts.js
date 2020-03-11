@@ -1,3 +1,5 @@
+var globalFilterState = '';
+
 /* 📦 show__illustrationModal */
 var show__illustrationModal = function () {
     var illustrationTrigger = $('#illustrationFromEditPlans'),
@@ -220,6 +222,11 @@ function initExitScreens() {
 
     $('.triggerApplyScreen').off();
     $('.triggerApplyScreen').on('click', function () {
+
+        var parentId = '#' + $(this).data('parent'),
+            pageLevel = $('.page-item.active a').text();
+        trackFilter_ThroughSearch(getRank($(parentId).index(), pageLevel));
+
         $('#consumerAdvisory').modal('show');
         var dataExit = $(this);
         $('#emp_redirect-yes').attr('href', dataExit.data('btn-yes'));
@@ -230,7 +237,6 @@ function initExitScreens() {
         $('html, body').animate({
             scrollTop: $(".emp__exitScreen").offset().top - 200
         }, 500);
-
         trackPageLevel('view-plan', []);
 
     });
@@ -892,6 +898,7 @@ $('#planForm__dropdown2').on('submit', function () {
         };
         trackPageLevel('search-results', []);
         trackSearch('modified_search', filterList);
+        globalFilterState = 'modified_search';
     }, 1000);
 
 });
@@ -909,6 +916,7 @@ var trackFilter__ratetype = function () {
         };
         setTimeout(function () {
             trackSearch('filter_by_rate_type', filterList);
+            globalFilterState = 'filter_by_rate_type';
         }, 1000);
     }
 }
@@ -926,6 +934,7 @@ var trackFilter__retailers = function (retailers) {
                 total_match: $('.total-items').text()
             };
             trackSearch('filter_by_retailers', filterList);
+            globalFilterState = 'filter_by_retailers';
         }, 1000);
     }
 }
@@ -941,9 +950,62 @@ var trackFilter__ecofriendly = function () {
                 total_match: $('.total-items').text()
             };
             trackSearch('filter_by_ecofriendlyplans', filterList);
+            globalFilterState = 'filter_by_ecofriendlyplans';
         }, 1000);
 
     }
+}
+
+var trackFilter_ThroughSearch = function (calculatedRank) {
+    var filterList = [];
+    switch (globalFilterState) {
+        case 'first_time_search':
+            filterList = {
+                emp_search_type: 'new',
+                monthly_bill: $('.monthly-bill-header').text(),
+                prop_type: $('.place-live-copy').text(),
+                filter_rank: calculatedRank
+            };
+            break;
+        case 'modified_search':
+            filterList = {
+                emp_search_type: 'modify',
+                monthly_bill: $('.monthly-bill-header').text(),
+                prop_type: $('.place-live-copy').text(),
+                filter_rank: calculatedRank
+            };
+            break;
+        case 'filter_by_rate_type':
+            var sortType = $('#sort-type-1 option:selected').data('title');
+            filterList = {
+                emp_search_type: 'filter',
+                by: 'ratetype-' + $('#filter-type-2').val(),
+                sort: sortType,
+                filter_rank: calculatedRank
+            };
+            break;
+        case 'filter_by_retailers':
+            var sortType = $('#sort-type-1 option:selected').data('title');
+            filterList = {
+                emp_search_type: 'filter',
+                by: 'retailers-' + activeRetailers(),
+                sort: sortType,
+                filter_rank: calculatedRank
+            };
+            break;
+        case 'filter_by_ecofriendlyplans':
+            filterList = {
+                emp_search_type: 'filter',
+                by: 'ecofriendlyplans',
+                filter_rank: calculatedRank
+            };
+            break;
+        default:
+            break;
+    }
+    console.log(filterList);
+
+    trackThroughSearch(globalFilterState, filterList)
 }
 
 
@@ -959,11 +1021,20 @@ $('#filter-type-2').on('change', function () {
         };
         setTimeout(function () {
             trackSearch('filter_by_rate_type', filterList);
+            globalFilterState = 'filter_by_rate_type';
         }, 1000);
 
     }
 
 });
+
+
+
+var getRank = function (itemEq, pageLevel, ) {
+    var calculatedRank = ((pageLevel - 1) * 6) + itemEq;
+    console.log('Get subRank: ', itemEq, 'Page Level: ', pageLevel, 'Actual Rank: ', calculatedRank, 'Filter Type: ', globalFilterState);
+    return calculatedRank;
+}
 
 /* 🛠 isInViewPort Helper */
 $.fn.isInViewport = function () {
@@ -987,6 +1058,7 @@ function getQueryVariable(variable) {
     }
 }
 /* !!SECTION  */
+
 
 /* 🛠  isIE Helper */
 function isIE() {
