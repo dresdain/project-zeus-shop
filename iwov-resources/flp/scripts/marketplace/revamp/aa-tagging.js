@@ -20,8 +20,9 @@ var trackHomepage = function (action, item) {
                 pageType: "content - info",
                 site: "sg:en:personal",
                 primaryCategory: "electricity-marketplace",
-                subCategory1: "sg:en:personal:electricity-marketplace", // if there is any 
-                subCategory2: "sg:en:personal:electricity-marketplace" // if there is any 
+                subCategory1: "sg:en:personal", // if there is any 
+                subCategory2: "sg:en:personal", // if there is any 
+                subCategory3: "sg:en:personal", // if there is any 
             }
         }
     };
@@ -46,7 +47,8 @@ var trackPageLevel = function (action, prop) {
                         site: "sg:en:personal",
                         primaryCategory: "electricity-marketplace",
                         subCategory1: "sg:en:personal:electricity-marketplace", // if there is any 
-                        subCategory2: "sg:en:personal:electricity-marketplace" // if there is any 
+                        subCategory2: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory3: "sg:en:personal:electricity-marketplace" // if there is any 
                     }
                 }
             };
@@ -70,7 +72,8 @@ var trackPageLevel = function (action, prop) {
                         site: "sg:en:personal",
                         primaryCategory: "electricity-marketplace",
                         subCategory1: "sg:en:personal:electricity-marketplace:vendor", // if there is any 
-                        subCategory2: "sg:en:personal:electricity-marketplace:vendor" // if there is any 
+                        subCategory2: "sg:en:personal:electricity-marketplace:vendor", // if there is any 
+                        subCategory3: "sg:en:personal:electricity-marketplace:vendor" // if there is any 
                     }
                 }
             };
@@ -79,6 +82,8 @@ var trackPageLevel = function (action, prop) {
             break;
 
         case 'view-plan':
+            console.log(prop);
+
             digitalData = {
                 page: {
                     pageInfo: {
@@ -94,7 +99,16 @@ var trackPageLevel = function (action, prop) {
                         site: "sg:en:personal",
                         primaryCategory: "electricity-marketplace",
                         subCategory1: "sg:en:personal:electricity-marketplace", // if there is any 
-                        subCategory2: "sg:en:personal:electricity-marketplace" // if there is any 
+                        subCategory2: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory3: "sg:en:personal:electricity-marketplace" // if there is any 
+                    }
+                },
+                product: {
+                    category: {
+                        productType: 'electricity_mp',
+                        primaryCategory: prop.planName,
+                        subCategory1: prop.partnerName,
+                        subCategory2: ''
                     }
                 }
             };
@@ -206,27 +220,33 @@ var trackPageLevel = function (action, prop) {
 }
 
 var trackButtonLevel = function (action) {
-    var control = '';
+    var control = "",
+        pageControl = '';
     switch (action) {
         /* On click of "Click here" link in Save More Ponder Less */
         case 'lnkSaveMorePonderLess_ClickHere':
             control = 'lnkSaveMorePonderLess_ClickHere';
+            pageControl = 'sg:en:personal:electricity-marketplace';
             break;
         /* On click of "Close" button of Save More Ponder Less */
         case 'lnkSaveMorePonderLess_Close':
             control = 'lnkSaveMorePonderLess_Close';
+            pageControl = 'sg:en:personal:electricity-marketplace';
             break;
         /* On click of "Edit" link on the search results page */
         case 'lnkEdit':
             control = 'lnkEdit';
+            pageControl = 'sg:en:personal:electricity-marketplace:search-results';
             break;
         /* On click of the "Compare" button on the Search Results Page */
         case 'btnCompare':
             control = 'btnCompare';
+            pageControl = 'sg:en:personal:electricity-marketplace:search-results';
             break;
         /* On click of "ReCompare" button on the Compare Screen */
         case 'btnRecompare':
             control = 'btnRecompare';
+            pageControl = 'sg:en:personal:electricity-marketplace:search-results';
             break;
         default:
             control = '';
@@ -234,6 +254,11 @@ var trackButtonLevel = function (action) {
     }
     if (control !== '') {
         digitalData = {
+            page: {
+                pageInfo: {
+                    pageName: pageControl
+                }
+            },
             button: {
                 name: control,
             }

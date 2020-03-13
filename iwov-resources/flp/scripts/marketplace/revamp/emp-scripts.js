@@ -237,7 +237,11 @@ function initExitScreens() {
         $('html, body').animate({
             scrollTop: $(".emp__exitScreen").offset().top - 200
         }, 500);
-        trackPageLevel('view-plan', []);
+        var filterList = {
+            planName: $(this).data('plan'),
+            partnerName: $(this).data('partner')
+        };
+        trackPageLevel('view-plan', filterList);
 
     });
 

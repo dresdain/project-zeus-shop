@@ -137,7 +137,7 @@ function createDOM__planDetails(item, options, planID) {
     var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : 'None');
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div></div>';
 
-    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
+    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
 
     /* Factsheet */
     html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="open_factsheet btn btn-primary btn-block btn-outline" target="_blank">Factsheet</a></div>';
