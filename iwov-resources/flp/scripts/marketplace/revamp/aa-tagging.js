@@ -280,6 +280,38 @@ var trackButtonLevel = function (action) {
 var trackSearch = function (action, item) {
     var control = '';
     switch (action) {
+        /* The following is a special case where first_time_search and search-results layer are combined */
+        case 'results_page__and__first_time_search':
+            var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+            digitalData = {
+                page: {
+                    pageInfo: {
+                        pageName: "sg:en:personal:electricity-marketplace:search-results",
+                        language: "en",
+                        hier: "sg|en|personal|electricity-marketplace|search-results",
+                        brand: "electricity-marketplace",
+                        country: "sg",
+                        destinationURL: "[http://www.dbs.com.sg/personal/default.page]"
+                    },
+                    category: {
+                        pageType: "content - info",
+                        site: "sg:en:personal",
+                        primaryCategory: "electricity-marketplace",
+                        subCategory1: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory2: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory3: "sg:en:personal:electricity-marketplace" // if there is any 
+                    }
+                },
+                search: {
+                    filter: filterResults,
+                    results: item.total_match
+                }
+            };
+            console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
+            _satellite.track('electricity-marketplace-pagelevel');
+            _satellite.track('electricity-internal search filter');
+            break;
+
         case 'first_time_search':
         case 'modified_search':
             var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;

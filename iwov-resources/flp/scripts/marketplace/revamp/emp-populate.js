@@ -69,8 +69,8 @@ function populatePlans(minBill, maxBill, action, search_type) {
                     total_match: $('.total-items').text()
                 };
                 setTimeout(function () {
-                    trackSearch('first_time_search', filterList);
-                    trackPageLevel('search-results', []);
+                    trackSearch('search-results_page__and__first_time_search', filterList);
+                    // trackPageLevel('search-results', []);
                     globalFilterState = 'first_time_search';
                 }, 1000);
                 firstTimeSearchControl = 1;
