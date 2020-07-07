@@ -327,7 +327,8 @@ $(function () {
 });
 
 
-/* 🖥  View Plans  */
+/* 🖥 EMP Gateway View Plans  
+*/
 $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function (e) {
     e.preventDefault();
     var maxBill = $('.range-cost', this).find(':selected').attr('data-to');
@@ -1034,7 +1035,7 @@ $('#filter-type-2').on('change', function () {
 
 
 
-var getRank = function (itemEq, pageLevel, ) {
+var getRank = function (itemEq, pageLevel,) {
     var calculatedRank = ((pageLevel - 1) * 6) + itemEq;
     console.log('Get subRank: ', itemEq, 'Page Level: ', pageLevel, 'Actual Rank: ', calculatedRank, 'Filter Type: ', globalFilterState);
     return calculatedRank;
