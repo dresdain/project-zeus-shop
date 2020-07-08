@@ -153,6 +153,43 @@
   border: none;
   margin: 0px;
 }
+.plan__box--tabs {
+  margin-bottom: 45px;
+  width: 100%;
+  border-bottom: 1px solid #dde3e7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.plan__box--tabs .plan__box--tabItem {
+  height: 58px;
+  max-width: 182px;
+  width: 180px;
+  text-align: center;
+}
+.plan__box--tabs .plan__box--tabItem a {
+  position: relative;
+  top: 1px;
+  color: #909090 !important;
+  border-bottom: 1px solid transparent;
+}
+.plan__box--tabs .plan__box--tabItem.active {
+  border-bottom: 1px solid #ff3333;
+}
+.plan__box--tabs .plan__box--tabItem.active a {
+  color: #ff3333 !important;
+}
+.plan__box--tabs .plan__box--tabItem a:hover,
+.plan__box--tabs .plan__box--tabItem a {
+  text-decoration: none;
+}
 @media (max-width: 768px) {
   .plan__box {
     padding: 20px 15px;
@@ -667,7 +704,7 @@
 .emp__menu__top--copy p {
   margin-top: 0px;
   margin-left: 1px;
-  color: #858F96;
+  color: #858f96;
   font-family: "OpenSans";
   font-size: 14px;
 }
@@ -2170,7 +2207,8 @@ ul.plan-types > li:nth-child(2):before {
     font-size: 14px;
   }
 
-  #startCompare, #endCompare {
+  #startCompare,
+  #endCompare {
     padding: 0px 0px;
     height: 24px;
     font-size: 12px;
