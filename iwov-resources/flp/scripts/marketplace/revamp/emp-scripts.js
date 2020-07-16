@@ -174,6 +174,33 @@ var init__ExternalOverlay = function () {
     }
 }
 
+/* Set TNC */
+var set__externalTerms = function () {
+    var tnc__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
+        script__DIR = './iwov-resources/flp/scripts/marketplace/';
+
+
+    var queryRetailers = getQueryVariable('retailer').split(',');
+    if (queryRetailers.length == 1) {
+        $.getJSON(script__DIR + 'electricity-marketplace-retailer-intro.json', function (data) {
+            console.log(data);
+            data.forEach(function (item) {
+                console.log(item);
+                if (queryRetailers == item.retailer_id && item.retailer_allowed == true) {
+                    $('#main-pagination').after('<p class="text-muted">For Terms and Conditions for this promotion, please click <a target="_blank" href="' + item.retailer_promo_link + '">here</a>.</p>');
+                }
+            });
+        });
+    }
+
+
+
+
+}
+
+set__externalTerms();
+
+
 /* 📦 showLandingDivs */
 function showLandingDivs(state) {
     if (state === true) {
