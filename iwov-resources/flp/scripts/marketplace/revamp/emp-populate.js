@@ -217,6 +217,7 @@ function createDOM__comparePlans(item, options, planID) {
     var comparisonDetails = {
         'plan_id': '#' + planID,
         'package_id': item.package_id,
+        'retailer_id': item.retailer_id,
         'logo': item.retailer_logo_path,
         'annual_savings': '$' + annualSavings,
         'plan_name': item.plan_name + createDOM__greenEnergy(item.green_energy),
