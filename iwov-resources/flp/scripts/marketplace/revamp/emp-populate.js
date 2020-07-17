@@ -2,10 +2,15 @@ var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
     script__DIR = './iwov-resources/flp/scripts/marketplace/';
 
 var firstTimeSearchControl = 0;
-
+var loadFile = "emp-p2.json";
 /* 📦 Populate Plans */
 function populatePlans(minBill, maxBill, action, search_type) {
-    $.getJSON(script__DIR + 'emp-p2.json', function (data) {
+
+    if (globalContentState == "TMP-CONTENT") {
+        loadFile = "tmp.json"
+    } else { loadFile = "emp-p2.json"; }
+
+    $.getJSON(script__DIR + loadFile, function (data) {
         var counter = 0;
         if (action == 'refresh') {
             jplist.refresh();
@@ -26,26 +31,37 @@ function populatePlans(minBill, maxBill, action, search_type) {
 
         data.forEach(function (item) {
             for (var i = 0; i <= (item.options.length - 1); i++) {
-                var dataDOM = '';
-                var rangeControl = item.options[i].current_monthly_sp_bill_size;
 
-                if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
-                    var planID = 'plan_item--' + counter;
-                    dataDOM += '<article data-jplist-item class="emp__results__box--card" id="' + planID + '">';
-                    dataDOM += createDOM__savingsInfo(item, item.options[i]);
-                    dataDOM += createDOM__planDetails(item, item.options[i], planID);
-                    dataDOM += createDOM__comparePlans(item, item.options[i], planID);
-                    dataDOM += '</article>';
+                console.log(item);
+                if (globalContentState == "EMP-CONTENT") {
+                    var dataDOM = '';
+                    var rangeControl = item.options[i].current_monthly_sp_bill_size;
+                    if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
+                        var planID = 'plan_item--' + counter;
+                        dataDOM += '<article data-jplist-item class="emp__results__box--card" id="' + planID + '">';
+                        dataDOM += createDOM__savingsInfo(item, item.options[i]);
+                        dataDOM += createDOM__planDetails(item, item.options[i], planID);
+                        dataDOM += createDOM__comparePlans(item, item.options[i], planID);
+                        dataDOM += '</article>';
+                        jplist.resetContent(function () {
+                            $('.emp__results__box--list').append(dataDOM);
+                            jplist.resetControl('#main-pagination');
+                            $('[data-toggle="tooltip"]').tooltip();
+                        });
+                    }
+                } else
+                    if (globalContentState == "TMP-CONTENT") {
+                        console.log(item);
+                    }
 
-                    jplist.resetContent(function () {
-                        $('.emp__results__box--list').append(dataDOM);
-                        jplist.resetControl('#main-pagination');
-                        $('[data-toggle="tooltip"]').tooltip();
-                    });
-                }
+
+
             }
             counter++;
         });
+
+
+
         $('.emp__results__box--list').append('<article class="emp__results__box--card placeholder"></article>');
 
         /* Re-initialize everything */

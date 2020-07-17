@@ -1,0 +1,94 @@
+[
+    {
+        "telco_name": "Circles.Life",
+        "telco_id": "circles.life",
+        "package_id": "cl20",
+        "plan_name": "20GB Plan",
+        "data": "20 GB",
+        "promotion": "YES",
+        "promotion_text": "Get your first month free with promo code DBSCIRCLES",
+        "add_on_1": "unlimited data at +S$20/mo",
+        "add_on_2": "unlimited outgoing calls at +S$8/mo",
+        "add_on_3": "unlimited incoming calls at +S$2/mo",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circles.life.png",
+        "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/cl20.pdf",
+        "options": [
+            {
+                "price_per_month": " $ 28.00 ",
+                "contract": "No contract",
+                "caller_id": " Free ",
+                "talktime": " 100 mins ",
+                "sms": "S$25 / mo"
+            }
+        ]
+    },
+    {
+        "retailer_name": "Circles.Life",
+        "retailer_id": "circles.life",
+        "package_id": "cl100",
+        "plan_name": "100GB Plan",
+        "data": "100 GB",
+        "promotion": "YES",
+        "promotion_text": "Get your first month free with promo code DBSCIRCLES",
+        "add_on_1": "unlimited data at +S$20/mo",
+        "add_on_2": "unlimited outgoing calls at +S$8/mo",
+        "add_on_3": "unlimited incoming calls at +S$2/mo",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circles.life.png",
+        "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/cl20.pdf",
+        "options": [
+            {
+                "price_per_month": " $ 48.00 ",
+                "contract": "No contract",
+                "caller_id": " Free ",
+                "talktime": " 100 mins ",
+                "sms": "S$25 / mo"
+            }
+        ]
+    },
+    {
+        "retailer_name": "Grid Mobile",
+        "retailer_id": "gridmobile",
+        "package_id": "gm20",
+        "plan_name": "20 GB Plan",
+        "data": "20 GB",
+        "promotion": "YES",
+        "promotion_text": "Additional 10GB for the first 30 days",
+        "add_on_1": "1GB data at +S$6.42/mo",
+        "add_on_2": "100 mins talktime at +S$4.28/mo",
+        "add_on_3": "25 SMS at +S$4.28/mo",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png",
+        "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/gm20.pdf",
+        "options": [
+            {
+                "price_per_month": " $ 17.90 ",
+                "contract": "No contract",
+                "caller_id": " Free ",
+                "talktime": " 120 mins ",
+                "sms": "50"
+            }
+        ]
+    },
+    {
+        "retailer_name": "Grid Mobile",
+        "retailer_id": "gridmobile",
+        "package_id": "gm40",
+        "plan_name": "40 GB Plan",
+        "data": "40 GB",
+        "promotion": "YES",
+        "promotion_text": "Additional 10GB for the first 30 days",
+        "add_on_1": "1GB data at +S$6.42/mo",
+        "add_on_2": "100 mins talktime at +S$4.28/mo",
+        "add_on_3": "25 SMS at +S$4.28/mo",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png",
+        "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/gm40.pdf",
+        "options": [
+            {
+                "price_per_month": " $ 24.90 ",
+                "contract": "No contract",
+                "caller_id": " Free ",
+                "talktime": " 200 mins ",
+                "sms": "200"
+            }
+        ]
+    }
+]

@@ -21,7 +21,7 @@ var logger = function () {
 /* Helper functions */
 var digitalData;
 $(function () {
-    logger.disableLogger();
+    // logger.disableLogger();
     trackHomepage();
 });
 /* 📦 AA Tagging */
@@ -140,6 +140,7 @@ var trackPageLevel = function (action, prop) {
         case 'compare_add':
         case 'compare_start':
             var compareProp = JSON.parse(sessionStorage.getItem("comparisonList"));
+            console.log(compareProp);
             digitalData = {
                 product: {
                     category: {

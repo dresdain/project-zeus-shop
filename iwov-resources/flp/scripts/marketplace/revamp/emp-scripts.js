@@ -1,4 +1,40 @@
 var globalFilterState = '';
+var globalContentState = 'EMP-CONTENT';
+
+$(function () {
+    $('.telco-option').hide();
+    $('.plan__box--tabItem').on('click', function () {
+        $('.plan__box--tabItem').removeClass('active');
+        $(this).addClass('active');
+        globalContentState = $(this).data('content-type');
+        renderTabContent();
+    });
+
+});
+
+var renderTabContent = function (action) {
+    var subtitle = $('.plan__box--tabItem.active').data('subtitle');
+    $('.plan__box--title .subtitle').text(subtitle);
+    if (globalContentState == 'EMP-CONTENT') {
+        $('.electricity-content').show();
+        $('.electricity-option').show();
+        $('.telco-content').hide();
+        $('.telco-option').removeAttr('selected').hide();
+        $('.place-live').val('hdb_4_room');
+        $('.range-cost').val('range3');
+    } else if (globalContentState == 'TMP-CONTENT') {
+        $('.telco-content').show();
+        $('.telco-option').show();
+        $('.electricity-content').hide();
+        $('.electricity-option').removeAttr('selected').hide();
+        $('.place-live').val(25);
+        $('.range-cost').val('5GB');
+    }
+}
+
+
+
+
 
 /* 📦 show__illustrationModal */
 var show__illustrationModal = function () {

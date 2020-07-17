@@ -2229,4 +2229,9 @@ ul.plan-types > li:nth-child(2):before {
   z-index: 97;
 }
 
+/* TELCO */
+.telco-content {
+  display: none;
+}
+
 /*# sourceMappingURL=emp.css.map */
