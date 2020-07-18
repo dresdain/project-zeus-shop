@@ -222,7 +222,8 @@ var set__externalTerms = function () {
                 // console.log(data);
                 data.forEach(function (item) {
                     // console.log(item);
-                    if (queryRetailers == item.retailer_id && item.retailer_allowed == true) {
+                    if (queryRetailers == item.retailer_id && item.retailer_allowed == true
+                        && item.retailer_promo_link != "") {
                         $('#main-pagination').after('<p class="text-muted">For Terms and Conditions for this promotion, please click <a target="_blank" href="' + item.retailer_promo_link + '">here</a>.</p>');
                     }
                 });
