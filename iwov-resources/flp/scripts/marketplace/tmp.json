@@ -18,7 +18,7 @@
                 "contract": "No contract",
                 "caller_id": " Free ",
                 "talktime": " 100 mins ",
-                "sms": "S$25 / mo"
+                "sms": "100"
             }
         ]
     },
@@ -41,7 +41,7 @@
                 "contract": "No contract",
                 "caller_id": " Free ",
                 "talktime": " 100 mins ",
-                "sms": "S$25 / mo"
+                "sms": "200"
             }
         ]
     },
@@ -110,7 +110,7 @@
                 "contract": "No contract",
                 "caller_id": " Free ",
                 "talktime": " 100 mins ",
-                "sms": "S$25 / mo"
+                "sms": "300"
             }
         ]
     }
