@@ -733,6 +733,10 @@
   justify-content: center;
   align-items: center;
   padding: 30px 15px 15px 15px;
+  .telco-article & {
+    flex-direction: row;
+    padding-top: 15px;
+  }
   @media (max-width: 768px) {
     display: flex;
     flex-direction: row;
@@ -754,9 +758,18 @@
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+    .telco-article & {
+      order: 2;
+      width: 240px;
+      height: 60px;
+      margin-bottom: unset;
+    }
   }
 
   &--copy {
+    .telco-article & {
+      order: 1;
+    }
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -771,6 +784,9 @@
       font-size: 32px;
       font-weight: 700;
       text-transform: uppercase;
+      .telco-article & {
+        font-size: 28px;
+      }
     }
     .footnote {
       color: #2e2e2e;
@@ -1774,4 +1790,62 @@ be sure the cells are on the top of the pseudo element*/
 /* TELCO */
 .telco-content {
   display: none;
+}
+
+.promotions__info {
+  padding: 0px 15px 15px 15px;
+  @media (max-width: 767px) {
+    padding: 0px;
+  }
+  &.desktop {
+    min-height: 85px;
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  &.mobile {
+    display: none;
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+  .title {
+    font-family: "OpenSans";
+    font-weight: 700;
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 24px;
+    background: #ffaa44;
+    border-radius: 4px;
+    line-height: 12px;
+    padding: 5px 8px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .info {
+    font-family: "OpenSans";
+    font-weight: normal;
+    font-size: 14px;
+    color: #2e2e2e;
+  }
+}
+
+.addon-tooltip {
+  font-family: "OpenSans";
+  font-weight: normal;
+  font-size: 14px;
+  color: #2e2e2e;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: #2e2e2e;
+  }
+  margin-bottom: 25px;
+  display: block;
+}
+.telco-article {
+  .tooltip-inner {
+    white-space: pre-line;
+  }
 }

@@ -442,7 +442,7 @@
                                                 <option class="telco-option" data-title="Up to 5GB" data-from="0" data-to="5" value="5GB">Up to 5GB</option>
                                                 <option class="telco-option" data-title="Up to 10GB" data-from="0" data-to="15" value="15GB">Up to 15GB</option>
                                                 <option class="telco-option" data-title="Up to 20GB" data-from="0" data-to="20" value="20GB">Up to 20GB</option>
-                                                <option class="telco-option" data-title="Unlimited" data-from="0" data-to="infinity" value="UGB">Unlimited</option>
+                                                <option class="telco-option" data-title="Unlimited" data-from="0" data-to="infinity" value="Infinity">Unlimited</option>
                                             </select>
                                         </div>
                                         <!--dropdown-->
@@ -475,10 +475,10 @@
 
 
                                                 <!-- TELCO OPTIONS -->
-                                                <option class="telco-option" data-title="No Preference" value="no-pref">No Preference</option>
+                                                <option class="telco-option" data-title="No Preference" value="Infinity">No Preference</option>
                                                 <option class="telco-option" data-title="Up to $15" value="15">Up to $15</option>
                                                 <option class="telco-option" data-title="Up to $25" value="25">Up to $25</option>
-                                                <option class="telco-option" data-title="Up to $55" value="55">Up to $50</option>
+                                                <option class="telco-option" data-title="Up to $50" value="50">Up to $50</option>
                                                 <option class="telco-option" data-title="Up to $100" value="100">Up to $100</option>
                                             </select>
                                         </div>
@@ -1084,8 +1084,11 @@
                             <form action="GET" id="planForm__dropdown2" data-type="modified_search">
                                 <div class="row">
                                     <div class="col-sm-4 col-xs-12">
-                                        <div class="form-label">
+                                        <div class="form-label electricity-content">
                                             Monthly electricity bill of
+                                        </div>
+                                        <div class="form-label telco-content">
+                                            Monthly data
                                         </div>
                                         <!--dropdown-->
                                         <div>
@@ -1104,14 +1107,17 @@
                                                 <option class="telco-option" data-title="Up to 5GB" data-from="0" data-to="5" value="5GB">Up to 5GB</option>
                                                 <option class="telco-option" data-title="Up to 10GB" data-from="0" data-to="15" value="15GB">Up to 15GB</option>
                                                 <option class="telco-option" data-title="Up to 20GB" data-from="0" data-to="20" value="20GB">Up to 20GB</option>
-                                                <option class="telco-option" data-title="Unlimited" data-from="0" data-to="infinity" value="UGB">Unlimited</option>
+                                                <option class="telco-option" data-title="Unlimited" data-from="0" data-to="infinity" value="Infinity">Unlimited</option>
                                             </select>
                                         </div>
                                         <!--dropdown-->
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
-                                        <div class="form-label">
+                                        <div class="form-label electricity-content">
                                             Living in a
+                                        </div>
+                                        <div class="form-label telco-content">
+                                            Price per month
                                         </div>
                                         <!--dropdown-->
                                         <div>
@@ -1134,10 +1140,10 @@
 
 
                                                 <!-- TELCO OPTIONS -->
-                                                <option class="telco-option" data-title="No Preference" value="no-pref">No Preference</option>
+                                                <option class="telco-option" data-title="No Preference" value="Infinity">No Preference</option>
                                                 <option class="telco-option" data-title="Up to $15" value="15">Up to $15</option>
                                                 <option class="telco-option" data-title="Up to $25" value="25">Up to $25</option>
-                                                <option class="telco-option" data-title="Up to $55" value="55">Up to $50</option>
+                                                <option class="telco-option" data-title="Up to $50" value="50">Up to $50</option>
                                                 <option class="telco-option" data-title="Up to $100" value="100">Up to $100</option>
                                             </select>
                                         </div>
@@ -1199,7 +1205,7 @@
                                                         <option class="telco-option" data-title="Up to 5GB" data-from="0" data-to="5" value="5GB">Up to 5GB</option>
                                                         <option class="telco-option" data-title="Up to 10GB" data-from="0" data-to="15" value="15GB">Up to 15GB</option>
                                                         <option class="telco-option" data-title="Up to 20GB" data-from="0" data-to="20" value="20GB">Up to 20GB</option>
-                                                        <option class="telco-option" data-title="Unlimited" data-from="0" data-to="infinity" value="UGB">Unlimited</option>
+                                                        <option class="telco-option" data-title="Unlimited" data-from="0" data-to="infinity" value="Infinity">Unlimited</option>
                                                     </select>
                                                 </div>
                                                 <!--dropdown-->
@@ -1229,10 +1235,10 @@
 
 
                                                         <!-- TELCO OPTIONS -->
-                                                        <option class="telco-option" data-title="No Preference" value="no-pref">No Preference</option>
+                                                        <option class="telco-option" data-title="No Preference" value="Infinity">No Preference</option>
                                                         <option class="telco-option" data-title="Up to $15" value="15">Up to $15</option>
                                                         <option class="telco-option" data-title="Up to $25" value="25">Up to $25</option>
-                                                        <option class="telco-option" data-title="Up to $55" value="55">Up to $50</option>
+                                                        <option class="telco-option" data-title="Up to $50" value="50">Up to $50</option>
                                                         <option class="telco-option" data-title="Up to $100" value="100">Up to $100</option>
                                                     </select>
                                                 </div>
@@ -1288,11 +1294,12 @@
                                         <select
                                                 id="filter-type-1"
                                                 class="emp-dropdown filter-type-1" required>
-                                            <option class="electricity-option" data-path="default" value="rate-type">Rate Type</option>
-                                            <option class="electricity-option" data-path="default" value="retailers">Retailers</option>
-                                            <option class="electricity-option" data-path=".isEcoFriendly" value="showEcoFriendly">Eco-Friendly plans</option>
+                                            <option class="electricity-option removable" data-path="default" value="rate-type">Rate Type</option>
+                                            <option class="electricity-option removable" data-path="default" value="retailers">Retailers</option>
+                                            <option class="electricity-option removable" data-path=".isEcoFriendly" value="showEcoFriendly">Eco-Friendly plans</option>
                                             <option class="telco-option" data-path="default" value="all-plans">All Plans</option>
-                                            <option class="telco-option" data-path="default" value="price-per-month">Price per month</option>
+                                            <option class="telco-option" data-path="default" value="sim-only-plan">SIM-only plans</option>
+                                            <option class="telco-option" data-path="default" value="combo-plan">Combo plans</option>
 
                                         </select>
                                     </div>
@@ -1573,25 +1580,40 @@
                                     <div>
                                         <select id="sort-type-1" class="emp-dropdown sort-type-1" required>
                                             <option
-                                                    class="electricity-option"
+                                                    class="electricity-option removable"
                                                     data-title="annual_savings"
                                                     data-path=".annual-savings-value"
                                                     data-order="desc"
                                                     data-type="number" value="0">Annual savings</option>
                                             <option
-                                                    class="electricity-option"
+                                                    class="electricity-option removable"
                                                     data-title="contract_duration"
                                                     data-path=".contract-duration"
                                                     data-order="asc"
                                                     data-type="number"
                                                     value="1">Contract Duration</option>
                                             <option
-                                                    class="electricity-option"
+                                                    class="electricity-option removable"
                                                     data-title="retailer_name_a_to_z"
                                                     data-path=".retailer-name"
                                                     data-order="asc"
                                                     data-type="text"
                                                     value="2">Retailer Name (A to Z)</option>
+
+                                            <option
+                                                    class="telco-option"
+                                                    data-title="monthly_data"
+                                                    data-path=".monthly-data"
+                                                    data-order="asc"
+                                                    data-type="number"
+                                                    value="3">Monthly Data</option>
+                                            <option
+                                                    class="telco-option"
+                                                    data-title="price_per_month"
+                                                    data-path=".pricepermonth"
+                                                    data-order="asc"
+                                                    data-type="number"
+                                                    value="4">Price per month</option>
 
                                         </select>
                                     </div>
@@ -1612,7 +1634,7 @@
                                                        data-path-1=".retailer-name"
                                                        data-order-1="desc"
                                                        data-type-1="text"
-                                                       name="hiddden-rb--sort" checked />
+                                                       name="hiddden-rb--sort" />
                                                 <span></span> savings
                                             </label>
                                         </div>
@@ -1646,6 +1668,36 @@
                                                 <span></span> name
                                             </label>
                                         </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input
+                                                       type="radio"
+                                                       id="action--hidden--rb--sort-monthlyData"
+                                                       data-jplist-control="radio-buttons-sort"
+                                                       data-group="group1"
+                                                       data-name="hiddden-rb--sort"
+                                                       data-path=".monthly-data"
+                                                       data-order="desc"
+                                                       data-type="number"
+                                                       name="hiddden-rb--sort" />
+                                                <span></span> monthly data
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input
+                                                       type="radio"
+                                                       id="action--hidden--rb--sort-pricepermonth"
+                                                       data-jplist-control="radio-buttons-sort"
+                                                       data-group="group1"
+                                                       data-name="hiddden-rb--sort"
+                                                       data-path=".pricepermonth"
+                                                       data-order="desc"
+                                                       data-type="number"
+                                                       name="hiddden-rb--sort" />
+                                                <span></span> price per month
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1657,7 +1709,7 @@
                     <div class="emp__results__box--filterInfo">
                         Showing <span class="current-items">{startItem} - {endItem}</span> out of <span class="total-items">{itemsNumber}</span> matching plans</span>
                         <br />
-                        <p class="text-muted">The current SP Services electricity Tariff (Q1 2020) is S$0.2594/kWh.</p>
+                        <p class="text-muted electricity-content">The current SP Services electricity Tariff (Q1 2020) is S$0.2594/kWh.</p>
                     </div>
                     <div class="emp__results__box--list" data-jplist-group="group1">
                     </div>
@@ -1691,7 +1743,7 @@
                                 <span class="pageRange">{startItem} - {endItem}</span> of <span class="pageTotal">{itemsNumber}</span>
                             </span>
                         </nav>
-                        <p class="text-muted">
+                        <p class="text-muted electricity-content">
                             Savings amount is based on your selected average monthly electricity consumption with electricity tariff as of Q1 2020.
                         </p>
                     </div>

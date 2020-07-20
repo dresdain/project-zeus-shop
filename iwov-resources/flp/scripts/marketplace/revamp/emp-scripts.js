@@ -27,6 +27,7 @@ var renderTabContent = function (action) {
         $('.telco-option').show();
         $('.electricity-content').hide();
         $('.electricity-option').removeAttr('selected').hide();
+        $('.electricity-option.removable').remove();
         $('.place-live').val(25);
         $('.range-cost').val('5GB');
     }
@@ -175,6 +176,12 @@ var validate__sortList = function (sortList) {
                 break;
             case 'name':
                 $('#sort-type-1').val("2").change();
+                break;
+            case 'monthly_data':
+                $('#sort-type-1').val("3").change();
+                break;
+            case 'monthly_price':
+                $('#sort-type-1').val("4").change();
                 break;
             default:
                 console.warn('Warning: query param: "sort=' + getQueryVariable('rate') + '" is not acceptable.');
@@ -399,14 +406,26 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
     var placeLive = $('.place-live', this).find(':selected').attr('data-title');
 
-    if (maxBill == "Infinity") {
-        $('.monthly-bill-header').html('>S$500');
-        maxBill = Infinity;
-    } else {
-        $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
-    }
 
-    $('.place-live-copy').html(placeLive);
+
+    if (globalContentState == 'EMP-CONTENT') {
+        if (maxBill == "Infinity") {
+            $('.monthly-bill-header').html('>S$500');
+            maxBill = Infinity;
+        } else {
+            $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
+        }
+        $('.place-live-copy').html(placeLive.toLowerCase());
+    } else if (globalContentState == 'TMP-CONTENT') {
+        if (maxBill == "Infinity") {
+            $('.monthly-bill-header').html('no preferred monthly price.');
+            $('.monthly-bill-header + .telco-content').hide();
+        } else {
+            $('.monthly-bill-header').html($('.place-live', this).find(':selected').attr('data-title').toLowerCase());
+            $('.monthly-bill-header + .telco-content').show();
+        }
+        $('.place-live-copy').html($('.range-cost', this).find(':selected').attr('data-title').toLowerCase().replace('gb', 'GB'));
+    }
     // Check if user is submitting using the dropdownForm version 
     if ($(this).attr('id') == 'planForm__dropdown2') {
         setTimeout(function () {
@@ -608,6 +627,12 @@ $('.sort-type-1').on('change', function () {
         case "2":
             $('#action--hidden--rb--sort-name').trigger('click');
             break;
+        case "3":
+            $('#action--hidden--rb--sort-monthlyData').trigger('click');
+            break;
+        case "4":
+            $('#action--hidden--rb--sort-pricepermonth').trigger('click');
+            break;
         default:
             break;
     }
@@ -714,7 +739,11 @@ var init__comparisonScreens = function (parentCompare, parentRecompare) {
 /* 📦 init__comparisonTickers */
 var init__comparisonTickers = function () {
     $('#startCompare').on('click', function (e) {
-        createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        if (globalContentState == "TMP-CONTENT") {
+            createDOM__comparisonPlans__TMP(sessionStorage.getItem("comparisonList"));
+        } else {
+            createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        }
         resize__comparisonCards();
         $('.emp__results').fadeOut();
         $('.emp__comparison').fadeIn();
@@ -725,7 +754,11 @@ var init__comparisonTickers = function () {
         set__compareButtonSize();
     });
     $('#endCompare').on('click', function (e) {
-        createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        if (globalContentState == "TMP-CONTENT") {
+            createDOM__comparisonPlans__TMP(sessionStorage.getItem("comparisonList"));
+        } else {
+            createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        }
         resize__comparisonCards();
         $('.emp__comparison').fadeOut();
         $('.emp__results').fadeIn();
@@ -760,7 +793,11 @@ function addToCompare() {
         validate__compareCheckbox();
         init__comparisonScreens(parentCompare, parentRecompare);
         init__comparisonTickers();
-        createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        if (globalContentState == "TMP-CONTENT") {
+            createDOM__comparisonPlans__TMP(sessionStorage.getItem("comparisonList"));
+        } else {
+            createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
+        }
         remove__comparisonPlan();
         trackPageLevel('compare_add');
     });
@@ -1146,3 +1183,13 @@ function sortJSON(data, key, way) {
         if (way === '321') { return ((x > y) ? -1 : ((x < y) ? 1 : 0)); }
     });
 }
+
+
+$(function () {
+    setTimeout(() => {
+        // $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click');
+        setTimeout(() => {
+            // $('#planForm').submit();
+        }, 200);
+    }, 500);
+});
