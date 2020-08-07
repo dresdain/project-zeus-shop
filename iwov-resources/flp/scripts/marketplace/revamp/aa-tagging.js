@@ -21,7 +21,7 @@ var logger = function () {
 /* Helper functions */
 var digitalData;
 $(function () {
-    logger.disableLogger();
+    // logger.disableLogger();
     trackHomepage();
 });
 /* 📦 AA Tagging */
@@ -140,10 +140,31 @@ var trackPageLevel = function (action, prop) {
         case 'compare_add':
         case 'compare_start':
             var compareProp = JSON.parse(sessionStorage.getItem("comparisonList"));
+
+            var primaryCat_1 = (compareProp[0] ? compareProp[0].retailer_id : null);
+            var primaryCat_2 = (compareProp[1] ? compareProp[1].retailer_id : null);
+            var primaryCat_3 = (compareProp[2] ? compareProp[2].retailer_id : null);
+            var tempPrimaries = [primaryCat_1, primaryCat_2, primaryCat_3];
+            var acceptedPrimaries = [];
+            $.each(tempPrimaries, function (i, el) {
+                if ($.inArray(el, acceptedPrimaries) === -1 && el !== null) acceptedPrimaries.push(el);
+            });
+
+            var subCat_1 = (compareProp[0] ? compareProp[0].package_id : null);
+            var subCat_2 = (compareProp[1] ? compareProp[1].package_id : null);
+            var subCat_3 = (compareProp[2] ? compareProp[2].package_id : null);
+            var tempSubcat = [subCat_1, subCat_2, subCat_3];
+            var acceptedSubcat = [];
+            $.each(tempSubcat, function (i, el) {
+                if ($.inArray(el, acceptedSubcat) === -1 && el !== null) acceptedSubcat.push(el);
+            });
+
             digitalData = {
                 product: {
                     category: {
-                        productType: "electricity_mp"
+                        productType: "electricity_mp",
+                        primaryCategory: acceptedPrimaries.join(":"),
+                        subCategory: acceptedSubcat.join(":")
                     },
                     item: [
                         {
@@ -179,10 +200,30 @@ var trackPageLevel = function (action, prop) {
 
         case 'compare_remove':
             var compareProp = JSON.parse(sessionStorage.getItem("comparisonList"));
+            var primaryCat_1 = (compareProp[0] ? compareProp[0].retailer_id : null);
+            var primaryCat_2 = (compareProp[1] ? compareProp[1].retailer_id : null);
+            var primaryCat_3 = (compareProp[2] ? compareProp[2].retailer_id : null);
+            var tempPrimaries = [primaryCat_1, primaryCat_2, primaryCat_3];
+            var acceptedPrimaries = [];
+            $.each(tempPrimaries, function (i, el) {
+                if ($.inArray(el, acceptedPrimaries) === -1 && el !== null) acceptedPrimaries.push(el);
+            });
+
+            var subCat_1 = (compareProp[0] ? compareProp[0].package_id : null);
+            var subCat_2 = (compareProp[1] ? compareProp[1].package_id : null);
+            var subCat_3 = (compareProp[2] ? compareProp[2].package_id : null);
+            var tempSubcat = [subCat_1, subCat_2, subCat_3];
+            var acceptedSubcat = [];
+            $.each(tempSubcat, function (i, el) {
+                if ($.inArray(el, acceptedSubcat) === -1 && el !== null) acceptedSubcat.push(el);
+            });
+
             digitalData = {
                 product: {
                     category: {
-                        productType: "electricity_mp"
+                        productType: "electricity_mp",
+                        primaryCategory: acceptedPrimaries.join(":"),
+                        subCategory: acceptedSubcat.join(":")
                     },
                     item: [
                         {

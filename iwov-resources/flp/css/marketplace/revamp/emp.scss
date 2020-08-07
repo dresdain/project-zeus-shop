@@ -185,6 +185,39 @@
     margin: 0px;
   }
 
+  &--tabs {
+    margin-bottom: 45px;
+    width: 100%;
+    border-bottom: 1px solid #dde3e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    & .plan__box--tabItem {
+      height: 58px;
+      max-width: 182px;
+      width: 180px;
+      text-align: center;
+      a {
+        position: relative;
+        top: 1px;
+        color: #909090 !important;
+        border-bottom: 1px solid transparent;
+      }
+      &.active {
+        a {
+          color: #ff3333 !important;
+        }
+        border-bottom: 1px solid #ff3333;
+      }
+
+      a:hover,
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 20px 15px;
     margin-bottom: 32px;
@@ -256,7 +289,7 @@
       &:hover {
         // cursor: wait;
       }
-      @media (max-width: 768px){
+      @media (max-width: 768px) {
         width: 100%;
         min-width: 100%;
       }
@@ -354,7 +387,7 @@
   }
   .partner--logo {
     height: 72px;
-  width: 200px;
+    width: 200px;
     margin-bottom: 8px;
     background-size: contain;
     background-position: center center;
@@ -570,16 +603,16 @@
     }
     @media (max-width: 768px) {
       flex-direction: column;
-      align-items:center;
+      align-items: center;
       text-align: center;
-      padding:20px 10px 5px 10px;
+      padding: 20px 10px 5px 10px;
     }
   }
   &--copy {
     p {
       margin-top: 0px;
       margin-left: 1px;
-      color: #858F96;
+      color: #858f96;
       font-family: "OpenSans";
       font-size: 14px;
       a {
@@ -636,10 +669,10 @@
       z-index: 1000;
     }
   }
-  @media (max-width: 320px) { 
+  @media (max-width: 320px) {
     > .container.expand {
       min-height: 440px;
-    } 
+    }
   }
   .dropdown .dropdown-menu {
     @media (max-width: 768px) {
@@ -700,6 +733,10 @@
   justify-content: center;
   align-items: center;
   padding: 30px 15px 15px 15px;
+  .telco-article & {
+    flex-direction: row;
+    padding-top: 15px;
+  }
   @media (max-width: 768px) {
     display: flex;
     flex-direction: row;
@@ -721,9 +758,18 @@
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+    .telco-article & {
+      order: 2;
+      width: 240px;
+      height: 60px;
+      margin-bottom: unset;
+    }
   }
 
   &--copy {
+    .telco-article & {
+      order: 1;
+    }
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -738,6 +784,9 @@
       font-size: 32px;
       font-weight: 700;
       text-transform: uppercase;
+      .telco-article & {
+        font-size: 28px;
+      }
     }
     .footnote {
       color: #2e2e2e;
@@ -922,9 +971,9 @@
   .btn.btn-primary {
     @media (max-width: 768px) {
       font-size: 12px;
-    min-width: 78px;
-    height: 24px;
-    padding: 3px 5px;
+      min-width: 78px;
+      height: 24px;
+      padding: 3px 5px;
     }
   }
   &--card {
@@ -1004,7 +1053,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       top: -10px;
-      left: calc(100% - 10px); 
+      left: calc(100% - 10px);
       border: none;
       @media (max-width: 768px) {
         height: 18px;
@@ -1627,19 +1676,19 @@ be sure the cells are on the top of the pseudo element*/
       margin-bottom: 10px;
     }
   }
-  &--confirm{
-    @media (max-width: 768px){
-      .button-group{
+  &--confirm {
+    @media (max-width: 768px) {
+      .button-group {
         display: flex;
         justify-content: space-between;
-        > *{
+        > * {
           width: 48%;
-    min-width: 48%;
+          min-width: 48%;
         }
       }
     }
-    .btn{
-      @media (max-width: 768px){
+    .btn {
+      @media (max-width: 768px) {
         // padding: 0px 0px;
         // height: 24px;
         // font-size: 12px;
@@ -1705,18 +1754,19 @@ be sure the cells are on the top of the pseudo element*/
     font-size: 16px;
     margin-top: 8px;
     margin-bottom: 8px;
-  } 
+  }
   .emp__menu__top .header-title ~ p {
     font-size: 12px;
   }
-  .emp__menu__top--body > img{
+  .emp__menu__top--body > img {
     width: 54px;
     height: 45px;
   }
-  .plan__details--card .body{
+  .plan__details--card .body {
     font-size: 14px;
   }
-  #startCompare, #endCompare{
+  #startCompare,
+  #endCompare {
     padding: 0px 0px;
     height: 24px;
     font-size: 12px;
@@ -1725,15 +1775,77 @@ be sure the cells are on the top of the pseudo element*/
     margin-top: 7px;
   }
 
-  .partners__box--card{
+  .partners__box--card {
     min-height: 0px;
   }
 }
 
-
-.dropdown-backdrop{
+.dropdown-backdrop {
   z-index: 98;
 }
-#chat-canvas{
+#chat-canvas {
   z-index: 97;
+}
+
+/* TELCO */
+.telco-content {
+  display: none;
+}
+
+.promotions__info {
+  padding: 0px 15px 15px 15px;
+  @media (max-width: 767px) {
+    padding: 0px;
+  }
+  &.desktop {
+    min-height: 85px;
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+  &.mobile {
+    display: none;
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+  .title {
+    font-family: "OpenSans";
+    font-weight: 700;
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 24px;
+    background: #ffaa44;
+    border-radius: 4px;
+    line-height: 12px;
+    padding: 5px 8px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .info {
+    font-family: "OpenSans";
+    font-weight: normal;
+    font-size: 14px;
+    color: #2e2e2e;
+  }
+}
+
+.addon-tooltip {
+  font-family: "OpenSans";
+  font-weight: normal;
+  font-size: 14px;
+  color: #2e2e2e;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: #2e2e2e;
+  }
+  margin-bottom: 25px;
+  display: block;
+}
+.telco-article {
+  .tooltip-inner {
+    white-space: pre-line;
+  }
 }

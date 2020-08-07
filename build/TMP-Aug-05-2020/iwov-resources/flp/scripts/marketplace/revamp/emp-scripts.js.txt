@@ -220,7 +220,7 @@ var init__ExternalOverlay = function () {
 /* Set TNC */
 var set__externalTerms = function () {
     var tnc__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
-        script__DIR = './iwov-resources/flp/scripts/marketplace/';
+        script__DIR = '/iwov-resources/flp/scripts/marketplace/';
 
     if (getQueryVariable('retailer') != undefined) {
         var queryRetailers = getQueryVariable('retailer').split(',');
