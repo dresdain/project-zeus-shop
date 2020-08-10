@@ -1,6 +1,6 @@
 var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
     script__DIR = './iwov-resources/flp/scripts/marketplace/',
-    production_DIR = "/";
+    production_DIR = "./";
     
 var firstTimeSearchControl = 0;
 var loadFile = "emp-p2.json";
