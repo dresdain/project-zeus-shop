@@ -198,17 +198,36 @@
       max-width: 182px;
       width: 180px;
       text-align: center;
+      position: relative;
       a {
         position: relative;
         top: 1px;
         color: #909090 !important;
         border-bottom: 1px solid transparent;
+        transition: 0.5s ease-in-out;
+      }
+      &:before{
+        transition: 0.3s cubic-bezier(0.42, 0, 0, 1);
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        width: 0%;
+        height: 1px;
+        background-color: #ff3333; 
+      }
+      &:first-child:before{
+        right: 0px;
+      }
+      &:last-child:before{
+        left: 0px;
       }
       &.active {
         a {
           color: #ff3333 !important;
         }
-        border-bottom: 1px solid #ff3333;
+        &:before{
+          width: 100%;
+        } 
       }
 
       a:hover,
@@ -415,8 +434,13 @@
   &--cluster {
     display: flex;
     flex-wrap: wrap;
-    #{$parent}--card {
-      width: calc(100% / 2);
+    #{$parent}--card { 
+      @media (min-width: 769px){
+        width: 100%;
+      }
+      @media (max-width: 768px){
+        // width: calc(100% / 2);
+      }
       display: flex;
       justify-content: center;
       align-items: center;
@@ -438,7 +462,7 @@
       -o-filter: grayscale(100%);
       filter: grayscale(100%);
       @media (max-width: 768px) {
-        filter: grayscale(0%);
+        // filter: grayscale(0%);
       }
     }
     &:hover {
@@ -684,6 +708,19 @@
   }
 }
 
+
+.tmp__results__box{
+  &--card {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    .plan__details{
+      border-bottom: none;
+    }
+  }
+  
+}
+
 .emp__results__box {
   min-height: 1000px;
   &--filterInfo {
@@ -873,7 +910,8 @@
       color: #858f96;
       font-family: "OpenSans";
       font-size: 12px;
-      margin-bottom: 13px;
+      // margin-bottom: 13px;
+      margin-bottom: 0px;
       .compareItems--details & {
         color: #656565;
         font-family: "OpenSans";
@@ -1319,7 +1357,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../../../images/marketplace/electricity/revamp/dropdown_icon.svg") 98% / 3% no-repeat #fff;
+  background: url("../../../images/marketplace/electricity/revamp/dropdown_icon.svg") 96% / 3% no-repeat #fff;
   box-sizing: border-box;
   background-size: 18px;
   color: black;
@@ -1847,5 +1885,34 @@ be sure the cells are on the top of the pseudo element*/
 .telco-article {
   .tooltip-inner {
     white-space: pre-line;
+  }
+}
+
+.telco-article{
+  .addon-tooltip{
+    @media (max-width: 768px){
+      order: 10;
+    }
+  }
+  .savings__info--logo{
+    @media (max-width: 768px){
+      background-size: 100%;
+    } 
+  }
+  .promotions__info  {
+    @media (max-width: 768px){
+      padding: 15px;
+    }
+  }
+}
+
+.compare--tmp{
+  .compareItems--card{
+    padding-top: 12px;
+  }
+  .compare--logo{
+    height: 50px;
+    width: calc(100% - 16px); 
+    background-size: 100%;
   }
 }

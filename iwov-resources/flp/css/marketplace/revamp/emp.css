@@ -173,18 +173,37 @@
   max-width: 182px;
   width: 180px;
   text-align: center;
+  position: relative;
 }
 .plan__box--tabs .plan__box--tabItem a {
   position: relative;
   top: 1px;
   color: #909090 !important;
   border-bottom: 1px solid transparent;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
-.plan__box--tabs .plan__box--tabItem.active {
-  border-bottom: 1px solid #ff3333;
+.plan__box--tabs .plan__box--tabItem:before {
+  -webkit-transition: 0.3s cubic-bezier(0.42, 0, 0, 1);
+  transition: 0.3s cubic-bezier(0.42, 0, 0, 1);
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 0%;
+  height: 1px;
+  background-color: #ff3333;
+}
+.plan__box--tabs .plan__box--tabItem:first-child:before {
+  right: 0px;
+}
+.plan__box--tabs .plan__box--tabItem:last-child:before {
+  left: 0px;
 }
 .plan__box--tabs .plan__box--tabItem.active a {
   color: #ff3333 !important;
+}
+.plan__box--tabs .plan__box--tabItem.active:before {
+  width: 100%;
 }
 .plan__box--tabs .plan__box--tabItem a:hover,
 .plan__box--tabs .plan__box--tabItem a {
@@ -439,7 +458,6 @@
       flex-wrap: wrap;
 }
 .partners__box--cluster .partners__box--card {
-  width: calc(100% / 2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -449,6 +467,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (min-width: 769px) {
+  .partners__box--cluster .partners__box--card {
+    width: 100%;
+  }
 }
 .partners__box--cluster .partners__box--card img {
   -webkit-transform: scale(0.8);
@@ -483,12 +506,6 @@
   -ms-filter: grayscale(100%);
   -o-filter: grayscale(100%);
   filter: grayscale(100%);
-}
-@media (max-width: 768px) {
-  .partners__box--card img {
-    -webkit-filter: grayscale(0%);
-            filter: grayscale(0%);
-  }
 }
 .partners__box--card:hover img {
   -webkit-filter: grayscale(0%);
@@ -782,6 +799,22 @@
   }
 }
 
+.tmp__results__box--card {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.tmp__results__box--card .plan__details {
+  border-bottom: none;
+}
+
 .emp__results__box {
   min-height: 1000px;
 }
@@ -1026,7 +1059,7 @@
   color: #858f96;
   font-family: "OpenSans";
   font-size: 12px;
-  margin-bottom: 13px;
+  margin-bottom: 0px;
 }
 .compareItems--details .plan__details--card .heading {
   color: #656565;
@@ -1558,7 +1591,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../../../images/marketplace/electricity/revamp/dropdown_icon.svg") 98%/3% no-repeat #fff;
+  background: url("../../../images/marketplace/electricity/revamp/dropdown_icon.svg") 96%/3% no-repeat #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-size: 18px;
@@ -2316,6 +2349,33 @@ ul.plan-types > li:nth-child(2):before {
 
 .telco-article .tooltip-inner {
   white-space: pre-line;
+}
+
+@media (max-width: 768px) {
+  .telco-article .addon-tooltip {
+    -webkit-box-ordinal-group: 11;
+        -ms-flex-order: 10;
+            order: 10;
+  }
+}
+@media (max-width: 768px) {
+  .telco-article .savings__info--logo {
+    background-size: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .telco-article .promotions__info {
+    padding: 15px;
+  }
+}
+
+.compare--tmp .compareItems--card {
+  padding-top: 12px;
+}
+.compare--tmp .compare--logo {
+  height: 50px;
+  width: calc(100% - 16px);
+  background-size: 100%;
 }
 
 /*# sourceMappingURL=emp.css.map */

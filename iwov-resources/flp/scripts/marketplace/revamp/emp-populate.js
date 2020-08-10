@@ -1,6 +1,7 @@
 var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
-    script__DIR = './iwov-resources/flp/scripts/marketplace/';
-
+    script__DIR = './iwov-resources/flp/scripts/marketplace/',
+    production_DIR = "/";
+    
 var firstTimeSearchControl = 0;
 var loadFile = "emp-p2.json";
 /* 📦 Populate Plans */
@@ -65,11 +66,11 @@ function populatePlans(minBill, maxBill, action, search_type) {
 
                             var unlimitedPlan = (item.data == "unlimited" ? 'isUnlimited' : 'isNotUnlimited');
                             var planID = 'plan_item--' + counter;
-                            dataDOM += '<article data-jplist-item class="telco-article ' + unlimitedPlan + ' emp__results__box--card" id="' + planID + '">';
+                            dataDOM += '<article data-jplist-item class="telco-article ' + unlimitedPlan + '  tmp__results__box--card  emp__results__box--card" id="' + planID + '">';
                             dataDOM += createDOM__savingsInfo__TMP(item, item.options[i]);
-                            dataDOM += createDOM__promotionsInfo(item, item.options[i], 'desktop');
+                            dataDOM += createDOM__promotionsInfo(item, item.options[i], ' visible-xs');
                             dataDOM += createDOM__planDetails__TMP(item, item.options[i]);
-                            dataDOM += createDOM__promotionsInfo(item, item.options[i], 'mobile');
+                            dataDOM += createDOM__promotionsInfo(item, item.options[i], ' hidden-xs');
                             dataDOM += createDOM__comparePlans__TMP(item, item.options[i], planID);
                             dataDOM += '</article>';
 
@@ -137,12 +138,12 @@ function populatePlans(minBill, maxBill, action, search_type) {
 
 /* 📦 TMP CONTENT create DOM for .savings__info component */
 function createDOM__savingsInfo__TMP(item, options) {
-    var html = '';
+    var html = '<div class="tmp-part">';
     /* Start Savings Info  */
     html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
     /* ./iwov-resouces */
-    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'./' + item.telco_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\''+ production_DIR + item.telco_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
 
     /* Copy Wrapper */
     html += '<div class="savings__info--copy">';
@@ -154,7 +155,7 @@ function createDOM__savingsInfo__TMP(item, options) {
 
 
     /* Copy Footnote */
-    html += '<small class="footnote">S$<span class="pricepermonth">' + options.price_per_month.replace(' ', '').replace('$', '') + '</span>/mo</small>';
+    html += '<small class="footnote">S$<span class="pricepermonth">' + options.price_per_month.replace(' ', '').replace('$', '').trim() + '</span>/mo</small>';
 
     /* End Copy Wrapper */
     html += '</div>';
@@ -170,7 +171,7 @@ function createDOM__promotionsInfo(item, options, viewport) {
     if (item.promotion == "YES") {
         var html = '';
 
-        html += '<div class="promotions__info ' + viewport + '"><div class="title">PROMOTION</div><div class="info">' + item.promotion_text + '</div></div>';
+        html += '<div class="promotions__info ' + viewport + '"><div class="title">PROMOTION</div><div class="info"><strong>' + item.promotion_text + '</strong></div></div>';
 
         return html;
     }
@@ -193,7 +194,7 @@ function createDOM__planDetails__TMP(item, options, planID) {
     html += '<div class="plan__details--card"><div class="heading">Talk time</div><div class="body "><span class="">' + options.talktime + '</span></div></div>';
 
     /* SMS */
-    html += '<div class="plan__details--card"><div class="heading">Talk time</div><div class="body "><span class="">' + options.sms + '</span></div></div>';
+    html += '<div class="plan__details--card"><div class="heading">SMS</div><div class="body "><span class="">' + options.sms + '</span></div></div>';
 
     /* Add ons */
     var tooltipAddOn = 'Data add-on:\n';
@@ -201,16 +202,14 @@ function createDOM__planDetails__TMP(item, options, planID) {
     tooltipAddOn += (item.add_on_2 != '' ? '&#8226; ' + item.add_on_2 + '\n' : '');
     tooltipAddOn += (item.add_on_3 != '' ? '&#8226; ' + item.add_on_3 + '\n' : '');
 
-    html += '<a class="heading addon-tooltip" href="javascript:void()" data-toggle="tooltip" data-placement="top" title="' + tooltipAddOn + '">Add-ons available <img src="/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a>';
+    html += '<a class="heading addon-tooltip" href="javascript:void()" data-toggle="tooltip" data-placement="top" title="' + tooltipAddOn + '">Add-ons available <img src="'+production_DIR+'iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a>';
 
 
-    /* Sign Up */
-    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow__TMP(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow__TMP(item, options, 'no') + '">Sign Up</a></div>';
-
+    
 
 
     /* End Plan Details */
-    html += '</div>';
+    html += '</div></div></div>';
 
     return html;
 }
@@ -257,13 +256,13 @@ function createLink__ApplyNow__TMP(item, options, action) {
 }
 /* 📦 TMP Compare Plans checkbox */
 function createDOM__comparePlans__TMP(item, options, planID) {
-    var html = '';
+    var html = '<div class="tmp-part plan__details">';
     var comparisonDetails = {
         'plan_id': '#' + planID,
         'package_id': item.package_id,
         'retailer_id': item.retailer_id,
         'logo': item.telco_logo_path,
-        'plan_name': item.plan_name,
+        'plan_name': item.plan_name.replace(/plan/ig, '').replace(/ /ig, ''),
         'retailer_name': item.retailer_name,
         'applyNow_btn_yes': createLink__ApplyNow__TMP(item, options, 'yes'),
         'applyNow_btn_no': createLink__ApplyNow__TMP(item, options, 'no'),
@@ -272,14 +271,19 @@ function createDOM__comparePlans__TMP(item, options, planID) {
         'comparison_1': item.add_on_1,
         'comparison_2': item.add_on_2,
         'comparison_3': item.add_on_3,
-        'price_per_month': options.price_per_month,
+        'price_per_month': options.price_per_month.trim().replace(' ', ''),
         'contract': options.contract,
         'caller_id': options.caller_id,
         'talktime': options.talktime,
         'sms': options.sms,
         'promotion': (item.promotion == "YES" ? item.promotion_text : 'None')
     };
-    /* Start Compare Plans */
+
+    /* Sign Up */
+    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow__TMP(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow__TMP(item, options, 'no') + '">Sign Up</a></div>';
+
+
+    /* Start Compare Plans */ 
     html += '<div class="compare__plans">';
 
     /* Checkbox wrapper*/
@@ -290,7 +294,7 @@ function createDOM__comparePlans__TMP(item, options, planID) {
     html += '</label></div>';
 
     /* End Compare Plans */
-    html += '</div>';
+    html += '</div></div>';
 
     return html;
 }
@@ -308,13 +312,13 @@ function createDOM__comparisonPlans__TMP(comparisonList) {
         $(parent).addClass('activeComparison');
 
         /* First Section */
-        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("./' + v.logo + '")');
+        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("'+ production_DIR + v.logo + '")');
 
         $(parent + ' > .compareItems--card').addClass('text-center');
 
-        $(parent + ' > .compareItems--card div.heading').text(v.plan_name);
+        $(parent + ' > .compareItems--card div.heading').text(v.plan_name.replace('PLAN', '').replace('plan', ''));
 
-        $(parent + ' > .compareItems--card div.footnote').text(v.price_per_month + '/mo');
+        $(parent + ' > .compareItems--card div.footnote').text(v.price_per_month.replace(' ', '').trim() + '/mo');
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').text('Sign up');
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
@@ -470,7 +474,7 @@ function createDOM__savingsInfo(item, options) {
     html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
     /* ./iwov-resouces */
-    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'./' + item.retailer_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\''+ production_DIR + item.retailer_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
 
     /* Copy Wrapper */
     html += '<div class="savings__info--copy">';
@@ -649,7 +653,7 @@ function createDOM__comparisonPlans(comparisonList) {
         $(parent).addClass('activeComparison');
 
         /* First Section */
-        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("./' + v.logo + '")');
+        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("'+ production_DIR + v.logo + '")');
         $(parent + ' > .compareItems--card div.heading').text('S' + v.annual_savings);
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);

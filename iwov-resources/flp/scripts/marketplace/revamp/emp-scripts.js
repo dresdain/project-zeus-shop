@@ -7,7 +7,7 @@ $(function () {
         $('.plan__box--tabItem').removeClass('active');
         $(this).addClass('active');
         globalContentState = $(this).data('content-type');
-        renderTabContent();
+        renderTabContent(); 
     });
 
 });
@@ -22,6 +22,7 @@ var renderTabContent = function (action) {
         $('.telco-option').removeAttr('selected').hide();
         $('.place-live').val('hdb_4_room');
         $('.range-cost').val('range3');
+        $('.emp__comparison__box').removeClass('compare--tmp').addClass('compare--emp');
     } else if (globalContentState == 'TMP-CONTENT') {
         $('.telco-content').show();
         $('.telco-option').show();
@@ -30,6 +31,8 @@ var renderTabContent = function (action) {
         $('.electricity-option.removable').remove();
         $('.place-live').val(25);
         $('.range-cost').val('5GB');
+        $('.emp__comparison__box').removeClass('compare--emp').addClass('compare--tmp'); 
+        $('.emp__menu__top--copy > p > *:not(a)').hide();
     }
 }
 
@@ -389,14 +392,49 @@ $(function () {
         jplist.init();
     }
     /* Slick.js */
+    
+});
+
+$(window).on('resize load', function(){ 
     $('.partners__box--slick').slick({
         infinite: true,
         dots: true,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    });
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay:true,
+        autoplaySpeed:1500,
+        infinite: true,
+        responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+            } 
+          ]
+    }); 
+    // if($(window).width() > 768){
+    //     $('.partners__box--slick').slick('slickFilter','.desktop-only');
+    // } else{
+    //     $('.partners__box--slick').slick('slickFilter','.mobile-only');
+    // }
+    if (window.location.hash) {
+        var hash = window.location.hash.substring(1);
+        switch (hash) {
+            case "telco":
+                $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click');
+                break;
+            case "electricity":
+                $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
+                break;
+            default:
+                break;
+        }
+    }
 });
-
 
 /* 🖥 EMP Gateway View Plans  
 */
@@ -425,6 +463,7 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
             $('.monthly-bill-header + .telco-content').show();
         }
         $('.place-live-copy').html($('.range-cost', this).find(':selected').attr('data-title').toLowerCase().replace('gb', 'GB'));
+        $('.emp__menu__top--copy > p > *:not(a)').hide();
     }
     // Check if user is submitting using the dropdownForm version 
     if ($(this).attr('id') == 'planForm__dropdown2') {
@@ -443,7 +482,11 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     showLandingDivs(false);
     showPlanDOM(true);
     showPlanDOM__state = true;
-
+    setTimeout(function(){
+        $('html, body').animate({
+            scrollTop: $(".emp__menu__top").offset().top
+        }, 500); 
+    }, 300);
 });
 
 
