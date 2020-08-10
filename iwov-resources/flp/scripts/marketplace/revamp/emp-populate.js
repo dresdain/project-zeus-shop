@@ -68,9 +68,9 @@ function populatePlans(minBill, maxBill, action, search_type) {
                             var planID = 'plan_item--' + counter;
                             dataDOM += '<article data-jplist-item class="telco-article ' + unlimitedPlan + '  tmp__results__box--card  emp__results__box--card" id="' + planID + '">';
                             dataDOM += createDOM__savingsInfo__TMP(item, item.options[i]);
-                            dataDOM += createDOM__promotionsInfo(item, item.options[i], ' visible-xs');
+                            dataDOM += createDOM__promotionsInfo(item, item.options[i], '  ');
                             dataDOM += createDOM__planDetails__TMP(item, item.options[i]);
-                            dataDOM += createDOM__promotionsInfo(item, item.options[i], ' hidden-xs');
+                            // dataDOM += createDOM__promotionsInfo(item, item.options[i], '  ');
                             dataDOM += createDOM__comparePlans__TMP(item, item.options[i], planID);
                             dataDOM += '</article>';
 
