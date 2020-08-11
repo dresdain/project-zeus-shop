@@ -21,7 +21,7 @@ var logger = function () {
 /* Helper functions */
 var digitalData;
 $(function () {
-    // logger.disableLogger();
+    logger.disableLogger();
     trackHomepage();
 });
 /* 📦 AA Tagging */
@@ -310,6 +310,22 @@ var trackButtonLevel = function (action) {
             control = 'btnRecompare';
             pageControl = 'sg:en:personal:electricity-marketplace:search-results';
             break;
+        case 'btnElectricity':
+            control = 'btnElectricity';
+            pageControl = 'sg:en:personal:electricity-marketplace:search-results';
+            break;
+        case 'btnTelco':
+            control = 'btnTelco';
+            pageControl = 'sg:en:personal:electricity-marketplace:search-results';
+            break;
+        case 'btnTelco':
+            control = 'btnTelco';
+            pageControl = 'sg:en:personal:electricity-marketplace:search-results';
+            break;
+        case 'btnSignUp':
+            control = GlobalPlanState;
+            pageControl = 'sg:en:personal:electricity-marketplace:search-results';
+            break;
         default:
             control = '';
             break;
@@ -344,7 +360,11 @@ var trackSearch = function (action, item) {
     switch (action) {
         /* The following is a special case where first_time_search and search-results layer are combined */
         case 'search-results_page__and__first_time_search':
-            var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+            if(globalContentState == 'EMP-CONTENT'){
+                var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+            }else if(globalContentState == 'TMP-CONTENT'){
+                var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill;
+            }
             digitalData = {
                 page: {
                     pageInfo: {
@@ -376,7 +396,11 @@ var trackSearch = function (action, item) {
 
         case 'first_time_search':
         case 'modified_search':
-            var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+            if(globalContentState == 'EMP-CONTENT'){
+                var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+            }else if(globalContentState == 'TMP-CONTENT'){
+                var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill;
+            } 
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -387,7 +411,11 @@ var trackSearch = function (action, item) {
             _satellite.track('electricity-internal search filter');
             break;
         case 'filter_by_rate_type':
-            var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
+            if(globalContentState == 'EMP-CONTENT'){
+                var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
+            }else if(globalContentState == 'TMP-CONTENT'){
+                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type  + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            } 
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -398,7 +426,12 @@ var trackSearch = function (action, item) {
             _satellite.track('electricity-internal search filter');
             break;
         case 'filter_by_ecofriendlyplans':
-            var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by;
+            if(globalContentState == 'EMP-CONTENT'){
+                var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by;
+            }else if(globalContentState == 'TMP-CONTENT'){
+                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type  + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            } 
+            
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -409,7 +442,11 @@ var trackSearch = function (action, item) {
             _satellite.track('electricity-internal search filter');
             break;
         case 'filter_by_retailers':
-            var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
+            if(globalContentState == 'EMP-CONTENT'){
+                var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
+            }else if(globalContentState == 'TMP-CONTENT'){
+                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type  + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            } 
             digitalData = {
                 search: {
                     filter: filterResults,

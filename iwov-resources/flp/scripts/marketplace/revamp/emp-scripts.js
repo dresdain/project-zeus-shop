@@ -1,4 +1,5 @@
 var globalFilterState = '';
+var globalPlanState = '';
 var globalContentState = 'EMP-CONTENT';
 
 $(function () {
@@ -8,6 +9,13 @@ $(function () {
         $(this).addClass('active');
         globalContentState = $(this).data('content-type');
         renderTabContent(); 
+
+        if(globalContentState == 'EMP-CONTENT'){
+            trackButtonLevel('btnElectricity');
+        }else if(globalContentState == 'TMP-CONTENT'){
+            trackButtonLevel('btnTelco');
+        }
+
     });
 
 });
@@ -32,7 +40,9 @@ var renderTabContent = function (action) {
         $('.place-live').val(25);
         $('.range-cost').val('5GB');
         $('.emp__comparison__box').removeClass('compare--emp').addClass('compare--tmp'); 
-        $('.emp__menu__top--copy > p > *:not(a)').hide();
+        if($(window).width() < 768){
+            $('.emp__menu__top--copy > p > *:not(a)').hide();
+        } 
     }
 }
 
@@ -291,6 +301,7 @@ function manageExitScreen(state) {
     }
 }
 
+
 /* 📦 initExitScreens */
 function initExitScreens() {
 
@@ -316,7 +327,8 @@ function initExitScreens() {
             partnerName: $(this).data('partner')
         };
         trackPageLevel('view-plan', filterList);
-
+        globalPlanState = 'btnSignup_Telco_'+ $(this).data('partner')+'_'+ $(this).data('plan').replace(' ', '').trim();
+        trackButtonLevel('btnSignUp');
     });
 
     $('.open_factsheet').off();
@@ -392,10 +404,6 @@ $(function () {
         jplist.init();
     }
     /* Slick.js */
-    
-});
-
-$(window).on('resize load', function(){ 
     $('.partners__box--slick').slick({
         infinite: true,
         dots: true,
@@ -416,6 +424,10 @@ $(window).on('resize load', function(){
             } 
           ]
     }); 
+});
+
+$(window).on('resize load', function(){ 
+   
     // if($(window).width() > 768){
     //     $('.partners__box--slick').slick('slickFilter','.desktop-only');
     // } else{
@@ -463,7 +475,9 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
             $('.monthly-bill-header + .telco-content').show();
         }
         $('.place-live-copy').html($('.range-cost', this).find(':selected').attr('data-title').toLowerCase().replace('gb', 'GB'));
-        $('.emp__menu__top--copy > p > *:not(a)').hide();
+        if($(window).width() < 768){
+            $('.emp__menu__top--copy > p > *:not(a)').hide();
+        }
     }
     // Check if user is submitting using the dropdownForm version 
     if ($(this).attr('id') == 'planForm__dropdown2') {
@@ -482,6 +496,7 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     showLandingDivs(false);
     showPlanDOM(true);
     showPlanDOM__state = true;
+
     setTimeout(function(){
         $('html, body').animate({
             scrollTop: $(".emp__menu__top").offset().top
@@ -1036,6 +1051,7 @@ $('#exit_empExitScreen').on('click', function () {
     trackPageLevel('search-results', []);
 });
 
+
 $('#planForm__dropdown2').on('submit', function () {
     /* Tracking */
     setTimeout(function () {
@@ -1051,6 +1067,8 @@ $('#planForm__dropdown2').on('submit', function () {
     }, 1000);
 
 });
+
+
 
 var trackFilter__ratetype = function () {
     var filterList;
