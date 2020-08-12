@@ -143,8 +143,8 @@ function createLink__ApplyNow(item, options, action) {
         plan_price: 'S$' + annualSavings,
         package_more_details: item.comparison_1 + "," + item.comparison_2 + ',' + item.comparison_3,
         plan_selling_point: item.promotion,
-        rcp_support: 'N',
-        giro_flag: 'N'
+        rcp_support: item.rcp_support,
+        giro_flag: item.giro_flag
     };
     var newDBS__prepend = 'https://internet-banking.dbs.com.sg/ibAPL/Welcome?';
     var newDBS = {
