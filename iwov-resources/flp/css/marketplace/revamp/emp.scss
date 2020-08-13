@@ -20,7 +20,7 @@
     font-weight: 700;
     @media (max-width: 768px) {
       text-align: center;
-      font-size: 20px;
+      font-size: 24px;
     }
   }
 
@@ -1914,5 +1914,17 @@ be sure the cells are on the top of the pseudo element*/
     height: 50px;
     width: calc(100% - 16px); 
     background-size: 100%;
+  }
+}
+
+.emp__landing .plan__box{
+  @media (max-width: 768px){
+    margin-top: 30px;
+  }
+}
+
+.promotion-box .carousel-promo .carousel-inner>.item.mob-foc5 .img-placeholder{
+  @media (max-width: 768px){
+    background-position: center center;
   }
 }

@@ -16,7 +16,7 @@
 @media (max-width: 768px) {
   .emp__container .header-title {
     text-align: center;
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .emp__container .slick-dots button::before {
@@ -2376,6 +2376,18 @@ ul.plan-types > li:nth-child(2):before {
   height: 50px;
   width: calc(100% - 16px);
   background-size: 100%;
+}
+
+@media (max-width: 768px) {
+  .emp__landing .plan__box {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .promotion-box .carousel-promo .carousel-inner > .item.mob-foc5 .img-placeholder {
+    background-position: center center;
+  }
 }
 
 /*# sourceMappingURL=emp.css.map */

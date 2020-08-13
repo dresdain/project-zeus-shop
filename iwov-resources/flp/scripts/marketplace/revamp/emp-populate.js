@@ -1,6 +1,6 @@
 var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
-    script__DIR = './iwov-resources/flp/scripts/marketplace/',
-    production_DIR = ".";
+    script__DIR = '/iwov-resources/flp/scripts/marketplace/',
+    production_DIR = "";
     
 var firstTimeSearchControl = 0;
 var loadFile = "emp-p2.json";
@@ -556,7 +556,7 @@ function createLink__ApplyNow(item, options, action) {
         // preference: (item.green_energy.toLowerCase() == 'yes' ? 'preference_cleanenergy' : 'no_preference'),
         retailer_id: item.retailer_id,
         retailer_name: item.retailer_name,
-        retailer_package_id: item.retailer_package_id,
+        retailer_package_id: item.package_id,
         plan_name: item.plan_name,
         plan_price: 'S$' + annualSavings,
         package_more_details: item.comparison_1 + "," + item.comparison_2 + ',' + item.comparison_3,
