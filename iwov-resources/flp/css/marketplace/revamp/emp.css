@@ -146,6 +146,9 @@
   padding: 40px 70px;
   margin-bottom: 72px;
 }
+#emp__editPlans__overlay .plan__box {
+  min-height: unset;
+}
 .emp__modal .plan__box {
   -webkit-box-shadow: none;
           box-shadow: none;

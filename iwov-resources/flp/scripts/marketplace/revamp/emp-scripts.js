@@ -101,6 +101,51 @@ var validate__livingQuery = function (living) {
     }
 }
 
+
+
+/* 📦 validate__monthlyData */
+var validate__monthlyData = function (queryData) { 
+    var monthlyData__ = ['unlimited'];
+    $('#planForm__dropdown .range-cost option.telco-option').each(function (i, k) {
+        if ($(this).val() != '') {
+            monthlyData__.push($(this).val());
+        }
+    });
+    console.log(monthlyData__);
+    if (queryData != undefined && $.inArray(queryData, monthlyData__) > -1) {
+        // console.log(true);
+        var queryData__final = queryData;
+        if(queryData == 'unlimited'){
+            queryData__final = 'Infinity'
+        }
+        console.log(queryData__final);
+        $('.range-cost').val(queryData__final);
+    } else if (queryData != undefined) {
+        console.warn('Warning: query param: "monthly_data=' + queryData + '" is not acceptable.');
+    }
+}
+
+/* 📦 validate__monthlyPrice  */
+var validate__monthlyPrice = function (queryPrice) {
+    var monthlyPrice = ['no_preference'];
+    $('#planForm__dropdown .place-live option.telco-option').each(function (i, k) {
+        if ($(this).val() != '') {
+            monthlyPrice.push($(this).val());
+        }
+    });
+  
+    if (queryPrice != undefined && $.inArray(queryPrice, monthlyPrice) > -1) {
+        // console.log(true);
+        var queryPrice__final = queryPrice;
+        if(queryPrice == 'no_preference'){
+            queryPrice__final = 'Infinity';
+        }
+        $('.place-live').val(queryPrice__final);
+    } else if (queryPrice != undefined) {
+        console.warn('Warning: query param: "monthly_price=' + queryPrice + '" is not acceptable.');
+    }
+}
+
 /* 📦 validate__ecofriendly  */
 var validate__ecofriendly = function (ecofriendly) {
     if (ecofriendly != undefined && ecofriendly == 'yes') {
@@ -136,7 +181,7 @@ var validate__rate = function (ratetype) {
 
 /* 📦 validate__retailers */
 var validate__retailers = function (retailers) {
-    var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower'];
+    var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower', 'gridmobile', 'circleslife'];
     if (retailers != undefined) {
         if (getQueryVariable('ecofriendly') != undefined) {
             console.warn('Warning: query param: "ecofriendly=' + getQueryVariable('ecofriendly') + '" cannot be stacked with other query filter options (?rate, ?retailer).');
@@ -203,30 +248,50 @@ var validate__sortList = function (sortList) {
 
     }
 }
+
+/* 📦 validate__showTELCO  */
+var validate__showTELCO = function (show) { 
+    if (show != undefined && show == 'true') {
+        $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click'); 
+    } else if (show != undefined && show != 'true') {
+        console.warn('Warning: query param: "ump=' + show + '" is an invalid parameter.');
+    }
+}
+
 /* 📦 init__ExternalOverlay  */
 var init__ExternalOverlay = function () {
     show__illustrationModal();
     if (getQueryVariable('external') != undefined && getQueryVariable('external') == 'true') {
         var editPlansModal = $('#emp__editPlans__overlay');
-        editPlansModal.modal('show');
 
-        setTimeout(function () {
-            $('#planForm').submit();
-            jplist.refresh();
-        }, 200);
+        
 
-        validate__monthlyQuery(getQueryVariable('monthly'));
+        setTimeout(function(){
+            editPlansModal.modal('show');
+            validate__showTELCO(getQueryVariable('ump'));
+            setTimeout(function () {
+                $('#planForm').submit();
+                jplist.refresh();
+            }, 200);
 
-        validate__livingQuery(getQueryVariable('living'));
+            if(globalContentState == 'EMP-CONTENT'){
+                validate__monthlyQuery(getQueryVariable('monthly')); 
+                validate__livingQuery(getQueryVariable('living'));
+            }else if(globalContentState == "TMP-CONTENT"){
+                validate__monthlyPrice(getQueryVariable('monthly_price'));
+                validate__monthlyData(getQueryVariable('monthly_data'));
+            }
+           
 
-        validate__ecofriendly(getQueryVariable('ecofriendly'));
+            validate__ecofriendly(getQueryVariable('ecofriendly'));
 
-        validate__rate(getQueryVariable('rate'));
+            validate__rate(getQueryVariable('rate'));
 
-        validate__retailers(getQueryVariable('retailer'));
+            validate__retailers(getQueryVariable('retailer'));
 
-        validate__sortList(getQueryVariable('sort'));
-        jplist.init();
+            validate__sortList(getQueryVariable('sort'));
+            jplist.init();
+        }, 500);
     }
 }
 
@@ -255,6 +320,9 @@ var set__externalTerms = function () {
 
 
 }
+
+
+
 
 set__externalTerms();
 
@@ -302,6 +370,7 @@ function manageExitScreen(state) {
 }
 
 
+
 /* 📦 initExitScreens */
 function initExitScreens() {
 
@@ -312,7 +381,9 @@ function initExitScreens() {
             pageLevel = $('.page-item.active a').text();
         trackFilter_ThroughSearch(getRank($(parentId).index(), pageLevel));
 
-        $('#consumerAdvisory').modal('show');
+        if(globalContentState == 'EMP-CONTENT'){
+            $('#consumerAdvisory').modal('show');
+        }
         var dataExit = $(this);
         $('#emp_redirect-yes').attr('href', dataExit.data('btn-yes'));
         $('#emp_redirect-no').attr('href', dataExit.data('btn-no'));
@@ -619,26 +690,36 @@ $('.filter-type-3--dummy-cb').on('click', function () {
 });
 
 /* 🖥 Trigger Retailer Filter */
-$('#filter-type-3--apply').on('click', function () {
-    var cb__control = $('.filter-type-3--dummy-cb:checked').length;
+$('#filter-type-3--apply').on('click', function () { 
+    var controlIdentifierDummy = (globalContentState == 'EMP-CONTENT' ? '.telco-cb-dummy' : '.electricity-cb-dummy');
+    var controlIdentifier = (globalContentState == 'EMP-CONTENT' ? '.telco-cb' : '.electricity-cb');
+
+    var cb__control = $('.filter-type-3--dummy-cb:not('+controlIdentifierDummy+'):checked').length;
     if (cb__control == 0) {
         alert('Please select at least one (1) retailer.');
     } else {
-        $('.action--hidden--cb:checked').trigger('click');
+        $('.action--hidden--cb:not('+controlIdentifier+'):checked').trigger('click');
         var placeholderTxt = '';
-        $('.filter-type-3--dummy-cb:checked').each(function (i, k) {
+        $('.filter-type-3--dummy-cb:not('+controlIdentifierDummy+'):checked').each(function (i, k) {
             // console.log('data-path=".retailer--' + $(this).val() + '"');
-            var control = '.action--hidden--cb[value="' + $(this).val() + '"]';
-            $(control + ':not(:checked)').trigger('click');
-
+            var control = '.action--hidden--cb[value="' + $(this).val() + '"]:not('+controlIdentifier+')';
+            $(control + ':not(:checked)').trigger('click'); 
             placeholderTxt += $(this).parent().text() + ', ';
             $('#planForm').submit();
             reset__compareCheckbox();
         });
-        if (cb__control == 8) {
-            $('.filter-type-3--placeholder option').text('All Retailers');
-        } else {
-            $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
+        if(globalContentState == "EMP-CONTENT"){
+            if (cb__control == 8) {
+                $('.filter-type-3--placeholder option').text('All Retailers');
+            } else {
+                $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
+            }
+        }else{
+            if (cb__control == 2) {
+                $('.filter-type-3--placeholder option').text('All Retailers');
+            } else {
+                $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
+            }
         }
 
         reflectPageCount();
@@ -1079,7 +1160,9 @@ var trackFilter__ratetype = function () {
             emp_search_type: 'filter',
             by: 'ratetype-' + $('#filter-type-2').val(),
             sort: sortType,
-            total_match: $('.total-items').text()
+            total_match: $('.total-items').text(),
+            monthly_bill: $('.monthly-bill-header').text(),
+            prop_type: $('.place-live-copy').text()
         };
         setTimeout(function () {
             trackSearch('filter_by_rate_type', filterList);
@@ -1098,7 +1181,9 @@ var trackFilter__retailers = function (retailers) {
                 emp_search_type: 'filter',
                 by: 'retailers-' + activeRetailers(),
                 sort: sortType,
-                total_match: $('.total-items').text()
+                total_match: $('.total-items').text(),
+                monthly_bill: $('.monthly-bill-header').text(),
+                prop_type: $('.place-live-copy').text()
             };
             trackSearch('filter_by_retailers', filterList);
             globalFilterState = 'filter_by_retailers';
@@ -1114,7 +1199,9 @@ var trackFilter__ecofriendly = function () {
             filterList = {
                 emp_search_type: 'filter',
                 by: 'ecofriendlyplans',
-                total_match: $('.total-items').text()
+                total_match: $('.total-items').text(),
+                monthly_bill: $('.monthly-bill-header').text(),
+                prop_type: $('.place-live-copy').text()
             };
             trackSearch('filter_by_ecofriendlyplans', filterList);
             globalFilterState = 'filter_by_ecofriendlyplans';
@@ -1157,7 +1244,9 @@ var trackFilter_ThroughSearch = function (calculatedRank) {
                 emp_search_type: 'filter',
                 by: 'retailers-' + activeRetailers(),
                 sort: sortType,
-                filter_rank: calculatedRank
+                filter_rank: calculatedRank,
+                monthly_bill: $('.monthly-bill-header').text(),
+                prop_type: $('.place-live-copy').text()
             };
             break;
         case 'filter_by_ecofriendlyplans':

@@ -1038,8 +1038,8 @@
 
                         <div class="plan__box--choice">
                             <p>Do you have DBS/POSB digibank?</p>
-                            <a href="javascript:void(0)" id="emp_redirect-yes" class="btn btn-primary btn-yes">Yes</a>
-                            <a href="javascript:void(0)" id="emp_redirect-no" class="btn btn-default btn-no">No</a>
+                            <a href="javascript:void(0)" id="emp_redirect-yes" target="_blank"  class="btn btn-primary btn-yes">Yes</a>
+                            <a href="javascript:void(0)" id="emp_redirect-no" target="_blank"   class="btn btn-default btn-no">No</a>
                         </div>
 
                     </div>
@@ -1185,8 +1185,11 @@
                                     <form action="GET" id="planForm__dropdown" data-type="overlay_search">
                                         <div class="row">
                                             <div class="col-sm-6 col-xs-12">
-                                                <div class="form-label">
+                                                <div class="form-label electricity-content">
                                                     My monthly electricity bill costs
+                                                </div>
+                                                <div class="form-label telco-content">
+                                                    Monthly Data
                                                 </div>
                                                 <!--dropdown-->
                                                 <div>
@@ -1211,8 +1214,11 @@
                                                 <!--dropdown-->
                                             </div>
                                             <div class="col-sm-6 col-xs-12">
-                                                <div class="form-label">
+                                                <div class="form-label electricity-content">
                                                     I live in a
+                                                </div>
+                                                <div class="form-label telco-content">
+                                                    Price per month
                                                 </div>
                                                 <!--dropdown-->
                                                 <div>
@@ -1250,7 +1256,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="plan__box--footer">
+                                <div class="plan__box--footer electricity-content">
                                     <img src="./iwov-resources/flp/images/marketplace/electricity/revamp/bulb.svg" alt="additional information">
                                     <div class="copy">
                                         <b>Save more, ponder less</b>
@@ -1294,12 +1300,13 @@
                                         <select
                                                 id="filter-type-1"
                                                 class="emp-dropdown filter-type-1" required>
+                                                <option class="telco-option" data-path="default" value="all-plans">All Plans</option>
+                                                <option class="telco-option" data-path="default" value="sim-only-plan">SIM-only plans</option>
+                                                <option class="telco-option" data-path="default" value="combo-plan">Combo plans</option>
                                             <option class="electricity-option removable" data-path="default" value="rate-type">Rate Type</option>
-                                            <option class="electricity-option removable" data-path="default" value="retailers">Retailers</option>
+                                            <option class=" " data-path="default" value="retailers">Retailers</option>
                                             <option class="electricity-option removable" data-path=".isEcoFriendly" value="showEcoFriendly">Eco-Friendly plans</option>
-                                            <option class="telco-option" data-path="default" value="all-plans">All Plans</option>
-                                            <option class="telco-option" data-path="default" value="sim-only-plan">SIM-only plans</option>
-                                            <option class="telco-option" data-path="default" value="combo-plan">Combo plans</option>
+                                       
 
                                         </select>
                                     </div>
@@ -1395,38 +1402,44 @@
                                                 </div>
                                                 <div class="action--individual">
                                                     <div class="action--individual--col">
-                                                        <div class="checkbox">
-                                                            <label for="show-1"><input class="filter-type-3--dummy-cb" value="bestelectricity" id="show-1" type="checkbox" checked> <span></span> Best Electricity</label>
+                                                        <div class="checkbox telco-content">
+                                                            <label for="show-9"><input class="filter-type-3--dummy-cb telco-cb-dummy" value="gridmobile" id="show-9" type="checkbox" checked> <span></span> Grid Mobile</label>
                                                         </div>
-                                                        <div class="checkbox">
-                                                            <label for="show-2"><input class="filter-type-3--dummy-cb" value="geneco" id="show-2" type="checkbox" checked> <span></span> Geneco</label>
+                                                        <div class="checkbox telco-content">
+                                                            <label for="show-10"><input class="filter-type-3--dummy-cb telco-cb-dummy" value="circleslife" id="show-10" type="checkbox" checked> <span></span> Circles.Life</label>
                                                         </div>
-                                                        <div class="checkbox">
-                                                            <label for="show-3"><input class="filter-type-3--dummy-cb" value="iswitch" id="show-3" type="checkbox" checked> <span></span> iSwitch</label>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="show-1"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="bestelectricity" id="show-1" type="checkbox" checked> <span></span> Best Electricity</label>
                                                         </div>
-                                                        <div class="checkbox">
-                                                            <label for="keppel--check"><input class="filter-type-3--dummy-cb" value="keppel" id="keppel--check" value="keppel" type="checkbox" checked> <span></span> Keppel Electric</label>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="show-2"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="geneco" id="show-2" type="checkbox" checked> <span></span> Geneco</label>
+                                                        </div>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="show-3"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="iswitch" id="show-3" type="checkbox" checked> <span></span> iSwitch</label>
+                                                        </div>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="keppel--check"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="keppel" id="keppel--check" value="keppel" type="checkbox" checked> <span></span> Keppel Electric</label>
                                                         </div>
                                                     </div>
                                                     <div class="action--individual--col">
-                                                        <div class="checkbox">
-                                                            <label for="show-5"><input class="filter-type-3--dummy-cb" value="pacificlight" id="show-5" type="checkbox" checked> <span></span> PacificLight</label>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="show-5"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="pacificlight" id="show-5" type="checkbox" checked> <span></span> PacificLight</label>
                                                         </div>
-                                                        <div class="checkbox">
-                                                            <label for="show-6"><input class="filter-type-3--dummy-cb" value="sunseap" id="show-6" type="checkbox" checked> <span></span> Sunseap</label>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="show-6"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="sunseap" id="show-6" type="checkbox" checked> <span></span> Sunseap</label>
                                                         </div>
-                                                        <div class="checkbox">
-                                                            <label for="show-7"><input class="filter-type-3--dummy-cb" value="tuaspower" id="show-7" type="checkbox" checked> <span></span> Tuas Power</label>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="show-7"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="tuaspower" id="show-7" type="checkbox" checked> <span></span> Tuas Power</label>
                                                         </div>
-                                                        <div class="checkbox">
-                                                            <label for="show-8"><input class="filter-type-3--dummy-cb" value="unionpower" id="show-8" type="checkbox" checked> <span></span> Union Power</label>
-                                                        </div>
+                                                        <div class="checkbox electricity-content">
+                                                            <label for="show-8"><input class="filter-type-3--dummy-cb electricity-cb-dummy" value="unionpower" id="show-8" type="checkbox" checked> <span></span> Union Power</label>
+                                                        </div> 
                                                     </div>
                                                     <div class="hidden action--hidden--control">
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb electricity-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1442,7 +1455,7 @@
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb electricity-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1457,7 +1470,7 @@
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb electricity-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1472,7 +1485,7 @@
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb electricity-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1487,7 +1500,7 @@
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb electricity-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1502,7 +1515,7 @@
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb electricity-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1517,7 +1530,7 @@
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb electricity-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1532,7 +1545,7 @@
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input
-                                                                       class="action--hidden--cb"
+                                                                       class="action--hidden--cb telco-cb"
                                                                        type="checkbox"
                                                                        checked
                                                                        data-group="group1"
@@ -1540,8 +1553,23 @@
                                                                        data-name="hidden-cb-control"
                                                                        data-or="bestelectricity"
                                                                        data-path=".retailer--id2"
-                                                                       value="unionpower" /><span></span>
-                                                                unionpower
+                                                                       value="gridmobile" /><span></span>
+                                                                       gridmobile
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input
+                                                                       class="action--hidden--cb telco-cb"
+                                                                       type="checkbox"
+                                                                       checked
+                                                                       data-group="group1"
+                                                                       name="hidden-cb-control"
+                                                                       data-name="hidden-cb-control"
+                                                                       data-or="bestelectricity"
+                                                                       data-path=".retailer--id2"
+                                                                       value="circleslife" /><span></span>
+                                                                       circles.life
                                                             </label>
                                                         </div>
                                                     </div>
@@ -1948,11 +1976,11 @@
                         <div class="desktop-only">
                             <div class="partners__box--cluster">
                                 <div class="partners__box--card">
-                                    <a href="#"> <img src="./iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png" alt="" class="" width="160" height="34"></a>
+                                    <a href="?external=true&ump=true&retailer=gridmobile"> <img src="./iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png" alt="" class="" width="160" height="34"></a>
                                 </div>
                                 <div class="partners__box--card">
-                                    <a href="#">
-                                        <img src="./iwov-resources/flp/images/marketplace/telco/revamp/partners/circles.life.png" alt="" class="" width="159" height="90"></a>
+                                    <a href="?external=true&ump=true&retailer=circleslife">
+                                        <img src="./iwov-resources/flp/images/marketplace/telco/revamp/partners/circleslife.png" alt="" class="" width="159" height="90"></a>
                                 </div> 
                             </div> 
                         </div>

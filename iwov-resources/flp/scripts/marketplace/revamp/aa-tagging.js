@@ -21,7 +21,7 @@ var logger = function () {
 /* Helper functions */
 var digitalData;
 $(function () {
-    logger.disableLogger();
+    // logger.disableLogger();
     trackHomepage();
 });
 /* 📦 AA Tagging */
@@ -323,7 +323,7 @@ var trackButtonLevel = function (action) {
             pageControl = 'sg:en:personal:electricity-marketplace:search-results';
             break;
         case 'btnSignUp':
-            control = GlobalPlanState;
+            control = globalPlanState;
             pageControl = 'sg:en:personal:electricity-marketplace:search-results';
             break;
         default:

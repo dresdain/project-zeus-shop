@@ -25,12 +25,14 @@ function populatePlans(minBill, maxBill, action, search_type) {
             // $('.emp__results__box--list').append('<article data-jplist-control="no-results" data-group="group1" data-name="no-results">No Results Found</article>'); 
         });
         var filterRetailers = [];
-        $('.action--hidden--cb').each(function () {
+        var controlIdentifierDummy = (globalContentState == 'EMP-CONTENT' ? '.telco-cb-dummy' : '.electricity-cb-dummy');
+        var controlIdentifier = (globalContentState == 'EMP-CONTENT' ? '.telco-cb' : '.electricity-cb');
+        $('.action--hidden--cb:not('+controlIdentifier+')').each(function () {
             if ($(this).is(":checked")) {
                 filterRetailers.push($(this).val());
             }
         });
-        // console.log(filterRetailers);
+        console.log(filterRetailers);
 
         data.forEach(function (item) {
             for (var i = 0; i <= (item.options.length - 1); i++) {
@@ -62,7 +64,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
                         var condition__DataIntended = parseFloat($('#planForm__dropdown .range-cost').val());
                         var condition__PriceIntended = parseFloat($('#planForm__dropdown .place-live').val());
                         console.log(condition__PriceIntended);
-                        if ((rangeControlData <= condition__DataIntended && rangeControlPrice <= condition__PriceIntended) || (condition__DataIntended === Infinity && rangeControlPrice <= condition__PriceIntended)) {
+                        if (   $.inArray(item.retailer_id, filterRetailers) > -1 && ((rangeControlData <= condition__DataIntended && rangeControlPrice <= condition__PriceIntended) || (condition__DataIntended === Infinity && rangeControlPrice <= condition__PriceIntended))  ) {
 
                             var unlimitedPlan = (item.data == "unlimited" ? 'isUnlimited' : 'isNotUnlimited');
                             var planID = 'plan_item--' + counter;
@@ -119,9 +121,11 @@ function populatePlans(minBill, maxBill, action, search_type) {
                 setTimeout(function () {
                     trackSearch('search-results_page__and__first_time_search', filterList);
                     // trackPageLevel('search-results', []);
+                    console.log(filterList);
                     globalFilterState = 'first_time_search';
                 }, 1000);
                 firstTimeSearchControl = 1;
+                $('#sort-type-1').val("3").change();
             }
         }, 1000);
     });
@@ -217,28 +221,31 @@ function createDOM__planDetails__TMP(item, options, planID) {
 /* 📦 Create Link for Apply Now */
 function createLink__ApplyNow__TMP(item, options, action) {
     /* Apply Now */
-    var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace-revamp.html?';
+    // var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace-revamp.html?';
+    var existingDBS__prepend = 'https://www.dbs.com.sg/personal/common-disclaimer.page?';
     var existingDBS = {
-        FROM_IB: true,
-        PWEB: true,
-        SERVICE_ID: '000000000000651',
-        pid: 'sg-dbs-pweb-marketplace-searchpackage-electricity-marketplace-btnlogintodigibank',
+        url : item.telco_url,
+        '3rdparty' :  item.retailer_name
+        // FROM_IB: true,
+        // PWEB: true,
+        // SERVICE_ID: '000000000000651',
+        // pid: 'sg-dbs-pweb-marketplace-searchpackage-electricity-marketplace-btnlogintodigibank',
         // nationality: 'nationality_pr',
         // current_state: 'state_living_in',
         // dwelling_type: $('#planForm__dropdown .place-live').val(),
         // selected_package: 'package_discount',
         // preference: (item.green_energy.toLowerCase() == 'yes' ? 'preference_cleanenergy' : 'no_preference'),
-        retailer_id: item.retailer_id,
-        retailer_name: item.retailer_name,
-        retailer_package_id: item.package_id,
-        plan_name: item.plan_name,
-        plan_data: item.data,
-        telco_factsheet_path: item.telco_factsheet_path,
-        telco_factsheet_path: item.telco_logo_path,
-        package_more_details: item.add_on_1 + "," + item.add_on_2 + ',' + item.add_on_3,
-        plan_selling_point: item.promotion_text,
-        rcp_support: 'N',
-        giro_flag: 'N'
+        // retailer_id: item.retailer_id,
+        // retailer_name: item.retailer_name,
+        // retailer_package_id: item.package_id,
+        // plan_name: item.plan_name,
+        // plan_data: item.data,
+        // telco_factsheet_path: item.telco_factsheet_path,
+        // telco_factsheet_path: item.telco_logo_path,
+        // package_more_details: item.add_on_1 + "," + item.add_on_2 + ',' + item.add_on_3,
+        // plan_selling_point: item.promotion_text,
+        // rcp_support: 'N',
+        // giro_flag: 'N'
     };
 
     var newDBS__prepend = 'https://internet-banking.dbs.com.sg/ibAPL/Welcome?';

@@ -1,7 +1,7 @@
 [
     {
         "retailer_name": "Circles.Life",
-        "retailer_id": "circles.life",
+        "retailer_id": "circleslife",
         "package_id": "cl20",
         "plan_name": "3GB Plan",
         "data": "3 GB",
@@ -10,8 +10,9 @@
         "add_on_1": "Unlimited data at +S$20/mo",
         "add_on_2": "Unlimited outgoing calls at +S$8/mo",
         "add_on_3": "Unlimited incoming calls at +S$2/mo",
-        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circles.life.png",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circleslife.png",
         "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/cl20.pdf",
+        "telco_url": "https://www.google.com/",
         "options": [
             {
                 "price_per_month": " $ 10.00 ",
@@ -24,7 +25,7 @@
     },
     {
         "retailer_name": "Circles.Life",
-        "retailer_id": "circles.life",
+        "retailer_id": "circleslife",
         "package_id": "cl100",
         "plan_name": "5GB Plan",
         "data": "5 GB",
@@ -33,8 +34,9 @@
         "add_on_1": "Unlimited data at +S$20/mo",
         "add_on_2": "Unlimited outgoing calls at +S$8/mo",
         "add_on_3": "Unlimited incoming calls at +S$2/mo",
-        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circles.life.png",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circleslife.png",
         "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/cl20.pdf",
+        "telco_url": "https://www.google.com/",
         "options": [
             {
                 "price_per_month": " $ 23.00 ",
@@ -58,6 +60,7 @@
         "add_on_3": "25 SMS at +S$4.28/mo",
         "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png",
         "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/gm20.pdf",
+        "telco_url": "https://www.google.com/",
         "options": [
             {
                 "price_per_month": " $ 355.90 ",
@@ -81,6 +84,7 @@
         "add_on_3": "25 SMS at +S$4.28/mo",
         "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png",
         "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/gm40.pdf",
+        "telco_url": "https://www.google.com/",
         "options": [
             {
                 "price_per_month": " $ 200.90 ",
@@ -93,7 +97,7 @@
     },
     {
         "retailer_name": "Circles.Life",
-        "retailer_id": "circles.life",
+        "retailer_id": "circleslife",
         "package_id": "cl20",
         "plan_name": "Unli Plan",
         "data": "unlimited",
@@ -102,8 +106,9 @@
         "add_on_1": "Unlimited data at +S$20/mo",
         "add_on_2": "Unlimited outgoing calls at +S$8/mo",
         "add_on_3": "Unlimited incoming calls at +S$2/mo",
-        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circles.life.png",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circleslife.png",
         "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/cl20.pdf",
+        "telco_url": "https://www.google.com/",
         "options": [
             {
                 "price_per_month": " $ 100.00 ",
