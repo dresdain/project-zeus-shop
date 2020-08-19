@@ -21,7 +21,7 @@ var logger = function () {
 /* Helper functions */
 var digitalData;
 $(function () {
-    // logger.disableLogger();
+    logger.disableLogger();
     trackHomepage();
 });
 /* 📦 AA Tagging */
@@ -51,6 +51,13 @@ var trackHomepage = function (action, item) {
 }
 
 var trackPageLevel = function (action, prop) {
+    if(globalContentState == 'EMP-CONTENT'){
+        var mp__state = "electricity_mp";
+    }else if(globalContentState == 'TMP-CONTENT'){
+        var mp__state = "telco_mp";
+    } 
+
+
     switch (action) {
         case 'search-results':
             digitalData = {
@@ -126,7 +133,7 @@ var trackPageLevel = function (action, prop) {
                 },
                 product: {
                     category: {
-                        productType: 'electricity_mp',
+                        productType: mp__state,
                         primaryCategory: prop.planName,
                         subCategory1: prop.partnerName,
                         subCategory2: ''
@@ -160,40 +167,86 @@ var trackPageLevel = function (action, prop) {
             });
 
             digitalData = {
+                page: {
+                    pageInfo: {
+                        pageName: "sg:en:personal:electricity-marketplace:card-comparator",
+                        language: "en",
+                        hier: "sg|en|personal|electricity-marketplace|card-comparator",
+                        brand: "dbs",
+                        country: "sg",
+                        destinationURL: "[http://www.dbs.com.sg/personal/default.page]"
+                    },
+                    category: {
+                        pageType: "content - info",
+                        site: "sg:en:personal",
+                        primaryCategory: "electricity-marketplace",
+                        subCategory1: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory2: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory3: "sg:en:personal:electricity-marketplace" // if there is any 
+                    }
+                },
                 product: {
                     category: {
-                        productType: "electricity_mp",
+                        productType: mp__state,
                         primaryCategory: acceptedPrimaries.join(":"),
-                        subCategory: acceptedSubcat.join(":")
-                    },
-                    item: [
-                        {
-                            product: {
-                                category: {
-                                    subCategory1: (compareProp[0] ? compareProp[0].package_id : '')
-                                }
-                            }
-                        },
-                        {
-                            product: {
-                                category: {
-                                    subCategory1: (compareProp[1] ? compareProp[1].package_id : '')
-                                }
-                            }
-                        },
-                        {
-                            product: {
-                                category: {
-                                    subCategory1: (compareProp[2] ? compareProp[2].package_id : '')
-                                }
+                        subCategory2: "n/a",
+                        site: "sg:en:pweb",
+                        pageType: "section home"
+                    }
+                },
+                item: [
+                    {
+                        product: {
+                            category: {
+                                subCategory1: (compareProp[0] ?  mp__state + ":" + compareProp[0].package_id : ''),
+                                productType: mp__state,
+                                subCategory2: ""
                             }
                         }
-                    ],
-                    card_interaction: {
-                        name: "<compare start[" + compareProp.length + "]>"
+                    },
+                    {
+                        product: {
+                            category: {
+                                subCategory1: (compareProp[1] ? mp__state + ":" + compareProp[1].package_id : ''),
+                                productType: mp__state,
+                                subCategory2: ""
+                            }
+                        }
+                    },
+                    {
+                        product: {
+                            category: {
+                                subCategory1: (compareProp[2] ? mp__state + ":" + compareProp[2].package_id : ''),
+                                productType: mp__state,
+                                subCategory2: ""
+                            }
+                        }
                     }
+                ],
+                service: {
+                    category: {
+                        serviceType: "",
+                        primaryCategory: "",
+                        subCategory1: ""
+                    },
+                    serviceInfo: {
+                        serviceName: ""
+                    }
+                },
+                form: {
+                    name: "sg_en_personal_cards_cards-comparator",
+                    stepDetail: "",
+                    field: "",
+                    type: ""
+                },
+                transaction: {
+                    transactionID: ""
+                },
+                cardinteraction: {
+                    name: "<compare start[" + compareProp.length + "]>"
                 }
             }
+        
             console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
             _satellite.track('pweb-card compare click');
             break;
@@ -219,40 +272,86 @@ var trackPageLevel = function (action, prop) {
             });
 
             digitalData = {
+                page: {
+                    pageInfo: {
+                        pageName: "sg:en:personal:electricity-marketplace:card-comparator",
+                        language: "en",
+                        hier: "sg|en|personal|electricity-marketplace|card-comparator",
+                        brand: "dbs",
+                        country: "sg",
+                        destinationURL: "[http://www.dbs.com.sg/personal/default.page]"
+                    },
+                    category: {
+                        pageType: "content - info",
+                        site: "sg:en:personal",
+                        primaryCategory: "electricity-marketplace",
+                        subCategory1: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory2: "sg:en:personal:electricity-marketplace", // if there is any 
+                        subCategory3: "sg:en:personal:electricity-marketplace" // if there is any 
+                    }
+                },
                 product: {
                     category: {
-                        productType: "electricity_mp",
+                        productType: mp__state,
                         primaryCategory: acceptedPrimaries.join(":"),
-                        subCategory: acceptedSubcat.join(":")
-                    },
-                    item: [
-                        {
-                            product: {
-                                category: {
-                                    subCategory1: (compareProp[0] ? compareProp[0].package_id : '')
-                                }
-                            }
-                        },
-                        {
-                            product: {
-                                category: {
-                                    subCategory1: (compareProp[1] ? compareProp[1].package_id : '')
-                                }
-                            }
-                        },
-                        {
-                            product: {
-                                category: {
-                                    subCategory1: (compareProp[2] ? compareProp[2].package_id : '')
-                                }
+                        subCategory2: "n/a",
+                        site: "sg:en:pweb",
+                        pageType: "section home"
+                    }
+                },
+                item: [
+                    {
+                        product: {
+                            category: {
+                                subCategory1: (compareProp[0] ? mp__state + ":" + compareProp[0].package_id : ''),
+                                productType: mp__state,
+                                subCategory2: ""
                             }
                         }
-                    ],
-                    card_interaction: {
-                        name: "<compare card remove>"
+                    },
+                    {
+                        product: {
+                            category: {
+                                subCategory1: (compareProp[1] ? mp__state + ":" + compareProp[1].package_id : ''),
+                                productType: mp__state,
+                                subCategory2: ""
+                            }
+                        }
+                    },
+                    {
+                        product: {
+                            category: {
+                                subCategory1: (compareProp[2] ? mp__state + ":" + compareProp[2].package_id : ''),
+                                productType: mp__state,
+                                subCategory2: ""
+                            }
+                        }
                     }
+                ],
+                service: {
+                    category: {
+                        serviceType: "",
+                        primaryCategory: "",
+                        subCategory1: ""
+                    },
+                    serviceInfo: {
+                        serviceName: ""
+                    }
+                },
+                form: {
+                    name: "sg_en_personal_cards_cards-comparator",
+                    stepDetail: "",
+                    field: "",
+                    type: ""
+                },
+                transaction: {
+                    transactionID: ""
+                },
+                cardinteraction: {
+                    name: "<compare card remove>"
                 }
             }
+
             console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
             _satellite.track('pweb-card-comparison-btn-minus');
             break;
@@ -361,9 +460,9 @@ var trackSearch = function (action, item) {
         /* The following is a special case where first_time_search and search-results layer are combined */
         case 'search-results_page__and__first_time_search':
             if(globalContentState == 'EMP-CONTENT'){
-                var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+                var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type + '|sort:' + item.sort;
             }else if(globalContentState == 'TMP-CONTENT'){
-                var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill;
+                var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill + '|sort:' + item.sort;
             }
             digitalData = {
                 page: {
@@ -397,9 +496,9 @@ var trackSearch = function (action, item) {
         case 'first_time_search':
         case 'modified_search':
             if(globalContentState == 'EMP-CONTENT'){
-                var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type;
+                var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type + '|sort:' + item.sort;
             }else if(globalContentState == 'TMP-CONTENT'){
-                var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill;
+                var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill + '|sort:' + item.sort;
             } 
             digitalData = {
                 search: {

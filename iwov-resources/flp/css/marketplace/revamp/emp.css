@@ -1599,6 +1599,7 @@
           box-sizing: border-box;
   background-size: 18px;
   color: black;
+  background-position: 96% 50%;
 }
 
 .emp-dropdown:invalid {
@@ -2229,7 +2230,8 @@ ul.plan-types > li:nth-child(2):before {
   width: 17px;
 }
 
-.group-tiles {
+.emp__landing + I.group-tiles {
+  margin-top: 20px !important;
   margin-bottom: 30px;
 }
 
@@ -2375,10 +2377,21 @@ ul.plan-types > li:nth-child(2):before {
 .compare--tmp .compareItems--card {
   padding-top: 12px;
 }
+@media (max-width: 768px) {
+  .compare--tmp .compareItems--card {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
 .compare--tmp .compare--logo {
   height: 50px;
   width: calc(100% - 16px);
   background-size: 100%;
+}
+@media (max-width: 768px) {
+  .compare--tmp .compare--logo {
+    height: 30px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2391,6 +2404,23 @@ ul.plan-types > li:nth-child(2):before {
   .promotion-box .carousel-promo .carousel-inner > .item.mob-foc5 .img-placeholder {
     background-position: center center;
   }
+}
+
+.emp-dropdown, .emp-dropdown:focus, .emp-dropdown:active, .emp-dropdown:hover {
+  outline: 0 !important;
+}
+
+.tmp-part .promotions__info .title {
+  font-weight: 500;
+}
+
+.tmp-cta-container .plan__details {
+  border-top: none;
+  border-bottom: 1px solid #f5f7f9;
+}
+
+.promotion-box.full-width .carousel-promo .promotion-content p {
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=emp.css.map */

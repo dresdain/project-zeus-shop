@@ -1364,6 +1364,7 @@
   box-sizing: border-box;
   background-size: 18px;
   color: black;
+  background-position: 96% 50%;
 }
 
 .emp-dropdown:invalid {
@@ -1776,7 +1777,8 @@ be sure the cells are on the top of the pseudo element*/
 
 @import "consumer";
 
-.group-tiles {
+.emp__landing + I.group-tiles {
+  margin-top: 20px !important;
   margin-bottom: 30px;
 }
 
@@ -1912,11 +1914,18 @@ be sure the cells are on the top of the pseudo element*/
 .compare--tmp{
   .compareItems--card{
     padding-top: 12px;
+    @media (max-width: 768px){
+      padding-top: 5px;
+    padding-bottom: 5px;
+    }
   }
   .compare--logo{
     height: 50px;
     width: calc(100% - 16px); 
     background-size: 100%;
+    @media (max-width: 768px){
+      height: 30px;
+    }
   }
 }
 
@@ -1931,3 +1940,24 @@ be sure the cells are on the top of the pseudo element*/
     background-position: center center;
   }
 }
+
+.emp-dropdown{
+  &, &:focus, &:active, &:hover{
+    outline: 0 !important;
+  }
+}
+
+.tmp-part .promotions__info .title{
+  font-weight: 500;
+}
+
+.tmp-cta-container{
+  .plan__details{
+    border-top: none;
+    border-bottom: 1px solid #f5f7f9;
+  }
+}
+
+.promotion-box.full-width .carousel-promo .promotion-content p{
+    font-size: 16px;
+  }

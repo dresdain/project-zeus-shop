@@ -112,10 +112,12 @@ function populatePlans(minBill, maxBill, action, search_type) {
         setTimeout(function () {
             $('.emp__loader').fadeOut('1000');
             if (firstTimeSearchControl === 0) {
+                var sortType = $('#sort-type-1 option:selected').data('title');
                 var filterList = {
                     emp_search_type: 'new',
                     monthly_bill: $('.monthly-bill-header').text(),
                     prop_type: $('.place-live-copy').text(),
+                    sort: sortType,
                     total_match: $('.total-items').text()
                 };
                 setTimeout(function () {
@@ -263,7 +265,7 @@ function createLink__ApplyNow__TMP(item, options, action) {
 }
 /* 📦 TMP Compare Plans checkbox */
 function createDOM__comparePlans__TMP(item, options, planID) {
-    var html = '<div class="tmp-part plan__details">';
+    var html = '<div class="tmp-part tmp-cta-container">';
     var comparisonDetails = {
         'plan_id': '#' + planID,
         'package_id': item.package_id,
@@ -287,8 +289,9 @@ function createDOM__comparePlans__TMP(item, options, planID) {
     };
 
     /* Sign Up */
+    html += '<div class="plan__details">';
     html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow__TMP(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow__TMP(item, options, 'no') + '">Sign Up</a></div>';
-
+    html += '</div>';
 
     /* Start Compare Plans */ 
     html += '<div class="compare__plans">';

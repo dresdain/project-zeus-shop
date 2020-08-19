@@ -41,7 +41,7 @@ var renderTabContent = function (action) {
         $('.range-cost').val('5GB');
         $('.emp__comparison__box').removeClass('compare--emp').addClass('compare--tmp'); 
         if($(window).width() < 768){
-            $('.emp__menu__top--copy > p > *:not(a)').hide();
+            // $('.emp__menu__top--copy > p > *:not(a)').hide();
         } 
     }
 }
@@ -398,7 +398,7 @@ function initExitScreens() {
             partnerName: $(this).data('partner')
         };
         trackPageLevel('view-plan', filterList);
-        globalPlanState = 'btnSignup_Telco_'+ $(this).data('partner')+'_'+ $(this).data('plan').replace(' ', '').trim();
+        globalPlanState = 'btnSignup_Telco_'+ $(this).data('partner')+'_'+ $(this).data('plan').trim();
         trackButtonLevel('btnSignUp');
     });
 
@@ -479,9 +479,9 @@ $(function () {
         infinite: true,
         dots: true,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 4,
         autoplay:true,
-        autoplaySpeed:1500,
+        autoplaySpeed: 2500,
         infinite: true,
         responsive: [
             {
@@ -547,7 +547,7 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
         }
         $('.place-live-copy').html($('.range-cost', this).find(':selected').attr('data-title').toLowerCase().replace('gb', 'GB'));
         if($(window).width() < 768){
-            $('.emp__menu__top--copy > p > *:not(a)').hide();
+            // $('.emp__menu__top--copy > p > *:not(a)').hide();
         }
     }
     // Check if user is submitting using the dropdownForm version 
@@ -1136,10 +1136,12 @@ $('#exit_empExitScreen').on('click', function () {
 $('#planForm__dropdown2').on('submit', function () {
     /* Tracking */
     setTimeout(function () {
+        var sortType = $('#sort-type-1 option:selected').data('title');
         var filterList = {
             emp_search_type: 'modify',
             monthly_bill: $('.monthly-bill-header').text(),
             prop_type: $('.place-live-copy').text(),
+            sort: sortType,
             total_match: $('.total-items').text()
         };
         trackPageLevel('search-results', []);
@@ -1214,18 +1216,22 @@ var trackFilter_ThroughSearch = function (calculatedRank) {
     var filterList = [];
     switch (globalFilterState) {
         case 'first_time_search':
+            var sortType = $('#sort-type-1 option:selected').data('title');
             filterList = {
                 emp_search_type: 'new',
                 monthly_bill: $('.monthly-bill-header').text(),
                 prop_type: $('.place-live-copy').text(),
+                sort: sortType,
                 filter_rank: calculatedRank
             };
             break;
         case 'modified_search':
+            var sortType = $('#sort-type-1 option:selected').data('title');
             filterList = {
                 emp_search_type: 'modify',
                 monthly_bill: $('.monthly-bill-header').text(),
                 prop_type: $('.place-live-copy').text(),
+                sort: sortType,
                 filter_rank: calculatedRank
             };
             break;
@@ -1250,9 +1256,11 @@ var trackFilter_ThroughSearch = function (calculatedRank) {
             };
             break;
         case 'filter_by_ecofriendlyplans':
+            var sortType = $('#sort-type-1 option:selected').data('title');
             filterList = {
                 emp_search_type: 'filter',
                 by: 'ecofriendlyplans',
+                sort: sortType,
                 filter_rank: calculatedRank
             };
             break;
