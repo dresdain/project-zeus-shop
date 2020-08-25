@@ -2,41 +2,64 @@ var globalFilterState = '';
 var globalPlanState = '';
 var globalContentState = 'EMP-CONTENT';
 
+//TO BE REFACTORED
+var EMP__rangeCost = '<option class="electricity-option " value="range1" data-from="0" data-to="50">S$0 — S$50</option><option class="electricity-option " value="range2" data-from="51" data-to="100">S$51 — S$100</option><option class="electricity-option " value="range3" data-from="101" data-to="200" selected>S$101 — S$200</option><option class="electricity-option " value="range4" data-from="201" data-to="300">S$201 — S$300</option><option class="electricity-option " value="range5" data-from="301" data-to="400">S$301 — S$400</option><option class="electricity-option " value="range7" data-from="401" data-to="Infinity">>S$500</option>';
+var EMP__placeLive = '<option class="electricity-option removable" value="hdb_1_room" data-title="1-room HDB">HDB 1-Room</option><option class="electricity-option removable" data-title="2-room HDB" value="hdb_2_room">HDB 2-Room</option><option class="electricity-option removable" data-title="3-room HDB" value="hdb_3_room">HDB 3-Room</option><option class="electricity-option removable" data-title="4-room HDB" value="hdb_4_room" selected>HDB 4-Room</option><option class="electricity-option removable" data-title="5-room HDB" value="hdb_5_room">HDB 5-Room</option><option class="electricity-option removable" data-title="HDB Executive" value="hdb_executive">HDB Executive</option><option class="electricity-option removable" data-title="HUDC Flat" value="hudc_flat">HUDC Flat</option><option class="electricity-option removable" data-title="Terrace House" value="terrace_house">Terrace House</option><option class="electricity-option removable" data-title="Condominium" value="condominium">Condominium</option><option class="electricity-option removable" data-title="Semi-Detached House" value="semi_detached_house">Semi-Detached House</option><option class="electricity-option removable" data-title="Private Aparment" value="private_aparment">Private Apartment</option><option class="electricity-option removable" data-title="Bungalow" value="bungalow">Bungalow</option><option class="electricity-option removable" data-title="Penthouse" value="penthouse">Penthouse</option><option class="electricity-option removable" data-title="Townhouse" value="townhouse">Townhouse</option>';
+
+
+var TMP__rangeCost = '<option class="telco-option " data-title="Up to 3GB" data-from="0" data-to="3" value="3GB">Up to 3GB</option><option class="telco-option " data-title="Up to 5GB" data-from="0" data-to="5" value="5GB" selected>Up to 5GB</option><option class="telco-option " data-title="Up to 10GB" data-from="0" data-to="15" value="15GB">Up to 15GB</option><option class="telco-option " data-title="Up to 20GB" data-from="0" data-to="20" value="20GB">Up to 20GB</option><option class="telco-option " data-title="Unlimited" data-from="0" data-to="infinity" value="Infinity">Unlimited</option>'; 
+var TMP__placeLive = '<option class="telco-option removable" data-title="No Preference" value="Infinity">No Preference</option><option class="telco-option removable" data-title="Up to $15" value="15">Up to $15</option><option class="telco-option removable" data-title="Up to $25" value="25" selected>Up to $25</option><option class="telco-option removable" data-title="Up to $50" value="50">Up to $50</option><option class="telco-option removable" data-title="Up to $100" value="100">Up to $100</option>'; 
+
+
 $(function () {
     $('.telco-option').hide();
-    $('.plan__box--tabItem').on('click', function () {
-        $('.plan__box--tabItem').removeClass('active');
-        $(this).addClass('active');
-        globalContentState = $(this).data('content-type');
+    renderTabContent(); 
+
+});
+
+$('.plan__box--tabItem').on('click', function () {
+    $('.plan__box--tabItem').removeClass('active'); 
+    $(this).addClass('active'); 
+    globalContentState = $(this).data('content-type'); 
+    if(globalContentState == 'EMP-CONTENT'){
+        trackButtonLevel('btnElectricity');
+    }else if(globalContentState == 'TMP-CONTENT'){
+        trackButtonLevel('btnTelco');
+    } 
+    if(getQueryVariable('external') == undefined){
         renderTabContent(); 
-
-        if(globalContentState == 'EMP-CONTENT'){
-            trackButtonLevel('btnElectricity');
-        }else if(globalContentState == 'TMP-CONTENT'){
-            trackButtonLevel('btnTelco');
-        }
-
-    });
-
+    }
 });
 
 var renderTabContent = function (action) {
     var subtitle = $('.plan__box--tabItem.active').data('subtitle');
-    $('.plan__box--title .subtitle').text(subtitle);
-    if (globalContentState == 'EMP-CONTENT') {
+    $('.plan__box--title .subtitle').text(subtitle);   
+    if (globalContentState == 'EMP-CONTENT') { 
         $('.electricity-content').show();
         $('.electricity-option').show();
         $('.telco-content').hide();
         $('.telco-option').removeAttr('selected').hide();
+        $('#initial__rangeCost').html(EMP__rangeCost);
+        $('#initial__placeLive').html(EMP__placeLive);
+        $('#secondary__rangeCost').html(EMP__rangeCost);
+        $('#secondary__placeLive').html(EMP__placeLive); 
+        $('#third__rangeCost').html(EMP__rangeCost);
+        $('#third__placeLive').html(EMP__placeLive); 
         $('.place-live').val('hdb_4_room');
         $('.range-cost').val('range3');
         $('.emp__comparison__box').removeClass('compare--tmp').addClass('compare--emp');
-    } else if (globalContentState == 'TMP-CONTENT') {
+    } else if (globalContentState == 'TMP-CONTENT') { 
         $('.telco-content').show();
         $('.telco-option').show();
         $('.electricity-content').hide();
+        $('#initial__rangeCost').html(TMP__rangeCost);
+        $('#initial__placeLive').html(TMP__placeLive);
+        $('#secondary__rangeCost').html(TMP__rangeCost);
+        $('#secondary__placeLive').html(TMP__placeLive);
+        $('#third__rangeCost').html(TMP__rangeCost);
+        $('#third__placeLive').html(TMP__placeLive);
         $('.electricity-option').removeAttr('selected').hide();
-        $('.electricity-option.removable').remove();
+        // $('.electricity-option.removable').remove();
         $('.place-live').val(25);
         $('.range-cost').val('5GB');
         $('.emp__comparison__box').removeClass('compare--emp').addClass('compare--tmp'); 
@@ -44,6 +67,7 @@ var renderTabContent = function (action) {
             // $('.emp__menu__top--copy > p > *:not(a)').hide();
         } 
     }
+    console.log("DONE");
 }
 
 
@@ -179,6 +203,24 @@ var validate__rate = function (ratetype) {
     }
 }
 
+// Validate sort
+var validate__planType = function (planType) {
+    if (planType != undefined) { 
+        $('#filter-type-1').val('rate-type').change();
+        switch (planType) {
+            case 'sms_only':
+                $('.filter-type-2').val('sms').change();
+                break;
+            case 'combo_plan':
+                $('.filter-type-2').val('combo').change();
+                break; 
+            default:
+                console.warn('Warning: query param: "plan_type=' + planType + '" is not acceptable.');
+                break;
+        }
+    }
+}
+
 /* 📦 validate__retailers */
 var validate__retailers = function (retailers) {
     var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower', 'gridmobile', 'circleslife'];
@@ -251,7 +293,9 @@ var validate__sortList = function (sortList) {
 
 /* 📦 validate__showTELCO  */
 var validate__showTELCO = function (show) { 
+    console.log('asdsadsa SHOW', show);
     if (show != undefined && show == 'true') {
+        globalContentState == 'EMP-CONTENT';
         $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click'); 
     } else if (show != undefined && show != 'true') {
         console.warn('Warning: query param: "ump=' + show + '" is an invalid parameter.');
@@ -262,22 +306,24 @@ var validate__showTELCO = function (show) {
 var init__ExternalOverlay = function () {
     show__illustrationModal();
     if (getQueryVariable('external') != undefined && getQueryVariable('external') == 'true') {
-        var editPlansModal = $('#emp__editPlans__overlay');
-
+        validate__showTELCO(getQueryVariable('ump'));
+        var editPlansModal = $('#emp__editPlans__overlay'); 
+        renderTabContent(); 
         
 
         setTimeout(function(){
             editPlansModal.modal('show');
-            validate__showTELCO(getQueryVariable('ump'));
+            
             setTimeout(function () {
                 $('#planForm').submit();
                 jplist.refresh();
-            }, 200);
+            }, 500);
 
             if(globalContentState == 'EMP-CONTENT'){
                 validate__monthlyQuery(getQueryVariable('monthly')); 
                 validate__livingQuery(getQueryVariable('living'));
             }else if(globalContentState == "TMP-CONTENT"){
+                validate__planType(getQueryVariable('plan_type'));
                 validate__monthlyPrice(getQueryVariable('monthly_price'));
                 validate__monthlyData(getQueryVariable('monthly_data'));
             }
@@ -290,6 +336,8 @@ var init__ExternalOverlay = function () {
             validate__retailers(getQueryVariable('retailer'));
 
             validate__sortList(getQueryVariable('sort'));
+
+            
             jplist.init();
         }, 500);
     }
@@ -503,7 +551,10 @@ $(window).on('resize load', function(){
     //     $('.partners__box--slick').slick('slickFilter','.desktop-only');
     // } else{
     //     $('.partners__box--slick').slick('slickFilter','.mobile-only');
-    // }
+    // } 
+    if(getQueryVariable('ump') == undefined){
+        $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
+    }
     if (window.location.hash) {
         var hash = window.location.hash.substring(1);
         switch (hash) {
@@ -513,7 +564,8 @@ $(window).on('resize load', function(){
             case "electricity":
                 $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
                 break;
-            default:
+            default: 
+                // 
                 break;
         }
     }
@@ -522,14 +574,15 @@ $(window).on('resize load', function(){
 /* 🖥 EMP Gateway View Plans  
 */
 $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function (e) {
-    e.preventDefault();
+    e.preventDefault(); 
     var maxBill = $('.range-cost', this).find(':selected').attr('data-to');
     var minBill = $('.range-cost', this).find(':selected').attr('data-from');
     var placeLive = $('.place-live', this).find(':selected').attr('data-title');
 
-
+    console.log("PLACE LIVE", $('.place-live', this).find(':selected').attr('data-title'));
 
     if (globalContentState == 'EMP-CONTENT') {
+        $('.telco-option.remove-filter').remove(); 
         if (maxBill == "Infinity") {
             $('.monthly-bill-header').html('>S$500');
             maxBill = Infinity;
@@ -538,6 +591,8 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
         }
         $('.place-live-copy').html(placeLive.toLowerCase());
     } else if (globalContentState == 'TMP-CONTENT') {
+        $('.electricity-option.remove-filter').remove();
+        $('#sort-type-1').val(3);
         if (maxBill == "Infinity") {
             $('.monthly-bill-header').html('no preferred monthly price.');
             $('.monthly-bill-header + .telco-content').hide();
@@ -585,6 +640,12 @@ $('.filter-type-2').on('change', function () {
             break;
         case 'fixed':
             $('#action--hidden--rb--fixed').trigger('click');
+            break;
+        case 'sms':
+            $('#action--hidden--rb--sms-only').trigger('click');
+            break;
+        case 'combo':
+            $('#action--hidden--rb--combo-only').trigger('click');
             break;
         default:
             $('#action--hidden--rb--all').trigger('click');
@@ -652,6 +713,42 @@ $('#filter-type-1').on('change', function () {
                 $('.filter-type-3').show();
             }, 200);
             reflectPageCount();
+            break;
+        case 'sim-only-plan':
+            $('.filter-type-2').val('sms').change();
+            resetRetailerCheckbox();
+            $('#action--hidden--cb--ecofriendly:checked').trigger('click');
+            $('.filter-type-3').hide();
+            $('#filter-type-3--apply').trigger('click');
+            setTimeout(function () {
+                jplist.refresh();
+                $('.filter-type-2').show();
+            }, 200);
+            reflectPageCount(); 
+            break;
+        case 'combo-plan':
+            $('.filter-type-2').val('combo').change();
+            resetRetailerCheckbox();
+            $('#action--hidden--cb--ecofriendly:checked').trigger('click');
+            $('.filter-type-3').hide();
+            $('#filter-type-3--apply').trigger('click');
+            setTimeout(function () {
+                jplist.refresh();
+                $('.filter-type-2').show();
+            }, 200);
+            reflectPageCount(); 
+            break;
+        case 'all-plans':
+            $('.filter-type-2').val('all').change();
+            resetRetailerCheckbox();
+            $('#action--hidden--cb--ecofriendly:checked').trigger('click');
+            $('.filter-type-3').hide();
+            $('#filter-type-3--apply').trigger('click');
+            setTimeout(function () {
+                jplist.refresh();
+                $('.filter-type-2').show();
+            }, 200);
+            reflectPageCount(); 
             break;
         default:
             $('.filter-type-2').hide();

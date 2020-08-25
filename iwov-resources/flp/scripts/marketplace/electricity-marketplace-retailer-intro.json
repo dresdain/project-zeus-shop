@@ -46,5 +46,17 @@
       "retailer_overall_description": "Get S$68 bill rebate with PacificLight on DBS Electricity Marketplace.<br>Save more than 30% off your electricity bills!",
 	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-pacficilight-promo-tnc.pdf",
 	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "circleslife",
+      "retailer_overall_description": "Lorem",
+	  "retailer_promo_link": "#",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "gridmobile",
+      "retailer_overall_description": "Lorem",
+	  "retailer_promo_link": "#",
+	  "retailer_allowed": true
    }
 ]

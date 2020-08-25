@@ -112,6 +112,12 @@ function populatePlans(minBill, maxBill, action, search_type) {
         setTimeout(function () {
             $('.emp__loader').fadeOut('1000');
             if (firstTimeSearchControl === 0) {
+                if(globalContentState == "EMP-CONTENT"){ 
+                    $('#sort-type-1').val(0);
+                }else{
+                    $('#sort-type-1').val("3").change();
+                }
+
                 var sortType = $('#sort-type-1 option:selected').data('title');
                 var filterList = {
                     emp_search_type: 'new',
@@ -127,7 +133,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
                     globalFilterState = 'first_time_search';
                 }, 1000);
                 firstTimeSearchControl = 1;
-                $('#sort-type-1').val("3").change();
+                
             }
         }, 1000);
     });
@@ -191,7 +197,13 @@ function createDOM__planDetails__TMP(item, options, planID) {
     html += '<div class="plan__details"><div class="plan__details--wrapper">';
 
     /* Contract Type */
-    html += '<div class="plan__details--card"><div class="heading">Contract</div><div class="body contract-duration"><span class="contract-duration-value">' + options.contract + '</span></div></div>';
+    var planType;
+    if(item.plan_type == 'combo_plan'){
+        planType = 'Combo-plan';
+    }else if(item.plan_type == 'sms_only'){
+        planType = 'SMS-only';
+    }
+    html += '<div class=" '+ planType + ' plan__details--card"><div class="heading">Contract</div><div class="body contract-duration"><span class="contract-duration-value">' + options.contract + '</span></div></div>';
 
     /* Caller ID */
     html += '<div class="plan__details--card"><div class="heading">Caller ID</div><div class="body "><span class="">' + options.caller_id + '</span></div></div>';
@@ -272,6 +284,7 @@ function createDOM__comparePlans__TMP(item, options, planID) {
         'retailer_id': item.retailer_id,
         'logo': item.telco_logo_path,
         'plan_name': item.plan_name.replace(/plan/ig, '').replace(/ /ig, ''),
+        'plan_type': item.plan_type,
         'retailer_name': item.retailer_name,
         'applyNow_btn_yes': createLink__ApplyNow__TMP(item, options, 'yes'),
         'applyNow_btn_no': createLink__ApplyNow__TMP(item, options, 'no'),
@@ -285,12 +298,13 @@ function createDOM__comparePlans__TMP(item, options, planID) {
         'caller_id': options.caller_id,
         'talktime': options.talktime,
         'sms': options.sms,
-        'promotion': (item.promotion == "YES" ? item.promotion_text : 'None')
+        'promotion': (item.promotion == "YES" ? item.promotion_text : 'None'),
+        'tmp__redirect': createLink__ApplyNow__TMP(item, options, 'yes')
     };
 
     /* Sign Up */
     html += '<div class="plan__details">';
-    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow__TMP(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow__TMP(item, options, 'no') + '">Sign Up</a></div>';
+    html += '<div class="plan__details--card narrow--pad"><a target="_blank" href="'+createLink__ApplyNow__TMP(item, options, 'yes')+'"  class="btn btn-primary btn-block triggerApplyScreen-nulled" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow__TMP(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow__TMP(item, options, 'no') + '">Sign Up</a></div>';
     html += '</div>';
 
     /* Start Compare Plans */ 
@@ -312,12 +326,14 @@ function createDOM__comparePlans__TMP(item, options, planID) {
 
 /* 📦  Create DOM Comparison */
 function createDOM__comparisonPlans__TMP(comparisonList) {
+    
     var comparisonList = JSON.parse(comparisonList);
     // console.log(comparisonList);
     $('.compareItems > div').removeClass('activeComparison');
     $.each(comparisonList, function (i, v) {
         var parent = '#compareItem-' + (i + 1);
-
+        $('.triggerApplyScreen').off();
+        $(parent + ' > .plan__details--card:nth-child(2) a').removeClass('triggerApplyScreen');
         /*  */
         $(parent).addClass('activeComparison');
 
@@ -331,6 +347,11 @@ function createDOM__comparisonPlans__TMP(comparisonList) {
         $(parent + ' > .compareItems--card div.footnote').text(v.price_per_month.replace(' ', '').trim() + '/mo');
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').text('Sign up');
+        
+        $(parent + ' > .plan__details--card:nth-child(2) a').attr('href', v.tmp__redirect);
+        $(parent + ' > .plan__details--card:nth-child(2) a').attr('target', '_blank');
+         
+
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
         $(parent + ' > .plan__details--card:nth-child(2) a').data('btn-yes', v.applyNow_btn_yes);
         $(parent + ' > .plan__details--card:nth-child(2) a').data('btn-no', v.applyNow_btn_no);

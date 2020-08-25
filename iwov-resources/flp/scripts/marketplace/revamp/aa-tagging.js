@@ -21,7 +21,7 @@ var logger = function () {
 /* Helper functions */
 var digitalData;
 $(function () {
-    logger.disableLogger();
+    // logger.disableLogger();
     trackHomepage();
 });
 /* 📦 AA Tagging */

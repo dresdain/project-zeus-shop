@@ -2230,8 +2230,8 @@ ul.plan-types > li:nth-child(2):before {
   width: 17px;
 }
 
-.emp__landing + I.group-tiles {
-  margin-top: 20px !important;
+.emp__landing + .group-tiles {
+  margin-top: 25px !important;
   margin-bottom: 30px;
 }
 

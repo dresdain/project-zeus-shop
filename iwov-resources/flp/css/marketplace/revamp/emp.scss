@@ -1777,8 +1777,8 @@ be sure the cells are on the top of the pseudo element*/
 
 @import "consumer";
 
-.emp__landing + I.group-tiles {
-  margin-top: 20px !important;
+.emp__landing + .group-tiles {
+  margin-top: 25px !important;
   margin-bottom: 30px;
 }
 
