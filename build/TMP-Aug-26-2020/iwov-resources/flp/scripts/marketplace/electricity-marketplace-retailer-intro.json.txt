@@ -1,0 +1,62 @@
+[
+   {
+      "retailer_id": "bestelectricity",
+      "retailer_overall_description": "<span style='display: block; text-align: left; width: 93%; margin: 0 auto;'>For a limited time only! Enjoy more than <strong>S$300 annual savings</strong> and up to <strong>S$74 worth of <sup style='line-height: 0; font-size: 11px;'>#</sup>bill and bank rebates</strong> when you switch to Best Electricity on DBS Electricity Marketplace below</span><br><span style='display: block; text-align: left; width: 93%; margin: 0 auto;'>Simply set up your recurring bill payment with:</span><br><span style='display: block; text-align: left; width: 93%; margin: 0 auto;'>&bull; POSB Everyday Card to enjoy up to <strong>S$74 worth of <sup style='line-height: 0; font-size: 11px;'>#</sup>bill and bank rebates</strong> (inclusive of S$50 bill rebate and up to 1% cash rebate)</span><span style='display: block; text-align: left; width: 93%; margin: 0 auto;'>&bull; All other DBS/POSB Cards or GIRO to enjoy <strong>S$40 <sup style='line-height: 0; font-size: 11px;'>#</sup>bill rebates</strong></span><br><span style='display: block; text-align: left; width: 93%; margin: 0 auto;'>Hurry, switch now to enjoy these great savings! Terms and conditions apply.</span>",
+	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-best-electricity-promo-tnc.pdf",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "geneco",
+      "retailer_overall_description": "Geneco, is an integrated energy provider retailing electricity to homes and businesses in Singapore.",
+	  "retailer_promo_link": "",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "iswitch",
+      "retailer_overall_description": "iSwitch offers a variety of plans with up to 30% savings off your electricity bill. With a fuss free online sign up, multiple payment options and attractive rewards, it's easy to make the switch. We have helped more than 80,000 homes save on their electricity and are proud to be the largest green electricity retailer in Singapore.",
+	  "retailer_promo_link": "",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "keppel",
+      "retailer_overall_description": "Switch to greater savings with Keppel Electric today! With more than 18 years of experience in powering the nation’s electricity grid, we are committed in delivering competitive electricity plansthat best meet your everyday needs.",
+	  "retailer_promo_link": "",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "sunseap",
+      "retailer_overall_description": "<strong>Get up to $60 bill rebate when you sign up Sunseap plans on DBS Electricity Marketplace!<br>Go Solar, Save Money, Save The Environment</strong><br>No Security Deposit, No Hidden Costs, No Processing Fees",
+	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-sunseap-promo-tnc.pdf",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "tuaspower",
+      "retailer_overall_description": "Enjoy up to a one-time S$90 bill rebate or free one month electricity when you choose Tuas Power! Exclusively on DBS Electricity Marketplace from now till 30 June 2020.",
+	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-tuas-power-promo-tnc.pdf",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "unionpower",
+      "retailer_overall_description": "Switch and get one-time S$60 rebate with Union Power when you set up your DBS/POSB Credit Card on recurring card payment on DBS Electricity Marketplace",
+	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-union-power-promo-tnc.pdf",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "pacificlight",
+      "retailer_overall_description": "Get S$68 bill rebate with PacificLight on DBS Electricity Marketplace.<br>Save more than 30% off your electricity bills!",
+	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-pacficilight-promo-tnc.pdf",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "circleslife",
+      "retailer_overall_description": "Lorem",
+	  "retailer_promo_link": "#",
+	  "retailer_allowed": true
+   },
+   {
+      "retailer_id": "gridmobile",
+      "retailer_overall_description": "Lorem",
+	  "retailer_promo_link": "#",
+	  "retailer_allowed": true
+   }
+]
