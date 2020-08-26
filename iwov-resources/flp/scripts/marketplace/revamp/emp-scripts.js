@@ -7,8 +7,8 @@ var EMP__rangeCost = '<option class="electricity-option " value="range1" data-fr
 var EMP__placeLive = '<option class="electricity-option removable" value="hdb_1_room" data-title="1-room HDB">HDB 1-Room</option><option class="electricity-option removable" data-title="2-room HDB" value="hdb_2_room">HDB 2-Room</option><option class="electricity-option removable" data-title="3-room HDB" value="hdb_3_room">HDB 3-Room</option><option class="electricity-option removable" data-title="4-room HDB" value="hdb_4_room" selected>HDB 4-Room</option><option class="electricity-option removable" data-title="5-room HDB" value="hdb_5_room">HDB 5-Room</option><option class="electricity-option removable" data-title="HDB Executive" value="hdb_executive">HDB Executive</option><option class="electricity-option removable" data-title="HUDC Flat" value="hudc_flat">HUDC Flat</option><option class="electricity-option removable" data-title="Terrace House" value="terrace_house">Terrace House</option><option class="electricity-option removable" data-title="Condominium" value="condominium">Condominium</option><option class="electricity-option removable" data-title="Semi-Detached House" value="semi_detached_house">Semi-Detached House</option><option class="electricity-option removable" data-title="Private Aparment" value="private_aparment">Private Apartment</option><option class="electricity-option removable" data-title="Bungalow" value="bungalow">Bungalow</option><option class="electricity-option removable" data-title="Penthouse" value="penthouse">Penthouse</option><option class="electricity-option removable" data-title="Townhouse" value="townhouse">Townhouse</option>';
 
 
-var TMP__rangeCost = '<option class="telco-option " data-title="Up to 20GB" data-from="0" data-to="20" value="20GB" selected>Up to 20GB</option><option class="telco-option " data-title="Up to 40GB" data-from="0" data-to="40" value="40GB">Up to 40GB</option><option class="telco-option " data-title="Up to 100GB" data-from="0" data-to="100" value="100GB">Up to 100GB</option><option class="telco-option " data-title="Up to 300GB" data-from="0" data-to="300" value="300GB">Up to 300GB</option><option class="telco-option " data-title="Unlimited" data-from="0" data-to="infinity" value="Infinity">Unlimited</option>'; 
-var TMP__placeLive = '<option class="telco-option removable" data-title="No Preference" value="Infinity">No Preference</option><option class="telco-option removable" data-title="Up to $15" value="15">Up to $15</option><option class="telco-option removable" data-title="Up to $25" value="25" selected>Up to $25</option><option class="telco-option removable" data-title="Up to $50" value="50">Up to $50</option><option class="telco-option removable" data-title="Up to $100" value="100">Up to $100</option>'; 
+var TMP__rangeCost = '<option class="telco-option " data-title="Up to 20GB" data-from="0" data-to="20" value="20GB">Up to 20GB</option><option class="telco-option " data-title="Up to 40GB" data-from="0" data-to="40" value="40GB">Up to 40GB</option><option class="telco-option " data-title="Up to 100GB" data-from="0" data-to="100" value="100GB">Up to 100GB</option><option class="telco-option " data-title="Up to 300GB" data-from="0" data-to="300" value="300GB" selected>Up to 300GB</option><option class="telco-option " data-title="Unlimited" data-from="0" data-to="infinity" value="Infinity">Unlimited</option>'; 
+var TMP__placeLive = '<option class="telco-option removable" data-title="No Preference" value="Infinity">No Preference</option><option class="telco-option removable" data-title="Up to $15" value="15">Up to $15</option><option class="telco-option removable" data-title="Up to $25" value="25" >Up to $25</option><option class="telco-option removable" data-title="Up to $50" value="50" selected>Up to $50</option><option class="telco-option removable" data-title="Up to $100" value="100">Up to $100</option>'; 
 
 
 $(function () {
@@ -60,8 +60,8 @@ var renderTabContent = function (action) {
         $('#third__placeLive').html(TMP__placeLive);
         $('.electricity-option').removeAttr('selected').hide();
         // $('.electricity-option.removable').remove();
-        $('.place-live').val(25);
-        $('.range-cost').val('20GB');
+        $('.place-live').val(50);
+        $('.range-cost').val('300GB');
         $('.emp__comparison__box').removeClass('compare--emp').addClass('compare--tmp'); 
         if($(window).width() < 768){
             // $('.emp__menu__top--copy > p > *:not(a)').hide();
@@ -589,7 +589,7 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
         } else {
             $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
         }
-        $('.place-live-copy').html(placeLive.toLowerCase());
+        $('.place-live-copy').html(placeLive);
     } else if (globalContentState == 'TMP-CONTENT') {
         $('.electricity-option.remove-filter').remove();
         $('#sort-type-1').val(3);

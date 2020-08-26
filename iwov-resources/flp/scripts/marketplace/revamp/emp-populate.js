@@ -183,7 +183,7 @@ function createDOM__promotionsInfo(item, options, viewport) {
     if (item.promotion == "YES") {
         var html = '';
 
-        html += '<div class="promotions__info ' + viewport + '"><div class="title">PROMOTION</div><div class="info"><strong>' + item.promotion_text + '</strong></div></div>';
+        html += '<div class="promotions__info ' + viewport + '"><div class="title">PROMOTION</div><div class="info">' + item.promotion_text + '</div></div>';
 
         return html;
     }

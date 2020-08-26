@@ -925,6 +925,9 @@
     margin-right: 8px;
     margin-bottom: 0px;
   }
+  .telco-article .savings__info--logo {
+    max-height: 60px;
+  }
 }
 .telco-article .savings__info--logo {
   -webkit-box-ordinal-group: 3;
@@ -1062,7 +1065,7 @@
   color: #858f96;
   font-family: "OpenSans";
   font-size: 12px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
 }
 .compareItems--details .plan__details--card .heading {
   color: #656565;
@@ -2379,7 +2382,6 @@ ul.plan-types > li:nth-child(2):before {
 }
 @media (max-width: 768px) {
   .compare--tmp .compareItems--card {
-    padding-top: 5px;
     padding-bottom: 5px;
   }
 }
@@ -2391,6 +2393,7 @@ ul.plan-types > li:nth-child(2):before {
 @media (max-width: 768px) {
   .compare--tmp .compare--logo {
     height: 30px;
+    margin-bottom: 10px;
   }
 }
 
