@@ -1,0 +1,102 @@
+[
+    {
+      "retailer_name": "Circles.Life",
+      "retailer_id": "circleslife",
+      "package_id": "cl20",
+      "plan_name": "20GB Plan",
+      "plan_type": "combo_plan",
+      "data": "20 GB",
+      "promotion": "YES",
+      "promotion_text": "Use code <strong>DBS28OFF</strong> to get your first month free",
+      "add_on_1": "unlimited data at +S$20/mo",
+      "add_on_2": "unlimited outgoing calls at +S$8/mo",
+      "add_on_3": "unlimited incoming calls at +S$2/mo",
+      "telco_url": "https://activate-shop.circles.life/activate/sa_delivery?reset=true&code=DBS300GB&da=%5B%22Unlimited%20Data%22%5D&utm_source=partner&utm_medium=dbs&utm_campaign=dbsmarketplace",
+      "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circleslife.png",
+      "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/cl20.pdf",
+      "options": [
+         {
+            "price_per_month": "$28.00",
+            "contract": "No contract",
+            "caller_id": "Free",
+            "talktime": "100 mins",
+            "sms": "$25 / mo"
+         }
+      ]
+   },
+    {
+      "retailer_name": "Circles.Life",
+      "retailer_id": "circleslife",
+      "package_id": "cl300",
+      "plan_name": "300GB Plan",
+      "plan_type": "sms_only",
+      "data": "300 GB",
+      "promotion": "YES",
+      "promotion_text": "Use code <strong>DBS300GB</strong> to enjoy 300GB with 4G rollover for S$30 per month",
+      "add_on_1": "unlimited data at +S$20/mo",
+      "add_on_2": "unlimited outgoing calls at +S$8/mo",
+      "add_on_3": "unlimited incoming calls at +S$2/mo",
+      "telco_url": "https://activate-shop.circles.life/activate/sa_delivery?reset=true&code=DBS28OFF&utm_source=partner&utm_medium=dbs&utm_campaign=dbsmarketplace",
+      "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/circleslife.png",
+      "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/cl20.pdf",
+      "options": [
+         {
+            "price_per_month": "$38.00",
+            "contract": "No contract",
+            "caller_id": "Free",
+            "talktime": "100 mins",
+            "sms": "$25.00"
+         }
+      ]
+   },
+    {
+      "retailer_name": "Grid Mobile",
+      "retailer_id": "gridmobile",
+      "package_id": "gm20",
+      "plan_name": "20 GB Plan",
+      "plan_type": "sms_only",
+      "data": "20 GB",
+      "promotion": "YES",
+      "promotion_text": "Use code <strong>DBS20</strong> to enjoy additional 80GB for the first month",
+      "add_on_1": "N/A",
+      "add_on_2": "100 mins talktime at +S$4.28/mo",
+      "add_on_3": "25 SMS at +S$4.28/mo",
+      "telco_url": "https://portal.gridmobile.com.sg/OrderProcess/login/92",
+      "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png",
+      "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/gm20.pdf",
+      "options": [
+         {
+            "price_per_month": "$17.90",
+            "contract": "No contract",
+            "caller_id": "Free",
+            "talktime": "120 mins",
+            "sms": "50"
+         }
+      ]
+   },
+    {
+      "retailer_name": "Grid Mobile",
+      "retailer_id": "gridmobile",
+      "package_id": "gm40",
+      "plan_name": "40 GB Plan",
+      "plan_type": "sms_only",
+      "data": "40 GB",
+      "promotion": "YES",
+      "promotion_text": "Use code <strong>DBS40</strong> to enjoy additional 80GB for the first month",
+      "add_on_1": "Free TravelRoam 1GB Malaysia",
+      "add_on_2": "100 mins talktime at +S$4.28/mo",
+      "add_on_3": "25 SMS at +S$4.28/mo",
+      "telco_url": "https://portal.gridmobile.com.sg/OrderProcess/login/92",
+      "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/gridmobile.png",
+      "telco_factsheet_path": "/iwov-resources/media/pdf/marketplace/telco/gm40.pdf",
+      "options": [
+         {
+            "price_per_month": "$24.90",
+            "contract": "No contract",
+            "caller_id": "Free",
+            "talktime": "200 mins",
+            "sms": "200"
+         }
+      ]
+   }
+   ]
