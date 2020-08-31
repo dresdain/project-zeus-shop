@@ -1,11 +1,11 @@
 [
    {
      "retailer_name": "Circles.Life",
-     "retailer_id": "circles.life",
+     "retailer_id": "circleslife",
      "package_id": "cl20",
      "plan_name": "20GB Plan",
      "plan_type": "sim_only",
-     "data": "20 GB",
+     "data": "20GB",
      "promotion": "YES",
      "promotion_text": "Use code <strong>DBS28OFF</strong> to get S$28 bill waiver",
      "add_on_1": "unlimited data at + S$20/mo",
@@ -20,17 +20,17 @@
            "contract": "No contract",
            "caller_id": "Free",
            "talktime": "100 mins",
-           "sms": "$25 / mo"
+           "sms": "$25/mo"
         }
      ]
   },
    {
      "retailer_name": "Circles.Life",
-     "retailer_id": "circles.life",
+     "retailer_id": "circleslife",
      "package_id": "cl300",
      "plan_name": "300GB Plan",
      "plan_type": "sim_only",
-     "data": "300 GB",
+     "data": "300GB",
      "promotion": "YES",
      "promotion_text": "Use code <strong>DBS300GB</strong> to enjoy 300GB with 4G rollover for S$30 per month",
      "add_on_1": "unlimited data at + S$20/mo",
@@ -45,7 +45,7 @@
            "contract": "No contract",
            "caller_id": "Free",
            "talktime": "100 mins",
-           "sms": "$25 / mo"
+           "sms": "$25/mo"
         }
      ]
   },
@@ -53,11 +53,11 @@
      "retailer_name": "Grid Mobile",
      "retailer_id": "gridmobile",
      "package_id": "gm20",
-     "plan_name": "20 GB Plan",
+     "plan_name": "20GB Plan",
      "plan_type": "sim_only",
-     "data": "20 GB",
+     "data": "20GB",
      "promotion": "YES",
-     "promotion_text": "Use code <strong>DBS20</strong> for extra 80GB for the 1st month and free registration",
+     "promotion_text": "Use code <strong>DBS20</strong> to get 80GB for the 1st month and free registration",
      "add_on_1": "N/A",
      "add_on_2": "100 mins talktime at + S$4.28/mo",
      "add_on_3": "25 SMS at + S$4.28/mo",
@@ -78,11 +78,11 @@
      "retailer_name": "Grid Mobile",
      "retailer_id": "gridmobile",
      "package_id": "gm40",
-     "plan_name": "40 GB Plan",
+     "plan_name": "40GB Plan",
      "plan_type": "sim_only",
-     "data": "40 GB",
+     "data": "40GB",
      "promotion": "YES",
-     "promotion_text": "Use code <strong>DBS20</strong> for extra 80GB for the 1st month and free registration",
+     "promotion_text": "Use code <strong>DBS40</strong> to get 80GB for the 1st month and free registration",
      "add_on_1": "Free TravelRoam 1GB Malaysia",
      "add_on_2": "100 mins talktime at + S$4.28/mo",
      "add_on_3": "25 SMS at + S$4.28/mo",

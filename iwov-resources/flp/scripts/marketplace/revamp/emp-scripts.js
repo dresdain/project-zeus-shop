@@ -1,21 +1,45 @@
 var globalFilterState = '';
 var globalPlanState = '';
-var globalContentState = 'EMP-CONTENT';
+var globalContentState = 'TMP-CONTENT';
 
 //TO BE REFACTORED
 var EMP__rangeCost = '<option class="electricity-option " value="range1" data-from="0" data-to="50">S$0 — S$50</option><option class="electricity-option " value="range2" data-from="51" data-to="100">S$51 — S$100</option><option class="electricity-option " value="range3" data-from="101" data-to="200" selected>S$101 — S$200</option><option class="electricity-option " value="range4" data-from="201" data-to="300">S$201 — S$300</option><option class="electricity-option " value="range5" data-from="301" data-to="400">S$301 — S$400</option><option class="electricity-option " value="range7" data-from="401" data-to="Infinity">>S$500</option>';
 var EMP__placeLive = '<option class="electricity-option removable" value="hdb_1_room" data-title="1-room HDB">HDB 1-Room</option><option class="electricity-option removable" data-title="2-room HDB" value="hdb_2_room">HDB 2-Room</option><option class="electricity-option removable" data-title="3-room HDB" value="hdb_3_room">HDB 3-Room</option><option class="electricity-option removable" data-title="4-room HDB" value="hdb_4_room" selected>HDB 4-Room</option><option class="electricity-option removable" data-title="5-room HDB" value="hdb_5_room">HDB 5-Room</option><option class="electricity-option removable" data-title="HDB Executive" value="hdb_executive">HDB Executive</option><option class="electricity-option removable" data-title="HUDC Flat" value="hudc_flat">HUDC Flat</option><option class="electricity-option removable" data-title="Terrace House" value="terrace_house">Terrace House</option><option class="electricity-option removable" data-title="Condominium" value="condominium">Condominium</option><option class="electricity-option removable" data-title="Semi-Detached House" value="semi_detached_house">Semi-Detached House</option><option class="electricity-option removable" data-title="Private Aparment" value="private_aparment">Private Apartment</option><option class="electricity-option removable" data-title="Bungalow" value="bungalow">Bungalow</option><option class="electricity-option removable" data-title="Penthouse" value="penthouse">Penthouse</option><option class="electricity-option removable" data-title="Townhouse" value="townhouse">Townhouse</option>';
 
 
-var TMP__rangeCost = '<option class="telco-option " data-title="Up to 20GB" data-from="0" data-to="20" value="20GB">Up to 20GB</option><option class="telco-option " data-title="Up to 40GB" data-from="0" data-to="40" value="40GB">Up to 40GB</option><option class="telco-option " data-title="Up to 100GB" data-from="0" data-to="100" value="100GB">Up to 100GB</option><option class="telco-option " data-title="Up to 300GB" data-from="0" data-to="300" value="300GB" selected>Up to 300GB</option><option class="telco-option " data-title="Unlimited" data-from="0" data-to="infinity" value="Infinity">Unlimited</option>'; 
+var TMP__rangeCost = '<option class="telco-option " data-title="Up to 20GB" data-from="0" data-to="20" value="20GB">Up to 20GB</option><option class="telco-option " data-title="Up to 40GB" data-from="0" data-to="40" value="40GB">Up to 40GB</option><option class="telco-option " data-title="Up to 100GB" data-from="0" data-to="100" value="100GB">Up to 100GB</option><option class="telco-option " data-title="Up to 300GB" data-from="0" data-to="300" value="300GB" selected>Up to 300GB</option>'; 
 var TMP__placeLive = '<option class="telco-option removable" data-title="No Preference" value="Infinity">No Preference</option><option class="telco-option removable" data-title="Up to $15" value="15">Up to $15</option><option class="telco-option removable" data-title="Up to $25" value="25" >Up to $25</option><option class="telco-option removable" data-title="Up to $50" value="50" selected>Up to $50</option><option class="telco-option removable" data-title="Up to $100" value="100">Up to $100</option>'; 
 
 
 $(function () {
     $('.telco-option').hide();
     renderTabContent(); 
-
+    checkHash();
+    if(globalContentState == "TMP-CONTENT"){
+        $('.middle_filter_section').hide();
+    }
 });
+
+function checkHash(){
+    if(getQueryVariable('external') == 'true' && getQueryVariable('ump') == undefined){
+        $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
+    }
+    if (window.location.hash) {
+        var hash = window.location.hash.substring(1);
+        switch (hash) {
+            case "telco":
+                $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click');
+                break;
+            case "electricity":
+                $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
+                break;
+            default: 
+                // 
+                break;
+        }
+    }
+}
+
 
 $('.plan__box--tabItem').on('click', function () {
     $('.plan__box--tabItem').removeClass('active'); 
@@ -26,9 +50,9 @@ $('.plan__box--tabItem').on('click', function () {
     }else if(globalContentState == 'TMP-CONTENT'){
         trackButtonLevel('btnTelco');
     } 
-    if(getQueryVariable('external') == undefined){
+     
         renderTabContent(); 
-    }
+  
 });
 
 var renderTabContent = function (action) {
@@ -42,7 +66,7 @@ var renderTabContent = function (action) {
         $('#initial__rangeCost').html(EMP__rangeCost);
         $('#initial__placeLive').html(EMP__placeLive);
         $('#secondary__rangeCost').html(EMP__rangeCost);
-        $('#secondary__placeLive').html(EMP__placeLive); 
+        $('#secondary__placeLive').html(EMP__placeLive);  
         $('#third__rangeCost').html(EMP__rangeCost);
         $('#third__placeLive').html(EMP__placeLive); 
         $('.place-live').val('hdb_4_room');
@@ -260,7 +284,7 @@ var validate__retailers = function (retailers) {
 
         });
         // console.log(confirmedRetailers);
-
+        $('.middle_filter_section').show();
     }
 }
 
@@ -298,6 +322,7 @@ var validate__showTELCO = function (show) {
         globalContentState == 'EMP-CONTENT';
         $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click'); 
     } else if (show != undefined && show != 'true') {
+        $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click'); 
         console.warn('Warning: query param: "ump=' + show + '" is an invalid parameter.');
     }
 }
@@ -308,7 +333,7 @@ var init__ExternalOverlay = function () {
     if (getQueryVariable('external') != undefined && getQueryVariable('external') == 'true') {
         validate__showTELCO(getQueryVariable('ump'));
         var editPlansModal = $('#emp__editPlans__overlay'); 
-        renderTabContent(); 
+        
         
 
         setTimeout(function(){
@@ -322,13 +347,14 @@ var init__ExternalOverlay = function () {
             if(globalContentState == 'EMP-CONTENT'){
                 validate__monthlyQuery(getQueryVariable('monthly')); 
                 validate__livingQuery(getQueryVariable('living'));
-            }else if(globalContentState == "TMP-CONTENT"){
+            }else if(globalContentState == "TMP-CONTENT"){  
                 validate__planType(getQueryVariable('plan_type'));
                 validate__monthlyPrice(getQueryVariable('monthly_price'));
                 validate__monthlyData(getQueryVariable('monthly_data'));
             }
            
 
+           setTimeout(function(){
             validate__ecofriendly(getQueryVariable('ecofriendly'));
 
             validate__rate(getQueryVariable('rate'));
@@ -337,9 +363,10 @@ var init__ExternalOverlay = function () {
 
             validate__sortList(getQueryVariable('sort'));
 
+           }, 500);
             
             jplist.init();
-        }, 500);
+        }, 800);
     }
 }
 
@@ -362,11 +389,7 @@ var set__externalTerms = function () {
                 });
             });
         }
-    }
-
-
-
-
+    }  
 }
 
 
@@ -545,14 +568,14 @@ $(function () {
     }); 
 });
 
-$(window).on('resize load', function(){ 
+$(window).on('resize', function(){ 
    
     // if($(window).width() > 768){
     //     $('.partners__box--slick').slick('slickFilter','.desktop-only');
     // } else{
     //     $('.partners__box--slick').slick('slickFilter','.mobile-only');
     // } 
-    if(getQueryVariable('ump') == undefined){
+    if(getQueryVariable('external') == 'true' && getQueryVariable('ump') == undefined){
         $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
     }
     if (window.location.hash) {
@@ -590,7 +613,7 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
             $('.monthly-bill-header').html('S$' + minBill + ' ‒ ' + 'S$' + maxBill);
         }
         $('.place-live-copy').html(placeLive);
-    } else if (globalContentState == 'TMP-CONTENT') {
+    } else if (globalContentState == 'TMP-CONTENT') { 
         $('.electricity-option.remove-filter').remove();
         $('#sort-type-1').val(3);
         if (maxBill == "Infinity") {
@@ -621,13 +644,11 @@ $('#planForm, #planForm__dropdown, #planForm__dropdown2').on('submit', function 
     reset__compareCheckbox();
     showLandingDivs(false);
     showPlanDOM(true);
-    showPlanDOM__state = true;
+    showPlanDOM__state = true;  
 
-    setTimeout(function(){
-        $('html, body').animate({
-            scrollTop: $(".emp__menu__top").offset().top
-        }, 500); 
-    }, 300);
+    $('html, body').animate({
+        scrollTop: $(".emp__menu__top").offset().top
+    }, 500); 
 });
 
 
@@ -700,6 +721,7 @@ $('#filter-type-1').on('change', function () {
             trackFilter__ratetype();
             break;
         case 'retailers':
+            $('.middle_filter_section').show();
             $('.filter-type-3--placeholder option').text('All Retailers');
             $('.filter-type-2').val('all').change();
             resetRetailerCheckbox();
@@ -739,6 +761,7 @@ $('#filter-type-1').on('change', function () {
             reflectPageCount(); 
             break;
         case 'all-plans':
+            $('.middle_filter_section').hide();
             $('.filter-type-2').val('all').change();
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:checked').trigger('click');
@@ -1129,36 +1152,38 @@ $(window).resize(function () {
 });
 
 /* 🖥  Scroll Events */
-$(window).scroll(function () {
-    if ($(window).width() > 768) {
-        if ($(window).scrollTop() > 434) {
-            if ($('.header-placeholder > header.navbar').hasClass('mini-menu')) {
-                showOnScrollMenu(true);
-            } else {
-                showOnScrollMenu('shift');
+$(function(){
+    $(window).scroll(function () {
+        if ($(window).width() > 768) {
+            if ($(window).scrollTop() > 434) {
+                if ($('.header-placeholder > header.navbar').hasClass('mini-menu')) {
+                    showOnScrollMenu(true);
+                } else {
+                    showOnScrollMenu('shift');
+                }
+            } else if ($(window).scrollTop() < 370) {
+                showOnScrollMenu(false);
             }
-        } else if ($(window).scrollTop() < 370) {
-            showOnScrollMenu(false);
-        }
-    } else {
-        // console.log($(window).scrollTop());
-
-        if ($(window).scrollTop() > 356) {
-            if ($('.header-placeholder > header.navbar').hasClass('mini-menu')) {
-                showOnScrollMenu(true);
-            } else {
-                showOnScrollMenu('shift');
+        } else {
+            // console.log($(window).scrollTop());
+    
+            if ($(window).scrollTop() > 356) {
+                if ($('.header-placeholder > header.navbar').hasClass('mini-menu')) {
+                    showOnScrollMenu(true);
+                } else {
+                    showOnScrollMenu('shift');
+                }
+            } else if ($(window).scrollTop() < 370) {
+                showOnScrollMenu(false);
             }
-        } else if ($(window).scrollTop() < 370) {
-            showOnScrollMenu(false);
         }
-    }
-
-    if ($('#primaryFooter').isInViewport()) {
-        $('.emp__compareConfirmation').addClass('undock--nav');
-    } else {
-        $('.emp__compareConfirmation').removeClass('undock--nav');
-    }
+    
+        if ($('#primaryFooter').isInViewport()) {
+            $('.emp__compareConfirmation').addClass('undock--nav');
+        } else {
+            $('.emp__compareConfirmation').removeClass('undock--nav');
+        }
+    });
 });
 
 /* 🛠 showOnScrollMenu Helper */
