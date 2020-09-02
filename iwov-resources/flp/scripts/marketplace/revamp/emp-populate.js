@@ -113,7 +113,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
             $('.emp__loader').fadeOut('1000');
             if (firstTimeSearchControl === 0) {
                 if(globalContentState == "EMP-CONTENT"){ 
-                    $('#sort-type-1').val(0);
+                    $('#sort-type-1').val("0").change();
                 }else{
                     $('#sort-type-1').val("3").change();
                 }
