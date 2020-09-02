@@ -689,6 +689,7 @@ $('#filter-type-1').on('change', function () {
     /* Check if eco friendly */
     switch (filter1_val) {
         case 'showEcoFriendly':
+            $('.middle_filter_section').hide();
             $('.filter-type-2').val('all').change();
             resetRetailerCheckbox();
             $('#action--hidden--cb--ecofriendly:not(:checked)').trigger('click');

@@ -42,7 +42,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
                     var rangeControl = item.options[i].current_monthly_sp_bill_size;
                     if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
                         var planID = 'plan_item--' + counter;
-                        dataDOM += '<article data-jplist-item class="electricity-article emp__results__box--card" id="' + planID + '">';
+                        dataDOM += '<article data-jplist-item class="electricity-article tmp__results__box--card emp__results__box--card" id="' + planID + '">';
                         dataDOM += createDOM__savingsInfo(item, item.options[i]);
                         dataDOM += createDOM__planDetails(item, item.options[i], planID);
                         dataDOM += createDOM__comparePlans(item, item.options[i], planID);
@@ -200,7 +200,7 @@ function createDOM__planDetails__TMP(item, options, planID) {
     var planType;
     if(item.plan_type == 'combo_plan'){
         planType = 'Combo-plan';
-    }else if(item.plan_type == 'sms_only'){
+    }else if(item.plan_type == 'sim_only' || item.plan_type == 'sms_only'){
         planType = 'SMS-only';
     }
     html += '<div class=" '+ planType + ' plan__details--card"><div class="heading">Contract</div><div class="body contract-duration"><span class="contract-duration-value">' + options.contract + '</span></div></div>';
@@ -498,9 +498,9 @@ var remove__comparisonPlan__TMP = function () {
 
 
 /* 📦 EMP CONTENT create DOM for .savings__info component */
-function createDOM__savingsInfo(item, options) {
+function createDOM__savingsInfo(item, options) { 
     // console.log(item, optipons);
-    var html = '';
+    var html = '<div class="tmp-part">';
     /* Start Savings Info  */
     html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
@@ -556,14 +556,9 @@ function createDOM__planDetails(item, options, planID) {
     /* Promotion */
     var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="'+ production_DIR +'/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : 'None');
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div></div>';
-
-    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
-
-    /* Factsheet */
-    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="open_factsheet btn btn-primary btn-block btn-outline" target="_blank">Factsheet</a></div>';
-
-
+ 
     /* End Plan Details */
+    html += '</div>';
     html += '</div>';
 
     return html;
@@ -615,7 +610,7 @@ function createLink__ApplyNow(item, options, action) {
 
 /* 📦 Compare Plans checkbox */
 function createDOM__comparePlans(item, options, planID) {
-    var html = '';
+    var html = '<div class="tmp-part tmp-cta-container">';
     var annualSavings = cleanSavings(options.total_annual_savings);
     var rateSuffix = (item.rate.indexOf("%") >= 0 ? item.rate + ' off SP Tariff' : 'S' + item.rate + '/ kWh <br class="visible-xs"?>(w GST)');
     var comparisonDetails = {
@@ -640,6 +635,15 @@ function createDOM__comparePlans(item, options, planID) {
         'comparison_3': item.comparison_3,
         'promotion': (item.promotion.toLowerCase() != 'no' ? '<img src="'+  production_DIR + '/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : '-')
     };
+
+    html += '<div class="plan__details">';
+    html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
+
+    /* Factsheet */
+    html += '<div class="plan__details--card"><a href="' + item.retailier_factsheet_path + '" class="open_factsheet btn btn-primary btn-block btn-outline" target="_blank">Factsheet</a></div>';
+    html += '</div>';
+
+
     /* Start Compare Plans */
     html += '<div class="compare__plans">';
 
@@ -651,6 +655,7 @@ function createDOM__comparePlans(item, options, planID) {
     html += '</label></div>';
 
     /* End Compare Plans */
+    html += '</div>';
     html += '</div>';
 
     return html;
