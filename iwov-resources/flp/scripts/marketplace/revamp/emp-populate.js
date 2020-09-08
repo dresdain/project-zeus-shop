@@ -1,5 +1,5 @@
 var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
-    script__DIR = '/iwov-resources/flp/scripts/marketplace/';
+    script__DIR = './iwov-resources/flp/scripts/marketplace/';
 var firstTimeSearchControl = 0;
 /* 📦 Populate Plans */
 function populatePlans(minBill, maxBill, action, search_type) {
@@ -21,19 +21,69 @@ function populatePlans(minBill, maxBill, action, search_type) {
             }
         });
         // console.log(filterRetailers);
-        data.forEach(function (item) {
+        var campaignActiveCounter = 0,
+            campaignExpiredCounter = 0;
+
+        data.forEach(function (item) { 
+            console.log(item, campaignModule.checkExpiry(item)); 
+
+
+            for (var i = 0; i <= (item.options.length - 1); i++) {
+                var rangeControl = item.options[i].current_monthly_sp_bill_size;
+                if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) { 
+                        switch(campaignModule.checkExpiry(item)){
+                            case 'active':
+                                campaignActiveCounter++;
+                                break;
+                            case 'expired':
+                                campaignExpiredCounter++;
+                                break;
+                        } 
+                }
+            }
+
             for (var i = 0; i <= (item.options.length - 1); i++) {
                 var dataDOM = '';
                 var rangeControl = item.options[i].current_monthly_sp_bill_size;
                 if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
                     var planID = 'plan_item--' + counter;
-                    dataDOM += '<article data-jplist-item class="emp__results__box--card" id="' + planID + '">';
+
+                    var campaignActive = 'non-campaign',
+                        campaignHTML = ''; 
+
+                        switch(campaignModule.checkExpiry(item)){
+                            case 'active':
+                                campaignActive = 'active-campaign';
+                                campaignHTML = campaignModule.createLabel('active', item);  
+                                break;
+                            case 'expired':
+                                campaignActive = 'expired-campaign';
+                                campaignHTML = campaignModule.createLabel('expired', item);   
+                                break;
+                            case 'invalid':
+                                campaignActive = 'non-campaign';  
+                                break;
+                            case 'public':
+                                campaignActive = 'public-campaign';  
+                                break;
+                        }
+
+                    dataDOM += '<article style="position:relative;" data-jplist-item class="emp__results__box--card '+ campaignActive +'" id="' + planID + '">' + campaignHTML;
                     dataDOM += createDOM__savingsInfo(item, item.options[i]);
                     dataDOM += createDOM__planDetails(item, item.options[i], planID);
                     dataDOM += createDOM__comparePlans(item, item.options[i], planID);
                     dataDOM += '</article>';
-                    jplist.resetContent(function () {
-                        $('.emp__results__box--list').append(dataDOM);
+                    jplist.resetContent(function () { 
+                        $('.emp__results__box--list').append(dataDOM); 
+                        if(campaignExpiredCounter > 0 && getQueryVariable('activity') != undefined){
+                            $('.non-campaign').remove();
+                        }else if(campaignActiveCounter > 0 && getQueryVariable('activity') != undefined){
+                            $('.non-campaign').remove();
+                        }else if(campaignExpiredCounter == 0 && campaignActiveCounter == 0 && getQueryVariable('activity') != undefined){
+                            $('.non-campaign').remove();
+                        }else if(getQueryVariable('activity') == undefined){
+                            $('article:not(.public-campaign)').remove();
+                        }
                         jplist.resetControl('#main-pagination');
                         $('[data-toggle="tooltip"]').tooltip();
                     });
@@ -41,6 +91,13 @@ function populatePlans(minBill, maxBill, action, search_type) {
             }
             counter++;
         });
+
+        if(campaignExpiredCounter > 0 && getQueryVariable('activity') != undefined){
+            campaignModule.createError('expired');
+        }else if(campaignExpiredCounter == 0 && campaignActiveCounter == 0 && getQueryVariable('activity') != undefined){
+            campaignModule.createError('invalid');
+        }
+
         $('.emp__results__box--list').append('<article class="emp__results__box--card placeholder"></article>');
         /* Re-initialize everything */
         $('[data-toggle="tooltip"]').tooltip();
@@ -77,11 +134,11 @@ function createDOM__savingsInfo(item, options) {
     html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
     /* Logo */
     /* /iwov-resouces */
-    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'' + item.retailer_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'.' + item.retailer_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
     /* Copy Wrapper */
     html += '<div class="savings__info--copy">';
     /* Copy Heading */
-    html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a></small>';
+    html += '<small class="heading">Est. annual savings <a href="javascript:void();" data-toggle="tooltip" data-placement="top" title="Monthly savings: S' + options.total_monthly_savings + ' + S$' + options.current_monthly_sp_bill_size + ' + S$16 &#13;Annual savings: Monthly savings x 12"><img src="./iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a></small>';
     /* Copy Body */
     var annualSavings = cleanSavings(options.total_annual_savings);
     html += '<div class="body annual-savings">S$<span class="annual-savings-value">' + annualSavings + '</span></div>';
@@ -110,7 +167,7 @@ function createDOM__planDetails(item, options, planID) {
     // 
     html += '<div class="plan__details--card"><div class="heading">Plan name</div><div class="body plan-name">' + planName__DOM + '</div></div>';
     /* Promotion */
-    var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : '-');
+    var promotion__DOM = (item.promotion.toLowerCase() != 'no' ? '<img src="./iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : '-');
     html += '<div class="plan__details--card"><div class="heading">Promotion</div><div class="body promotion">' + promotion__DOM + '</div></div></div>';
     html += '<div class="plan__details--card narrow--pad"><a href="javascript:void(0)"  class="btn btn-primary btn-block triggerApplyScreen" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow(item, options, 'no') + '">Apply now</a></div>';
     /* Factsheet */
@@ -184,7 +241,7 @@ function createDOM__comparePlans(item, options, planID) {
         'comparison_1': item.comparison_1,
         'comparison_2': item.comparison_2,
         'comparison_3': item.comparison_3,
-        'promotion': (item.promotion.toLowerCase() != 'no' ? '<img src="/iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : '-')
+        'promotion': (item.promotion.toLowerCase() != 'no' ? '<img src="./iwov-resources/flp/images/marketplace/electricity/revamp/check.svg" alt=""> ' + item.promotion.replace('_', ' ') : '-')
     };
     /* Start Compare Plans */
     html += '<div class="compare__plans">';
@@ -199,7 +256,7 @@ function createDOM__comparePlans(item, options, planID) {
 /* 📦 create DOM for ecofriendly plans */
 function createDOM__greenEnergy(state) {
     if (state.toLowerCase() == 'yes') {
-        return ' <img src="/iwov-resources/flp/images/marketplace/electricity/revamp/eco.svg" alt="" data-toggle="tooltip" data-placement="top" title="Eco-friendly" class="isEcoFriendly">';
+        return ' <img src="./iwov-resources/flp/images/marketplace/electricity/revamp/eco.svg" alt="" data-toggle="tooltip" data-placement="top" title="Eco-friendly" class="isEcoFriendly">';
     } else { return '' }
 }
 
@@ -220,7 +277,7 @@ function createDOM__comparisonPlans(comparisonList) {
         /*  */
         $(parent).addClass('activeComparison');
         /* First Section */
-        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("' + v.logo + '")');
+        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url(".' + v.logo + '")');
         $(parent + ' > .compareItems--card div.heading').text('S' + v.annual_savings);
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
         $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
@@ -285,3 +342,70 @@ function numberWithCommas(number) {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
 }
+
+
+
+// Expiry Component
+var campaignModule = {
+    checkExpiry: function(item){
+        if(getQueryVariable('activity') != undefined){
+            var activityQuery = getQueryVariable('activity');
+            var dateToday = new Date();
+            var expiry_date = new Date(item.activity_expiry);
+            if(item.activity_name != "public" && item.activity_name == activityQuery && expiry_date >= dateToday){
+                return 'active';
+            }else if(item.activity_name == activityQuery && expiry_date < dateToday){
+                return 'expired';
+            }else if(item.activity_name != activityQuery){
+                return 'invalid';
+            }else if(item.activity_name == 'public'){
+                return 'public';
+            }
+        }else{
+            if(item.activity_name == 'public'){
+                return 'public';
+            }else{
+                return 'invalid';
+            } 
+        }
+    },
+    init: function(){
+        var sstyle = "position: fixed; bottom: 0px; right: 0px; background: #FFF; z-index: 999999;";
+        $('body').append('<div id="date-today" style="'+sstyle+'">' + new Date() + '</div>');
+        setInterval(function(){
+            $('#date-today').html(new Date());
+        }, 1000);
+    },
+    createLabel: function(state, item){
+        var html;
+        var style = "position: absolute; left: 0px; left: 0px; width: 100%;";
+        switch (state){
+            case 'active':
+                html = '<div class="label label-success" style="'+style+'"> Active until ' + item.activity_expiry + '</div>';
+                break;
+            case 'expired':
+                html = '<div class="label label-danger" style="'+style+'"> Expired last ' + item.activity_expiry + '</div>'; 
+                break;
+            default:
+                break;
+        }
+        return html;
+    },
+    createError: function(state){
+        switch (state){ 
+            case 'expired': 
+                $('.emp__campaign__validator').html('<p class="text-danger">This activity has expired.</p>');
+                break;
+            case 'invalid':
+                $('.emp__campaign__validator').html('<p class="text-muted">This activity is not active and/or invalid. Please contact customer support. For the mean time, please check other plans we offer.</p>');
+                break; 
+            default:
+                break;
+        }
+    }
+}
+ 
+
+$(function(){
+    campaignModule.init();
+}); 
