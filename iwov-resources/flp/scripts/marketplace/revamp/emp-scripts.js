@@ -24,20 +24,7 @@ function checkHash(){
     if(getQueryVariable('external') == 'true' && getQueryVariable('ump') == undefined){
         $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
     }
-    if (window.location.hash) {
-        var hash = window.location.hash.substring(1);
-        switch (hash) {
-            case "telco":
-                $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click');
-                break;
-            case "electricity":
-                $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
-                break;
-            default: 
-                // 
-                break;
-        }
-    }
+    checkShowState();
 }
 
 
@@ -578,8 +565,13 @@ $(window).on('resize', function(){
     if(getQueryVariable('external') == 'true' && getQueryVariable('ump') == undefined){
         $('.plan__box--tabItem[data-content-type="EMP-CONTENT"]').trigger('click');
     }
-    if (window.location.hash) {
-        var hash = window.location.hash.substring(1);
+    checkShowState()
+});
+
+function checkShowState(){
+    if (getQueryVariable('show') != undefined) {
+        // var hash = window.location.hash.substring(1);
+        var hash = getQueryVariable('show');
         switch (hash) {
             case "telco":
                 $('.plan__box--tabItem[data-content-type="TMP-CONTENT"]').trigger('click');
@@ -592,7 +584,7 @@ $(window).on('resize', function(){
                 break;
         }
     }
-});
+}
 
 /* 🖥 EMP Gateway View Plans  
 */
