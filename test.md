@@ -1,4 +1,34 @@
 Tests:
+
+Case 1:
+Activity Name: thursday
+Expiry Date: 10-Sep-2020-17:30
+Sample Query: ?external=true&activity=thursday
+
+Case 2:
+Activity Name: friday
+Expiry Date: 11-Sep-2020-15:30
+Sample Query: ?external=true&activity=friday
+
+Case 3:
+Activity Name: saturday
+Expiry Date: 12-Sep-2020-17:30
+Sample Query: ?external=true&activity=saturday
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -------------
 Scenario 1: 
 - WITH on-load overlay
