@@ -2,7 +2,7 @@
   {
     "retailer_name": "Keppel Electric Pte Ltd",
     "activity_name" : "keppel-anniversary",
-    "activity_expiry" : "6-Sep-2020-17:30",
+    "activity_expiry" : "10-Sep-2020-17:30",
     "retailer_id": "keppel",
     "package_id": "kedot24",
     "plan_name": "DOT24",
@@ -99,7 +99,7 @@
   {
     "retailer_name": "Keppel Electric Pte Ltd",
     "activity_name" : "keppel-anniversary",
-    "activity_expiry" : "6-Sep-2020-15:30",
+    "activity_expiry" : "10-Sep-2020-17:30",
     "retailer_id": "keppel",
     "package_id": "kefix24",
     "plan_name": "FIXED24",
@@ -196,7 +196,7 @@
   {
     "retailer_name": "Union Power Pte Ltd",
     "activity_name" : "union-power-sale",
-    "activity_expiry" : "13-Mar-2020-23:30",
+    "activity_expiry" : "11-Sep-2020-15:30",
     "retailer_id": "unionpower",
     "package_id": "unionpowersaver24m",
     "plan_name": "Power Saver 24",
@@ -293,7 +293,7 @@
   {
     "retailer_name": "Union Power Pte Ltd",
     "activity_name" : "union-power-sale",
-    "activity_expiry" : "13-Mar-2020-23:30",
+    "activity_expiry" : "11-Sep-2020-15:30",
     "retailer_id": "unionpower",
     "package_id": "unionsaver24m",
     "plan_name": "Union Saver 24",
@@ -1263,7 +1263,7 @@
   {
     "retailer_name": "Sunseap Energy Pte Ltd",
     "activity_name" : "dbs-promo",
-    "activity_expiry" : "1-Sep-2020-13:30",
+    "activity_expiry" : "12-Sep-2020-17:30",
     "retailer_id": "sunseap",
     "package_id": "sunseapone24mfixed",
     "plan_name": "Sunseap One Fix 24 Months",
@@ -2912,7 +2912,7 @@
   {
     "retailer_name": "Best Electricity Supply",
     "activity_name" : "dbs-promo",
-    "activity_expiry" : "7-Sep-2020-13:30",
+    "activity_expiry" : "12-Sep-2020-17:30",
     "retailer_id": "bestelectricity",
     "package_id": "bestsaver24m",
     "plan_name": "Best Home Saver 24 Months",
@@ -3203,7 +3203,7 @@
   {
     "retailer_name": "Pacific Light",
     "activity_name" : "dbs-promo",
-    "activity_expiry" : "7-Sep-2020-13:30",
+    "activity_expiry" : "12-Sep-2020-17:30",
     "retailer_id": "pacificlight",
     "package_id": "pacltconfirm12",
     "plan_name": "Confirm Save 12",

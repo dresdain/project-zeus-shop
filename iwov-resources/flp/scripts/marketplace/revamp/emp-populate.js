@@ -82,8 +82,9 @@ function populatePlans(minBill, maxBill, action, search_type) {
                         }else if(campaignExpiredCounter == 0 && campaignActiveCounter == 0 && getQueryVariable('activity') != undefined){
                             $('.non-campaign').remove();
                         }else if(getQueryVariable('activity') == undefined){
-                            $('article:not(.public-campaign)').remove();
+                            $('article:not(.public-campaign)').remove(); 
                         }
+                        $('.expired-campaign').remove();
                         jplist.resetControl('#main-pagination');
                         $('[data-toggle="tooltip"]').tooltip();
                     });
