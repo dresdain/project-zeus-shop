@@ -34,67 +34,132 @@ function populatePlans(minBill, maxBill, action, search_type) {
         });
         console.log(filterRetailers);
 
+        var campaignActiveCounter = 0,
+            campaignExpiredCounter = 0;
+
+
         data.forEach(function (item) {
-            for (var i = 0; i <= (item.options.length - 1); i++) {
 
-                if (globalContentState == "EMP-CONTENT") {
-                    var dataDOM = '';
-                    var rangeControl = item.options[i].current_monthly_sp_bill_size;
-                    if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
-                        var planID = 'plan_item--' + counter;
-                        dataDOM += '<article data-jplist-item class="electricity-article tmp__results__box--card emp__results__box--card" id="' + planID + '">';
-                        dataDOM += createDOM__savingsInfo(item, item.options[i]);
-                        dataDOM += createDOM__planDetails(item, item.options[i], planID);
-                        dataDOM += createDOM__comparePlans(item, item.options[i], planID);
-                        dataDOM += '</article>';
-                        jplist.resetContent(function () {
-                            $('.emp__results__box--list').append(dataDOM);
-                            jplist.resetControl('#main-pagination');
-                            $('[data-toggle="tooltip"]').tooltip();
-                        });
+
+                if(globalContentState == "EMP-CONTENT"){ 
+                    for (var a = 0; a <= (item.options.length - 1); a++) {
+                        var rangeControl = item.options[a].current_monthly_sp_bill_size;
+                        if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) { 
+                                switch(campaignModule.checkExpiry(item)){
+                                    case 'active':
+                                        campaignActiveCounter++;
+                                        break;
+                                    case 'expired':
+                                        campaignExpiredCounter++;
+                                        break;
+                                } 
+                        }
                     }
-                } else
-                    if (globalContentState == "TMP-CONTENT") {
-                        // console.log(item);
+                }
+ 
+            for (var i = 0; i <= (item.options.length - 1); i++) { 
+                if (globalContentState == "EMP-CONTENT") { 
+                    console.log(item, campaignModule.checkExpiry(item), 'range', rangeControl); 
                         var dataDOM = '';
-
-                        var rangeControlData = (item.data == "unlimited" ? 'unlimited' : parseFloat(item.data.replace('GB', '').replace(' ', '')));
-                        var rangeControlPrice = parseFloat(item.options[i].price_per_month.replace(' ', '').replace('$', ''));
-
-                        var condition__DataIntended = parseFloat($('#planForm__dropdown .range-cost').val());
-                        var condition__PriceIntended = parseFloat($('#planForm__dropdown .place-live').val());
-                        console.log(condition__PriceIntended);
-                        if (   $.inArray(item.retailer_id, filterRetailers) > -1 && ((rangeControlData <= condition__DataIntended && rangeControlPrice <= condition__PriceIntended) || (condition__DataIntended === Infinity && rangeControlPrice <= condition__PriceIntended))  ) {
-
-                            var unlimitedPlan = (item.data == "unlimited" ? 'isUnlimited' : 'isNotUnlimited');
+                        var rangeControl = item.options[i].current_monthly_sp_bill_size;
+                        if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
                             var planID = 'plan_item--' + counter;
-                            dataDOM += '<article data-jplist-item class="telco-article ' + unlimitedPlan + '  tmp__results__box--card  emp__results__box--card" id="' + planID + '">';
-                            dataDOM += createDOM__savingsInfo__TMP(item, item.options[i]);
-                            dataDOM += createDOM__promotionsInfo(item, item.options[i], '  ');
-                            dataDOM += createDOM__planDetails__TMP(item, item.options[i]);
-                            // dataDOM += createDOM__promotionsInfo(item, item.options[i], '  ');
-                            dataDOM += createDOM__comparePlans__TMP(item, item.options[i], planID);
+
+                            var campaignActive = 'non-campaign',
+                            campaignHTML = ''; 
+
+                            switch(campaignModule.checkExpiry(item)){
+                                case 'active':
+                                    campaignActive = 'active-campaign';
+                                    campaignHTML = campaignModule.createLabel('active', item);  
+                                    break;
+                                case 'expired':
+                                    campaignActive = 'expired-campaign';
+                                    campaignHTML = campaignModule.createLabel('expired', item);   
+                                    break;
+                                case 'invalid':
+                                    campaignActive = 'non-campaign';  
+                                    break;
+                                case 'public':
+                                    campaignActive = 'public-campaign';  
+                                    break;
+                            }
+
+
+                            dataDOM += '<article style="position:relative;" data-jplist-item class="electricity-article tmp__results__box--card emp__results__box--card '+ campaignActive +'" id="' + planID + '">' + campaignHTML;
+                            dataDOM += createDOM__savingsInfo(item, item.options[i]);
+                            dataDOM += createDOM__planDetails(item, item.options[i], planID);
+                            dataDOM += createDOM__comparePlans(item, item.options[i], planID);
                             dataDOM += '</article>';
-
-
                             jplist.resetContent(function () {
-                                $('.emp__results__box--list').append(dataDOM);
-                                if (condition__DataIntended === Infinity) {
-                                    $('.isNotUnlimited').remove();
-                                } else {
-                                    // $('.isUnlimited').remove();
+                                $('.emp__results__box--list').append(dataDOM); 
+                                if(campaignExpiredCounter > 0 && getQueryVariable('activity') != undefined){
+                                    $('.non-campaign').remove();
+                                }else if(campaignActiveCounter > 0 && getQueryVariable('activity') != undefined){
+                                    $('.non-campaign').remove();
+                                }else if(campaignExpiredCounter == 0 && campaignActiveCounter == 0 && getQueryVariable('activity') != undefined){
+                                    $('.non-campaign').remove();
+                                }else if(getQueryVariable('activity') == undefined){
+                                    $('article:not(.public-campaign)').remove(); 
                                 }
+                                $('.expired-campaign').remove();
                                 jplist.resetControl('#main-pagination');
                                 $('[data-toggle="tooltip"]').tooltip();
                             });
                         }
-                    }
+                } else{
+                    
+                        if (globalContentState == "TMP-CONTENT") {
+                            // console.log(item);
+                            var dataDOM = ''; 
+                            var rangeControlData = (item.data == "unlimited" ? 'unlimited' : parseFloat(item.data.replace('GB', '').replace(' ', '')));
+                            var rangeControlPrice = parseFloat(item.options[i].price_per_month.replace(' ', '').replace('$', ''));
+
+                            var condition__DataIntended = parseFloat($('#planForm__dropdown .range-cost').val());
+                            var condition__PriceIntended = parseFloat($('#planForm__dropdown .place-live').val());
+                            console.log(condition__PriceIntended);
+                            if (   $.inArray(item.retailer_id, filterRetailers) > -1 && ((rangeControlData <= condition__DataIntended && rangeControlPrice <= condition__PriceIntended) || (condition__DataIntended === Infinity && rangeControlPrice <= condition__PriceIntended))  ) {
+
+                                var unlimitedPlan = (item.data == "unlimited" ? 'isUnlimited' : 'isNotUnlimited');
+                                var planID = 'plan_item--' + counter;
+                                dataDOM += '<article data-jplist-item class="telco-article ' + unlimitedPlan + '  tmp__results__box--card  emp__results__box--card" id="' + planID + '">';
+                                dataDOM += createDOM__savingsInfo__TMP(item, item.options[i]);
+                                dataDOM += createDOM__promotionsInfo(item, item.options[i], '  ');
+                                dataDOM += createDOM__planDetails__TMP(item, item.options[i]);
+                                // dataDOM += createDOM__promotionsInfo(item, item.options[i], '  ');
+                                dataDOM += createDOM__comparePlans__TMP(item, item.options[i], planID);
+                                dataDOM += '</article>';
 
 
-
+                                jplist.resetContent(function () {
+                                    $('.emp__results__box--list').append(dataDOM);
+                                    if (condition__DataIntended === Infinity) {
+                                        $('.isNotUnlimited').remove();
+                                    } else {
+                                        // $('.isUnlimited').remove();
+                                    }
+                                    jplist.resetControl('#main-pagination');
+                                    $('[data-toggle="tooltip"]').tooltip();
+                                });
+                            }
+                        }
+                    
+                }
             }
+                    
+
+                    
             counter++;
         });
+
+        if(campaignExpiredCounter > 0 && getQueryVariable('activity') != undefined){
+            campaignModule.createError('expired');
+        }else if(campaignExpiredCounter == 0 && campaignActiveCounter == 0 && getQueryVariable('activity') != undefined){
+            campaignModule.createError('invalid');
+            console.log(" I N V A  LI  D ")
+        }
+        console.log("Expired Counter: " + campaignExpiredCounter);
+        console.log("Active Counter: " + campaignActiveCounter);
 
         $('.emp__results__box--list').append('<article class="emp__results__box--card placeholder"></article>');
 
@@ -766,3 +831,75 @@ function numberWithCommas(number) {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
 }
+
+
+
+
+
+
+
+
+// Expiry Component
+var campaignModule = {
+    checkExpiry: function(item){
+        if(getQueryVariable('activity') != undefined){
+            var activityQuery = getQueryVariable('activity');
+            var dateToday = new Date();
+            var expiry_date = new Date(item.activity_expiry);
+            if(item.activity_name != "public" && item.activity_name == activityQuery && expiry_date >= dateToday){
+                return 'active';
+            }else if(item.activity_name == activityQuery && expiry_date < dateToday){
+                return 'expired';
+            }else if(item.activity_name != activityQuery){
+                return 'invalid';
+            }else if(item.activity_name == 'public'){
+                return 'public';
+            }
+        }else{
+            if(item.activity_name == 'public'){
+                return 'public';
+            }else{
+                return 'invalid';
+            } 
+        }
+    },
+    init: function(){
+        var sstyle = "position: fixed; bottom: 0px; right: 0px; background: #FFF; z-index: 999999;";
+        $('body').append('<div id="date-today" style="'+sstyle+'">' + new Date() + '</div>');
+        setInterval(function(){
+            $('#date-today').html(new Date());
+        }, 1000);
+    },
+    createLabel: function(state, item){
+        var html;
+        var style = "position: absolute; left: 0px; left: 0px; width: 100%;";
+        switch (state){
+            case 'active':
+                html = '<div class="label label-success" style="'+style+'"> Active until ' + item.activity_expiry + '</div>';
+                break;
+            case 'expired':
+                html = '<div class="label label-danger" style="'+style+'"> Expired last ' + item.activity_expiry + '</div>'; 
+                break;
+            default:
+                break;
+        }
+        return html;
+    },
+    createError: function(state){
+        switch (state){ 
+            case 'expired': 
+                $('.emp__campaign__validator').html('<p class="text-danger">This activity has expired.</p>');
+                break;
+            case 'invalid':
+                $('.emp__campaign__validator').html('<p class="text-muted">This activity is not active and/or invalid. Please contact customer support. For the mean time, please check other plans we offer.</p>');
+                break; 
+            default:
+                break;
+        }
+    }
+}
+ 
+
+$(function(){
+    campaignModule.init();
+}); 
