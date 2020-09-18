@@ -903,5 +903,5 @@ var campaignModule = {
  
 
 $(function(){
-    campaignModule.init();
+    // campaignModule.init();
 }); 
