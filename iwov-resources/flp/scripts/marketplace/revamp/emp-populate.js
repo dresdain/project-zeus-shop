@@ -1,6 +1,6 @@
 var origin__DIR = document.URL.substring(0, document.URL.lastIndexOf("/")),
-    script__DIR = './iwov-resources/flp/scripts/marketplace/',
-    production_DIR = ".";
+    script__DIR = '/iwov-resources/flp/scripts/marketplace/',
+    production_DIR = "";
     
 var firstTimeSearchControl = 0;
 var loadFile = "emp-p2.json";
@@ -888,10 +888,12 @@ var campaignModule = {
     createError: function(state){
         switch (state){ 
             case 'expired': 
-                $('.emp__campaign__validator').html('<p class="text-danger">This activity has expired.</p>');
+                // $('.emp__campaign__validator').html('<p class="text-danger">This activity has expired.</p>');
+                $('.emp__campaign__validator').html('&nbsp;');
                 break;
             case 'invalid':
-                $('.emp__campaign__validator').html('<p class="text-muted">This activity is not active and/or invalid. Please contact customer support. For the mean time, please check other plans we offer.</p>');
+                // $('.emp__campaign__validator').html('<p class="text-muted">This activity is not active and/or invalid. Please contact customer support. For the mean time, please check other plans we offer.</p>');
+                $('.emp__campaign__validator').html('&nbsp;');
                 break; 
             default:
                 break;
