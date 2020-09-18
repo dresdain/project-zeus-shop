@@ -1,0 +1,675 @@
+ /*create a new copy of main.css then replace existing with the codes below*/
+ .advanced-search__cont {
+    width: 24%;
+} 
+
+.advanced-search__dropdown {
+    -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .25);
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .25);
+}
+
+.dzSUHz{width:980px;max-width:100%;margin:0 auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+/* sc-component-id: sc-bwzfXH */
+
+.hCtUBO{display:block;height:40px;padding:12px 24px;background:#ff3333;border-radius:4px;width:100%;color:#FFF;font-size:16px;font-family:Frutiger,Helvetica,Arial,sans-serif;font-weight:700;border:none;outline:none;cursor:pointer;position:relative;text-decoration:none;}.hCtUBO:not(.loading):not(:disabled):hover{background:#f00;}.hCtUBO:disabled{background:#ececec;color:#656565;}.hCtUBO.loading{background:#ececec;color:#656565;pointer-events:none;cursor:auto;}.hCtUBO .loader-icon{position:absolute;top:50%;right:8px;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);}.hCtUBO .loader-icon .loader{border-top:3px solid rgba(50,50,50,0.25);border-right:3px solid rgba(50,50,50,0.25);border-bottom:3px solid rgba(50,50,50,0.75);border-left:3px solid rgba(50,50,50,0.75);}
+/* sc-component-id: sc-bxivhb */
+
+.ealeZV{display:block;height:40px;padding:12px 24px;background:none;border-radius:4px;width:100%;color:#ffffff;font-size:16px;font-family:Frutiger,Helvetica,Arial,sans-serif;font-weight:700;border:1px solid #ffffff;outline:none;cursor:pointer;text-decoration:none;}.ealeZV:hover{background:rgba(0,0,0,0.1);}
+/* sc-component-id: sc-ifAKCX */
+
+.ilTItx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:12px;background-color:#ffffff;}.ilTItx:hover{background-color:#e8e8e8;}
+/* sc-component-id: sc-EHOje */
+
+.howGjt{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;border:solid 1px #c0c0c0;width:18px;height:18px;margin-right:10px;}.howGjt:hover{box-shadow:inset 0 0 10px #909090;}
+/* sc-component-id: sc-bZQynM */
+
+.fvVNRm{display:inline-block;width:100%;opacity:0;}
+/* sc-component-id: sc-gzVnrw */
+
+.dGHfIe{color:#000000;width:100%;}
+/* sc-component-id: sc-htoDjs */
+
+.khKAao{height:40px;background-color:#ffffff;color:#000000;cursor:pointer;-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;}.khKAao.disabled{color:#909090;}
+/* sc-component-id: sc-dnqmqq */
+
+.gATDCx{height:40px;width:100%;position:relative;}
+/* sc-component-id: sc-iwsKbI */
+
+.hJMJYS{height:40px;width:100%;position:absolute;color:transparent;outline:none;border:none;}.hJMJYS:focus{outline:none;color:transparent;text-indent:-9999em;}
+/* sc-component-id: sc-gZMcBi */
+
+.hXIJaY{height:40px;width:100%;position:absolute;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:transparent;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding-right:12px;padding-left:12px;}
+/* sc-component-id: sc-gqjmRU */
+
+.khIFXx{height:0px;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;box-shadow:none;}
+/* sc-component-id: sc-VigVT */
+
+
+/* sc-component-id: sc-jTzLTM */
+
+
+/* sc-component-id: sc-fjdhpX */
+
+.cIVbIB{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;background-color:#ffffff;width:100%;border-top:none;z-index:201;}
+/* sc-component-id: sc-jzJRlG */
+
+.bmCevr{background-color:#c0c0c0;height:1px;width:100%;}
+/* sc-component-id: sc-cSHVUG */
+
+.cNBZnV{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;}
+/* sc-component-id: sc-kAzzGY */
+
+.jOpMbD{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;padding:4px;width:auto;}.jOpMbD .col-span{text-align:center;}
+/* sc-component-id: sc-chPdSV */
+
+
+/* sc-component-id: sc-kgoBCf */
+
+.fvIATk{width:100%;margin-bottom:10px;position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}
+/* sc-component-id: sc-kGXeez */
+
+.etFjGZ{width:180px;height:40px;border-radius:4px;background-color:#ff3333;border:solid 1px #ee1818;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;cursor:pointer;margin-left:8px;font-family:Frutiger,Helvetica,Arial,sans-serif;}
+/* sc-component-id: sc-kpOJdX */
+
+.hcaXFa{font-size:16px;font-weight:bold;text-align:center;color:#ffffff;cursor:pointer;}
+/* sc-component-id: sc-iAyFgw */
+
+.bbheyy{padding:8px;}
+/* sc-component-id: sc-hSdWYo */
+
+.bYefOl{background-image:url("/personal/landing/propertymarketplace/assets/imgs/district-rv.jpg");background-position:center center;background-size:cover;background-repeat:no-repeat;height:197px;position:relative;}
+.fcxich{background-image:url("/personal/landing/propertymarketplace/assets/imgs/district-serangoon.jpg");background-position:center center;background-size:cover;background-repeat:no-repeat;height:197px;position:relative;}
+.cAaBRt{background-image:url("/personal/landing/propertymarketplace/assets/imgs/district-katong.jpg");background-position:center center;background-size:cover;background-repeat:no-repeat;height:197px;position:relative;}
+.bqcVjV{background-image:url("/personal/landing/propertymarketplace/assets/imgs/district-holland.jpg");background-position:center center;background-size:cover;background-repeat:no-repeat;height:197px;position:relative;}
+/* sc-component-id: sc-eHgmQL */
+
+.eCcoCe{border:solid 1px #e5e5e5;}
+/* sc-component-id: sc-cvbbAY */
+
+.ksFjyg{font-size:14px;font-weight:500;text-align:left;border-bottom:solid 1px #e5e5e5;padding:12px 8px 4px 12px;width:100%;height:52px;}
+/* sc-component-id: sc-jWBwVP */
+
+.hgfLYY{font-size:11px;font-weight:300;padding:4px 8px 12px 12px;text-align:left;}
+/* sc-component-id: sc-brqgnP */
+
+.etdYzq{opacity:0.8;font-size:20px;font-weight:900;color:#ffffff;text-shadow:0 2px 4px #000000a5;position:absolute;left:12px;bottom:0;}
+/* sc-component-id: sc-cMljjf */
+
+.dlKCKf{margin-left:-16px;margin-right:-16px;display:block;height:100%;}
+/* sc-component-id: sc-jAaTju */
+
+.ceRmLF{position:relative;text-align:center;}
+/* sc-component-id: sc-jDwBTQ */
+
+.lbdDTC{display:inline-block;width:100%;height:88px;text-align:center;font-size:88px;color:#f6f6f6;font-weight:800;text-transform:uppercase;z-index:0;}@media (max-width:47.9375em){.lbdDTC{display:none;}}
+/* sc-component-id: sc-gPEVay */
+
+.fQlSei{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;margin-top:-74px;z-index:1;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding:0 16px;margin-bottom:24px;}@media (max-width:47.9375em){.fQlSei{margin-top:0;}}.fQlSei h2{display:block;font-size:30px;font-weight:500;margin:8px 0 0 0;}@media (max-width:47.9375em){.fQlSei h2{font-size:24px;}}.fQlSei span{font-size:18px;font-weight:500;text-align:center;color:#656565;padding:12px 0;}@media (max-width:47.9375em){.fQlSei span{font-size:14px;font-weight:400;}}
+
+
+
+
+
+
+
+
+
+
+
+.easy-autocomplete {width: 100% !important;}
+.easy-autocomplete-container {position: absolute; z-index: 1111; background-color: #ffffff; width: calc(100% + 1px); box-sizing: border-box; -webkit-box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.4); -moz-box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.4); box-shadow: 3px 3px 8px 0px rgba(50, 50, 50, 0.4); }
+.easy-autocomplete-container ul {}
+.easy-autocomplete-container ul li {padding: 10px 15px;}
+.easy-autocomplete-container ul li:hover {background-color: #f1f1f1; cursor: pointer;}
+.hero-banner__proposition li {text-align: center !important; width: 100% !important;}
+.regular.slider a {color: inherit !important;}
+                                          
+                                          
+@media (max-width: 768px){
+
+  .advanced-search__cont {
+    width: 100% !important;
+  }
+  
+  .easy-autocomplete-container {z-index: 999999999 !important;}
+  .advanced-search__car-price {z-index: 99999999 !important;}
+  .advanced-search__property-type {z-index: 9999999 !important;}
+  .advanced-search__rental-type {z-index: 999999 !important;}
+    
+    .hero-banner>.wingspan {
+      height: 815px !important;
+    }
+    .hero-banner__cont {
+        top: 31% !important;
+    }
+    .featured-properties {
+        margin-top: -300px !important;
+    }
+    .hgfLYY {font-size: 14px !important;}
+  
+  
+  
+}
+
+
+span.red {
+  color: #f33;
+}
+
+.f-bestseller-wrapper {
+  /*background: #ededed;*/
+}
+.f-bestseller-wrapper h1 {
+  text-align: center;
+  position: relative;
+  top: -17px;
+  padding: 0 20px;
+  background: #fff;
+  width: 585px;
+  margin: 0 auto;
+}
+/* for dbs electricily stlying */
+.bg-white {
+  background: #fff;
+}
+.bg-gray {
+  background: #f3f3f3;
+}
+.f-bestseller-wrapper .container .row {
+  border: 1px solid #ededed;
+  -webkit-box-shadow: 3px 3px 2px 0px #eaeaea;
+  -moz-box-shadow: 3px 3px 2px 0px #eaeaea;
+  box-shadow: 3px 3px 2px 0px #eaeaea;
+}
+.advanced-search__label i.fa-red, i.fa-red {
+  color: #ff3333;
+}
+.f-bestseller-wrapper .pl-partners-multi .dropdown {
+  border: 1px solid #c0c0c0;
+}
+
+.f-bestseller-wrapper label {
+  line-height: 35px;
+}
+.f-bestseller-wrapper .advanced-search__cont {
+  z-index: auto;
+}
+.f-bestseller-wrapper .info-icon {
+  color: #909090;
+  border: 2px solid #909090;
+  border-radius: 50%;
+  -moz- border-radius: 50%;
+  -webkit-border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 15px;
+  display: inline-block;
+  font-weight: bold;
+}
+.f-bestseller-wrapper a.tooltips {
+  position: relative;
+  /*display: inline;*/
+}
+.f-bestseller-wrapper a.tooltips span {
+  position: absolute;
+  width: 250px;
+  color: #FFFFFF;
+  background: rgba(0,0,0,.7);
+  min-height: 30px;
+  font-size: 11px;
+  text-align: left;
+  visibility: hidden;
+  padding: 10px;
+  font-weight: normal;
+   margin-left: -125px;
+}
+.f-bestseller-wrapper a.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid rgba(0,0,0,.7);
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+.f-bestseller-wrapper a:hover.tooltips span {
+  visibility: visible;
+  /*opacity: 0.7;*/
+  bottom: 35px;
+  left: 50%;
+ 
+  z-index: 999;
+
+}
+.f-bestseller-wrapper .tooltip-arrow,
+.f-bestseller-wrapper .red-tooltip + .tooltip > .tooltip-inner {background-color: #f00;}
+.switch-section h2 {
+  margin-top: 50px;
+}
+.circle-wrapper h3 {
+  margin-top: 20px;
+  font-size: 16px;
+  /*font-family: "Helvetica";*/
+}
+.circle-wrapper ~ ul {
+  border-top: 1px solid #dcdcdc;
+  clear: both;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 13px;
+  color: #656565;
+  /*font-family: "Helvetica";*/
+}
+span.ml {
+  margin-left: 18px;
+}
+.circle-wrapper .col-md-4 {
+  padding-top: 50px;
+  text-align: center;
+  padding-bottom: 50px;
+  position: relative;
+  padding-right: 15px;
+}
+.circle-wrapper .col-md-4 p {
+  font-size: 14px;
+  color: #656565;
+  /*font-family: "Helvetica";*/
+}
+.circle-wrapper ~ ul li span.astrict1 {
+  margin-right: 5px;
+}
+.circle-wrapper ~ ul li span.astrict2 {
+  margin-right: 5px;
+}
+.switch-section {
+  margin-bottom: -20px;
+}
+.circle-wrapper .col-md-4:after {
+  content: "";
+  background: url(/iwov-resources/media/images/electricity-marketplace/next-icon.png) center center no-repeat;
+  height: 30px;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  z-index: 1;
+  width: 30px;
+}
+.circle-wrapper .col-md-4.last:after {
+  background: none;
+}
+#search-form-best-seller, .form-value {
+  padding: 20px 5%;
+}
+.f-bestseller-wrapper .advanced-search__cont {
+    width: 30%;
+}
+.f-bestseller-wrapper .adv-search-2 .advanced-search__cont {
+  width: 29%;
+}
+.plan-section .col-md-3 {
+  margin-bottom: 30px;
+}
+.match-tit {
+  clear: both;
+  padding-bottom: 50px;
+}
+.plan-wrapper .col-md-3 .plan {
+  border: 1px solid #dcdcdc;
+  padding: 15px;
+      /* white-space: pre-wrap; */
+
+white-space: pre; /* CSS 2.0 */
+white-space: pre-wrap; /* CSS 2.1 */
+white-space: pre-line; /* CSS 3.0 */
+white-space: -pre-wrap; /* Opera 4-6 */
+white-space: -o-pre-wrap; /* Opera 7 */
+white-space: -moz-pre-wrap; /* Mozilla */
+word-wrap: break-word; /* IE 5+ */
+
+}
+.plan-wrapper .col-md-3 .plan h4 {
+  margin: 0;
+  padding-bottom: 20px;
+}
+.plan-wrapper .col-md-3 .plan-inner {
+  /*min-height: 293px;*/
+  border: 1px solid transparent;
+}
+.plan-wrapper .col-md-3 .plan.plan-over .plan-logo
+/*,.plan-wrapper .col-md-3 .plan:hover .plan-logo*/ {
+  display: none;
+}
+.plan-wrapper .col-md-3 .plan.plan-over .price/*,
+.plan-wrapper .col-md-3 .plan:hover .price*/
+{
+  display: none;
+}
+.plan-wrapper .col-md-3 .plan.plan-over .description/*,
+.plan-wrapper .col-md-3 .plan:hover .description */{
+  display: none;
+}
+
+.plan-wrapper .col-md-3 .plan .more-details {
+  visibility: hidden;
+  opacity: 0;
+  -moz-opacity: 0;
+  -webkit-opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  position: absolute;
+  /*border: 1px solid;*/
+  white-space: pre; /* CSS 2.0 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3.0 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  word-wrap: break-word; /* IE 5+ */
+}
+.plan-wrapper .col-md-3 .plan .more-details li {
+  white-space: pre; /* CSS 2.0 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3.0 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  word-wrap: break-word; /* IE 5+ */
+  padding-right: 20px; /*for issue fixed for word wrap in ie awhile*/
+}
+.plan-wrapper .col-md-3 .plan.plan-over .more-details/*,
+ .plan-wrapper .col-md-3 .plan:hover .more-details*/ {
+  visibility: visible;
+  opacity: 1;
+  -moz-opacity: 1;
+  -webkit-opacity: 1;
+  height: auto;
+  position: initial;
+}
+.plan-wrapper .col-md-3 .plan .plan-logo {
+  text-align: center;
+  display: block;
+  margin-top: 0;
+  min-height: 86px;
+  /*border: 1px solid;*/
+  /*height: 10em;*/
+    position: relative
+}
+.plan-wrapper .col-md-3 .plan .plan-logo img {
+  max-width: 100%; 
+  margin-bottom: 40px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+.plan-wrapper .col-md-3 .plan h3 {
+  /*border: 1px solid;*/
+}
+.plan-wrapper .col-md-3 .plan h4 {
+  /*border: 1px solid;*/
+}
+.plan-wrapper .col-md-3 .plan .price {
+  font-size: 20px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+  /*border: 1px solid;*/
+}
+.plan-wrapper .col-md-3 .plan .units {
+  font-size: 14px;
+}
+.plan-wrapper .col-md-3 .plan .description {
+  padding-top: 20px;
+
+
+}
+.plan-wrapper .col-md-3 .plan .description p, .plan-wrapper .col-md-3 .plan .description .more-details
+ {
+  font-size: 14px;
+}
+.plan-wrapper .col-md-3 .plan .show-action {
+  visibility: hidden;
+  position: absolute;
+}
+
+.plan-wrapper .col-md-3 .plan .show-action span.red {
+  cursor: pointer;
+  font-size: 12px;
+}
+.plan .more-details ul {
+  list-style: disc;
+  padding-left: 17px;
+  font-size: 14px;
+}
+#plan-carousel {
+  position: relative;
+}
+#plan-carousel .carousel-control {
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 56px;
+  font-size: 0;
+}
+#plan-carousel .carousel-control.left {
+  background-image: url('iwov-resources/images/slide-prev.svg');
+  left: -70px;
+}
+#plan-carousel .carousel-control.right {
+  background-image: url('iwov-resources/images/slide-next.svg');
+  right: -70px;
+}
+
+
+#switch-popup.modal .modal-header, #switch-popup.modal .modal-header {
+  border-bottom: 0;
+}
+#switch-popup.modal .modal-body {
+  clear: both;
+}
+#switch-popup .btn {
+  min-width: 300px;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+#switch-popup button.close {
+  font-size: 50px;
+}
+#switch-popup button.close:focus {
+  outline: none;
+}
+#switch-popup .btn.btn-action--red {
+  margin-top: 50px;
+}
+#switch-popup .btn.btn-action--red a:hover {
+  text-decoration: none;
+}
+a.no-underline:focus, a.no-underline:hover {
+  text-decoration: none;
+}
+#switch-popup .btn-action--red a {
+  color: #fff;
+  display: block;
+}
+#switch-popup .btn-secondary a:hover, #switch-popup .btn-secondary:hover a {
+  color: #fff;
+}
+#switch-popup {
+  padding-top: 40px;
+  /*position: absolute;*/
+  /*visibility: hidden;*/
+  /*width: 0;*/
+}
+.promotion-box.full-width .carousel-promo .electricity-content p {
+  width: 55%;
+}
+#search-form-best-seller .pl-basic-checkbox .plbc__styled-cb {
+  display: none;
+}
+#search-form-best-seller .pl-basic-checkbox .plbc__styled-cb .icon-red-tick {
+  margin-top: 0;
+}
+#search-form-best-seller .pl-multi-checkbox ul li label .offset-label {
+  line-height: initial;
+  word-wrap: break-word;
+  padding-right: 10px;
+  margin-left: 8px;
+}
+.search-again-best-seller.red {
+  cursor: pointer;
+}
+.form-plan-factsheet {
+  margin-bottom: 0;
+}
+.btn-action--gray {
+  background: #ececec;
+  color: #2e2e2e;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  line-height: 30px;
+  border: 1px solid rgb(216, 216, 216);
+}
+
+.btn-action--gray:focus {
+  outline: none;
+}
+.btn-action--gray:hover {
+  background: #e6e6e6;
+}
+.slideControls{
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  left: 0;
+}
+.slideControls  i{
+  font-size:70px;
+  color: #dcdcdc;
+}
+.slideControls .slideNext {
+    right: -20px;
+    position: absolute;
+    cursor: pointer;
+  }
+ .slideControls .slidePrev {
+    left: -20px;
+    position: absolute;
+    cursor: pointer;
+  }
+
+
+@media (min-width: 992px){ 
+  #switch-popup .modal-lg {
+    width: 780px;
+  }
+}
+@media (max-width: 767px) and (min-width: 320px){
+  .plan-wrapper .col-md-3 .plan .show-action {
+    visibility: visible;
+    position: initial;
+  }
+  span.ml {
+    margin-left: 0;
+  }
+  .f-bestseller-wrapper h1 {
+    width: auto;
+  }
+  .f-bestseller-wrapper .container {
+    overflow: visible;
+  }
+  .circle-wrapper .col-md-4 {
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+  .switch-section h2 {
+    margin-bottom: 20px;
+  }
+  .circle-wrapper .col-md-4:after {
+      /*background-image: url(/iwov-resources/media/images/electricity-marketplace/down-icon.png) ;
+      width: 40px;
+      height: 12px;
+      bottom: 0;
+      top: initial;
+      left: 0;
+      right: 0;
+      margin: 0 auto;*/
+      background: none;
+  }
+  .circle-wrapper ~ ul {
+    padding-top: 15px;
+    padding-bottom: 41px;
+    font-size: 12px;
+  }
+  .plan  .btn-action--red, .plan .btn-action--gray {
+    outline: none;
+    width: 100%;
+    min-width: initial;
+  }
+  .plan h2 {
+    font-size: 16px;
+  }
+  .plan-wrapper .col-md-3 .plan {
+    padding: 10px;
+  }
+  .plan-wrapper .col-md-3 .plan .price {
+    font-size: 16px;
+  }
+  .plan-wrapper .col-md-3 .plan .units {
+    font-size: 12px;
+  }
+  .plan-wrapper .col-md-3 .plan h4 {
+    font-size: 12px;
+  }
+}
+@media (max-width: 480px){
+  .plan-section .col-md-3 {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    width: 49%;
+  }
+  .plan .btn-action--red, .plan .btn-action--gray {
+    font-size: 12px;
+  }
+  .plan-wrapper .col-md-3 .plan .description {
+    /*min-height: 130px;*/
+  }
+  .plan-wrapper .col-md-3 .plan h3 {
+    font-size: 14px;
+  }
+  /*.plan .more-details ul {
+    min-height: 267px;
+  }*/
+ /* .plan-wrapper .col-md-3 .plan-inner {
+    min-height: 352px;
+  }*/
+}
+
+
+
+.dispute-footnote {
+  clear: both;
+  padding-bottom: 50px;
+  font-size: 12px;
+  color: #656565;
+}
+
+.plan-inner h4 {
+    font-weight: normal;
+    color: #818181;
+}
+
+.description ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+
+.text-center.availability {font-size: 13px;}
+.current-tariff { display: block; font-size: 15px; line-height: 30px;}

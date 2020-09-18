@@ -1,0 +1,1 @@
+{"ClientSideRules":{"timesBasedRules":{"visitedChatbot":"2","pwebVisitDuration":"2"},"cookiesRules":{"visitedPwebSessionCount":{"threshold":"2","cookiesExpiryDate":"30"},"logicalCondition":"or","visitedPageCount":{"threshold":"2","cookiesExpiryDate":"30"}}}}
