@@ -1,7 +1,7 @@
 [{
         "retailer_name": "Best Electricity Supply",
-        "activity_name": "tuesday",
-        "activity_expiry": "13-Oct-2020-23:59",
+        "activity_name": "wednesday",
+        "activity_expiry": "21-Oct-2020-23:59",
         "retailer_id": "bestelectricity",
         "package_id": "bestfixed24m",
         "plan_name": "Best Home Fixed 24 Months",
@@ -96,8 +96,8 @@
     },
     {
         "retailer_name": "Best Electricity Supply",
-        "activity_name": "tuesday",
-        "activity_expiry": "13-Oct-2020-23:59",
+        "activity_name": "wednesday",
+        "activity_expiry": "21-Oct-2020-23:59",
         "retailer_id": "bestelectricity",
         "package_id": "bestfixed12m",
         "plan_name": "Best Home Fixed 12 Months",
@@ -586,7 +586,7 @@
         "rate": "$0.1745",
         "rate_type": "Fixed",
         "contract_duration_months": "12",
-        "promotion": "NO",
+        "promotion": "1% cash rebate with POSB Everyday Card",
         "termination_fee": "Fees apply",
         "green_energy": "YES",
         "comparison_1": "Retailer Direct Billing",
@@ -672,8 +672,8 @@
     },
     {
         "retailer_name": "Geneco ",
-        "activity_name": "wednesday",
-        "activity_expiry": "14-Oct-2020-23:59",
+        "activity_name": "public",
+        "activity_expiry": "none",
         "retailer_id": "geneco",
         "package_id": "gefixed24",
         "plan_name": "Get It Fixed 24",
@@ -682,7 +682,7 @@
         "rate": "$0.1766",
         "rate_type": "Fixed",
         "contract_duration_months": "24",
-        "promotion": "NO",
+        "promotion": "1% cash rebate with POSB Everyday Card",
         "termination_fee": "Fees apply",
         "green_energy": "NO",
         "comparison_1": "Retailer Direct Billing",
@@ -768,8 +768,8 @@
     },
     {
         "retailer_name": "Geneco ",
-        "activity_name": "wednesday",
-        "activity_expiry": "14-Oct-2020-23:59",
+        "activity_name": "public",
+        "activity_expiry": "none",
         "retailer_id": "geneco",
         "package_id": "geless24",
         "plan_name": "Get It Less 24",
@@ -778,7 +778,7 @@
         "rate": "23%",
         "rate_type": "Discounted",
         "contract_duration_months": "24",
-        "promotion": "NO",
+        "promotion": "1% cash rebate with POSB Everyday Card",
         "termination_fee": "Fees apply",
         "green_energy": "NO",
         "comparison_1": "Retailer Direct Billing",
@@ -874,7 +874,7 @@
         "rate": "$0.2088",
         "rate_type": "Fixed",
         "contract_duration_months": "18",
-        "promotion": "NO",
+        "promotion": "1% cash rebate with POSB Everyday Card",
         "termination_fee": "Fees apply",
         "green_energy": "YES",
         "comparison_1": "Retailer Direct Billing",
@@ -1351,7 +1351,7 @@
         "plan_name": "Power Saver 24",
         "bill_rebate": "$60.00",
         "posb_everyday_card_rebate": "1%",
-        "rate": "23%",
+        "rate": "23.6%",
         "rate_type": "Discounted",
         "contract_duration_months": "24",
         "promotion": "S$60 Bill Rebate (with POSB Everyday Credit Cards only)",
@@ -1536,8 +1536,8 @@
     },
     {
         "retailer_name": "Sunseap Energy Pte Ltd",
-        "activity_name": "public",
-        "activity_expiry": "none",
+        "activity_name": "thursday",
+        "activity_expiry": "22-Oct-2020-23:59",
         "retailer_id": "sunseap",
         "package_id": "sunseapone6mfixed",
         "plan_name": "Sunseap One Fix 6 Months",
@@ -1728,8 +1728,8 @@
     },
     {
         "retailer_name": "Sunseap Energy Pte Ltd",
-        "activity_name": "public",
-        "activity_expiry": "none",
+        "activity_name": "thursday",
+        "activity_expiry": "22-Oct-2020-23:59",
         "retailer_id": "sunseap",
         "package_id": "sunseapone24mfixed",
         "plan_name": "Sunseap One Fix 24 Months",
@@ -2215,7 +2215,7 @@
         "plan_name": "Sunseap ONE DOT 24 Months",
         "bill_rebate": "$70.00",
         "posb_everyday_card_rebate": "0%",
-        "rate": "24%",
+        "rate": "23.6%",
         "rate_type": "Discounted",
         "contract_duration_months": "24",
         "promotion": "One-time bill rebate of S$70",
@@ -2597,12 +2597,12 @@
         "retailer_id": "tuaspower",
         "package_id": "tuaspowerdo24",
         "plan_name": "PowerDO 24",
-        "bill_rebate": "$70.00",
+        "bill_rebate": "$20.00",
         "posb_everyday_card_rebate": "1%",
         "rate": "22%",
         "rate_type": "Discounted",
         "contract_duration_months": "24",
-        "promotion": "NO",
+        "promotion": "One Time S$20 Bill Rebate ",
         "termination_fee": "Fees apply",
         "green_energy": "NO",
         "comparison_1": "SP Services Consolidated Billing",
@@ -2621,8 +2621,8 @@
                 "total_retailer_annual_savings_sgd": "$132.00",
                 "ped_card_monthly_rebate": "$0.39",
                 "ped_card_annual_rebate": "$4.68",
-                "total_monthly_savings": "$21.51",
-                "total_annual_savings": "$258"
+                "total_monthly_savings": "$17.35",
+                "total_annual_savings": "$208"
             },
             {
                 "current_monthly_sp_bill_size": 100,
@@ -2633,8 +2633,8 @@
                 "total_retailer_annual_savings_sgd": "$264.00",
                 "ped_card_monthly_rebate": "$0.78",
                 "ped_card_annual_rebate": "$9.36",
-                "total_monthly_savings": "$37.19",
-                "total_annual_savings": "$446"
+                "total_monthly_savings": "$33.03",
+                "total_annual_savings": "$396"
             },
             {
                 "current_monthly_sp_bill_size": 200,
@@ -2645,8 +2645,8 @@
                 "total_retailer_annual_savings_sgd": "$528.00",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$61.83",
-                "total_annual_savings": "$742"
+                "total_monthly_savings": "$57.67",
+                "total_annual_savings": "$692"
             },
             {
                 "current_monthly_sp_bill_size": 300,
@@ -2657,8 +2657,8 @@
                 "total_retailer_annual_savings_sgd": "$792.00",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$83.83",
-                "total_annual_savings": "$1,006"
+                "total_monthly_savings": "$79.67",
+                "total_annual_savings": "$956"
             },
             {
                 "current_monthly_sp_bill_size": 400,
@@ -2669,8 +2669,8 @@
                 "total_retailer_annual_savings_sgd": "$1,056.00",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$105.83",
-                "total_annual_savings": "$1,270.00"
+                "total_monthly_savings": "$101.67",
+                "total_annual_savings": "$1,220.00"
             },
             {
                 "current_monthly_sp_bill_size": 500,
@@ -2681,8 +2681,8 @@
                 "total_retailer_annual_savings_sgd": "$1,320.00",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$127.83",
-                "total_annual_savings": "$1,534"
+                "total_monthly_savings": "$123.67",
+                "total_annual_savings": "$1,484"
             }
         ]
     },
@@ -2789,12 +2789,12 @@
         "retailer_id": "tuaspower",
         "package_id": "tuaspowerfix24",
         "plan_name": "PowerFIX 24",
-        "bill_rebate": "$70.00",
+        "bill_rebate": "$110.00",
         "posb_everyday_card_rebate": "1%",
         "rate": "$0.1798",
         "rate_type": "Fixed",
         "contract_duration_months": "24",
-        "promotion": "One Time S$70 Bill Rebate ",
+        "promotion": "One Time S$110 Bill Rebate ",
         "termination_fee": "Fees apply",
         "green_energy": "NO",
         "comparison_1": "SP Services Consolidated Billing",
@@ -2813,8 +2813,8 @@
                 "total_retailer_annual_savings_sgd": "$129.52",
                 "ped_card_monthly_rebate": "$0.39",
                 "ped_card_annual_rebate": "$4.70",
-                "total_monthly_savings": "$21.33",
-                "total_annual_savings": "$256"
+                "total_monthly_savings": "$24.67",
+                "total_annual_savings": "$296"
             },
             {
                 "current_monthly_sp_bill_size": 100,
@@ -2825,8 +2825,8 @@
                 "total_retailer_annual_savings_sgd": "$259.05",
                 "ped_card_monthly_rebate": "$0.78",
                 "ped_card_annual_rebate": "$9.41",
-                "total_monthly_savings": "$36.83",
-                "total_annual_savings": "$442"
+                "total_monthly_savings": "$40.16",
+                "total_annual_savings": "$482"
             },
             {
                 "current_monthly_sp_bill_size": 200,
@@ -2837,8 +2837,8 @@
                 "total_retailer_annual_savings_sgd": "$518.10",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$61.01",
-                "total_annual_savings": "$732"
+                "total_monthly_savings": "$64.34",
+                "total_annual_savings": "$772"
             },
             {
                 "current_monthly_sp_bill_size": 300,
@@ -2849,8 +2849,8 @@
                 "total_retailer_annual_savings_sgd": "$777.15",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$82.60",
-                "total_annual_savings": "$991"
+                "total_monthly_savings": "$85.93",
+                "total_annual_savings": "$1,031"
             },
             {
                 "current_monthly_sp_bill_size": 400,
@@ -2861,8 +2861,8 @@
                 "total_retailer_annual_savings_sgd": "$1,036.20",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$104.18",
-                "total_annual_savings": "$1,250.00"
+                "total_monthly_savings": "$107.52",
+                "total_annual_savings": "$1,290.00"
             },
             {
                 "current_monthly_sp_bill_size": 500,
@@ -2873,8 +2873,8 @@
                 "total_retailer_annual_savings_sgd": "$1,295.25",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$125.77",
-                "total_annual_savings": "$1,509"
+                "total_monthly_savings": "$129.10",
+                "total_annual_savings": "$1,549"
             }
         ]
     },
@@ -2885,12 +2885,12 @@
         "retailer_id": "tuaspower",
         "package_id": "tuaspowerfix36",
         "plan_name": "PowerFIX 36",
-        "bill_rebate": "$90.00",
+        "bill_rebate": "$110.00",
         "posb_everyday_card_rebate": "1%",
         "rate": "$0.1798",
         "rate_type": "Fixed",
         "contract_duration_months": "36",
-        "promotion": "One Time S$90 Bill Rebate ",
+        "promotion": "One Time S$110 Bill Rebate ",
         "termination_fee": "Fees apply",
         "green_energy": "NO",
         "comparison_1": "SP Services Consolidated Billing",
@@ -2909,8 +2909,8 @@
                 "total_retailer_annual_savings_sgd": "$129.52",
                 "ped_card_monthly_rebate": "$0.39",
                 "ped_card_annual_rebate": "$4.70",
-                "total_monthly_savings": "$23.00",
-                "total_annual_savings": "$276"
+                "total_monthly_savings": "$24.67",
+                "total_annual_savings": "$296"
             },
             {
                 "current_monthly_sp_bill_size": 100,
@@ -2921,8 +2921,8 @@
                 "total_retailer_annual_savings_sgd": "$259.05",
                 "ped_card_monthly_rebate": "$0.78",
                 "ped_card_annual_rebate": "$9.41",
-                "total_monthly_savings": "$38.50",
-                "total_annual_savings": "$462"
+                "total_monthly_savings": "$40.16",
+                "total_annual_savings": "$482"
             },
             {
                 "current_monthly_sp_bill_size": 200,
@@ -2933,8 +2933,8 @@
                 "total_retailer_annual_savings_sgd": "$518.10",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$62.67",
-                "total_annual_savings": "$752"
+                "total_monthly_savings": "$64.34",
+                "total_annual_savings": "$772"
             },
             {
                 "current_monthly_sp_bill_size": 300,
@@ -2945,8 +2945,8 @@
                 "total_retailer_annual_savings_sgd": "$777.15",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$84.26",
-                "total_annual_savings": "$1,011"
+                "total_monthly_savings": "$85.93",
+                "total_annual_savings": "$1,031"
             },
             {
                 "current_monthly_sp_bill_size": 400,
@@ -2957,8 +2957,8 @@
                 "total_retailer_annual_savings_sgd": "$1,036.20",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$105.85",
-                "total_annual_savings": "$1,270.00"
+                "total_monthly_savings": "$107.52",
+                "total_annual_savings": "$1,290.00"
             },
             {
                 "current_monthly_sp_bill_size": 500,
@@ -2969,8 +2969,8 @@
                 "total_retailer_annual_savings_sgd": "$1,295.25",
                 "ped_card_monthly_rebate": "$1.00",
                 "ped_card_annual_rebate": "$12.00",
-                "total_monthly_savings": "$127.44",
-                "total_annual_savings": "$1,529"
+                "total_monthly_savings": "$129.10",
+                "total_annual_savings": "$1,549"
             }
         ]
     },
@@ -3264,8 +3264,8 @@
     },
     {
         "retailer_name": "Pacific Light",
-        "activity_name": "public",
-        "activity_expiry": "none",
+        "activity_name": "friday",
+        "activity_expiry": "23-Oct-2020-23:59",
         "retailer_id": "pacificlight",
         "package_id": "paclteasyp",
         "plan_name": "Easy Peasy",
@@ -3456,8 +3456,8 @@
     },
     {
         "retailer_name": "Pacific Light",
-        "activity_name": "public",
-        "activity_expiry": "none",
+        "activity_name": "friday",
+        "activity_expiry": "23-Oct-2020-23:59",
         "retailer_id": "pacificlight",
         "package_id": "pacltswslp24",
         "plan_name": "Save While Sleeping 24",
