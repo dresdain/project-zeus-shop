@@ -46,7 +46,6 @@ var renderTabContent = function (action) {
     var subtitle = $('.plan__box--tabItem.active').data('subtitle');
     $('.plan__box--title .subtitle').text(subtitle);   
     if (globalContentState == 'EMP-CONTENT') { 
-        $('.middle_filter_section').show();
         $('.electricity-content').show();
         $('.electricity-option').show();
         $('.telco-content').hide();
@@ -61,7 +60,6 @@ var renderTabContent = function (action) {
         $('.range-cost').val('range3');
         $('.emp__comparison__box').removeClass('compare--tmp').addClass('compare--emp');
     } else if (globalContentState == 'TMP-CONTENT') { 
-        $('.middle_filter_section').hide();
         $('.telco-content').show();
         $('.telco-option').show();
         $('.electricity-content').hide();

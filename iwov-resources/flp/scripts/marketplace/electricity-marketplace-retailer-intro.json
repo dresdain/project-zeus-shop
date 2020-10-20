@@ -50,13 +50,13 @@
    {
       "retailer_id": "circleslife",
       "retailer_overall_description": "Lorem",
-	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-pacficilight-promo-tnc.pdf",
+	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/telco/dbs-tmp-x-circleslife-promo-tnc.pdf",
 	  "retailer_allowed": true
    },
    {
       "retailer_id": "gridmobile",
       "retailer_overall_description": "Lorem",
-	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/electricity/dbs-emp-x-pacficilight-promo-tnc.pdf",
+	  "retailer_promo_link": "/iwov-resources/media/pdf/marketplace/telco/dbs-tmp-x-gridmobile-promo-tnc.pdf",
 	  "retailer_allowed": true
    }
 ]
