@@ -1,5 +1,5 @@
 /* Enable debugging mode */
-var logger = function () {
+var logger = function() {
     var oldConsoleLog = null;
     var pub = {};
 
@@ -12,18 +12,19 @@ var logger = function () {
 
     pub.disableLogger = function disableLogger() {
         oldConsoleLog = console.log;
-        window['console']['log'] = function () { };
+        window['console']['log'] = function() {};
     };
 
     return pub;
 }();
 
 var globalMarketplaceState = "utilities-marketplace";
-function getMarketplace(){
+
+function getMarketplace() {
     var globalContentState;
-    if(globalContentState == "EMP-CONTENT"){
+    if (globalContentState == "EMP-CONTENT") {
         globalMarketplaceState = "utilities-marketplace";
-    }else if(globalContentState == "TMP-CONTENT"){
+    } else if (globalContentState == "TMP-CONTENT") {
         globalMarketplaceState = "utilities-marketplace";
     }
     return globalMarketplaceState;
@@ -31,12 +32,12 @@ function getMarketplace(){
 
 /* Helper functions */
 var digitalData;
-$(function () {
-    logger.disableLogger();
+$(function() {
+    // logger.disableLogger();
     trackHomepage();
 });
 /* 📦 AA Tagging */
-var trackHomepage = function (action, item) {
+var trackHomepage = function(action, item) {
     /* On Page Load */
     digitalData = {
         page: {
@@ -61,12 +62,12 @@ var trackHomepage = function (action, item) {
     console.log('%c✅ Tracking -> Homepage', 'color: green;', 'digitaData', digitalData);
 }
 
-var trackPageLevel = function (action, prop) {
-    if(globalContentState == 'EMP-CONTENT'){
+var trackPageLevel = function(action, prop) {
+    if (globalContentState == 'EMP-CONTENT') {
         var mp__state = "electricity_mp";
-    }else if(globalContentState == 'TMP-CONTENT'){
+    } else if (globalContentState == 'TMP-CONTENT') {
         var mp__state = "telco_mp";
-    } 
+    }
 
 
     switch (action) {
@@ -164,7 +165,7 @@ var trackPageLevel = function (action, prop) {
             var primaryCat_3 = (compareProp[2] ? compareProp[2].retailer_id : null);
             var tempPrimaries = [primaryCat_1, primaryCat_2, primaryCat_3];
             var acceptedPrimaries = [];
-            $.each(tempPrimaries, function (i, el) {
+            $.each(tempPrimaries, function(i, el) {
                 if ($.inArray(el, acceptedPrimaries) === -1 && el !== null) acceptedPrimaries.push(el);
             });
 
@@ -173,7 +174,7 @@ var trackPageLevel = function (action, prop) {
             var subCat_3 = (compareProp[2] ? compareProp[2].package_id : null);
             var tempSubcat = [subCat_1, subCat_2, subCat_3];
             var acceptedSubcat = [];
-            $.each(tempSubcat, function (i, el) {
+            $.each(tempSubcat, function(i, el) {
                 if ($.inArray(el, acceptedSubcat) === -1 && el !== null) acceptedSubcat.push(el);
             });
 
@@ -205,11 +206,10 @@ var trackPageLevel = function (action, prop) {
                         pageType: "section home"
                     }
                 },
-                item: [
-                    {
+                item: [{
                         product: {
                             category: {
-                                subCategory1: (compareProp[0] ?  mp__state + ":" + compareProp[0].package_id : ''),
+                                subCategory1: (compareProp[0] ? mp__state + ":" + compareProp[0].package_id : ''),
                                 productType: mp__state,
                                 subCategory2: ""
                             }
@@ -257,7 +257,7 @@ var trackPageLevel = function (action, prop) {
                     name: "<compare start[" + compareProp.length + "]>"
                 }
             }
-        
+
             console.log('%c✅ Tracking -> ' + action, 'color: green;', 'digitaData', digitalData);
             _satellite.track('pweb-card compare click');
             break;
@@ -269,7 +269,7 @@ var trackPageLevel = function (action, prop) {
             var primaryCat_3 = (compareProp[2] ? compareProp[2].retailer_id : null);
             var tempPrimaries = [primaryCat_1, primaryCat_2, primaryCat_3];
             var acceptedPrimaries = [];
-            $.each(tempPrimaries, function (i, el) {
+            $.each(tempPrimaries, function(i, el) {
                 if ($.inArray(el, acceptedPrimaries) === -1 && el !== null) acceptedPrimaries.push(el);
             });
 
@@ -278,7 +278,7 @@ var trackPageLevel = function (action, prop) {
             var subCat_3 = (compareProp[2] ? compareProp[2].package_id : null);
             var tempSubcat = [subCat_1, subCat_2, subCat_3];
             var acceptedSubcat = [];
-            $.each(tempSubcat, function (i, el) {
+            $.each(tempSubcat, function(i, el) {
                 if ($.inArray(el, acceptedSubcat) === -1 && el !== null) acceptedSubcat.push(el);
             });
 
@@ -310,8 +310,7 @@ var trackPageLevel = function (action, prop) {
                         pageType: "section home"
                     }
                 },
-                item: [
-                    {
+                item: [{
                         product: {
                             category: {
                                 subCategory1: (compareProp[0] ? mp__state + ":" + compareProp[0].package_id : ''),
@@ -391,7 +390,7 @@ var trackPageLevel = function (action, prop) {
     }
 }
 
-var trackButtonLevel = function (action) {
+var trackButtonLevel = function(action) {
     var control = "",
         pageControl = '';
     switch (action) {
@@ -400,22 +399,22 @@ var trackButtonLevel = function (action) {
             control = 'lnkSaveMorePonderLess_ClickHere';
             pageControl = 'sg:en:personal:utilities-marketplace';
             break;
-        /* On click of "Close" button of Save More Ponder Less */
+            /* On click of "Close" button of Save More Ponder Less */
         case 'lnkSaveMorePonderLess_Close':
             control = 'lnkSaveMorePonderLess_Close';
             pageControl = 'sg:en:personal:utilities-marketplace';
             break;
-        /* On click of "Edit" link on the search results page */
+            /* On click of "Edit" link on the search results page */
         case 'lnkEdit':
             control = 'lnkEdit';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
             break;
-        /* On click of the "Compare" button on the Search Results Page */
+            /* On click of the "Compare" button on the Search Results Page */
         case 'btnCompare':
             control = 'btnCompare';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
             break;
-        /* On click of "ReCompare" button on the Compare Screen */
+            /* On click of "ReCompare" button on the Compare Screen */
         case 'btnRecompare':
             control = 'btnRecompare';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
@@ -465,14 +464,14 @@ var trackButtonLevel = function (action) {
     }
 }
 
-var trackSearch = function (action, item) {
+var trackSearch = function(action, item) {
     var control = '';
     switch (action) {
         /* The following is a special case where first_time_search and search-results layer are combined */
         case 'search-results_page__and__first_time_search':
-            if(globalContentState == 'EMP-CONTENT'){
+            if (globalContentState == 'EMP-CONTENT') {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type + '|sort:' + item.sort;
-            }else if(globalContentState == 'TMP-CONTENT'){
+            } else if (globalContentState == 'TMP-CONTENT') {
                 var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill + '|sort:' + item.sort;
             }
             digitalData = {
@@ -506,11 +505,11 @@ var trackSearch = function (action, item) {
 
         case 'first_time_search':
         case 'modified_search':
-            if(globalContentState == 'EMP-CONTENT'){
+            if (globalContentState == 'EMP-CONTENT') {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type + '|sort:' + item.sort;
-            }else if(globalContentState == 'TMP-CONTENT'){
+            } else if (globalContentState == 'TMP-CONTENT') {
                 var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill + '|sort:' + item.sort;
-            } 
+            }
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -521,11 +520,11 @@ var trackSearch = function (action, item) {
             _satellite.track('electricity-internal search filter');
             break;
         case 'filter_by_rate_type':
-            if(globalContentState == 'EMP-CONTENT'){
+            if (globalContentState == 'EMP-CONTENT') {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
-            }else if(globalContentState == 'TMP-CONTENT'){
-                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type  + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
-            } 
+            } else if (globalContentState == 'TMP-CONTENT') {
+                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            }
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -536,12 +535,12 @@ var trackSearch = function (action, item) {
             _satellite.track('electricity-internal search filter');
             break;
         case 'filter_by_ecofriendlyplans':
-            if(globalContentState == 'EMP-CONTENT'){
+            if (globalContentState == 'EMP-CONTENT') {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by;
-            }else if(globalContentState == 'TMP-CONTENT'){
-                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type  + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
-            } 
-            
+            } else if (globalContentState == 'TMP-CONTENT') {
+                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            }
+
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -552,11 +551,11 @@ var trackSearch = function (action, item) {
             _satellite.track('electricity-internal search filter');
             break;
         case 'filter_by_retailers':
-            if(globalContentState == 'EMP-CONTENT'){
+            if (globalContentState == 'EMP-CONTENT') {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
-            }else if(globalContentState == 'TMP-CONTENT'){
-                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type  + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
-            } 
+            } else if (globalContentState == 'TMP-CONTENT') {
+                var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            }
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -576,7 +575,7 @@ var trackSearch = function (action, item) {
 }
 
 
-var trackThroughSearch = function (action, item) {
+var trackThroughSearch = function(action, item) {
     var control = '';
     switch (action) {
         case 'first_time_search':
