@@ -409,7 +409,12 @@
                             </div>
                             <div class="plan__box--tabItem active" data-content-type="TMP-CONTENT" data-subtitle="Find a mobile plan that suits you most">
                                 <a href="#telco">
-                                    Telco
+                                    Mobile
+                                </a>
+                            </div>
+                            <div class="plan__box--tabItem" data-content-type="BMP-CONTENT" data-subtitle="Find the broadband plan that suits you most">
+                                <a href="#broadband">
+                                    Broadband
                                 </a>
                             </div>
                         </div>
@@ -427,6 +432,9 @@
                                         <div class="form-label telco-content">
                                             Monthly Data
                                         </div>
+                                        <div class="form-label broadband-content">
+                                            Network Speed
+                                        </div>
                                         <!--dropdown-->
                                         <div>
                                             <select class="emp-dropdown  range-cost" required id="initial__rangeCost">
@@ -438,7 +446,10 @@
                                         <div class="form-label electricity-content">
                                             I live in a
                                         </div>
-                                        <div class="form-label telco-content">
+                                        <div class="form-label telco-content ">
+                                            Price per month
+                                        </div>
+                                        <div class="form-label broadband-content ">
                                             Price per month
                                         </div>
                                         <!--dropdown-->
@@ -983,7 +994,11 @@
                     <div class="plan__box plan__box--flat">
                         <div class="plan__box--title">
                             <img src="iwov-resources/flp/images/marketplace/electricity/revamp/lightning.svg" alt="" class="electricity-content">
-                            <b>Switch <span class="electricity-content">electricity retailer</span><span class="telco-content">Telco</span> today!</b>
+                            <b>Switch 
+                                <span class="electricity-content">electricity retailer</span>
+                                <span class="telco-content">Telco</span>
+                                <span class="broadband-content">Broadband</span> 
+                            today!</b>
                             <small id="emp_redirect-copy">You have selected Sunseap ONE DOT 12 Months price plan from Sunseap Energy Pte Ltd</small>
                             <br><small><a href="javascript:void(0)" id="exit_empExitScreen">Search again</a></small>
                         </div>
@@ -1011,12 +1026,17 @@
                             <p>
                                 <span class="electricity-content">Living in a</span>
                                 <span class="telco-content">Monthly data </span>
-                                <span class="place-live-copy"></span><span class="electricity-content"> with a</span><span class="telco-content">,</span>
+                                <span class="broadband-content">Network speed </span>
+                                <span class="place-live-copy"></span><span class="electricity-content"> with a</span>
+                                <span class="telco-content">,</span>
+                                <span class="broadband-content">,</span>
 
                                 <span class="electricity-content"><br class="hidden-lg hidden-md visible-sm visible-xs" /></span>
                                 <span class="electricity-content">monthly electricity bill of</span>
+                                <span class="broadband-content">from </span>
                                 <span class="monthly-bill-header"></span>
                                 <span class="telco-content"> per month.</span><br class="telco-content visible-xs">
+                                <span class="broadband-content"> per month.</span><br class="broadband-content visible-xs">
                                 <a id="filterCollapse" role="button" data-toggle="collapse" href="#filterCollapse__box" aria-expanded="false" aria-controls="collapseExample">
                                     <img src="./iwov-resources/flp/images/marketplace/electricity/revamp/pen.svg" alt="edit"> Edit
                                 </a>
@@ -1172,6 +1192,8 @@
                                     <div>
                                         <select id="filter-type-1" class="emp-dropdown filter-type-1" required>
                                                 <option class="telco-option remove-filter" data-path="default" value="all-plans">All Plans</option>
+                                                <option class="broadband-option remove-filter" data-path="default" value="all-plans">All Plans</option>
+                                                <!-- <option class="broadband-option remove-filter" data-path="default" value="network-speed">Network Speed</option> -->
                                                 <!-- <option class="telco-option remove-filter" data-path="default" value="sim-only-plan">SIM-only plans</option>
                                                 <option class="telco-option remove-filter" data-path="default" value="combo-plan">Combo plans</option> -->
                                                 <option class="electricity-option remove-filter" data-path="default" value="rate-type">Rate Type</option>
@@ -1210,6 +1232,9 @@
                                     <div class="form-label telco-content hidden-xs hidden-md">
                                         &nbsp;
                                     </div>
+                                    <div class="form-label broadband-content hidden-xs hidden-md">
+                                        &nbsp;
+                                    </div>
                                     <!--dropdown-->
                                     <div class="electricity-content">
                                         <select id="filter-type-2" class="emp-dropdown filter-type-2" required>
@@ -1218,6 +1243,10 @@
                                             <option class="electricity-option remove-filter" data-path=".Fixed" value="fixed">Fixed Rate</option>
                                             <option class="telco-option remove-filter" data-path=".SMS-only" value="sms">SMS Only</option>
                                             <option class="telco-option remove-filter" data-path=".Combo-plan" value="combo">Combo Plan</option>
+
+                                            <!-- <option class="broadband-option remove-filter" data-path=".up-to-500mbps" value="up-to-500mbps">Up to 500 Mbps</option>
+                                            <option class="broadband-option remove-filter" data-path=".up-to-1gbps" value="up-to-1gbps">Up to 1 Gbps</option>
+                                            <option class="broadband-option remove-filter" data-path=".up-to-2gbps" value="up-to-2gbps">Up to 2 Gbps</option> -->
                                         </select>
                                         <!-- Hidden Controls -->
                                         <div class="hidden">
@@ -1286,6 +1315,45 @@
                                                     <span></span> Combo
                                                 </label>
                                             </div>
+                                            <!-- <div class="radio">
+                                                <label>
+                                                    <input
+                                                           type="radio"
+                                                           id="action--hidden--rb--500mbps"
+                                                           data-jplist-control="radio-buttons-path-filter"
+                                                           data-group="group1"
+                                                           data-name="hiddden-rb--type"
+                                                           data-path=".up-to-500mbps"
+                                                           name="hiddden-rb--type" />
+                                                    <span></span> up-to-500mbps
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input
+                                                           type="radio"
+                                                           id="action--hidden--rb--1gbps"
+                                                           data-jplist-control="radio-buttons-path-filter"
+                                                           data-group="group1"
+                                                           data-name="hiddden-rb--type"
+                                                           data-path=".up-to-1gbps"
+                                                           name="hiddden-rb--type" />
+                                                    <span></span> up-to-1gbps
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input
+                                                           type="radio"
+                                                           id="action--hidden--rb--2gbps"
+                                                           data-jplist-control="radio-buttons-path-filter"
+                                                           data-group="group1"
+                                                           data-name="hiddden-rb--type"
+                                                           data-path=".up-to-2gbps"
+                                                           name="hiddden-rb--type" />
+                                                    <span></span> up-to-2gbps
+                                                </label>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <!--dropdown-->
@@ -1301,6 +1369,14 @@
                                                 </div>
                                                 <div class="action--individual">
                                                     <div class="action--individual--col">
+
+                                                        <div class="checkbox broadband-content">
+                                                            <label for="show-9"><input class="filter-type-3--dummy-cb broadband-cb-dummy" value="mymobile" id="show-11" type="checkbox" checked> <span></span> MyRepublic</label>
+                                                        </div>
+                                                        <div class="checkbox broadband-content">
+                                                            <label for="show-10"><input class="filter-type-3--dummy-cb broadband-cb-dummy" value="m1" id="show-12" type="checkbox" checked> <span></span> M1</label>
+                                                        </div>
+
                                                         <div class="checkbox telco-content">
                                                             <label for="show-9"><input class="filter-type-3--dummy-cb telco-cb-dummy" value="gridmobile" id="show-9" type="checkbox" checked> <span></span> Grid Mobile</label>
                                                         </div>
@@ -1486,6 +1562,36 @@
                                                                        circles.life
                                                             </label>
                                                         </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input
+                                                                       class="action--hidden--cb broadband-cb"
+                                                                       type="checkbox"
+                                                                       checked
+                                                                       data-group="group1"
+                                                                       name="hidden-cb-control"
+                                                                       data-name="hidden-cb-control"
+                                                                       data-or="geneco"
+                                                                       data-path=".retailer--id2"
+                                                                       value="myrepublic" /><span></span>
+                                                                       myrepublic
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input
+                                                                       class="action--hidden--cb broadband-cb"
+                                                                       type="checkbox"
+                                                                       checked
+                                                                       data-group="group1"
+                                                                       name="hidden-cb-control"
+                                                                       data-name="hidden-cb-control"
+                                                                       data-or="geneco"
+                                                                       data-path=".retailer--id2"
+                                                                       value="m1" /><span></span>
+                                                                       m1
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -1554,6 +1660,29 @@
                                                     data-type="number"
                                                     value="4">Price per month</option>
 
+                                            <option
+                                                    class="broadband-option remove-filter"
+                                                    data-title="network_speed"
+                                                    data-path=".network_speed"
+                                                    data-order="desc"
+                                                    data-type="number"
+                                                    value="6">Network Speed</option>
+                                            <option
+                                                    class="broadband-option remove-filter"
+                                                    data-title="price_per_month"
+                                                    data-path=".pricepermonth"
+                                                    data-order="desc"
+                                                    data-type="number"
+                                                    value="5">Price per month</option> 
+                                            
+                                            <option
+                                                    class="broadband-option remove-filter"
+                                                    data-title="contract_duration"
+                                                    data-path=".contract-duration"
+                                                    data-order="asc"
+                                                    data-type="number"
+                                                    value="7">Contract Duration</option>
+
                                         </select>
                                     </div>
                                     <!--dropdown-->
@@ -1566,7 +1695,7 @@
                                                        data-jplist-control="radio-buttons-sort"
                                                        data-group="group1"
                                                        data-name="hiddden-rb--sort"
-                                                       data-path=".annual-savings-value"
+                                                       data-path=".monthly-data-value"
                                                        data-order="desc"
                                                        data-type="number"
 
@@ -1637,6 +1766,55 @@
                                                 <span></span> price per month
                                             </label>
                                         </div>
+
+
+                                        <!-- Broadband -->
+                                        <div class="radio">
+                                            <label>
+                                                <input
+                                                       type="radio"
+                                                       id="action--hidden--rb--sort-pricepermonth_broadband"
+                                                       data-jplist-control="radio-buttons-sort"
+                                                       data-group="group1"
+                                                       data-name="hiddden-rb--sort"
+                                                       data-path=".pricepermonth_broadband"
+                                                       data-order="desc"
+                                                       data-type="number"
+                                                       name="hiddden-rb--sort" />
+                                                <span></span> price per month broadband
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input
+                                                       type="radio"
+                                                       id="action--hidden--rb--sort-network_speed_broadband"
+                                                       data-jplist-control="radio-buttons-sort"
+                                                       data-group="group1"
+                                                       data-name="hiddden-rb--sort"
+                                                       data-path=".network_speed_broadband"
+                                                       data-order="desc"
+                                                       data-type="number"
+                                                       name="hiddden-rb--sort" />
+                                                <span></span> network speed broadband
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input
+                                                       id="action--hidden--rb--sort-duration_broadband"
+                                                       type="radio"
+                                                       data-jplist-control="radio-buttons-sort"
+                                                       data-group="group1"
+                                                       data-name="hiddden-rb--sort"
+                                                       data-path=".contract-duration_broadband"
+                                                       data-order="desc"
+                                                       data-type="number"
+                                                       name="hiddden-rb--sort" />
+                                                <span></span> duration_broadband
+                                            </label>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

@@ -199,6 +199,9 @@
 .plan__box--tabs .plan__box--tabItem:first-child:before {
   right: 0px;
 }
+.plan__box--tabs .plan__box--tabItem:nth-child(2):before {
+  left: 0px;
+}
 .plan__box--tabs .plan__box--tabItem:last-child:before {
   left: 0px;
 }
@@ -2424,6 +2427,10 @@ ul.plan-types > li:nth-child(2):before {
 
 .promotion-box.full-width .carousel-promo .promotion-content p {
   font-size: 16px;
+}
+
+.broadband-content {
+  display: none;
 }
 
 /*# sourceMappingURL=emp.css.map */

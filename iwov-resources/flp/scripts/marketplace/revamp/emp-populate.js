@@ -7,9 +7,19 @@ var loadFile = "emp-p2.json";
 /* 📦 Populate Plans */
 function populatePlans(minBill, maxBill, action, search_type) {
     console.log('%cemp-populate.js line:9 script__DIR, loadFile', 'color: #007acc;', script__DIR, loadFile);
-    if (globalContentState == "TMP-CONTENT") {
+
+    if (global_state.isTMP()) {
         loadFile = "tmp.json"
-    } else { loadFile = "emp-p2.json"; }
+    }
+
+    if (global_state.isBMP()) {
+        loadFile = "bmp.json"
+    }
+
+    if (global_state.isEMP()) {
+        loadFile = "emp-p2.json"
+    }
+
 
     console.log(loadFile);
 
@@ -41,7 +51,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
         data.forEach(function(item) {
 
 
-            if (globalContentState == "EMP-CONTENT") {
+            if (global_state.isEMP()) {
                 for (var a = 0; a <= (item.options.length - 1); a++) {
                     var rangeControl = item.options[a].current_monthly_sp_bill_size;
                     if (rangeControl >= minBill && rangeControl <= maxBill && $.inArray(item.retailer_id, filterRetailers) > -1) {
@@ -59,7 +69,7 @@ function populatePlans(minBill, maxBill, action, search_type) {
             }
 
             for (var i = 0; i <= (item.options.length - 1); i++) {
-                if (globalContentState == "EMP-CONTENT") {
+                if (global_state.isEMP()) {
                     // console.log(item, campaignModule.checkExpiry(item), 'range', rangeControl);
                     var dataDOM = '';
                     var rangeControl = item.options[i].current_monthly_sp_bill_size;
@@ -110,7 +120,8 @@ function populatePlans(minBill, maxBill, action, search_type) {
                     }
                 } else {
 
-                    if (globalContentState == "TMP-CONTENT") {
+                    if (global_state.isTMP()) {
+                        // T E L C O
                         // console.log(item);
                         var dataDOM = '';
                         var rangeControlData = (item.data == "unlimited" ? 'unlimited' : parseFloat(item.data.replace('GB', '').replace(' ', '')));
@@ -143,7 +154,56 @@ function populatePlans(minBill, maxBill, action, search_type) {
                                 $('[data-toggle="tooltip"]').tooltip();
                             });
                         }
+
+                        // E N D T E L C O  
+
+                    } else if (global_state.isBMP()) {
+
+                        // B R O A D B A N D
+                        console.log(item);
+                        var dataDOM = '';
+
+                        var rangeControlDataTemp;
+                        if (item.network_speed.indexOf("Gbps") >= 0) {
+                            rangeControlDataTemp = parseFloat(item.network_speed.replace('Gbps', '').replace(' ', '')) * 1000;
+                        } else {
+                            rangeControlDataTemp = parseFloat(item.network_speed.replace('Mbps', '').replace(' ', ''));
+                        }
+
+                        var rangeControlData = (item.network_speed == "unlimited" ? 'unlimited' : rangeControlDataTemp);
+                        var rangeControlPrice = parseFloat(item.options[i].price_per_month.replace(' ', '').replace('$', ''));
+                        // console.log('%cemp-populate.js line:167 rangeControlPrice', 'color: #007acc;', rangeControlPrice);
+                        var condition__DataIntended = parseFloat($('#planForm__dropdown .range-cost').val());
+                        var condition__PriceIntended = parseFloat($('#planForm__dropdown .place-live').val());
+
+                        console.log(rangeControlDataTemp, condition__DataIntended);
+                        if ($.inArray(item.retailer_id, filterRetailers) > -1 && ((rangeControlData <= condition__DataIntended && rangeControlPrice <= condition__PriceIntended) || (condition__DataIntended === Infinity && rangeControlPrice <= condition__PriceIntended))) {
+
+                            var unlimitedPlan = (item.data == "unlimited" ? 'isUnlimited' : 'isNotUnlimited');
+                            var planID = 'plan_item--' + counter;
+                            dataDOM += '<article data-jplist-item class="broadband-article telco-article ' + unlimitedPlan + '  tmp__results__box--card  emp__results__box--card" id="' + planID + '">';
+                            dataDOM += createDOM__savingsInfo__BMP(item, item.options[i]);
+                            dataDOM += createDOM__promotionsInfo_BMP(item, item.options[i], '  ');
+                            dataDOM += createDOM__planDetails__BMP(item, item.options[i]);
+                            // // dataDOM += createDOM__promotionsInfo(item, item.options[i], '  ');
+                            dataDOM += createDOM__comparePlans__BMP(item, item.options[i], planID);
+                            dataDOM += '</article>';
+
+
+                            jplist.resetContent(function() {
+                                $('.emp__results__box--list').append(dataDOM);
+                                if (condition__DataIntended === Infinity) {
+                                    $('.isNotUnlimited').remove();
+                                } else {
+                                    // $('.isUnlimited').remove();
+                                }
+                                jplist.resetControl('#main-pagination');
+                                $('[data-toggle="tooltip"]').tooltip();
+                            });
+                        }
                     }
+
+                    //E N D B R O A D B A N D
 
                 }
             }
@@ -178,11 +238,19 @@ function populatePlans(minBill, maxBill, action, search_type) {
         setTimeout(function() {
             $('.emp__loader').fadeOut('1000');
             if (firstTimeSearchControl === 0) {
-                if (globalContentState == "EMP-CONTENT") {
+
+                if (global_state.isEMP()) {
                     $('#sort-type-1').val("0").change();
-                } else {
+                }
+
+                if (global_state.isTMP()) {
                     $('#sort-type-1').val("3").change();
                 }
+
+                if (global_state.isBMP()) {
+                    $('#sort-type-1').val("6").change();
+                }
+
 
                 var sortType = $('#sort-type-1 option:selected').data('title');
                 var filterList = {
@@ -204,6 +272,329 @@ function populatePlans(minBill, maxBill, action, search_type) {
         }, 1000);
     });
 }
+
+
+
+
+
+// B R O A D B A N D
+/* 📦 TMP CONTENT create DOM for .savings__info component */
+function createDOM__savingsInfo__BMP(item, options) {
+    var html = '<div class="tmp-part">';
+    /* Start Savings Info  */
+    html += '<div class="savings__info"><span class="hidden retailer--id2 xxretailer--' + item.retailer_id + '">' + item.retailer_id + '</span>';
+    /* Logo */
+    /* ./iwov-resouces */
+    html += '<span class="hidden retailer-name">' + item.retailer_name + '</span> <div class="savings__info--logo" style="background-image: url(\'' + production_DIR + item.telco_logo_path + '\');" alt="' + item.retailer_id + '"></div>';
+
+    /* Copy Wrapper */
+    html += '<div class="savings__info--copy">';
+    /* Copy Body */
+    var network_speed = item.network_speed.toLowerCase().replace('mbps', '').replace('gbps', '');
+    var network_speedExt = (item.network_speed.toLowerCase().indexOf('mbps') !== -1 ? 'Mbps' : 'Gbps');
+    html += '<div class="body annual-savings"><span class="network_speed_broadband">' + network_speed + '</span>' + network_speedExt + '</div>';
+
+
+
+    /* Copy Footnote */
+    html += '<small class="footnote">S$<span class="pricepermonth">' + options.price_per_month.replace(' ', '').replace('$', '').trim() + '</span>/mo</small>';
+
+    /* End Copy Wrapper */
+    html += '</div>';
+
+    /* End Savings Info  */
+    html += '</div>';
+
+    return html;
+}
+
+
+function createDOM__promotionsInfo_BMP(item, options, viewport) {
+    if (item.promotion == "YES") {
+        var html = '';
+
+        html += '<div class="promotions__info ' + viewport + '"><div class="title">PROMOTION</div><div class="info">' + item.promotion_text + '</div></div>';
+
+        return html;
+    }
+    return '';
+}
+
+
+function createDOM__planDetails__BMP(item, options, planID) {
+    var html = '';
+    /* Start Plan Details */
+    html += '<div class="plan__details"><div class="plan__details--wrapper">';
+
+
+    /* Eligibility ID */
+    html += '<div class="plan__details--card"><div class="heading">Eligibility</div><div class="body "><span class="" style="text-transform: capitalize;">' + options.eligibility + '</span></div></div>';
+
+    /* Contract Type */
+    html += '<div class=" plan__details--card"><div class="heading">Contract</div><div class="body contract-duration"><span class="contract-duration-value contract-duration_broadband">' + options.contract + '</span></div></div>';
+
+    /* Plan Name */
+    html += '<div class="plan__details--card"><div class="heading">Plan Name</div><div class="body "><span class="">' + item.plan_name + '</span></div></div>';
+
+
+
+    /* Add ons */
+    var tooltipAddOn = '';
+    tooltipAddOn += (item.add_on_1 != '' ? '&#8226; ' + item.add_on_1 + '\n' : '');
+    tooltipAddOn += (item.add_on_2 != '' ? '&#8226; ' + item.add_on_2 + '\n' : '');
+    tooltipAddOn += (item.add_on_3 != '' ? '&#8226; ' + item.add_on_3 + '\n' : '');
+
+    html += '<a class="heading addon-tooltip" href="javascript:void()" data-toggle="tooltip" data-placement="top" title="' + tooltipAddOn + '">Add-ons available <img src="' + production_DIR + '/iwov-resources/flp/images/marketplace/electricity/revamp/i.svg" alt=""></a>';
+
+
+
+
+
+    /* End Plan Details */
+    html += '</div></div></div>';
+
+    return html;
+}
+
+
+function createDOM__comparePlans__BMP(item, options, planID) {
+    var html = '<div class="tmp-part tmp-cta-container">';
+    var comparisonDetails = {
+        'plan_id': '#' + planID,
+        'package_id': item.package_id,
+        // From JSON
+        'retailer_name': item.retailer_name,
+        'retailer_id': item.retailer_id,
+        'plan_name': item.plan_name.replace(/plan/ig, '').replace(/ /ig, ''),
+        'network_speed': item.network_speed,
+        'promotion': (item.promotion == "YES" ? item.promotion_text : 'None'),
+        'promotion_text': item.promotion_text,
+        'comparison_1': item.add_on_1,
+        'comparison_2': item.add_on_2,
+        'comparison_3': item.add_on_3,
+        'logo': item.telco_logo_path,
+
+        'plan_type': item.plan_type,
+
+        'applyNow_btn_yes': createLink__ApplyNow__BMP(item, options, 'yes'),
+        'applyNow_btn_no': createLink__ApplyNow__BMP(item, options, 'no'),
+        'applyNow_message': 'You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name,
+
+        //Options
+        'price_per_month': options.price_per_month.trim().replace(' ', ''),
+        'contract': options.contract,
+        'eligibility': options.eligibility,
+        'telco_url': item.telco_url,
+
+        'tmp__redirect': createLink__ApplyNow__BMP(item, options, 'yes')
+    };
+
+    /* Sign Up */
+    html += '<div class="plan__details">';
+    html += '<div class="plan__details--card narrow--pad"><a target="_blank" href="' + createLink__ApplyNow__BMP(item, options, 'yes') + '"  class="btn btn-primary btn-block triggerApplyScreen-nulled" data-partner="' + item.retailer_name + '" data-plan="' + item.plan_name + '" data-parent="' + planID + '" data-message="You have selected ' + item.plan_name + ' price plan from ' + item.retailer_name + '" data-btn-yes="' + createLink__ApplyNow__BMP(item, options, 'yes') + '" data-btn-no="' + createLink__ApplyNow__BMP(item, options, 'no') + '">Sign Up</a></div>';
+    html += '</div>';
+
+    /* Start Compare Plans */
+    html += '<div class="compare__plans">';
+
+    /* Checkbox wrapper*/
+    html += '<div class="checkbox"><label>';
+
+    html += '<input type="checkbox" data-id="' + '#' + planID + '" data-details=\'' + JSON.stringify(comparisonDetails) + '\' value="#' + planID + '"><span></span> Compare';
+
+    html += '</label></div>';
+
+    /* End Compare Plans */
+    html += '</div></div>';
+
+    return html;
+}
+
+/* 📦 Create Link for Apply Now */
+function createLink__ApplyNow__BMP(item, options, action) {
+    /* Apply Now */
+    // var existingDBS__prepend = '/personal/redirect/redirect-electricity-marketplace-revamp.html?';
+    var existingDBS__prepend = 'https://www.dbs.com.sg/personal/common-disclaimer.page?';
+    var existingDBS = {
+        url: item.telco_url,
+        '3rdparty': item.retailer_name
+    };
+
+    var newDBS__prepend = 'https://internet-banking.dbs.com.sg/ibAPL/Welcome?';
+    var newDBS = {
+        pid: 'sg-dbs-pweb-marketplace-searchpackage-electricity-marketplace-btnlogintodigibank-idonthavedigibank'
+    };
+
+    if (action == 'yes') {
+        return existingDBS__prepend + $.param(existingDBS);
+    } else if (action == 'no') {
+        return newDBS__prepend + $.param(newDBS);
+    }
+    // console.log(existingDBS__prepend + $.param(existingDBS));
+
+}
+
+
+
+
+
+
+/* 📦  Create DOM Comparison */
+function createDOM__comparisonPlans__BMP(comparisonList) {
+
+    var comparisonList = JSON.parse(comparisonList);
+    // console.log(comparisonList);
+    $('.compareItems > div').removeClass('activeComparison');
+    $.each(comparisonList, function(i, v) {
+        var parent = '#compareItem-' + (i + 1);
+        $('.triggerApplyScreen').off();
+        $(parent + ' > .plan__details--card:nth-child(2) a').removeClass('triggerApplyScreen');
+        /*  */
+        $(parent).addClass('activeComparison');
+
+        /* First Section */
+        $(parent + ' > .compareItems--card .compare--logo').css('background-image', 'url("' + production_DIR + v.logo + '")');
+
+        $(parent + ' > .compareItems--card').addClass('text-center');
+
+        $(parent + ' > .compareItems--card div.heading').text(v.plan_name.replace('PLAN', '').replace('plan', ''));
+
+        $(parent + ' > .compareItems--card div.footnote').text(v.price_per_month.replace(' ', '').trim() + '/mo');
+        // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;
+        $(parent + ' > .plan__details--card:nth-child(2) a').text('Sign up');
+
+        $(parent + ' > .plan__details--card:nth-child(2) a').attr('href', v.tmp__redirect);
+        $(parent + ' > .plan__details--card:nth-child(2) a').attr('target', '_blank');
+
+
+        $(parent + ' > .plan__details--card:nth-child(2) a').data('message', v.applyNow_message);
+        $(parent + ' > .plan__details--card:nth-child(2) a').data('btn-yes', v.applyNow_btn_yes);
+        $(parent + ' > .plan__details--card:nth-child(2) a').data('btn-no', v.applyNow_btn_no);
+        // $(parent + ' > .plan__details--card:nth-child(3) a').attr('href', v.factsheet);
+        $(parent + ' > .plan__details--card:nth-child(3) a').remove();
+
+        // $(parent + ' .remove__comparison').removeData();
+        $(parent + ' .remove__comparison').data('target', parent);
+        $(parent + ' .remove__comparison').data('details', JSON.stringify(v));
+        $(parent + ' .remove__comparison').data('id', v.plan_id).attr('data-id', v.plan_id);
+
+        //Contract
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(1) .heading').html('Eligibility');
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(1) .body').html(v.eligibility);
+
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(2) .heading').html('Contract');
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(2) .body').html(v.contract);
+
+
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(3) .heading').html('Plan Name');
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(3) .body').html(v.plan_name);
+
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(4) .heading').hide()
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(4) .body').fadeOut();
+        console.log('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(4) .body', 'color: #007acc;');
+
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(5) .heading').html('Add-on 1');
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(5) .body').html(v.comparison_1);
+
+
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(6) .heading').html('Add-on 2');
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(6) .body').html(v.comparison_2);
+
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(7) .heading').html('Add-on 3');
+        $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(7) .body').html(v.comparison_3);
+
+
+        /* Mid Section */
+
+
+
+
+        // $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(5) .body').html(v.contract_duration);
+        // $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(6) .body').html(v.termination);
+        // $('.compareItems--col' + (i + 1) + ' .plan__details--card:nth-child(7) .body').html(v.promotion);
+
+        /* Last Section */
+        $('.compareItems--col' + (i + 1) + '  .plan__details--card:nth-child(8)').remove();
+        // $('.compareItems--col' + (i + 1) + '  .plan__details--card:nth-child(8) .body:nth-child(2)').html(v.comparison_1);
+        // $('.compareItems--col' + (i + 1) + '  .plan__details--card:nth-child(8) .body:nth-child(3)').html(v.comparison_2);
+        // $('.compareItems--col' + (i + 1) + '  .plan__details--card:nth-child(8) .body:nth-child(4)').html(v.comparison_3);
+
+        // console.log(i, v);   
+
+    });
+}
+
+var remove__comparisonPlan__BMP = function() {
+    $('.remove__comparison').off();
+    $('.remove__comparison').on('click', function() {
+        var tempArr = JSON.parse(sessionStorage.getItem("comparisonList"));
+        var compareVar = '.compare__plans input[type="checkbox"]',
+            parentCompare = '.emp__compareConfirmation',
+            parentRecompare = '.emp__recompareConfirmation';
+        // console.log('CLOSE: ', $(this).data('id'));
+        // console.log('ARRAY: ', tempArr);
+        var $this = $(this);
+        var removeCompare = $(this).data('id');
+        // console.log('COMPARISON ID', removeCompare);
+
+        var removeIndex;
+        $.each(JSON.parse(sessionStorage.getItem("comparisonList")), function(i, v) {
+            if (removeCompare == v.plan_id) {
+                // console.log(true, i, v);
+                // console.log(removeCompare + ' .compare__plans input:checked');
+                $(removeCompare + ' .compare__plans input:checked').trigger('click');
+                removeIndex = i;
+                tempArr.splice(removeIndex, 1);
+                sessionStorage.setItem('comparisonList', JSON.stringify(tempArr));
+            }
+        });
+        // console.log(removeIndex);
+        if (global_state.isTMP()) {
+            createDOM__comparisonPlans__TMP(sessionStorage.getItem("comparisonList"));
+        }
+
+        if (global_state.isEMP()) {
+            createDOM__comparisonPlan(sessionStorage.getItem("comparisonList"));
+        }
+
+        if (global_state.isBMP()) {
+            createDOM__comparisonPlans__BMP(sessionStorage.getItem("comparisonList"));
+        }
+
+        var compareVar = '.compare__plans input[type="checkbox"]',
+            parentCompare = '.emp__compareConfirmation',
+            parentRecompare = '.emp__recompareConfirmation';
+        init__comparisonScreens(parentCompare, parentRecompare);
+        validate__compareCheckbox();
+        trackPageLevel('compare_remove');
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -500,11 +891,19 @@ var remove__comparisonPlan__TMP = function() {
             }
         });
         // console.log(removeIndex);
-        if (globalContentState == "TMP-CONTENT") {
+        if (global_state.isTMP()) {
             createDOM__comparisonPlans__TMP(sessionStorage.getItem("comparisonList"));
-        } else {
-            createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         }
+
+        if (global_state.isEMP()) {
+            createDOM__comparisonPlan(sessionStorage.getItem("comparisonList"));
+        }
+
+        if (global_state.isBMP()) {
+            createDOM__comparisonPlans__BMP(sessionStorage.getItem("comparisonList"));
+        }
+
+
         var compareVar = '.compare__plans input[type="checkbox"]',
             parentCompare = '.emp__compareConfirmation',
             parentRecompare = '.emp__recompareConfirmation';
@@ -813,11 +1212,18 @@ var remove__comparisonPlan = function() {
             }
         });
         // console.log(removeIndex);
-        if (globalContentState == "TMP-CONTENT") {
+        if (global_state.isTMP()) {
             createDOM__comparisonPlans__TMP(sessionStorage.getItem("comparisonList"));
-        } else {
-            createDOM__comparisonPlans(sessionStorage.getItem("comparisonList"));
         }
+
+        if (global_state.isEMP()) {
+            createDOM__comparisonPlan(sessionStorage.getItem("comparisonList"));
+        }
+
+        if (global_state.isBMP()) {
+            createDOM__comparisonPlans__BMP(sessionStorage.getItem("comparisonList"));
+        }
+
         var compareVar = '.compare__plans input[type="checkbox"]',
             parentCompare = '.emp__compareConfirmation',
             parentRecompare = '.emp__recompareConfirmation';

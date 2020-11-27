@@ -1,0 +1,96 @@
+[{
+        "retailer_name": "MyRepublic",
+        "retailer_id": "myrepublic",
+        "package_id": "cl20",
+        "plan_name": "20GB Plan",
+        "network_speed": "1Gbps",
+        "promotion": "YES",
+        "promotion_text": "Use code <strong>DBS28OFF</strong> to get S$28 bill waiver",
+        "add_on_1": "Unlimited data at + S$20/mo",
+        "add_on_2": "Unlimited outgoing calls at + S$8/mo",
+        "add_on_3": "Unlimited incoming calls at + S$2/mo",
+        "telco_url": "https://mobile.myrepublic.com.sg/plans/dbs-utilities-marketplace.",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/myrepublic.png",
+        "options": [{
+            "price_per_month": "$28.00",
+            "eligibility": "New Line",
+            "contract": "No contract"
+        }]
+    },
+    {
+        "retailer_name": "MyRepublic",
+        "retailer_id": "myrepublic",
+        "package_id": "cl300",
+        "plan_name": "500Mbps Plan",
+        "network_speed": "500Mbps",
+        "promotion": "YES",
+        "promotion_text": "Use code <strong>DBS300GB</strong> to enjoy 300GB with 4G rollover",
+        "add_on_1": "Unlimited data at + S$20/mo",
+        "add_on_2": "Unlimited outgoing calls at + S$8/mo",
+        "add_on_3": "Unlimited incoming calls at + S$2/mo",
+        "telco_url": "https://mobile.myrepublic.com.sg/plans/dbs-utilities-marketplace.",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/myrepublic.png",
+        "options": [{
+            "price_per_month": "$30.00",
+            "eligibility": "New Line ",
+            "contract": "No contract"
+        }]
+    },
+    {
+        "retailer_name": "M1",
+        "retailer_id": "m1",
+        "package_id": "m1reg",
+        "plan_name": "1 Gbps",
+        "network_speed": "2Gbps",
+        "promotion": "YES",
+        "promotion_text": "Use code <strong>XXX</strong> to enjoy free 2 months 1 Gbps subscription",
+        "add_on_1": "0",
+        "add_on_2": "0",
+        "add_on_3": "0",
+        "telco_url": "https://www.m1.com.sg/home-broadband/Plans/1Gbps",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/m1.png",
+        "options": [{
+            "price_per_month": "$39.90",
+            "eligibility": "New Line ",
+            "contract": "24 months"
+        }]
+    },
+    {
+        "retailer_name": "M1",
+        "retailer_id": "m1",
+        "package_id": "m1OTT",
+        "plan_name": "1 Gbps + OTT Vas Offer",
+        "network_speed": "1Gbps",
+        "promotion": "YES",
+        "promotion_text": "Use code <strong>XXX</strong> to enjoy S$7/mth off for OTT subscription for 12 months",
+        "add_on_1": "0",
+        "add_on_2": "0",
+        "add_on_3": "0",
+        "telco_url": "https://www.m1.com.sg/home-broadband/Plans/1Gbps",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/m1.png",
+        "options": [{
+            "price_per_month": "$44.85",
+            "eligibility": "New Line ",
+            "contract": "24 months"
+        }]
+    },
+    {
+        "retailer_name": "M1",
+        "retailer_id": "m1",
+        "package_id": "m1SH",
+        "plan_name": "1 Gbps + Smart Home",
+        "network_speed": "1Gbps",
+        "promotion": "YES",
+        "promotion_text": "Use code <strong>XXX</strong> to enjoy free 4 months 1 Gbps subscription",
+        "add_on_1": "0",
+        "add_on_2": "0",
+        "add_on_3": "0",
+        "telco_url": "https://www.m1.com.sg/home-broadband/Plans/1Gbps",
+        "telco_logo_path": "/iwov-resources/flp/images/marketplace/telco/revamp/partners/m1.png",
+        "options": [{
+            "price_per_month": "$71.80",
+            "eligibility": "New Lines and recontract",
+            "contract": "24 months"
+        }]
+    }
+]
