@@ -258,7 +258,11 @@ function populatePlans(minBill, maxBill, action, search_type) {
                     monthly_bill: $('.monthly-bill-header').text(),
                     prop_type: $('.place-live-copy').text(),
                     sort: sortType,
-                    total_match: $('.total-items').text()
+                    total_match: $('.total-items').text(),
+                    network_speed: $('#secondary__rangeCost option:selected').data('title'),
+                    broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
+
+
                 };
                 setTimeout(function() {
                     trackSearch('search-results_page__and__first_time_search', filterList);
@@ -292,12 +296,21 @@ function createDOM__savingsInfo__BMP(item, options) {
     /* Copy Body */
     var network_speed = item.network_speed.toLowerCase().replace('mbps', '').replace('gbps', '');
     var network_speedExt = (item.network_speed.toLowerCase().indexOf('mbps') !== -1 ? 'Mbps' : 'Gbps');
-    html += '<div class="body annual-savings"><span class="network_speed_broadband">' + network_speed + '</span>' + network_speedExt + '</div>';
+
+    if (item.network_speed.indexOf("Gbps") >= 0) {
+        rangeControlDataTemp = parseFloat(item.network_speed.replace('Gbps', '').replace(' ', '')) * 1000;
+    } else {
+        rangeControlDataTemp = parseFloat(item.network_speed.replace('Mbps', '').replace(' ', ''));
+    }
+
+    html += '<div class="hidden network_speed_broadband">' + rangeControlDataTemp + '</div>';
+    html += '<div class="body annual-savings"><span class="network_speed_broadband__dummy">' + network_speed + '</span>' + network_speedExt + '</div>';
 
 
 
     /* Copy Footnote */
-    html += '<small class="footnote">S$<span class="pricepermonth">' + options.price_per_month.replace(' ', '').replace('$', '').trim() + '</span>/mo</small>';
+
+    html += '<small class="footnote">S$<span class="pricepermonth_broadband">' + options.price_per_month.replace(' ', '').replace('$', '').trim() + '</span>/mo</small>';
 
     /* End Copy Wrapper */
     html += '</div>';
@@ -458,6 +471,7 @@ function createDOM__comparisonPlans__BMP(comparisonList) {
         $(parent + ' > .compareItems--card').addClass('text-center');
 
         $(parent + ' > .compareItems--card div.heading').text(v.plan_name.replace('PLAN', '').replace('plan', ''));
+        $(parent + ' > .compareItems--card div.heading').attr('title', v.plan_name.replace('PLAN', '').replace('plan', ''));
 
         $(parent + ' > .compareItems--card div.footnote').text(v.price_per_month.replace(' ', '').trim() + '/mo');
         // $(parent + ' > .plan__details--card:nth-child(2) a').removeData() ;

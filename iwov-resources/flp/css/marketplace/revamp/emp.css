@@ -1239,6 +1239,11 @@
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
+  max-width: 155px;
+  text-overflow: ellipsis;
+  /* height: 36px; */
+  overflow: hidden;
+  white-space: nowrap;
 }
 @media (max-width: 768px) {
   .compareItems--card .heading {
@@ -2432,5 +2437,4 @@ ul.plan-types > li:nth-child(2):before {
 .broadband-content {
   display: none;
 }
-
 /*# sourceMappingURL=emp.css.map */

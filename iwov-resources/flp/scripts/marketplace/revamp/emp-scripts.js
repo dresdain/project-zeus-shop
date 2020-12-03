@@ -17,7 +17,7 @@ var TMP__placeLive = '<option class="telco-option removable" data-title="No Pref
 
 
 
-var BMP__rangeCost = '<option class="broadband-option " data-title="500 mbps" data-from="0" data-to="500" value="500">Up to 500 Mbps</option><option class="broadband-option " data-title="1 Gbps" data-from="501" data-to="1000" value="1000">Up to 1 Gbps</option><option class="broadband-option " data-title="Up to 2Gbps" data-from="1001" data-to="2000" value="2000">Up to 2Gbps</option>';
+var BMP__rangeCost = '<option class="broadband-option " data-title="Up to 500 mbps" data-from="0" data-to="500" value="500">Up to 500 Mbps</option><option class="broadband-option " data-title="Up to 1 Gbps" data-from="501" data-to="1000" value="1000">Up to 1 Gbps</option><option class="broadband-option " data-title="Up to 2 Gbps" data-from="1001" data-to="2000" value="2000">Up to 2 Gbps</option>';
 var BMP__placeLive = '<option class="broadband-option removable" data-title="No Preference" value="Infinity">No Preference</option><option class="broadband-option removable" data-title="Up to $15" value="15">Up to $15</option><option class="broadband-option removable" data-title="Up to $40" value="40">Up to $40</option> <option class="broadband-option removable" data-title="Up to $50" value="50" selected>Up to $50</option><option class="broadband-option removable" data-title="Up to $100" value="100">Up to $100</option>';
 
 
@@ -441,6 +441,15 @@ var validate__sortList = function(sortList) {
             case 'monthly_price':
                 $('#sort-type-1').val("4").change();
                 break;
+            case 'price_per_month':
+                $('#sort-type-1').val("5").change();
+                break;
+            case 'network_speed':
+                $('#sort-type-1').val("6").change();
+                break;
+            case 'contract_duration':
+                $('#sort-type-1').val("7").change();
+                break;
             default:
                 console.warn('Warning: query param: "sort=' + getQueryVariable('rate') + '" is not acceptable.');
                 break;
@@ -617,6 +626,16 @@ function initExitScreens() {
         };
         trackPageLevel('view-plan', filterList);
         globalPlanState = 'btnSignup_Telco_' + $(this).data('partner') + '_' + $(this).data('plan').trim();
+        trackButtonLevel('btnSignUp');
+    });
+
+    $('.triggerApplyScreen-nulled').on('click', function() {
+        var filterList = {
+            planName: $(this).data('plan'),
+            partnerName: $(this).data('partner')
+        };
+        trackPageLevel('view-plan', filterList);
+        globalPlanState = 'btnSignup_Broadband_' + $(this).data('partner') + '_' + $(this).data('plan').trim();
         trackButtonLevel('btnSignUp');
     });
 
@@ -990,63 +1009,70 @@ $('.filter-type-3--dummy-cb').on('click', function() {
 
 /* 🖥 Trigger Retailer Filter */
 $('#filter-type-3--apply').on('click', function() {
-    var controlIdentifierDummy, controlIdentifier;
+    var dummy__identifier, controlIdentifier;
 
     if (global_state.isEMP()) {
-        controlIdentifierDummy = '.electricity-cb-dummy';
-        controlIdentifier = '.electricity-cb';
-    }
-
-    if (global_state.isTMP()) {
-        controlIdentifierDummy = '.telco-cb-dummy';
+        dummy__identifier = '.telco-cb-dummy';
         controlIdentifier = '.telco-cb';
+        dummy__identifier2 = '.broadband-cb-dummy';
+        controlIdentifier2 = '.broadband-cb';
+    } else if (global_state.isTMP()) {
+        dummy__identifier = '.electricity-cb-dummy';
+        controlIdentifier = '.electricity-cb';
+        dummy__identifier2 = '.broadband-cb-dummy';
+        controlIdentifier2 = '.broadband-cb';
+    } else if (global_state.isBMP()) {
+        console.log('%cemp-scripts.js line:1002 USING BROAD', 'color: #007acc;');
+        dummy__identifier = '.electricity-cb-dummy';
+        controlIdentifier = '.electricity-cb';
+        dummy__identifier2 = '.telco-cb-dummy';
+        controlIdentifier2 = '.telco-cb';
+
     }
 
-    if (global_state.isBMP()) {
-        controlIdentifierDummy = '.broadband-cb-dummy';
-        controlIdentifier = '.broadband-cb';
-    }
 
-
-    var cb__control = $('.filter-type-3--dummy-cb:not(' + controlIdentifierDummy + '):checked').length;
+    var cb__control = $('.filter-type-3--dummy-cb:not(' + dummy__identifier + '):not(' + dummy__identifier2 + '):checked').length;
     if (cb__control == 0) {
         alert('Please select at least one (1) retailer.');
     } else {
-        $('.action--hidden--cb:not(' + controlIdentifier + '):checked').trigger('click');
+        $('.action--hidden--cb:not(' + controlIdentifier + '):not(' + controlIdentifier2 + '):checked').trigger('click');
         var placeholderTxt = '';
-        $('.filter-type-3--dummy-cb:not(' + controlIdentifierDummy + '):checked').each(function(i, k) {
+        $('.filter-type-3--dummy-cb:not(' + dummy__identifier + '):not(' + dummy__identifier2 + '):checked').each(function(i, k) {
             // console.log('data-path=".retailer--' + $(this).val() + '"');
-            var control = '.action--hidden--cb[value="' + $(this).val() + '"]:not(' + controlIdentifier + ')';
+            var control = '.action--hidden--cb[value="' + $(this).val() + '"]:not(' + controlIdentifier + '):not(' + controlIdentifier2 + ')';
             $(control + ':not(:checked)').trigger('click');
+            // $(control).trigger('click');
             placeholderTxt += $(this).parent().text() + ', ';
             $('#planForm').submit();
             reset__compareCheckbox();
+            console.log('%cemp-scripts.js line:1022 control', 'color: #007acc;', control);
         });
 
+        console.log('%cemp-scripts.js line:1027 cb__control', 'color: #007acc;', cb__control);
 
         if (global_state.isEMP()) {
+            console.log('%cemp-scripts.js line:1044 global_state.isEMP()', 'color: #007acc;', global_state.isEMP());
             if (cb__control == 7) {
                 $('.filter-type-3--placeholder option').text('All Retailers');
             } else {
                 $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
             }
-        }
-
-        if (global_state.isTMP()) {
+        } else if (global_state.isTMP()) {
+            console.log('%cemp-scripts.js line:1044 global_state.isTMP()', 'color: #007acc;', global_state.isTMP());
+            if (cb__control == 2) {
+                $('.filter-type-3--placeholder option').text('All Retailers');
+            } else {
+                $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
+            }
+        } else if (global_state.isBMP()) {
+            console.log('%cemp-scripts.js line:1044 global_state.isBMP()', 'color: #007acc;', global_state.isBMP());
             if (cb__control == 2) {
                 $('.filter-type-3--placeholder option').text('All Retailers');
             } else {
                 $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
             }
         }
-
-        if (global_state.isBMP()) {
-            if (cb__control == 2) {
-                $('.filter-type-3--placeholder option').text('All Retailers');
-            } else {
-                $('.filter-type-3--placeholder option').text(placeholderTxt.replace(/,\s*$/, ""));
-            }
-        }
+        console.log('%cemp-scripts.js line:1051 placeholderTxt', 'color: #007acc;', placeholderTxt);
 
         reflectPageCount();
         trackFilter__retailers();
@@ -1465,15 +1491,27 @@ $('#modalSaveMore__close').on('click', function() {
 });
 
 $('#filterCollapse').on('click', function() {
-    trackButtonLevel('lnkEdit');
+    if (global_state.isBMP()) {
+        trackButtonLevel('lnkEdit_Broadband');
+    } else {
+        trackButtonLevel('lnkEdit');
+    }
 });
 
 $('#startCompare').on('click', function() {
-    trackButtonLevel('btnCompare');
+    if (global_state.isBMP()) {
+        trackButtonLevel('btnCompare_Broadband');
+    } else {
+        trackButtonLevel('btnCompare');
+    }
     trackPageLevel('compare_start');
 });
 $('#endCompare').on('click', function() {
-    trackButtonLevel('btnRecompare');
+    if (global_state.isBMP()) {
+        trackButtonLevel('btnRecompare_Broadband');
+    } else {
+        trackButtonLevel('btnRecompare');
+    }
 });
 $('#planForm').one('submit', function() {
     /* Tracking */
@@ -1504,7 +1542,9 @@ $('#planForm__dropdown2').on('submit', function() {
             monthly_bill: $('.monthly-bill-header').text(),
             prop_type: $('.place-live-copy').text(),
             sort: sortType,
-            total_match: $('.total-items').text()
+            total_match: $('.total-items').text(),
+            network_speed: $('#secondary__rangeCost option:selected').data('title'),
+            broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
         };
         trackPageLevel('search-results', []);
         trackSearch('modified_search', filterList);
@@ -1526,7 +1566,9 @@ var trackFilter__ratetype = function() {
             sort: sortType,
             total_match: $('.total-items').text(),
             monthly_bill: $('.monthly-bill-header').text(),
-            prop_type: $('.place-live-copy').text()
+            prop_type: $('.place-live-copy').text(),
+            network_speed: $('#secondary__rangeCost option:selected').data('title'),
+            broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
         };
         setTimeout(function() {
             trackSearch('filter_by_rate_type', filterList);
@@ -1547,7 +1589,9 @@ var trackFilter__retailers = function(retailers) {
                 sort: sortType,
                 total_match: $('.total-items').text(),
                 monthly_bill: $('.monthly-bill-header').text(),
-                prop_type: $('.place-live-copy').text()
+                prop_type: $('.place-live-copy').text(),
+                network_speed: $('#secondary__rangeCost option:selected').data('title'),
+                broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
             };
             trackSearch('filter_by_retailers', filterList);
             globalFilterState = 'filter_by_retailers';
@@ -1565,7 +1609,9 @@ var trackFilter__ecofriendly = function() {
                 by: 'ecofriendlyplans',
                 total_match: $('.total-items').text(),
                 monthly_bill: $('.monthly-bill-header').text(),
-                prop_type: $('.place-live-copy').text()
+                prop_type: $('.place-live-copy').text(),
+                network_speed: $('#secondary__rangeCost option:selected').data('title'),
+                broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
             };
             trackSearch('filter_by_ecofriendlyplans', filterList);
             globalFilterState = 'filter_by_ecofriendlyplans';
@@ -1584,7 +1630,9 @@ var trackFilter_ThroughSearch = function(calculatedRank) {
                 monthly_bill: $('.monthly-bill-header').text(),
                 prop_type: $('.place-live-copy').text(),
                 sort: sortType,
-                filter_rank: calculatedRank
+                filter_rank: calculatedRank,
+                network_speed: $('#secondary__rangeCost option:selected').data('title'),
+                broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
             };
             break;
         case 'modified_search':
@@ -1594,7 +1642,9 @@ var trackFilter_ThroughSearch = function(calculatedRank) {
                 monthly_bill: $('.monthly-bill-header').text(),
                 prop_type: $('.place-live-copy').text(),
                 sort: sortType,
-                filter_rank: calculatedRank
+                filter_rank: calculatedRank,
+                network_speed: $('#secondary__rangeCost option:selected').data('title'),
+                broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
             };
             break;
         case 'filter_by_rate_type':
@@ -1614,7 +1664,9 @@ var trackFilter_ThroughSearch = function(calculatedRank) {
                 sort: sortType,
                 filter_rank: calculatedRank,
                 monthly_bill: $('.monthly-bill-header').text(),
-                prop_type: $('.place-live-copy').text()
+                prop_type: $('.place-live-copy').text(),
+                network_speed: $('#secondary__rangeCost option:selected').data('title'),
+                broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
             };
             break;
         case 'filter_by_ecofriendlyplans':
@@ -1623,7 +1675,9 @@ var trackFilter_ThroughSearch = function(calculatedRank) {
                 emp_search_type: 'filter',
                 by: 'ecofriendlyplans',
                 sort: sortType,
-                filter_rank: calculatedRank
+                filter_rank: calculatedRank,
+                network_speed: $('#secondary__rangeCost option:selected').data('title'),
+                broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
             };
             break;
         default:
@@ -1643,7 +1697,9 @@ $('#filter-type-2').on('change', function() {
             emp_search_type: 'filter',
             by: 'ratetype-' + $('#filter-type-2').val(),
             sort: sortType,
-            total_match: $('.total-items').text()
+            total_match: $('.total-items').text(),
+            network_speed: $('#secondary__rangeCost option:selected').data('title'),
+            broadband_monthly: $('#secondary__rangeCost option:selected').data('title')
         };
         setTimeout(function() {
             trackSearch('filter_by_rate_type', filterList);

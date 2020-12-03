@@ -26,6 +26,8 @@ function getMarketplace() {
         globalMarketplaceState = "utilities-marketplace";
     } else if (globalContentState == "TMP-CONTENT") {
         globalMarketplaceState = "utilities-marketplace";
+    } else if (globalContentState == "BMP-CONTENT") {
+        globalMarketplaceState = "broadband-marketplace";
     }
     return globalMarketplaceState;
 }
@@ -67,6 +69,8 @@ var trackPageLevel = function(action, prop) {
         var mp__state = "electricity_mp";
     } else if (globalContentState == 'TMP-CONTENT') {
         var mp__state = "telco_mp";
+    } else if (globalContentState == 'BMP-CONTENT') {
+        var mp__state = "broadband_mp";
     }
 
 
@@ -409,14 +413,26 @@ var trackButtonLevel = function(action) {
             control = 'lnkEdit';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
             break;
+        case 'lnkEdit_Broadband':
+            control = 'lnkEdit_Broadband';
+            pageControl = 'sg:en:personal:utilities-marketplace:search-results';
+            break;
             /* On click of the "Compare" button on the Search Results Page */
         case 'btnCompare':
             control = 'btnCompare';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
             break;
+        case 'btnCompare_Broadband':
+            control = 'btnCompare_Broadband';
+            pageControl = 'sg:en:personal:utilities-marketplace:search-results';
+            break;
             /* On click of "ReCompare" button on the Compare Screen */
         case 'btnRecompare':
             control = 'btnRecompare';
+            pageControl = 'sg:en:personal:utilities-marketplace:search-results';
+            break;
+        case 'btnRecompare_Broadband':
+            control = 'btnRecompare_Broadband';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
             break;
         case 'btnElectricity':
@@ -427,8 +443,8 @@ var trackButtonLevel = function(action) {
             control = 'btnTelco';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
             break;
-        case 'btnTelco':
-            control = 'btnTelco';
+        case 'btnBroadband':
+            control = 'btnBroadband';
             pageControl = 'sg:en:personal:utilities-marketplace:search-results';
             break;
         case 'btnSignUp':
@@ -473,6 +489,8 @@ var trackSearch = function(action, item) {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type + '|sort:' + item.sort;
             } else if (globalContentState == 'TMP-CONTENT') {
                 var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill + '|sort:' + item.sort;
+            } else if (globalContentState == 'BMP-CONTENT') {
+                var filterResults = 'ump_search_broadband:' + item.emp_search_type + '|speed:' + item.network_speed + '|mth_price:' + item.broadband_monthly + '|sort:' + item.sort;
             }
             digitalData = {
                 page: {
@@ -509,7 +527,10 @@ var trackSearch = function(action, item) {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|monthly_bill:' + item.monthly_bill + '|prop_type:' + item.prop_type + '|sort:' + item.sort;
             } else if (globalContentState == 'TMP-CONTENT') {
                 var filterResults = 'ump_search_telco:' + item.emp_search_type + '|mth_data:' + item.prop_type + '|mth_price:' + item.monthly_bill + '|sort:' + item.sort;
+            } else if (globalContentState == 'BMP-CONTENT') {
+                var filterResults = 'ump_search_broadband:' + item.emp_search_type + '|speed:' + item.network_speed + '|mth_price:' + item.broadband_monthly + '|sort:' + item.sort;
             }
+
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -524,7 +545,10 @@ var trackSearch = function(action, item) {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
             } else if (globalContentState == 'TMP-CONTENT') {
                 var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            } else if (globalContentState == 'BMP-CONTENT') {
+                var filterResults = 'ump_search_broadband:' + item.emp_search_type + '|speed:' + item.network_speed + '|mth_price:' + item.broadband_monthly + '|sort:' + item.sort;
             }
+
             digitalData = {
                 search: {
                     filter: filterResults,
@@ -555,6 +579,8 @@ var trackSearch = function(action, item) {
                 var filterResults = 'emp_search_type:' + item.emp_search_type + '|by:' + item.by + '|sort:' + item.sort;
             } else if (globalContentState == 'TMP-CONTENT') {
                 var filterResults = 'ump_search_type:' + item.emp_search_type + '|by:mdata' + item.prop_type + '|by:mprice' + item.monthly_bill + '|sort:' + item.sort;
+            } else if (globalContentState == 'BMP-CONTENT') {
+                var filterResults = 'ump_search_broadband:' + item.emp_search_type + '|by:speed:' + item.network_speed + '|by:mth_price:' + item.broadband_monthly + '|sort:' + item.sort;
             }
             digitalData = {
                 search: {
