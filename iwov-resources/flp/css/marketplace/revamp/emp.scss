@@ -1090,6 +1090,11 @@
             @media (max-width: 768px) {
                 font-size: 16px;
             }
+            max-width: 155px;
+            text-overflow: ellipsis;
+            /* height: 36px; */
+            overflow: hidden;
+            white-space: nowrap;
         }
         .footnote {
             color: #858f96;
