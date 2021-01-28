@@ -3,7 +3,7 @@ var globalPlanState = '';
 var globalContentState = 'TMP-CONTENT'; //Set Default Tab
 
 //Set array of valid retailers
-var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower', 'gridmobile', 'circleslife', 'myrepublic', 'm1'];
+var validRetailers = ['bestelectricity', 'geneco', 'iswitch', 'keppel', 'pacificlight', 'sunseap', 'tuaspower', 'unionpower', 'gridmobile', 'circleslife', 'myrepublic', 'm1', 'vivifi'];
 //TO BE REFACTORED
 
 
